@@ -32,30 +32,23 @@ export default function Home() {
         <p style={{ ...heroStyle, color: "#1a1a1a" }}>{HERO_TEXT}</p>
       </div>
 
-      {/* Layer 2 (top): Cream mask layer with canvas */}
+      {/* Layer 2 (top): WebGL fluid canvas renders cream with alpha holes */}
+      <FluidReveal />
+
+      {/* Ghost text — sits above canvas, very faint */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "#F5F1EB",
           display: "flex",
           alignItems: "center",
+          pointerEvents: "none",
+          zIndex: 2,
         }}
       >
-        {/* Ghost text underneath canvas */}
-        <p
-          style={{
-            ...heroStyle,
-            color: "rgba(26,26,26,0.07)",
-            position: "relative",
-            zIndex: 0,
-          }}
-        >
+        <p style={{ ...heroStyle, color: "rgba(26,26,26,0.07)" }}>
           {HERO_TEXT}
         </p>
-
-        {/* Canvas erases the cream to reveal orange below */}
-        <FluidReveal />
       </div>
 
       {/* Scroll CTA */}
