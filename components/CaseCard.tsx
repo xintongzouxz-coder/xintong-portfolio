@@ -112,11 +112,11 @@ export default function CaseCard({
           <div>
             <h3
               style={{
-                fontFamily: "var(--font-dm-serif)",
-                fontSize: "clamp(22px, 2.2vw, 32px)",
-                fontWeight: 400,
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
+                fontFamily: "var(--font-dm-sans)",
+                fontSize: 18,
+                fontWeight: 600,
+                lineHeight: 1.3,
+                letterSpacing: "-0.01em",
                 color: "#1a1a1a",
                 margin: 0,
               }}

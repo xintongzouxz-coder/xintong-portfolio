@@ -12,7 +12,9 @@
       "Read(//usr/local/**)",
       "Read(//opt/**)",
       "Bash(/usr/local/bin/node --version)",
-      "Bash(kill 47080)"
+      "Bash(kill 47080)",
+      "WebFetch(domain:xintongzou.framer.website)",
+      "mcp__plugin_figma_figma__get_design_context"
     ]
   }
 }

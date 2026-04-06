@@ -6,8 +6,9 @@ const HERO_TEXT =
   "XINTONG IS A DIGITAL PRODUCT DESIGNER WITH EXPERIENCE IN B2B FINTECH, HEALTHCARE AND AI.";
 
 const heroTextStyle: React.CSSProperties = {
-  fontFamily: "var(--font-dm-serif)",
+  fontFamily: "var(--font-dm-sans)",
   fontSize: "clamp(52px, 7.5vw, 118px)",
+  fontWeight: 700,
   lineHeight: 1.0,
   letterSpacing: "-0.03em",
   textTransform: "uppercase",
@@ -20,7 +21,7 @@ const LABELS = ["Product Design", "UX Design", "Vibe-coding"];
 
 const CASES = [
   {
-    href: "#",
+    href: "/kody-pbb",
     image: "https://framerusercontent.com/images/zMuPydpVzQipc4F6g78jnLwmU.png",
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel"],
     title: "Kody Pay by Bank Experience",
@@ -234,10 +235,10 @@ export default function Home() {
         >
           <h2
             style={{
-              fontFamily: "var(--font-dm-serif)",
-              fontSize: "clamp(28px, 3vw, 42px)",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: 20,
+              fontWeight: 600,
+              letterSpacing: "-0.01em",
               color: "#1a1a1a",
               margin: 0,
             }}
