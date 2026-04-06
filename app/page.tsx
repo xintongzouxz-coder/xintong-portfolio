@@ -46,24 +46,6 @@ const CASES = [
     description:
       "An AI-assisted pitch preparation tool that streamlines how founders structure and rehearse investor narratives.",
   },
-  {
-    href: "#",
-    image: "https://framerusercontent.com/images/7s2jNWkxmg0KKptdwsf78sw.png",
-    tags: ["Mobile Banking", "Fintech"],
-    title: "Defence Community Capital",
-    year: "2024",
-    description:
-      "A mobile banking experience purpose-built for the UK armed forces community.",
-  },
-  {
-    href: "#",
-    image: "https://framerusercontent.com/images/qCCUZuVMOkaVSN1ilvMAxfaWiw.png",
-    tags: ["Research", "Emotional Expression"],
-    title: "Notes",
-    year: "2022",
-    description:
-      "An exploratory research project investigating how people express and process emotion through personal note-taking.",
-  },
 ];
 
 export default function Home() {

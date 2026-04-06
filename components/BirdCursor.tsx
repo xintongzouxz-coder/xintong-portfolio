@@ -2,25 +2,30 @@
 
 import { useEffect, useRef } from "react";
 
-// Fish image natural orientation: head faces upper-right at ~45°.
-// We subtract this offset so the fish head points in the direction of movement.
-const NATURAL_ANGLE = 45;
+// Fish image: head points UP (12 o'clock).
+// atan2 returns 0° for rightward movement, 90° for downward, etc.
+// Subtracting 90° maps "head up = 12 o'clock" to match mouse direction:
+//   moving right  →  0° - 90° = -90°  → fish rotates so head faces right  ✓
+//   moving down   → 90° - 90° =   0°  → fish rotates so head faces down   ✓
+//   moving left   → 180°- 90° =  90°  → fish rotates so head faces left   ✓
+//   moving up     → -90°- 90° = -180° → fish rotates so head faces up     ✓
+const ANGLE_OFFSET = 90;
 
 const SIZE_DEFAULT = 52;
-const SIZE_HOVER = 65;
+const SIZE_HOVER   = 65;
 
 export default function BirdCursor() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const blackRef = useRef<HTMLImageElement>(null);
-  const orangeRef = useRef<HTMLImageElement>(null);
+  const wrapRef    = useRef<HTMLDivElement>(null);
+  const blackRef   = useRef<HTMLImageElement>(null);
+  const orangeRef  = useRef<HTMLImageElement>(null);
 
-  const posRef = useRef({ x: -300, y: -300 });
-  const rotRef = useRef(0);
-  const prevPosRef = useRef({ x: -300, y: -300 });
-  const sizeRef = useRef(SIZE_DEFAULT);
-  const targetSizeRef = useRef(SIZE_DEFAULT);
-  const isHoverRef = useRef(false);
-  const rafRef = useRef<number>(0);
+  const posRef         = useRef({ x: -300, y: -300 });
+  const rotRef         = useRef(0);
+  const prevPosRef     = useRef({ x: -300, y: -300 });
+  const sizeRef        = useRef(SIZE_DEFAULT);
+  const targetSizeRef  = useRef(SIZE_DEFAULT);
+  const isHoverRef     = useRef(false);
+  const rafRef         = useRef<number>(0);
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -33,11 +38,10 @@ export default function BirdCursor() {
       const dy = e.clientY - prevPosRef.current.y;
 
       if (Math.sqrt(dx * dx + dy * dy) > 1) {
-        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI) - ANGLE_OFFSET;
         let delta = angle - rotRef.current;
-        while (delta > 180) delta -= 360;
+        while (delta >  180) delta -= 360;
         while (delta < -180) delta += 360;
-        // 0.25 — faster, tighter tracking
         rotRef.current += delta * 0.25;
       }
 
@@ -52,7 +56,7 @@ export default function BirdCursor() {
         !!t.closest("a") ||
         !!t.closest("button");
 
-      isHoverRef.current = interactive;
+      isHoverRef.current    = interactive;
       targetSizeRef.current = interactive ? SIZE_HOVER : SIZE_DEFAULT;
     };
 
@@ -64,14 +68,11 @@ export default function BirdCursor() {
       sizeRef.current += (targetSizeRef.current - sizeRef.current) * 0.15;
       const s = sizeRef.current;
 
-      // Anchor: image center sits at cursor position
-      wrap.style.width = `${s}px`;
-      // height auto — preserve aspect ratio via CSS
-      wrap.style.transform = `translate(${x - s / 2}px, ${y - s / 2}px) rotate(${rotRef.current - NATURAL_ANGLE}deg)`;
+      wrap.style.width     = `${s}px`;
+      wrap.style.transform = `translate(${x - s / 2}px, ${y - s / 2}px) rotate(${rotRef.current}deg)`;
 
-      // Toggle images based on hover
       if (blackRef.current && orangeRef.current) {
-        blackRef.current.style.opacity = isHoverRef.current ? "0" : "1";
+        blackRef.current.style.opacity  = isHoverRef.current ? "0" : "1";
         orangeRef.current.style.opacity = isHoverRef.current ? "1" : "0";
       }
 
@@ -97,7 +98,6 @@ export default function BirdCursor() {
         zIndex: 9999,
         pointerEvents: "none",
         willChange: "transform",
-        transformOrigin: "center center",
       }}
     >
       {/* Black — default */}
@@ -105,28 +105,18 @@ export default function BirdCursor() {
         ref={blackRef}
         src="/images/cursor-fish-black.png"
         alt=""
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "auto",
-          display: "block",
-          opacity: 1,
-        }}
+        style={{ width: "100%", height: "auto", display: "block", opacity: 1 }}
         draggable={false}
       />
-      {/* Orange — on hover */}
+      {/* Orange — on hover over links/buttons */}
       <img
         ref={orangeRef}
         src="/images/cursor-fish-orange.png"
         alt=""
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "auto",
+          top: 0, left: 0,
+          width: "100%", height: "auto",
           display: "block",
           opacity: 0,
         }}

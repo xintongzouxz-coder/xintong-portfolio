@@ -38,11 +38,12 @@ export default function CaseCard({
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
+          gap: 32,
           borderRadius: 20,
           overflow: "hidden",
           background: "#fff",
           boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
-          transition: "transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s cubic-bezier(0.22,1,0.36,1)",
+          transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1)",
           pointerEvents: "none",
         }}
       >
