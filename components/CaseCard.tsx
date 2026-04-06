@@ -24,36 +24,43 @@ export default function CaseCard({
       href={href}
       style={{ textDecoration: "none", display: "block" }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-        (e.currentTarget as HTMLElement).style.boxShadow =
-          "0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)";
+        const article = e.currentTarget.querySelector("article") as HTMLElement;
+        if (article) {
+          article.style.transform = "translateY(-4px)";
+          article.style.boxShadow =
+            "0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)";
+        }
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLElement).style.boxShadow =
-          "0 2px 16px rgba(0,0,0,0.05)";
+        const article = e.currentTarget.querySelector("article") as HTMLElement;
+        if (article) {
+          article.style.transform = "translateY(0)";
+          article.style.boxShadow = "0 2px 16px rgba(0,0,0,0.05)";
+        }
       }}
     >
       <article
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: 32,
           borderRadius: 20,
           overflow: "hidden",
-          background: "#fff",
+          background: "rgba(255,255,255,0.28)",
+          backdropFilter: "blur(40px) saturate(1.9) brightness(1.08)",
+          WebkitBackdropFilter: "blur(40px) saturate(1.9) brightness(1.08)",
           boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
-          transition: "transform 1s cubic-bezier(0.16,1,0.3,1), box-shadow 1s cubic-bezier(0.16,1,0.3,1)",
+          transition:
+            "transform 1s cubic-bezier(0.16,1,0.3,1), box-shadow 1s cubic-bezier(0.16,1,0.3,1)",
           pointerEvents: "none",
         }}
       >
-        {/* Left: Image */}
+        {/* Left: Image — inherits glass from article */}
         <div
           style={{
             position: "relative",
             aspectRatio: "4/3",
             overflow: "hidden",
-            background: "#f0ede8",
+            borderRight: "1px solid rgba(255,255,255,0.5)",
           }}
         >
           <img
@@ -71,6 +78,7 @@ export default function CaseCard({
         {/* Right: Info */}
         <div
           style={{
+            background: "#fff",
             padding: "40px 44px",
             display: "flex",
             flexDirection: "column",
