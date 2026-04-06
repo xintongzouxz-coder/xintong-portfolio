@@ -256,7 +256,7 @@ export default function Home() {
         </div>
 
         {/* Cards */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 64 }}>
           {CASES.map((c) => (
             <CaseCard key={c.title} {...c} />
           ))}

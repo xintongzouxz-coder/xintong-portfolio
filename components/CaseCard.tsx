@@ -43,7 +43,7 @@ export default function CaseCard({
           overflow: "hidden",
           background: "#fff",
           boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
-          transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1)",
+          transition: "transform 1s cubic-bezier(0.16,1,0.3,1), box-shadow 1s cubic-bezier(0.16,1,0.3,1)",
           pointerEvents: "none",
         }}
       >
