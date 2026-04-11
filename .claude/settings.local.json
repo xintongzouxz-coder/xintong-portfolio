@@ -25,7 +25,14 @@
       "Bash(ls /usr/local/bin/node*)",
       "Bash(ls /usr/local/bin/npm*)",
       "Bash(PATH=\"/usr/local/bin:$PATH\" npm install @splinetool/runtime --prefix /Users/xintong/Documents/mywebsite)",
-      "Bash(kill 98850)"
+      "Bash(kill 98850)",
+      "Bash(curl -sL https://xintongzou.framer.website/kody-pbb-2 -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(python3 -c \":*)",
+      "Bash(python3 3)",
+      "Bash(/dev/null:*)",
+      "Bash(python3:*)",
+      "Bash(ls /Users/xintong/Documents/mywebsite/tailwind.config*)",
+      "Bash(kill 483)"
     ]
   }
 }
