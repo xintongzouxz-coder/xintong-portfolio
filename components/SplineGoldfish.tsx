@@ -136,7 +136,7 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
 
       // Edge boundaries: fish must travel past edge by its full visual width
       const buffer = s.fishWorldWidth;
-      const rightEdge = s.worldRightX + buffer;
+      const rightEdge = s.worldRightX + buffer * 2;
       const leftEdge = s.worldLeftX - buffer;
 
       if (isFollowing) {
