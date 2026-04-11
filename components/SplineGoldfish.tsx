@@ -6,7 +6,7 @@ const SCENE_URL = "https://prod.spline.design/8nPmqtgUtNLiByGi/scene.splinecode"
 const FISH_NAME = "ryukin_goldfish";
 
 const FOLLOW_LERP = 0.05;
-const BASE_SWIM_SPEED = 3.3;
+const BASE_SWIM_SPEED = 4;
 const MID_SPEED_BOOST = 0.2;   // 20% faster in the middle
 const IDLE_DELAY = 1500;
 const WORLD_SCALE = 2;
