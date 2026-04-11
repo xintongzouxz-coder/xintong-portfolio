@@ -6,10 +6,11 @@ const SCENE_URL = "https://prod.spline.design/8nPmqtgUtNLiByGi/scene.splinecode"
 const FISH_NAME = "ryukin_goldfish";
 
 const FOLLOW_LERP = 0.05;
-const SWIM_SPEED = 3;
+const SWIM_SPEED = 3.3;
 const IDLE_DELAY = 1500;
 const WORLD_SCALE = 2;
-const OFFSCREEN_BUFFER = 100;
+const OFFSCREEN_BUFFER = 800;
+const FLIP_LERP = 0.05; // how smooth the 180° flip animation is (0–1, smaller = smoother)
 
 export default function SplineGoldfish({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,6 +23,8 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
     sceneWidth: number; sceneHeight: number;
     initialFishX: number; initialFishY: number;
     initialRotY: number;
+    currentRotY: number;
+    targetRotY: number;
     direction: number;
     swimTargetY: number;
     worldLeftX: number; worldRightX: number;
@@ -35,6 +38,8 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
     sceneWidth: 0, sceneHeight: 0,
     initialFishX: 0, initialFishY: 0,
     initialRotY: 0,
+    currentRotY: 0,   // current rotation (animated)
+    targetRotY: 0,    // target rotation
     direction: 1,
     swimTargetY: 0,
     worldLeftX: 0, worldRightX: 0,
@@ -90,6 +95,8 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       s.initialFishX = fish.position.x;
       s.initialFishY = fish.position.y;
       s.initialRotY = fish.rotation.y;
+      s.currentRotY = fish.rotation.y;
+      s.targetRotY = fish.rotation.y;
       s.fishX = fish.position.x;
       s.fishY = fish.position.y;
       s.sceneWidth = canvas.clientWidth;
@@ -98,13 +105,6 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       updateBounds();
       s.swimTargetY = fish.position.y;
       s.loaded = true;
-
-      console.log("[Goldfish] loaded", {
-        initialPos: { x: s.initialFishX, y: s.initialFishY },
-        initialRotY: s.initialRotY,
-        bounds: { L: s.worldLeftX, R: s.worldRightX, T: s.worldTopY, B: s.worldBottomY },
-      });
-
       loop();
     }
 
@@ -126,10 +126,10 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
 
         if (dx > 5) {
           s.direction = 1;
-          s.fish.rotation.y = s.initialRotY;
+          s.targetRotY = s.initialRotY;
         } else if (dx < -5) {
           s.direction = -1;
-          s.fish.rotation.y = s.initialRotY - Math.PI;
+          s.targetRotY = s.initialRotY - Math.PI;
         }
       } else {
         if (s.mouseActive && idleTime >= IDLE_DELAY) {
@@ -143,7 +143,9 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
         if (s.direction === 1 && s.fishX > s.worldRightX + OFFSCREEN_BUFFER) {
           s.direction = -1;
           s.fishX = s.worldRightX + OFFSCREEN_BUFFER;
-          s.fish.rotation.y = s.initialRotY - Math.PI;
+          s.targetRotY = s.initialRotY - Math.PI;
+          // Snap rotation instantly since fish is off-screen
+          s.currentRotY = s.initialRotY - Math.PI;
           pickRandomY();
           s.fishY = s.swimTargetY;
         }
@@ -151,14 +153,28 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
         if (s.direction === -1 && s.fishX < s.worldLeftX - OFFSCREEN_BUFFER) {
           s.direction = 1;
           s.fishX = s.worldLeftX - OFFSCREEN_BUFFER;
-          s.fish.rotation.y = s.initialRotY;
+          s.targetRotY = s.initialRotY;
+          // Snap rotation instantly since fish is off-screen
+          s.currentRotY = s.initialRotY;
           pickRandomY();
           s.fishY = s.swimTargetY;
         }
       }
 
+      // Smooth rotation with easeInOut feel
+      let rotDiff = s.targetRotY - s.currentRotY;
+      while (rotDiff > Math.PI) rotDiff -= Math.PI * 2;
+      while (rotDiff < -Math.PI) rotDiff += Math.PI * 2;
+      const absDiff = Math.abs(rotDiff);
+      // Slow at start and end, fast in the middle
+      const t = 1 - (absDiff / Math.PI); // 0 at start of flip, 1 at end
+      const easedLerp = 0.02 + 0.12 * Math.sin(t * Math.PI); // peaks at 0.14 in the middle
+      s.currentRotY += rotDiff * easedLerp;
+
+      // Apply
       s.fish.position.x = s.fishX;
       s.fish.position.y = s.fishY;
+      s.fish.rotation.y = s.currentRotY;
     }
 
     function onMouseMove(e: MouseEvent) {
