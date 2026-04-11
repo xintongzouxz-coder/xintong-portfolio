@@ -5,54 +5,69 @@ import { useEffect, useRef, useCallback } from "react";
 const SCENE_URL = "https://prod.spline.design/8nPmqtgUtNLiByGi/scene.splinecode";
 const FISH_NAME = "ryukin_goldfish";
 
-const FOLLOW_LERP = 0.06;
-const WANDER_LERP = 0.015;
+const FOLLOW_LERP = 0.05;
+const SWIM_SPEED = 3;
 const IDLE_DELAY = 1500;
-const WANDER_RADIUS = 250;
-const WANDER_INTERVAL = 2500;
-const TURN_SPEED = 0.12;
+const WORLD_SCALE = 2;
+const OFFSCREEN_BUFFER = 100;
 
 export default function SplineGoldfish({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const stateRef = useRef<{
     app: { dispose: () => void } | null;
-    fish: { position: { x: number; y: number; z: number }; rotation: { z: number } } | null;
-    fishX: number; fishY: number; targetX: number; targetY: number;
-    mouseX: number; mouseY: number; mouseActive: boolean; lastMouseMove: number;
-    wanderOriginX: number; wanderOriginY: number;
-    wanderTargetX: number; wanderTargetY: number; lastWanderPick: number;
+    fish: { position: { x: number; y: number }; rotation: { y: number } } | null;
+    fishX: number; fishY: number;
+    mouseX: number; mouseY: number;
+    mouseActive: boolean; lastMouseMove: number;
     sceneWidth: number; sceneHeight: number;
-    initialFishX: number; initialFishY: number; initialFishZ: number;
+    initialFishX: number; initialFishY: number;
+    initialRotY: number;
+    direction: number;
+    swimTargetY: number;
+    worldLeftX: number; worldRightX: number;
+    worldTopY: number; worldBottomY: number;
     loaded: boolean; raf: number | null;
   }>({
     app: null, fish: null,
-    fishX: 0, fishY: 0, targetX: 0, targetY: 0,
-    mouseX: 0, mouseY: 0, mouseActive: false, lastMouseMove: 0,
-    wanderOriginX: 0, wanderOriginY: 0,
-    wanderTargetX: 0, wanderTargetY: 0, lastWanderPick: 0,
+    fishX: 0, fishY: 0,
+    mouseX: 0, mouseY: 0,
+    mouseActive: false, lastMouseMove: 0,
     sceneWidth: 0, sceneHeight: 0,
-    initialFishX: 0, initialFishY: 0, initialFishZ: 0,
+    initialFishX: 0, initialFishY: 0,
+    initialRotY: 0,
+    direction: 1,
+    swimTargetY: 0,
+    worldLeftX: 0, worldRightX: 0,
+    worldTopY: 0, worldBottomY: 0,
     loaded: false, raf: null,
   });
-
-  const pickWanderTarget = useCallback(() => {
-    const s = stateRef.current;
-    const angle = Math.random() * Math.PI * 2;
-    const dist = Math.random() * WANDER_RADIUS;
-    s.wanderTargetX = s.wanderOriginX + Math.cos(angle) * dist;
-    s.wanderTargetY = s.wanderOriginY + Math.sin(angle) * dist;
-    s.lastWanderPick = performance.now();
-  }, []);
 
   const screenToWorld = useCallback((px: number, py: number) => {
     const s = stateRef.current;
     const cx = s.sceneWidth / 2;
     const cy = s.sceneHeight / 2;
-    const scale = 0.5;
     return {
-      x: s.initialFishX + (px - cx) * scale,
-      y: s.initialFishY - (py - cy) * scale,
+      x: s.initialFishX + (px - cx) * WORLD_SCALE,
+      y: s.initialFishY - (py - cy) * WORLD_SCALE,
     };
+  }, []);
+
+  const updateBounds = useCallback(() => {
+    const s = stateRef.current;
+    const left = screenToWorld(0, s.sceneHeight / 2);
+    const right = screenToWorld(s.sceneWidth, s.sceneHeight / 2);
+    const top = screenToWorld(s.sceneWidth / 2, 0);
+    const bottom = screenToWorld(s.sceneWidth / 2, s.sceneHeight);
+    s.worldLeftX = left.x;
+    s.worldRightX = right.x;
+    s.worldTopY = Math.max(top.y, bottom.y);
+    s.worldBottomY = Math.min(top.y, bottom.y);
+  }, [screenToWorld]);
+
+  const pickRandomY = useCallback(() => {
+    const s = stateRef.current;
+    const padding = (s.worldTopY - s.worldBottomY) * 0.15;
+    s.swimTargetY = s.worldBottomY + padding + Math.random() * (s.worldTopY - s.worldBottomY - padding * 2);
   }, []);
 
   useEffect(() => {
@@ -70,17 +85,26 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       const fish = app.findObjectByName(FISH_NAME);
       if (!fish) { console.warn(`Object "${FISH_NAME}" not found`); return; }
 
-      s.app = app; s.fish = fish;
+      s.app = app;
+      s.fish = fish;
       s.initialFishX = fish.position.x;
       s.initialFishY = fish.position.y;
-      s.initialFishZ = fish.position.z;
-      s.fishX = fish.position.x; s.fishY = fish.position.y;
-      s.targetX = fish.position.x; s.targetY = fish.position.y;
-      s.wanderOriginX = fish.position.x; s.wanderOriginY = fish.position.y;
-      s.wanderTargetX = fish.position.x; s.wanderTargetY = fish.position.y;
+      s.initialRotY = fish.rotation.y;
+      s.fishX = fish.position.x;
+      s.fishY = fish.position.y;
       s.sceneWidth = canvas.clientWidth;
       s.sceneHeight = canvas.clientHeight;
+      s.direction = 1;
+      updateBounds();
+      s.swimTargetY = fish.position.y;
       s.loaded = true;
+
+      console.log("[Goldfish] loaded", {
+        initialPos: { x: s.initialFishX, y: s.initialFishY },
+        initialRotY: s.initialRotY,
+        bounds: { L: s.worldLeftX, R: s.worldRightX, T: s.worldTopY, B: s.worldBottomY },
+      });
+
       loop();
     }
 
@@ -88,49 +112,66 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       if (cancelled) return;
       s.raf = requestAnimationFrame(loop);
       if (!s.fish) return;
+
       const now = performance.now();
       const idleTime = now - s.lastMouseMove;
+      const isFollowing = s.mouseActive && idleTime < IDLE_DELAY;
 
-      if (s.mouseActive && idleTime < IDLE_DELAY) {
+      if (isFollowing) {
         const world = screenToWorld(s.mouseX, s.mouseY);
-        s.targetX = world.x; s.targetY = world.y;
-        s.fishX += (s.targetX - s.fishX) * FOLLOW_LERP;
-        s.fishY += (s.targetY - s.fishY) * FOLLOW_LERP;
+        const dx = world.x - s.fishX;
+
+        s.fishX += (world.x - s.fishX) * FOLLOW_LERP;
+        s.fishY += (world.y - s.fishY) * FOLLOW_LERP;
+
+        if (dx > 5) {
+          s.direction = 1;
+          s.fish.rotation.y = s.initialRotY;
+        } else if (dx < -5) {
+          s.direction = -1;
+          s.fish.rotation.y = s.initialRotY - Math.PI;
+        }
       } else {
         if (s.mouseActive && idleTime >= IDLE_DELAY) {
-          s.wanderOriginX = s.fishX; s.wanderOriginY = s.fishY;
           s.mouseActive = false;
-          pickWanderTarget();
+          pickRandomY();
         }
-        if (now - s.lastWanderPick > WANDER_INTERVAL) pickWanderTarget();
-        s.targetX = s.wanderTargetX; s.targetY = s.wanderTargetY;
-        s.fishX += (s.targetX - s.fishX) * WANDER_LERP;
-        s.fishY += (s.targetY - s.fishY) * WANDER_LERP;
+
+        s.fishX += SWIM_SPEED * s.direction;
+        s.fishY += (s.swimTargetY - s.fishY) * 0.02;
+
+        if (s.direction === 1 && s.fishX > s.worldRightX + OFFSCREEN_BUFFER) {
+          s.direction = -1;
+          s.fishX = s.worldRightX + OFFSCREEN_BUFFER;
+          s.fish.rotation.y = s.initialRotY - Math.PI;
+          pickRandomY();
+          s.fishY = s.swimTargetY;
+        }
+
+        if (s.direction === -1 && s.fishX < s.worldLeftX - OFFSCREEN_BUFFER) {
+          s.direction = 1;
+          s.fishX = s.worldLeftX - OFFSCREEN_BUFFER;
+          s.fish.rotation.y = s.initialRotY;
+          pickRandomY();
+          s.fishY = s.swimTargetY;
+        }
       }
 
       s.fish.position.x = s.fishX;
       s.fish.position.y = s.fishY;
-
-      const dx = s.targetX - s.fishX;
-      const dy = s.targetY - s.fishY;
-      if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
-        const targetAngle = Math.atan2(dy, dx);
-        let currentAngle = s.fish.rotation.z;
-        let diff = targetAngle - currentAngle;
-        while (diff > Math.PI) diff -= Math.PI * 2;
-        while (diff < -Math.PI) diff += Math.PI * 2;
-        s.fish.rotation.z += diff * TURN_SPEED;
-      }
     }
 
     function onMouseMove(e: MouseEvent) {
-      s.mouseX = e.clientX; s.mouseY = e.clientY;
-      s.mouseActive = true; s.lastMouseMove = performance.now();
+      s.mouseX = e.clientX;
+      s.mouseY = e.clientY;
+      s.mouseActive = true;
+      s.lastMouseMove = performance.now();
     }
     function onResize() {
       if (canvasRef.current) {
         s.sceneWidth = canvasRef.current.clientWidth;
         s.sceneHeight = canvasRef.current.clientHeight;
+        updateBounds();
       }
     }
 
@@ -144,7 +185,7 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       if (s.raf) cancelAnimationFrame(s.raf);
       if (s.app) s.app.dispose();
     };
-  }, [screenToWorld, pickWanderTarget]);
+  }, [screenToWorld, updateBounds, pickRandomY]);
 
   return <canvas ref={canvasRef} className={className} style={{ width: "100%", height: "100%" }} />;
 }
