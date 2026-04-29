@@ -127,34 +127,32 @@ export default function AboutIntro() {
       <p style={{ ...mono, textAlign: "center", marginBottom: 60 }}>ABOUT ME</p>
 
       {/* ── Intro row: photo + bio + education ── */}
-      <div style={{ display: "flex", gap: 60, alignItems: "flex-start" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 60, alignItems: "flex-end", justifyContent: "center" }}>
 
-        {/* Photo */}
+        {/* Photo — fill width, hug height */}
         <div
           style={{
-            width: 292,
-            height: 378,
+            flex: 1,
             borderRadius: 20,
             overflow: "hidden",
-            flexShrink: 0,
             background: "#D9D9D9",
           }}
         >
           <img
             src="/images/about-photo.jpg"
             alt="Xintong Zou"
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "auto", display: "block" }}
           />
         </div>
 
-        {/* Bio text */}
+        {/* Bio text — fixed 500px width, hug height */}
         <div
           style={{
-            flex: 1,
-            height: 378,
+            width: 500,
+            flexShrink: 0,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            gap: 16,
           }}
         >
           {BIO.map((para, i) => (
@@ -174,14 +172,11 @@ export default function AboutIntro() {
           ))}
         </div>
 
-        {/* Education — bottom-aligned */}
+        {/* Education — hug width and height */}
         <div
           style={{
-            height: 378,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-end",
-            flexShrink: 0,
           }}
         >
           <p
