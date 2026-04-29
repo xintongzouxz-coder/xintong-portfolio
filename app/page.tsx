@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import SplineGoldfish from "@/components/SplineGoldfish";
 import CaseCard from "@/components/CaseCard";
 import HeroBlocks from "@/components/HeroBlocks";
+import AboutIntro from "@/components/AboutIntro";
 import Link from "next/link";
 
 
@@ -134,6 +135,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ── About Intro ──────────────────────────────────────────────────────── */}
+      <AboutIntro />
 
       {/* ── Goldfish ─────────────────────────────────────────────────────────── */}
       <section
