@@ -199,8 +199,20 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
     }
 
     function onMouseMove(e: MouseEvent) {
-      s.mouseX = e.clientX;
-      s.mouseY = e.clientY;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+      if (!inside) {
+        s.mouseActive = false;
+        return;
+      }
+      s.mouseX = e.clientX - rect.left;
+      s.mouseY = e.clientY - rect.top;
       s.mouseActive = true;
       s.lastMouseMove = performance.now();
     }
