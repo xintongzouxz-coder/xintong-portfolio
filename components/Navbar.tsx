@@ -9,7 +9,7 @@ const links = [
 ];
 
 const NAV_REST = "#7a7a7a";
-// gray #7a7a7a (0% saturation) → hover with brand hue at +30% saturation: hsl(234, 30%, 48%)
+// gray #7a7a7a (0% sat) → hover: brand hue 234° at 30% saturation = hsl(234, 30%, 48%)
 const NAV_HOVER = "hsl(234, 30%, 48%)";
 
 function setColor(el: HTMLElement, color: string) {
@@ -21,18 +21,23 @@ export default function Navbar() {
     <nav
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: 14,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "calc(100% - 260px)",
+        maxWidth: 1252,
         zIndex: 1000,
+        padding: "10px 20px",
+        borderRadius: 20,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "20px 130px",
-        background: "rgba(250,250,250,0.92)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(0,0,0,0.06)",
+        background: "rgba(255,255,255,0.28)",
+        backdropFilter: "blur(40px) saturate(1.9) brightness(1.08)",
+        WebkitBackdropFilter: "blur(40px) saturate(1.9) brightness(1.08)",
+        border: "1px solid rgba(255,255,255,0.5)",
+        boxShadow:
+          "0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.15)",
       }}
     >
       {/* Logo */}
@@ -41,20 +46,21 @@ export default function Navbar() {
         style={{
           fontFamily: "var(--font-dm-sans)",
           fontWeight: 500,
-          fontSize: 24,
+          fontSize: 15,
           color: "#3445ff",
           textDecoration: "none",
           letterSpacing: "-0.01em",
+          padding: "6px 10px",
           transition: "opacity 0.18s",
         }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.75"; }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.7"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
       >
         Xintong Zou
       </Link>
 
       {/* Nav links */}
-      <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
         {links.map(({ href, label, external }) => (
           <Link
             key={label}
@@ -63,10 +69,12 @@ export default function Navbar() {
             rel={external ? "noopener noreferrer" : undefined}
             style={{
               fontFamily: "var(--font-dm-sans)",
-              fontWeight: 500,
-              fontSize: 24,
+              fontWeight: 400,
+              fontSize: 14,
               color: NAV_REST,
               textDecoration: "none",
+              padding: "6px 14px",
+              borderRadius: 100,
               transition: "color 0.18s",
             }}
             onMouseEnter={(e) => setColor(e.currentTarget as HTMLElement, NAV_HOVER)}
@@ -78,7 +86,7 @@ export default function Navbar() {
       </div>
 
       {/* Icons: email + LinkedIn */}
-      <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 16, alignItems: "center", padding: "0 6px" }}>
         <a
           href="mailto:xintongzou.xz@gmail.com"
           style={{ color: NAV_REST, display: "flex", transition: "color 0.18s" }}
@@ -86,9 +94,9 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="Email"
         >
-          <svg width="34" height="28" viewBox="0 0 34 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="1" y="1" width="32" height="26" rx="3" />
-            <polyline points="1,4 17,16 33,4" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <polyline points="3,7 12,13 21,7" />
           </svg>
         </a>
         <a
@@ -100,10 +108,10 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="LinkedIn"
         >
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-            <path d="M21 10a8 8 0 0 1 8 8v10h-5v-10a3 3 0 0 0-6 0v10h-5v-10a8 8 0 0 1 8-8z" />
-            <rect x="2" y="11" width="5" height="17" />
-            <circle cx="4.5" cy="4.5" r="3" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
           </svg>
         </a>
       </div>
