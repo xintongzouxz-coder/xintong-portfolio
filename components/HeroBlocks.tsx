@@ -117,9 +117,8 @@ export default function HeroBlocks() {
             <div style={cell(1.24, 0)}>
               <div style={fly("left", -40)}>
                 <div style={{ transform: "rotate(-2.93deg)" }}>
-                  <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <div style={{ position: "absolute", background: "white", inset: 0 }} />
-                    <img src={IMG.designSystem} alt="Design System" style={{ position: "absolute", width: "117.84%", height: "108%", left: "-8.92%", top: "-3.88%", maxWidth: "none" }} />
+                  <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                    <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
                   </div>
                 </div>
               </div>
@@ -129,9 +128,8 @@ export default function HeroBlocks() {
             <div style={cell(161.66, 26.4)}>
               <div style={fly("left", -65)}>
                 <div style={{ transform: "rotate(10.07deg)" }}>
-                  <div style={{ width: 183, height: 192, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <div style={{ position: "absolute", background: "white", inset: 0 }} />
-                    <img src={IMG.payByBank} alt="Pay by Bank" style={{ position: "absolute", width: "119.62%", height: "100.06%", left: 0, top: "-0.03%", maxWidth: "none" }} />
+                  <div style={{ width: 183, height: 192, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                    <img src={IMG.payByBank} alt="Pay by Bank" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
                   </div>
                 </div>
               </div>
@@ -141,9 +139,8 @@ export default function HeroBlocks() {
             <div style={cell(40.67, 150.37)}>
               <div style={fly("left", -120)}>
                 <div style={{ transform: "rotate(5deg)" }}>
-                  <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <div style={{ position: "absolute", background: "#e9e9e9", inset: 0 }} />
-                    <img src={IMG.prorizon} alt="Prorizon" style={{ position: "absolute", width: "117.47%", height: "131.87%", left: "-11.16%", top: "-17.58%", maxWidth: "none" }} />
+                  <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                    <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
                   </div>
                 </div>
               </div>
@@ -226,7 +223,7 @@ export default function HeroBlocks() {
               <div style={fly("right", -60)}>
                 <div style={{ transform: "rotate(-12.23deg)" }}>
                   <div style={{ width: 245, height: 139, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <img src={IMG.brain} alt="Brain" style={{ position: "absolute", width: "163.79%", height: "181.78%", left: "-35.89%", top: "-55.94%", maxWidth: "none" }} />
+                    <img src={IMG.brain} alt="Brain" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
                   </div>
                 </div>
               </div>
