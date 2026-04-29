@@ -2,78 +2,62 @@
 
 import { useEffect, useRef } from "react";
 
-// Fish image: head points UP (12 o'clock).
-// atan2 returns 0° for rightward movement, 90° for downward, etc.
-// Subtracting 90° maps "head up = 12 o'clock" to match mouse direction:
-//   moving right  →  0° - 90° = -90°  → fish rotates so head faces right  ✓
-//   moving down   → 90° - 90° =   0°  → fish rotates so head faces down   ✓
-//   moving left   → 180°- 90° =  90°  → fish rotates so head faces left   ✓
-//   moving up     → -90°- 90° = -180° → fish rotates so head faces up     ✓
-const ANGLE_OFFSET = 90;
-
-const SIZE_DEFAULT = 52;
-const SIZE_HOVER   = 65;
+const DOT_SIZE    = 6;
+const RING_DEFAULT = 32;
+const RING_HOVER   = 44;
+const RING_LERP    = 0.25;
+const SIZE_LERP    = 0.14;
 
 export default function BirdCursor() {
-  const wrapRef    = useRef<HTMLDivElement>(null);
-  const blackRef   = useRef<HTMLImageElement>(null);
-  const orangeRef  = useRef<HTMLImageElement>(null);
+  const dotRef  = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
-  const posRef         = useRef({ x: -300, y: -300 });
-  const rotRef         = useRef(0);
-  const prevPosRef     = useRef({ x: -300, y: -300 });
-  const sizeRef        = useRef(SIZE_DEFAULT);
-  const targetSizeRef  = useRef(SIZE_DEFAULT);
-  const isHoverRef     = useRef(false);
-  const rafRef         = useRef<number>(0);
+  const mousePos  = useRef({ x: -300, y: -300 });
+  const ringPos   = useRef({ x: -300, y: -300 });
+  const ringSizeRef = useRef(RING_DEFAULT);
+  const isHover   = useRef(false);
+  const rafRef    = useRef<number>(0);
 
   useEffect(() => {
-    const wrap = wrapRef.current;
-    if (!wrap) return;
-
     const onMouseMove = (e: MouseEvent) => {
-      posRef.current = { x: e.clientX, y: e.clientY };
-
-      const dx = e.clientX - prevPosRef.current.x;
-      const dy = e.clientY - prevPosRef.current.y;
-
-      if (Math.sqrt(dx * dx + dy * dy) > 1) {
-        const angle = Math.atan2(dy, dx) * (180 / Math.PI) - ANGLE_OFFSET;
-        let delta = angle - rotRef.current;
-        while (delta >  180) delta -= 360;
-        while (delta < -180) delta += 360;
-        rotRef.current += delta * 0.25;
-      }
-
-      prevPosRef.current = { x: e.clientX, y: e.clientY };
+      mousePos.current = { x: e.clientX, y: e.clientY };
     };
 
     const onMouseOver = (e: MouseEvent) => {
       const t = e.target as HTMLElement;
-      const interactive =
+      isHover.current = !!(
         t.tagName === "A" ||
         t.tagName === "BUTTON" ||
-        !!t.closest("a") ||
-        !!t.closest("button");
-
-      isHoverRef.current    = interactive;
-      targetSizeRef.current = interactive ? SIZE_HOVER : SIZE_DEFAULT;
+        t.closest("a") ||
+        t.closest("button")
+      );
     };
 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseover", onMouseOver);
 
     const render = () => {
-      const { x, y } = posRef.current;
-      sizeRef.current += (targetSizeRef.current - sizeRef.current) * 0.15;
-      const s = sizeRef.current;
+      const dot  = dotRef.current;
+      const ring = ringRef.current;
 
-      wrap.style.width     = `${s}px`;
-      wrap.style.transform = `translate(${x - s / 2}px, ${y - s / 2}px) rotate(${rotRef.current}deg)`;
+      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * RING_LERP;
+      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * RING_LERP;
 
-      if (blackRef.current && orangeRef.current) {
-        blackRef.current.style.opacity  = isHoverRef.current ? "0" : "1";
-        orangeRef.current.style.opacity = isHoverRef.current ? "1" : "0";
+      const targetSize = isHover.current ? RING_HOVER : RING_DEFAULT;
+      ringSizeRef.current += (targetSize - ringSizeRef.current) * SIZE_LERP;
+      const s = ringSizeRef.current;
+
+      if (dot) {
+        dot.style.transform = `translate(${mousePos.current.x - DOT_SIZE / 2}px, ${mousePos.current.y - DOT_SIZE / 2}px)`;
+        dot.style.opacity   = isHover.current ? "0" : "1";
+      }
+
+      if (ring) {
+        ring.style.transform    = `translate(${ringPos.current.x - s / 2}px, ${ringPos.current.y - s / 2}px)`;
+        ring.style.width        = `${s}px`;
+        ring.style.height       = `${s}px`;
+        ring.style.borderColor  = isHover.current ? "#3445ff" : "rgba(26,26,26,0.55)";
+        ring.style.background   = isHover.current ? "rgba(52,69,255,0.08)" : "transparent";
       }
 
       rafRef.current = requestAnimationFrame(render);
@@ -89,39 +73,41 @@ export default function BirdCursor() {
   }, []);
 
   return (
-    <div
-      ref={wrapRef}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: 9999,
-        pointerEvents: "none",
-        willChange: "transform",
-      }}
-    >
-      {/* Black — default */}
-      <img
-        ref={blackRef}
-        src="/images/cursor-fish-black.png"
-        alt=""
-        style={{ width: "100%", height: "auto", display: "block", opacity: 1 }}
-        draggable={false}
-      />
-      {/* Orange — on hover over links/buttons */}
-      <img
-        ref={orangeRef}
-        src="/images/cursor-fish-orange.png"
-        alt=""
+    <>
+      {/* Inner dot — follows mouse exactly */}
+      <div
+        ref={dotRef}
         style={{
-          position: "absolute",
-          top: 0, left: 0,
-          width: "100%", height: "auto",
-          display: "block",
-          opacity: 0,
+          position:      "fixed",
+          top:           0,
+          left:          0,
+          width:         DOT_SIZE,
+          height:        DOT_SIZE,
+          borderRadius:  "50%",
+          background:    "#1a1a1a",
+          pointerEvents: "none",
+          zIndex:        9999,
+          willChange:    "transform, opacity",
+          transition:    "opacity 0.15s",
         }}
-        draggable={false}
       />
-    </div>
+      {/* Outer ring — follows with slight lag */}
+      <div
+        ref={ringRef}
+        style={{
+          position:      "fixed",
+          top:           0,
+          left:          0,
+          width:         RING_DEFAULT,
+          height:        RING_DEFAULT,
+          borderRadius:  "50%",
+          border:        "1.5px solid rgba(26,26,26,0.55)",
+          pointerEvents: "none",
+          zIndex:        9998,
+          willChange:    "transform, width, height",
+          transition:    "border-color 0.2s, background 0.2s",
+        }}
+      />
+    </>
   );
 }
