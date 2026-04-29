@@ -1,181 +1,106 @@
-"use client";
-
 import Link from "next/link";
 
 interface CaseCardProps {
   href: string;
-  image: string;
+  image?: string;
   tags: string[];
   title: string;
   year: string;
   description: string;
 }
 
-export default function CaseCard({
-  href,
-  image,
-  tags,
-  title,
-  year,
-  description,
-}: CaseCardProps) {
-  return (
-    <Link
-      href={href}
-      style={{ textDecoration: "none", display: "block" }}
-      onMouseEnter={(e) => {
-        const article = e.currentTarget.querySelector("article") as HTMLElement;
-        if (article) {
-          article.style.transform = "translateY(-4px)";
-          article.style.boxShadow =
-            "0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)";
-        }
-      }}
-      onMouseLeave={(e) => {
-        const article = e.currentTarget.querySelector("article") as HTMLElement;
-        if (article) {
-          article.style.transform = "translateY(0)";
-          article.style.boxShadow = "0 2px 16px rgba(0,0,0,0.05)";
-        }
-      }}
-    >
-      <article
+export default function CaseCard({ href, image, tags, title, year, description }: CaseCardProps) {
+  const content = (
+    <div>
+      {/* Image — 600×425 aspect ratio, gray fill when no image */}
+      <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           borderRadius: 20,
           overflow: "hidden",
-          background: "rgba(255,255,255,0.28)",
-          backdropFilter: "blur(40px) saturate(1.9) brightness(1.08)",
-          WebkitBackdropFilter: "blur(40px) saturate(1.9) brightness(1.08)",
-          boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
-          transition:
-            "transform 1s cubic-bezier(0.16,1,0.3,1), box-shadow 1s cubic-bezier(0.16,1,0.3,1)",
-          pointerEvents: "none",
+          aspectRatio: "600 / 425",
+          background: "#D9D9D9",
         }}
       >
-        {/* Left: Image — inherits glass from article */}
-        <div
-          style={{
-            position: "relative",
-            aspectRatio: "4/3",
-            overflow: "hidden",
-            borderRight: "1px solid rgba(255,255,255,0.5)",
-          }}
-        >
+        {image && (
           <img
             src={image}
             alt={title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-            }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
+        )}
+      </div>
+
+      {/* Text */}
+      <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 10 }}>
+        {/* Title + Year */}
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
+          <span
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: 20,
+              fontWeight: 400,
+              color: "#1a1a1a",
+              lineHeight: 1.3,
+            }}
+          >
+            {title}
+          </span>
+          <span
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: 16,
+              fontWeight: 400,
+              color: "#7A7A7A",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
+            }}
+          >
+            {year}
+          </span>
         </div>
 
-        {/* Right: Info */}
-        <div
+        {/* Description */}
+        <p
           style={{
-            background: "#fff",
-            padding: "40px 44px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            gap: 16,
+            fontFamily: "var(--font-dm-sans)",
+            fontSize: 16,
+            fontWeight: 400,
+            color: "#1a1a1a",
+            margin: 0,
+            lineHeight: 1.5,
           }}
         >
-          {/* Tags */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontFamily: "var(--font-dm-sans)",
-                  fontSize: 11,
-                  fontWeight: 500,
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                  color: "rgba(26,26,26,0.5)",
-                  background: "#f5f1eb",
-                  padding: "4px 10px",
-                  borderRadius: 100,
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          {description}
+        </p>
 
-          {/* Title + year */}
-          <div>
-            <h3
-              style={{
-                fontFamily: "var(--font-dm-sans)",
-                fontSize: 18,
-                fontWeight: 600,
-                lineHeight: 1.3,
-                letterSpacing: "-0.01em",
-                color: "#1a1a1a",
-                margin: 0,
-              }}
-            >
-              {title}
-            </h3>
+        {/* Tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          {tags.map((tag) => (
             <span
+              key={tag}
               style={{
                 fontFamily: "var(--font-dm-sans)",
-                fontSize: 13,
-                color: "rgba(26,26,26,0.35)",
-                marginTop: 6,
-                display: "block",
+                fontSize: 15,
+                fontWeight: 400,
+                color: "#7A7A7A",
+                background: "rgba(231, 231, 231, 0.6)",
+                padding: "4px 12px",
+                borderRadius: 100,
               }}
             >
-              {year}
+              {tag}
             </span>
-          </div>
-
-          {/* Description */}
-          <p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: 15,
-              lineHeight: 1.6,
-              color: "rgba(26,26,26,0.6)",
-              margin: 0,
-              maxWidth: 340,
-            }}
-          >
-            {description}
-          </p>
-
-          {/* CTA */}
-          <div
-            style={{
-              marginTop: 8,
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: 13,
-              fontWeight: 500,
-              color: "#1a1a1a",
-            }}
-          >
-            View case study
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path
-                d="M2.5 7h9M7.5 3l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+          ))}
         </div>
-      </article>
+      </div>
+    </div>
+  );
+
+  if (!href || href === "#") return content;
+
+  return (
+    <Link href={href} style={{ textDecoration: "none", display: "block" }}>
+      {content}
     </Link>
   );
 }

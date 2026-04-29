@@ -10,29 +10,38 @@ const CASES = [
   {
     href: "/kody-pbb",
     image: "https://framerusercontent.com/images/zMuPydpVzQipc4F6g78jnLwmU.png",
-    tags: ["B2B2C", "Adoption & Growth", "Cross-channel"],
-    title: "Kody Pay by Bank Experience",
+    tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
+    title: "Kody Pay by Bank experience",
     year: "2025",
     description:
-      "Redesigning the end-to-end Pay by Bank journey to drive adoption and reduce drop-off across merchant and consumer touchpoints.",
+      "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
   },
   {
     href: "#",
-    image: "https://framerusercontent.com/images/Tyf1nHVahYeKA9GbYXRZBJEohY.png",
+    image: undefined,
+    tags: ["Design System", "AI-assisted"],
+    title: "Rebuilding the Kody Design System",
+    year: "2025",
+    description:
+      "Simplified design foundations by up to 75%, improved consistency across 4 products",
+  },
+  {
+    href: "#",
+    image: undefined,
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
     year: "2024",
     description:
-      "Optimising a mobile app's core engagement loops to increase retention and daily active usage.",
+      "Redesigned a self-record health app for young athletes to enhance user engagement",
   },
   {
     href: "#",
-    image: "https://framerusercontent.com/images/wZB93rUKMo0womtaklcfVaQU.png",
-    tags: ["Workflow Optimisation", "AI-assisted"],
+    image: undefined,
+    tags: ["Workflow Optimisation", "AI-agent"],
     title: "PitchME",
     year: "2024",
     description:
-      "An AI-assisted pitch preparation tool that streamlines how founders structure and rehearse investor narratives.",
+      "An AI-assisted evaluation platform to streamline judges' workflow during live pitch sessions",
   },
 ];
 
@@ -88,44 +97,37 @@ export default function Home() {
         <HeroBlocks />
       </section>
 
-      {/* ── Selected Work ────────────────────────────────────────────────────── */}
+      {/* ── Project ──────────────────────────────────────────────────────────── */}
       <section
         id="work"
         style={{
           background: "var(--bg)",
-          padding: "100px 60px 80px",
-          maxWidth: 1200,
-          margin: "0 auto",
+          padding: "100px 130px",
           boxSizing: "border-box",
-          width: "100%",
         }}
       >
-        <div
+        <p
           style={{
-            display: "flex",
-            alignItems: "baseline",
-            justifyContent: "space-between",
-            marginBottom: 56,
+            fontFamily: "var(--font-dm-mono)",
+            fontSize: 20,
+            fontWeight: 400,
+            letterSpacing: "0.08em",
+            textAlign: "center",
+            color: "#1a1a1a",
+            margin: 0,
+            marginBottom: 60,
           }}
         >
-          <h2
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: 20,
-              fontWeight: 600,
-              letterSpacing: "-0.01em",
-              color: "#1a1a1a",
-              margin: 0,
-            }}
-          >
-            Selected Work
-          </h2>
-          <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.4)" }}>
-            {CASES.length} projects
-          </span>
-        </div>
+          PROJECT
+        </p>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 64 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 60,
+          }}
+        >
           {CASES.map((c) => (
             <CaseCard key={c.title} {...c} />
           ))}
