@@ -35,6 +35,23 @@ type Block = "left" | "center" | "right";
 const EASE = "cubic-bezier(0.0, 0, 0.2, 1)";
 const T = `opacity 500ms ${EASE}, transform 500ms ${EASE}`;
 
+function scrollEaseOut(targetId: string) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  const start = window.scrollY;
+  const end = el.getBoundingClientRect().top + start;
+  const duration = 950;
+  const startTime = performance.now();
+  function tick(now: number) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    const eased = t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2;
+    window.scrollTo(0, start + (end - start) * eased);
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
 export default function HeroBlocks() {
   const [hovered, setHovered] = useState<Block | null>(null);
 
@@ -102,6 +119,7 @@ export default function HeroBlocks() {
         style={blockBase("left", 412, 474)}
         onMouseEnter={() => setHovered("left")}
         onMouseLeave={() => setHovered(null)}
+        onClick={() => scrollEaseOut("work")}
       >
         <div style={rotStyle("left", -5)}>
           <div style={stackGrid}>
@@ -155,11 +173,9 @@ export default function HeroBlocks() {
 
             {/* CTA */}
             <div style={{ ...cell(86.18, 358.42), width: "max-content" }}>
-              <Link href="/#work" style={{ textDecoration: "none" }}>
-                <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
-                </div>
-              </Link>
+              <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
+              </div>
             </div>
 
           </div>
@@ -185,6 +201,7 @@ export default function HeroBlocks() {
         style={blockBase("right", 435, 500)}
         onMouseEnter={() => setHovered("right")}
         onMouseLeave={() => setHovered(null)}
+        onClick={() => scrollEaseOut("other")}
       >
         <div style={rotStyle("right", 10)}>
           <div style={stackGrid}>

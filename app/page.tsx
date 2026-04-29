@@ -53,6 +53,7 @@ export default function Home() {
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section
+        id="hero"
         style={{
           background: "#fafafa",
           paddingTop: 160,

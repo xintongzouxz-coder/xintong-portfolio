@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const links = [
   { href: "/#work", label: "Project", scrollTo: "work" },
-  { href: "/about", label: "About" },
+  { href: "/#about", label: "About", scrollTo: "about" },
   { href: "/resume.pdf", label: "Resume", external: true },
 ];
 
@@ -82,7 +82,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <Link
-        href="/"
+        href="/#hero"
         style={{
           fontFamily: "var(--font-dm-sans)",
           fontWeight: 500,
@@ -94,6 +94,7 @@ export default function Navbar() {
         }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.7"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
+        onClick={(e) => { e.preventDefault(); scrollEaseOut("hero"); }}
       >
         Xintong Zou
       </Link>
