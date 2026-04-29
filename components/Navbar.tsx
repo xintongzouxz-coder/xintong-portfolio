@@ -46,11 +46,10 @@ export default function Navbar() {
         style={{
           fontFamily: "var(--font-dm-sans)",
           fontWeight: 500,
-          fontSize: 15,
+          fontSize: 24,
           color: "#3445ff",
           textDecoration: "none",
           letterSpacing: "-0.01em",
-          padding: "6px 10px",
           transition: "opacity 0.18s",
         }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.7"; }}
@@ -60,7 +59,7 @@ export default function Navbar() {
       </Link>
 
       {/* Nav links */}
-      <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
         {links.map(({ href, label, external }) => (
           <Link
             key={label}
@@ -69,12 +68,10 @@ export default function Navbar() {
             rel={external ? "noopener noreferrer" : undefined}
             style={{
               fontFamily: "var(--font-dm-sans)",
-              fontWeight: 400,
-              fontSize: 14,
+              fontWeight: 500,
+              fontSize: 24,
               color: NAV_REST,
               textDecoration: "none",
-              padding: "6px 14px",
-              borderRadius: 100,
               transition: "color 0.18s",
             }}
             onMouseEnter={(e) => setColor(e.currentTarget as HTMLElement, NAV_HOVER)}
@@ -86,7 +83,7 @@ export default function Navbar() {
       </div>
 
       {/* Icons: email + LinkedIn */}
-      <div style={{ display: "flex", gap: 16, alignItems: "center", padding: "0 6px" }}>
+      <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
         <a
           href="mailto:xintongzou.xz@gmail.com"
           style={{ color: NAV_REST, display: "flex", transition: "color 0.18s" }}
@@ -94,7 +91,7 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="Email"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="5" width="18" height="14" rx="2" />
             <polyline points="3,7 12,13 21,7" />
           </svg>
@@ -108,7 +105,7 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="LinkedIn"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
             <rect x="2" y="9" width="4" height="12" />
             <circle cx="4" cy="4" r="2" />
