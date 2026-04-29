@@ -234,6 +234,51 @@ export default function AboutIntro() {
         </div>
 
       </div>
+
+      {/* ── WHAT I CAN HELP WITH ── */}
+      <div style={{ marginTop: 80 }}>
+
+        {/* Title — left-aligned, same font as MY JOURNEY */}
+        <p style={{ ...mono, marginBottom: 32 }}>What I Can Help With</p>
+
+        {/* Two columns */}
+        <div style={{ display: "flex", gap: 60 }}>
+
+          {/* Product Design */}
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
+            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 24, fontWeight: 400, color: "#4F4F4F" }}>
+              Product Design
+            </span>
+            <hr style={{ border: "none", borderTop: "1.5px solid rgba(175,175,175,0.57)", margin: 0 }} />
+            {["UX/UI Design", "User Research", "Website Design", "Product Design"].map((item) => (
+              <div key={item} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 400, color: "#4F4F4F" }}>
+                  {item}
+                </span>
+                <hr style={{ border: "none", borderTop: "1px solid rgba(207,207,207,0.49)", margin: 0 }} />
+              </div>
+            ))}
+          </div>
+
+          {/* Other */}
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
+            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 24, fontWeight: 400, color: "#4F4F4F" }}>
+              Other
+            </span>
+            <hr style={{ border: "none", borderTop: "1.5px solid rgba(175,175,175,0.57)", margin: 0 }} />
+            {["Graphic Design", "Photography", "Brand identity", "3D Modelling"].map((item) => (
+              <div key={item} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 400, color: "#4F4F4F" }}>
+                  {item}
+                </span>
+                <hr style={{ border: "none", borderTop: "1px solid rgba(207,207,207,0.49)", margin: 0 }} />
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
     </section>
   );
 }
