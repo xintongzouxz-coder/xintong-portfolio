@@ -77,13 +77,16 @@ const mono: CSSProperties = {
 export default function AboutIntro() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
-  const dirRef = useRef(1); // 1 = right, -1 = left
+  const dirRef = useRef(-1); // 1 = scroll right (content moves left), -1 = scroll left (content moves right)
   const lastTimeRef = useRef<number | null>(null);
   const rafRef = useRef<number>();
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+
+    // Start at rightmost position so first movement is left-to-right (content moves right)
+    el.scrollLeft = el.scrollWidth - el.clientWidth;
 
     const step = (now: number) => {
       const dt = lastTimeRef.current != null ? now - lastTimeRef.current : 0;
