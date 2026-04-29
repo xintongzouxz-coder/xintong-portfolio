@@ -127,3 +127,8 @@ html {
     --project-columns: 600px;
   }
 }
+
+/* Hide scrollbar in testimonials strip */
+.testimonials-scroll::-webkit-scrollbar {
+  display: none;
+}

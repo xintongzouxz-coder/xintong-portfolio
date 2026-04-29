@@ -91,7 +91,7 @@ export default function AboutIntro() {
 
       if (!pausedRef.current && dt > 0) {
         const maxScroll = el.scrollWidth - el.clientWidth;
-        const speed = maxScroll / 5000; // full traverse in 5000ms
+        const speed = maxScroll / 14000; // full traverse in 14000ms
         el.scrollLeft += dirRef.current * speed * dt;
         if (el.scrollLeft >= maxScroll - 1) {
           el.scrollLeft = maxScroll;
@@ -341,7 +341,8 @@ export default function AboutIntro() {
         {/* paddingTop/Bottom give room for shadow (Y=20, blur=40 → needs 60px below, 20px above) */}
         <div
           ref={scrollRef}
-          style={{ overflowX: "auto", paddingLeft: 130, paddingRight: 130, paddingTop: 20, paddingBottom: 60 }}
+          className="testimonials-scroll"
+          style={{ overflowX: "auto", paddingLeft: 130, paddingRight: 130, paddingTop: 20, paddingBottom: 60, scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; lastTimeRef.current = null; }}
         >
