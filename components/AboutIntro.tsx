@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
 
 const BIO = [
@@ -72,6 +75,40 @@ const mono: CSSProperties = {
 };
 
 export default function AboutIntro() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const dirRef = useRef(1); // 1 = right, -1 = left
+  const lastTimeRef = useRef<number | null>(null);
+  const rafRef = useRef<number>();
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const step = (now: number) => {
+      const dt = lastTimeRef.current != null ? now - lastTimeRef.current : 0;
+      lastTimeRef.current = now;
+
+      if (!pausedRef.current && dt > 0) {
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        const speed = maxScroll / 5000; // full traverse in 5000ms
+        el.scrollLeft += dirRef.current * speed * dt;
+        if (el.scrollLeft >= maxScroll - 1) {
+          el.scrollLeft = maxScroll;
+          dirRef.current = -1;
+        } else if (el.scrollLeft <= 1) {
+          el.scrollLeft = 0;
+          dirRef.current = 1;
+        }
+      }
+
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, []);
+
   return (
     <section
       id="about"
@@ -301,7 +338,13 @@ export default function AboutIntro() {
       {/* ── TESTIMONIALS ── */}
       {/* Negative margin to break out of section's 130px side padding for scroll */}
       <div style={{ marginTop: 80, marginLeft: -130, marginRight: -130 }}>
-        <div style={{ overflowX: "auto", paddingLeft: 130, paddingRight: 130, paddingBottom: 8 }}>
+        {/* paddingTop/Bottom give room for shadow (Y=20, blur=40 → needs 60px below, 20px above) */}
+        <div
+          ref={scrollRef}
+          style={{ overflowX: "auto", paddingLeft: 130, paddingRight: 130, paddingTop: 20, paddingBottom: 60 }}
+          onMouseEnter={() => { pausedRef.current = true; }}
+          onMouseLeave={() => { pausedRef.current = false; lastTimeRef.current = null; }}
+        >
           <div style={{ display: "flex", gap: 40, width: "max-content" }}>
             {TESTIMONIALS.map(({ quote, name }) => (
               <div
