@@ -21,13 +21,13 @@ export default function Navbar() {
     <nav
       style={{
         position: "fixed",
-        top: 14,
+        top: 50,
         left: "50%",
         transform: "translateX(-50%)",
         width: "calc(100% - 260px)",
         maxWidth: 1252,
         zIndex: 1000,
-        padding: "10px 20px",
+        padding: "32px",
         borderRadius: 20,
         display: "flex",
         alignItems: "center",
