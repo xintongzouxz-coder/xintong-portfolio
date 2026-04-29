@@ -37,58 +37,6 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* ── Hero ── */}
-      <section
-        style={{
-          position: "relative",
-          width: "100vw",
-          height: "100vh",
-          overflow: "hidden",
-          background: "#c8c8c8",
-        }}
-      >
-        {/* Layer 1: Spline — goldfish scene */}
-        <div style={{ position: "absolute", inset: 0, zIndex: 1 }}>
-          <SplineGoldfish />
-        </div>
-
-        {/* Layer 2: Scroll indicator */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 40,
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 8,
-            opacity: 0.35,
-            pointerEvents: "none",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              fontSize: 11,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#1a1a1a",
-            }}
-          >
-            Scroll
-          </span>
-          <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-            <rect x="1" y="1" width="10" height="18" rx="5" stroke="#1a1a1a" strokeWidth="1.2" />
-            <circle cx="6" cy="6" r="2" fill="#1a1a1a">
-              <animate attributeName="cy" values="6;12;6" dur="1.8s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite" />
-            </circle>
-          </svg>
-        </div>
-      </section>
-
       {/* ── Selected Work ── */}
       <section
         style={{
@@ -135,6 +83,21 @@ export default function Home() {
           {CASES.map((c) => (
             <CaseCard key={c.title} {...c} />
           ))}
+        </div>
+      </section>
+
+      {/* ── Goldfish ── */}
+      <section
+        style={{
+          position: "relative",
+          width: "100vw",
+          height: "100vh",
+          overflow: "hidden",
+          background: "#c8c8c8",
+        }}
+      >
+        <div style={{ position: "absolute", inset: 0, zIndex: 1 }}>
+          <SplineGoldfish />
         </div>
       </section>
 
