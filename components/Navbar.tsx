@@ -4,10 +4,29 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
-  { href: "/", label: "Project" },
+  { href: "/#work", label: "Project", scrollTo: "work" },
   { href: "/about", label: "About" },
   { href: "/resume.pdf", label: "Resume", external: true },
 ];
+
+function scrollEaseOut(targetId: string) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  const start = window.scrollY;
+  const end = el.getBoundingClientRect().top + start;
+  const duration = 950;
+  const startTime = performance.now();
+
+  function tick(now: number) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    // ease-in-out quint: slow start, fast middle, slow end
+    const eased = t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2;
+    window.scrollTo(0, start + (end - start) * eased);
+    if (t < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
 
 const NAV_REST = "#7a7a7a";
 // gray #7a7a7a (0% sat) → hover: brand hue 234° at 30% saturation = hsl(234, 30%, 48%)
@@ -81,7 +100,7 @@ export default function Navbar() {
 
       {/* Nav links */}
       <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-        {links.map(({ href, label, external }) => (
+        {links.map(({ href, label, external, scrollTo }) => (
           <Link
             key={label}
             href={href}
@@ -97,6 +116,7 @@ export default function Navbar() {
             }}
             onMouseEnter={(e) => setColor(e.currentTarget as HTMLElement, NAV_HOVER)}
             onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
+            onClick={scrollTo ? (e) => { e.preventDefault(); scrollEaseOut(scrollTo); } : undefined}
           >
             {label}
           </Link>
