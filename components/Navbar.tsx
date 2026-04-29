@@ -67,7 +67,7 @@ export default function Navbar() {
         style={{
           fontFamily: "var(--font-dm-sans)",
           fontWeight: 500,
-          fontSize: 24,
+          fontSize: 18,
           color: "#3445ff",
           textDecoration: "none",
           letterSpacing: "-0.01em",
@@ -90,7 +90,7 @@ export default function Navbar() {
             style={{
               fontFamily: "var(--font-dm-sans)",
               fontWeight: 500,
-              fontSize: 24,
+              fontSize: 18,
               color: NAV_REST,
               textDecoration: "none",
               transition: "color 0.18s",
@@ -112,7 +112,7 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="Email"
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="5" width="18" height="14" rx="2" />
             <polyline points="3,7 12,13 21,7" />
           </svg>
@@ -126,7 +126,7 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="LinkedIn"
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
             <rect x="2" y="9" width="4" height="12" />
             <circle cx="4" cy="4" r="2" />
