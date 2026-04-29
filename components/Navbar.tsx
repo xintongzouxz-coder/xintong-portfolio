@@ -92,7 +92,7 @@ export default function Navbar() {
           </svg>
         </a>
         <a
-          href="https://linkedin.com/in/your-profile"
+          href="https://www.linkedin.com/in/xintongzou"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: NAV_REST, display: "flex", transition: "color 0.18s" }}
