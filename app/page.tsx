@@ -188,8 +188,8 @@ export default function Home() {
             <img src="/images/brain.png" alt="Brain Fog" style={{ width: "100%", height: "auto", display: "block" }} />
           </div>
           {/* Barbican Plants */}
-          <div style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
-            <img src="/images/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "auto", display: "block" }} />
+          <div style={{ flex: 1, borderRadius: 20, overflow: "hidden", aspectRatio: "1200 / 684" }}>
+            <img src="/images/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
       </section>
