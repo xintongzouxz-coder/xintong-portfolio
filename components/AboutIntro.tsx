@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 
 const BIO = [
@@ -21,28 +21,65 @@ const JOURNEY = [
     company: "The Tavistock and Portman\nNHS Foundation Trust",
     role: "Informal Associate Researcher",
     fish: "/images/fish-1.png",
+    hoverFish: "/images/fish-1-hover.png",
     paddingTop: 0,
+    tooltip: {
+      timeline: "",
+      summary: "Delivered research reports to board members as a student researcher",
+      points: [
+        "Integrated role-playing theory into workshops with 20+ participants",
+        "Visualised research outcomes to improve stakeholder communication and presentation clarity",
+      ],
+    },
   },
   {
     years: "23-24",
     company: "Prorizon",
     role: "UX Researcher / UI Designer",
     fish: "/images/fish-2.png",
+    hoverFish: "/images/fish-2-hover.png",
     paddingTop: 62,
+    tooltip: {
+      timeline: "CONTRACT · NOV 2023 – APR 2024",
+      summary: "Grew from design intern into hybrid product designer and researcher",
+      points: [
+        "Conducted co-creative workshops and A/B testing with 20+ participants, generating actionable insights",
+        "Designed improvements that increased usage efficiency by 40%",
+      ],
+    },
   },
   {
     years: "23-24",
     company: "Defence Community Capital",
     role: "Founding Product Designer",
     fish: "/images/fish-3.png",
+    hoverFish: "/images/fish-3-hover.png",
     paddingTop: 102,
+    tooltip: {
+      timeline: "Full-Time · APR 2024 – DEC 2024",
+      summary: "First designer in the team, establishing product and marketing design foundations",
+      points: [
+        "Designed a landing page and two marketing campaigns, increasing user engagement by 13% and driving a 700+ increase in monthly website visitors",
+        "Delivered over 6 interactive prototypes to improve stakeholder approval ratings during project reviews",
+      ],
+    },
   },
   {
     years: "24-25",
     company: "Kody",
     role: "Product Designer",
     fish: "/images/fish-4.png",
+    hoverFish: "/images/fish-4-hover.png",
     paddingTop: 166,
+    tooltip: {
+      timeline: "Full-Time · JAN 2025 – DEC 2025",
+      summary: "Led end-to-end product delivery in a B2B fintech environment",
+      points: [
+        "Owned the redesign of Open Banking user flows, resulting in a 120% increase in adoption",
+        "Led design system consolidation across four platforms",
+        "Led the multi-currency conversion project on the Android terminal app, contributing to an estimated $1M+ in annualised revenue impact",
+      ],
+    },
   },
 ];
 
@@ -75,6 +112,7 @@ const mono: CSSProperties = {
 };
 
 export default function AboutIntro() {
+  const [hoveredJourney, setHoveredJourney] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const dirRef = useRef(-1); // 1 = scroll right (content moves left), -1 = scroll left (content moves right)
@@ -231,61 +269,109 @@ export default function AboutIntro() {
 
         {/* Fish row */}
         <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-          {JOURNEY.map(({ years, company, role, fish, paddingTop }) => (
-            <div key={years + company} style={{ width: 303, paddingTop, flexShrink: 0 }}>
+          {JOURNEY.map(({ years, company, role, fish, hoverFish, paddingTop, tooltip }) => {
+            const isHovered = hoveredJourney === company;
+            return (
+              <div key={years + company} style={{ width: 303, paddingTop, flexShrink: 0 }}>
 
-              {/* Fish image */}
-              <img
-                src={fish}
-                alt={company}
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
-
-              {/* Text row */}
-              <div style={{ marginTop: 4, display: "flex", gap: 16, alignItems: "flex-start" }}>
-                {/* Year */}
-                <span
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: 16,
-                    fontWeight: 400,
-                    color: "#7A7A7A",
-                    flexShrink: 0,
-                    lineHeight: 1.4,
-                  }}
+                {/* Fish image + tooltip wrapper */}
+                <div
+                  style={{ position: "relative" }}
+                  onMouseEnter={() => setHoveredJourney(company)}
+                  onMouseLeave={() => setHoveredJourney(null)}
                 >
-                  {years}
-                </span>
+                  <img
+                    src={isHovered ? hoverFish : fish}
+                    alt={company}
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  />
 
-                {/* Company + role */}
-                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: 18,
-                      fontWeight: 400,
-                      color: "#4F4F4F",
-                      lineHeight: 1.3,
-                      whiteSpace: "pre-line",
-                    }}
-                  >
-                    {company}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: 15,
-                      fontWeight: 400,
-                      color: "#4F4F4F",
-                    }}
-                  >
-                    {role}
-                  </span>
+                  {/* Tooltip */}
+                  {isHovered && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "calc(100% + 12px)",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        width: 330,
+                        padding: 16,
+                        borderRadius: 16,
+                        background: "rgba(255,255,255,0.9)",
+                        boxShadow: "20px 20px 40px 0px rgba(212,212,212,0.25)",
+                        border: "1px solid rgba(224,224,224,0.70)",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 12,
+                        zIndex: 10,
+                      }}
+                    >
+                      {tooltip.timeline && (
+                        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 400, color: "#4F4F4F" }}>
+                          {tooltip.timeline}
+                        </span>
+                      )}
+                      <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, fontWeight: 400, color: "#4F4F4F", lineHeight: 1.4 }}>
+                        {tooltip.summary}
+                      </span>
+                      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                        {tooltip.points.map((point, i) => (
+                          <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#7A7A7A", flexShrink: 0, lineHeight: 1.5 }}>·</span>
+                            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 400, color: "#7A7A7A", lineHeight: 1.5 }}>
+                              {point}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
 
-            </div>
-          ))}
+                {/* Text row */}
+                <div style={{ marginTop: 4, display: "flex", gap: 16, alignItems: "flex-start" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-dm-sans)",
+                      fontSize: 16,
+                      fontWeight: 400,
+                      color: "#7A7A7A",
+                      flexShrink: 0,
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {years}
+                  </span>
+
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-dm-sans)",
+                        fontSize: 18,
+                        fontWeight: 400,
+                        color: "#4F4F4F",
+                        lineHeight: 1.3,
+                        whiteSpace: "pre-line",
+                      }}
+                    >
+                      {company}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-dm-sans)",
+                        fontSize: 15,
+                        fontWeight: 400,
+                        color: "#4F4F4F",
+                      }}
+                    >
+                      {role}
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
         </div>
 
       </div>
