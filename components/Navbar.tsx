@@ -80,7 +80,7 @@ export default function Navbar() {
       {/* Icons: email + LinkedIn */}
       <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
         <a
-          href="mailto:your@email.com"
+          href="mailto:xintongzou.xz@gmail.com"
           style={{ color: NAV_REST, display: "flex", transition: "color 0.18s" }}
           onMouseEnter={(e) => setColor(e.currentTarget as HTMLElement, NAV_HOVER)}
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
