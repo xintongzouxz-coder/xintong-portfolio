@@ -5,17 +5,17 @@ import { useState } from "react";
 import type { CSSProperties } from "react";
 
 const IMG = {
-  fileBack:     "https://www.figma.com/api/mcp/asset/dad6ddf5-b0cf-4ce2-b3d7-3cca066fdc7a",
-  fileFront:    "https://www.figma.com/api/mcp/asset/281f83ed-cee4-4a9c-8029-2ad277e006fd",
-  fileBack2:    "https://www.figma.com/api/mcp/asset/e8a30134-858e-4931-94dc-faa9ff0752a2",
-  fileFront2:   "https://www.figma.com/api/mcp/asset/68ab5327-22e0-4a36-9b3b-5168b3c041be",
-  prorizon:     "https://www.figma.com/api/mcp/asset/0dfa189a-b362-4701-9047-cdae89242ac5",
-  payByBank:    "https://www.figma.com/api/mcp/asset/c19d578e-6de6-4bfe-aa90-738c064a6e98",
-  designSystem: "https://www.figma.com/api/mcp/asset/8fd47608-dcf9-4fc0-92c3-1f4e5b9b223c",
-  profile:      "https://www.figma.com/api/mcp/asset/296dc1cd-d024-4f10-ac3b-d5ab3d959447",
-  barbican:     "https://www.figma.com/api/mcp/asset/34e0d3ba-d61e-4baa-847e-3271a4386ded",
-  goldfish:     "https://www.figma.com/api/mcp/asset/35678c32-d38f-4349-9e69-9f3bc45b7ecf",
-  brain:        "https://www.figma.com/api/mcp/asset/eff6b2e8-0bb4-4638-9064-62eaf91f1669",
+  fileBack:     "/images/file-back.png",
+  fileFront:    "/images/file-front.png",
+  fileBack2:    "/images/file-back-2.png",
+  fileFront2:   "/images/file-front-2.png",
+  prorizon:     "/images/prorizon.png",
+  payByBank:    "/images/pay-by-bank.png",
+  designSystem: "/images/design-system.png",
+  profile:      "/images/profile.jpg",
+  barbican:     "/images/barbican.png",
+  goldfish:     "/images/goldfish.png",
+  brain:        "/images/brain.png",
 };
 
 const stackGrid: CSSProperties = {
