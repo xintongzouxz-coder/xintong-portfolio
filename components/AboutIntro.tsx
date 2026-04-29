@@ -43,6 +43,25 @@ const JOURNEY = [
   },
 ];
 
+const TESTIMONIALS = [
+  {
+    quote: "Not the lesser of Xintong's achievements was her progression and emergence as a more self-determining and confident practitioner.\n\nXintong is a gifted, star researcher-analyst and much else.",
+    name: "Professor Eenasul Fateh",
+  },
+  {
+    quote: "Xintong stands out as the most exceptional Product and UX Designer I've worked with during my 3.5 years as a technology entrepreneur.\n\nShe seamlessly blends her advanced academic background with hands-on project experience to create impactful application prototypes, multi-channel marketing assets, and presentation decks.",
+    name: "Victor R. Morris",
+  },
+  {
+    quote: "What I value most is her way of collaborating. Xintong communicates with clarity, approaches feedback with the right level of openness, and consistently brings organisation to projects that begin with a lot of ambiguity.\n\nShe moves discussions forward, provides reasoning behind her decisions, and always keeps the end-user at the centre of the process.",
+    name: "Manuel Ng",
+  },
+  {
+    quote: "She has a strong ability to take feedback from different stakeholders, especially from the operational side, and translate it into clear, thoughtful design decisions.\n\nXintong listens carefully, asks the right questions and reflects feedback in a way that meaningfully improves the product.",
+    name: "Yu-Lin Huang",
+  },
+];
+
 const mono: CSSProperties = {
   fontFamily: "var(--font-dm-mono)",
   fontSize: 20,
@@ -276,6 +295,64 @@ export default function AboutIntro() {
             ))}
           </div>
 
+        </div>
+      </div>
+
+      {/* ── TESTIMONIALS ── */}
+      {/* Negative margin to break out of section's 130px side padding for scroll */}
+      <div style={{ marginTop: 80, marginLeft: -130, marginRight: -130 }}>
+        <div style={{ overflowX: "auto", paddingLeft: 130, paddingRight: 130, paddingBottom: 8 }}>
+          <div style={{ display: "flex", gap: 40, width: "max-content" }}>
+            {TESTIMONIALS.map(({ quote, name }) => (
+              <div
+                key={name}
+                style={{
+                  width: 448,
+                  flexShrink: 0,
+                  padding: 32,
+                  borderRadius: 16,
+                  border: "1px solid rgba(224,224,224,0.70)",
+                  boxShadow: "20px 20px 40px 0px rgba(212,212,212,0.25)",
+                  background: "#ffffff",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 16,
+                }}
+              >
+                {/* Quote paragraphs */}
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
+                  {quote.split("\n\n").map((para, i) => (
+                    <p
+                      key={i}
+                      style={{
+                        fontFamily: "var(--font-dm-sans)",
+                        fontSize: 16,
+                        fontWeight: 400,
+                        color: "#4F4F4F",
+                        margin: 0,
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
+                {/* Name */}
+                <p
+                  style={{
+                    fontFamily: "var(--font-dm-sans)",
+                    fontSize: 16,
+                    fontWeight: 400,
+                    color: "#7A7A7A",
+                    margin: 0,
+                    textAlign: "right",
+                  }}
+                >
+                  {name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
