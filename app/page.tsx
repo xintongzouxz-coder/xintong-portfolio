@@ -181,28 +181,16 @@ export default function Home() {
           <SplineGoldfish />
         </div>
 
-        {/* Project cards — two side by side, placeholders until images provided */}
+        {/* Project cards — two side by side */}
         <div style={{ display: "flex", gap: 40, alignItems: "flex-start" }}>
           {/* Brain Fog */}
-          <div
-            style={{
-              flex: 1,
-              borderRadius: 20,
-              overflow: "hidden",
-              background: "#D9D9D9",
-              aspectRatio: "16 / 10",
-            }}
-          />
+          <div style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
+            <img src="/images/brain.png" alt="Brain Fog" style={{ width: "100%", height: "auto", display: "block" }} />
+          </div>
           {/* Barbican Plants */}
-          <div
-            style={{
-              flex: 1,
-              borderRadius: 20,
-              overflow: "hidden",
-              background: "#D9D9D9",
-              aspectRatio: "16 / 10",
-            }}
-          />
+          <div style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
+            <img src="/images/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "auto", display: "block" }} />
+          </div>
         </div>
       </section>
 
