@@ -96,10 +96,10 @@ export default function AboutIntro() {
         const maxScroll = el.scrollWidth - el.clientWidth;
         const speed = maxScroll / 14000; // full traverse in 14000ms
         el.scrollLeft += dirRef.current * speed * dt;
-        if (el.scrollLeft >= maxScroll - 1) {
+        if (dirRef.current === 1 && el.scrollLeft >= maxScroll - 1) {
           el.scrollLeft = maxScroll;
           dirRef.current = -1;
-        } else if (el.scrollLeft <= 1) {
+        } else if (dirRef.current === -1 && el.scrollLeft <= 1) {
           el.scrollLeft = 0;
           dirRef.current = 1;
         }
