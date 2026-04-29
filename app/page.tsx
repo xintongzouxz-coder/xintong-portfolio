@@ -126,6 +126,7 @@ export default function Home() {
             display: "grid",
             gridTemplateColumns: "var(--project-columns)",
             gap: 60,
+            justifyContent: "center",
           }}
         >
           {CASES.map((c) => (
