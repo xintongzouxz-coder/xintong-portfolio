@@ -129,10 +129,11 @@ export default function AboutIntro() {
       {/* ── Intro row: photo + bio + education ── */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: 60, alignItems: "flex-end", justifyContent: "center" }}>
 
-        {/* Photo — fill width, hug height */}
+        {/* Photo — fill width, stretch to match bio text height */}
         <div
           style={{
             flex: 1,
+            alignSelf: "stretch",
             borderRadius: 20,
             overflow: "hidden",
             background: "#D9D9D9",
@@ -141,7 +142,7 @@ export default function AboutIntro() {
           <img
             src="/images/about-photo.jpg"
             alt="Xintong Zou"
-            style={{ width: "100%", height: "auto", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
         </div>
 
