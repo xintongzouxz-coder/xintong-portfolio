@@ -100,8 +100,11 @@ export default function Home() {
       {/* ── Project ──────────────────────────────────────────────────────────── */}
       <section
         id="work"
-        className="project-section"
-        style={{ background: "var(--bg)" }}
+        style={{
+          background: "var(--bg)",
+          padding: "100px var(--project-padding-x) 120px",
+          boxSizing: "border-box",
+        }}
       >
         <p
           style={{
@@ -118,7 +121,13 @@ export default function Home() {
           PROJECT
         </p>
 
-        <div className="project-grid">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "var(--project-columns)",
+            gap: 60,
+          }}
+        >
           {CASES.map((c) => (
             <CaseCard key={c.title} {...c} />
           ))}

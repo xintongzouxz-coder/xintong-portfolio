@@ -116,23 +116,14 @@ html {
 }
 
 /* Project section responsive */
-.project-section {
-  padding: 100px 130px 120px;
-  box-sizing: border-box;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+:root {
+  --project-padding-x: 130px;
+  --project-columns: 1fr 1fr;
 }
 
 @media (max-width: 1024px) {
-  .project-section {
-    padding: 80px 60px 120px;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr;
+  :root {
+    --project-padding-x: 60px;
+    --project-columns: 1fr;
   }
 }
