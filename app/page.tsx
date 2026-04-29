@@ -140,18 +140,69 @@ export default function Home() {
       {/* ── About Intro ──────────────────────────────────────────────────────── */}
       <AboutIntro />
 
-      {/* ── Goldfish ─────────────────────────────────────────────────────────── */}
+      {/* ── Other ────────────────────────────────────────────────────────────── */}
       <section
+        id="other"
         style={{
-          position: "relative",
-          width: "100vw",
-          height: "100vh",
-          overflow: "hidden",
-          background: "#c8c8c8",
+          background: "var(--bg)",
+          padding: "120px 124px",
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          gap: 80,
         }}
       >
-        <div style={{ position: "absolute", inset: 0, zIndex: 1 }}>
+        {/* Title */}
+        <p
+          style={{
+            fontFamily: "var(--font-dm-mono)",
+            fontSize: 20,
+            fontWeight: 400,
+            letterSpacing: "0.08em",
+            color: "#747474",
+            margin: 0,
+            textAlign: "center",
+          }}
+        >
+          OTHER
+        </p>
+
+        {/* Goldfish — width fill, height 520px */}
+        <div
+          style={{
+            width: "100%",
+            height: 520,
+            borderRadius: 20,
+            overflow: "hidden",
+            position: "relative",
+            background: "#c8c8c8",
+          }}
+        >
           <SplineGoldfish />
+        </div>
+
+        {/* Project cards — two side by side, placeholders until images provided */}
+        <div style={{ display: "flex", gap: 40, alignItems: "flex-start" }}>
+          {/* Brain Fog */}
+          <div
+            style={{
+              flex: 1,
+              borderRadius: 20,
+              overflow: "hidden",
+              background: "#D9D9D9",
+              aspectRatio: "16 / 10",
+            }}
+          />
+          {/* Barbican Plants */}
+          <div
+            style={{
+              flex: 1,
+              borderRadius: 20,
+              overflow: "hidden",
+              background: "#D9D9D9",
+              aspectRatio: "16 / 10",
+            }}
+          />
         </div>
       </section>
 
