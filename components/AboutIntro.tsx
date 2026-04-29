@@ -71,6 +71,7 @@ const JOURNEY = [
     fish: "/images/fish-4.png",
     hoverFish: "/images/fish-4-hover.png",
     paddingTop: 166,
+    tooltipSide: "left" as const,
     tooltip: {
       timeline: "Full-Time · JAN 2025 – DEC 2025",
       summary: "Led end-to-end product delivery in a B2B fintech environment",
@@ -269,7 +270,7 @@ export default function AboutIntro() {
 
         {/* Fish row */}
         <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-          {JOURNEY.map(({ years, company, role, fish, hoverFish, paddingTop, tooltip }) => {
+          {JOURNEY.map(({ years, company, role, fish, hoverFish, paddingTop, tooltip, tooltipSide }) => {
             const isHovered = hoveredJourney === company;
             return (
               <div key={years + company} style={{ width: 303, paddingTop, flexShrink: 0 }}>
@@ -291,7 +292,9 @@ export default function AboutIntro() {
                     <div
                       style={{
                         position: "absolute",
-                        left: "calc(100% + 12px)",
+                        ...(tooltipSide === "left"
+                          ? { right: "calc(100% + 12px)" }
+                          : { left: "calc(100% + 12px)" }),
                         top: "50%",
                         transform: "translateY(-50%)",
                         width: 330,
