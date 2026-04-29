@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { href: "/", label: "Project" },
@@ -17,6 +18,23 @@ function setColor(el: HTMLElement, color: string) {
 }
 
 export default function Navbar() {
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < lastScrollY.current || y < 50) {
+        setVisible(true);
+      } else if (y > lastScrollY.current) {
+        setVisible(false);
+      }
+      lastScrollY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <nav
       style={{
@@ -38,6 +56,8 @@ export default function Navbar() {
         border: "1px solid rgba(255,255,255,0.5)",
         boxShadow:
           "0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.15)",
+        transform: visible ? "translateY(0)" : "translateY(calc(-100% - 24px))",
+        transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       {/* Logo */}
