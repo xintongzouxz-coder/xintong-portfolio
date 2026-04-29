@@ -57,8 +57,8 @@ export default function Home() {
           background: "#fafafa",
           paddingTop: 160,
           paddingBottom: 60,
-          paddingLeft: 130,
-          paddingRight: 130,
+          paddingLeft: 124,
+          paddingRight: 124,
           display: "flex",
           flexDirection: "column",
           gap: 60,
@@ -124,10 +124,11 @@ export default function Home() {
 
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "var(--project-columns)",
+            display: "flex",
+            flexWrap: "wrap",
             gap: 60,
             justifyContent: "center",
+            alignItems: "flex-start",
           }}
         >
           {CASES.map((c) => (

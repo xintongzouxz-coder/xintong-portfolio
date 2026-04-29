@@ -114,7 +114,7 @@ export default function AboutIntro() {
       id="about"
       style={{
         background: "var(--bg)",
-        padding: "100px 130px",
+        padding: "100px 124px",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
@@ -337,12 +337,12 @@ export default function AboutIntro() {
 
       {/* ── TESTIMONIALS ── */}
       {/* Negative margin to break out of section's 130px side padding for scroll */}
-      <div style={{ marginTop: 80, marginLeft: -130, marginRight: -130 }}>
+      <div style={{ marginTop: 80, marginLeft: -124, marginRight: -124 }}>
         {/* paddingTop/Bottom give room for shadow (Y=20, blur=40 → needs 60px below, 20px above) */}
         <div
           ref={scrollRef}
           className="testimonials-scroll"
-          style={{ overflowX: "auto", paddingLeft: 130, paddingRight: 130, paddingTop: 20, paddingBottom: 60, scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
+          style={{ overflowX: "auto", paddingLeft: 124, paddingRight: 124, paddingTop: 20, paddingBottom: 60, scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; lastTimeRef.current = null; }}
         >

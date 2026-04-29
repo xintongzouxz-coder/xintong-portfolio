@@ -117,14 +117,12 @@ html {
 
 /* Project section responsive */
 :root {
-  --project-padding-x: 130px;
-  --project-columns: repeat(2, 600px);
+  --project-padding-x: 124px;
 }
 
 @media (max-width: 1024px) {
   :root {
     --project-padding-x: 60px;
-    --project-columns: 600px;
   }
 }
 

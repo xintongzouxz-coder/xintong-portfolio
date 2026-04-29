@@ -10,6 +10,8 @@ interface CaseCardProps {
 }
 
 export default function CaseCard({ href, image, tags, title, year, description }: CaseCardProps) {
+  const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
+
   const content = (
     <div>
       {/* Image — 600×425 aspect ratio, gray fill when no image */}
@@ -96,10 +98,10 @@ export default function CaseCard({ href, image, tags, title, year, description }
     </div>
   );
 
-  if (!href || href === "#") return content;
+  if (!href || href === "#") return <div style={fillStyle}>{content}</div>;
 
   return (
-    <Link href={href} style={{ textDecoration: "none", display: "block" }}>
+    <Link href={href} style={{ textDecoration: "none", display: "block", ...fillStyle }}>
       {content}
     </Link>
   );
