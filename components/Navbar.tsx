@@ -41,7 +41,6 @@ export default function Navbar() {
         position: "fixed",
         top: 16,
         left: "50%",
-        transform: "translateX(-50%)",
         width: "calc(100% - 260px)",
         maxWidth: 1252,
         zIndex: 1000,
@@ -56,7 +55,9 @@ export default function Navbar() {
         border: "1px solid rgba(255,255,255,0.5)",
         boxShadow:
           "0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(255,255,255,0.15)",
-        transform: visible ? "translateY(0)" : "translateY(calc(-100% - 24px))",
+        transform: visible
+          ? "translateX(-50%) translateY(0)"
+          : "translateX(-50%) translateY(calc(-100% - 24px))",
         transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
