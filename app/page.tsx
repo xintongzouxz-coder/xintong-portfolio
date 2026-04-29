@@ -102,7 +102,7 @@ export default function Home() {
         id="work"
         style={{
           background: "var(--bg)",
-          padding: "100px 130px",
+          padding: "100px 130px 120px",
           boxSizing: "border-box",
         }}
       >
