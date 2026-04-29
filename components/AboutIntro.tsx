@@ -118,7 +118,7 @@ export default function AboutIntro() {
   const pausedRef = useRef(false);
   const dirRef = useRef(-1); // 1 = scroll right (content moves left), -1 = scroll left (content moves right)
   const lastTimeRef = useRef<number | null>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const el = scrollRef.current;
