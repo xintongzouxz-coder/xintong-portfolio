@@ -41,7 +41,7 @@ export default function Navbar() {
         style={{
           fontFamily: "var(--font-dm-sans)",
           fontWeight: 500,
-          fontSize: 20,
+          fontSize: 24,
           color: "#3445ff",
           textDecoration: "none",
           letterSpacing: "-0.01em",
@@ -63,8 +63,8 @@ export default function Navbar() {
             rel={external ? "noopener noreferrer" : undefined}
             style={{
               fontFamily: "var(--font-dm-sans)",
-              fontWeight: 400,
-              fontSize: 17,
+              fontWeight: 500,
+              fontSize: 24,
               color: NAV_REST,
               textDecoration: "none",
               transition: "color 0.18s",
@@ -78,7 +78,7 @@ export default function Navbar() {
       </div>
 
       {/* Icons: email + LinkedIn */}
-      <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
         <a
           href="mailto:xintongzou.xz@gmail.com"
           style={{ color: NAV_REST, display: "flex", transition: "color 0.18s" }}
@@ -86,9 +86,9 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="Email"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <polyline points="3,7 12,13 21,7" />
+          <svg width="34" height="28" viewBox="0 0 34 28" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="1" y="1" width="32" height="26" rx="3" />
+            <polyline points="1,4 17,16 33,4" />
           </svg>
         </a>
         <a
@@ -100,10 +100,10 @@ export default function Navbar() {
           onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
           aria-label="LinkedIn"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-            <rect x="2" y="9" width="4" height="12" />
-            <circle cx="4" cy="4" r="2" />
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+            <path d="M21 10a8 8 0 0 1 8 8v10h-5v-10a3 3 0 0 0-6 0v10h-5v-10a8 8 0 0 1 8-8z" />
+            <rect x="2" y="11" width="5" height="17" />
+            <circle cx="4.5" cy="4.5" r="3" />
           </svg>
         </a>
       </div>
