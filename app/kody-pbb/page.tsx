@@ -659,7 +659,7 @@ export default function KodyPBB() {
                 {insights.map(({ icon, title, body }) => (
                   <div key={title} className="kody-insight-row">
                     <div className="kody-insight-icon-tile">
-                      <img src={icon} alt={title} style={{ width: 33, height: 33, objectFit: "contain" }} />
+                      <img src={icon} alt={title} style={{ width: 40, height: "auto" }} />
                       <p
                         style={{
                           fontFamily: "var(--font-dm-sans)",
