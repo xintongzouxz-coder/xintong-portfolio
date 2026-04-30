@@ -679,10 +679,10 @@ export default function KodyPBB() {
                     <p
                       style={{
                         fontFamily: "var(--font-dm-sans)",
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: 500,
-                        lineHeight: 1.6,
-                        color: "#1a1a1a",
+                        lineHeight: 1.75,
+                        color: "rgba(26,26,26,0.72)",
                         margin: 0,
                       }}
                     >
