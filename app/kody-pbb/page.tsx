@@ -274,15 +274,15 @@ export default function KodyPBB() {
         }
         .kody-insight-icon-tile {
           flex-shrink: 0;
-          width: 180px;
+          width: 108px;
           background: #ededed;
-          border-radius: 20px;
-          padding: 20px 10px;
+          border-radius: 12px;
+          padding: 12px 6px;
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 7px;
           align-items: center;
-          box-shadow: 8px 8px 10px 0px rgba(196,196,196,0.12);
+          box-shadow: 5px 5px 6px 0px rgba(196,196,196,0.12);
         }
 
         /* ── Sidebar + content layout ── */
@@ -661,7 +661,7 @@ export default function KodyPBB() {
                 {insights.map(({ icon, title, body }) => (
                   <div key={title} className="kody-insight-row">
                     <div className="kody-insight-icon-tile">
-                      <img src={icon} alt={title} style={{ width: 55, height: 55, objectFit: "contain" }} />
+                      <img src={icon} alt={title} style={{ width: 33, height: 33, objectFit: "contain" }} />
                       <p
                         style={{
                           fontFamily: "var(--font-dm-sans)",
