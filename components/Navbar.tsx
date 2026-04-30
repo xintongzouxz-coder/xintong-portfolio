@@ -94,7 +94,7 @@ export default function Navbar() {
         }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.7"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; }}
-        onClick={(e) => { e.preventDefault(); scrollEaseOut("hero"); }}
+        onClick={(e) => { if (document.getElementById("hero")) { e.preventDefault(); scrollEaseOut("hero"); } }}
       >
         Xintong Zou
       </Link>
@@ -117,7 +117,7 @@ export default function Navbar() {
             }}
             onMouseEnter={(e) => setColor(e.currentTarget as HTMLElement, NAV_HOVER)}
             onMouseLeave={(e) => setColor(e.currentTarget as HTMLElement, NAV_REST)}
-            onClick={scrollTo ? (e) => { e.preventDefault(); scrollEaseOut(scrollTo); } : undefined}
+            onClick={scrollTo ? (e) => { if (document.getElementById(scrollTo)) { e.preventDefault(); scrollEaseOut(scrollTo); } } : undefined}
           >
             {label}
           </Link>
