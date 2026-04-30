@@ -1,20 +1,20 @@
 import Navbar from "@/components/Navbar";
 import TableOfContents from "@/components/TableOfContents";
 
-// ── Figma icon assets ─────────────────────────────────────────────────────────
-const icCardIcon   = "https://www.figma.com/api/mcp/asset/2adcb1e6-5493-4ddf-a8ed-0a00a9acfd07";
-const icSpeedFast  = "https://www.figma.com/api/mcp/asset/ad9e374d-b068-4340-ba76-b65dfb4e355b";
-const icSignalGood = "https://www.figma.com/api/mcp/asset/5891cbdb-6983-494f-a43a-c04d4c0b820d";
-const icBrainLow   = "https://www.figma.com/api/mcp/asset/2a5a1ea8-9bff-4dc7-a374-a9abf0f52db8";
-const icBankIcon   = "https://www.figma.com/api/mcp/asset/13e29b2f-f110-4eef-8daa-93a962e436cd";
-const icSpeedSlow  = "https://www.figma.com/api/mcp/asset/5cd68b7e-e8f8-463a-867f-ce080d8d8087";
-const icSignalBad  = "https://www.figma.com/api/mcp/asset/05e7c2f3-e783-4d24-a1bd-1af9f9a9cdec";
-const icQuestion   = "https://www.figma.com/api/mcp/asset/dc248b28-0cd8-42a4-becf-70684c3e1005";
+// ── Icon assets (local, in /public/icons/kody-pbb/) ──────────────────────────
+const icCardIcon   = "/icons/kody-pbb/ic-card.png";
+const icSpeedFast  = "/icons/kody-pbb/ic-speed-fast.png";
+const icSignalGood = "/icons/kody-pbb/ic-signal-good.png";
+const icBrainLow   = "/icons/kody-pbb/ic-brain-low.png";
+const icBankIcon   = "/icons/kody-pbb/ic-bank.png";
+const icSpeedSlow  = "/icons/kody-pbb/ic-speed-slow.png";
+const icSignalBad  = "/icons/kody-pbb/ic-signal-bad.png";
+const icQuestion   = "/icons/kody-pbb/ic-question.png";
 
-const icConnectivity = "https://www.figma.com/api/mcp/asset/f16ef691-132b-4078-874f-4f9dc538b320";
-const icFriction     = "https://www.figma.com/api/mcp/asset/ef86d860-96eb-440b-b69e-ce75a8cb07aa";
-const icRefund       = "https://www.figma.com/api/mcp/asset/5d5612d2-6af2-416d-b4b9-f3f7d581a62f";
-const icComms        = "https://www.figma.com/api/mcp/asset/827a78f2-d2e3-4a62-a41e-624ef5ed6005";
+const icConnectivity = "/icons/kody-pbb/ic-connectivity.png";
+const icFriction     = "/icons/kody-pbb/ic-friction.png";
+const icRefund       = "/icons/kody-pbb/ic-refund.png";
+const icComms        = "/icons/kody-pbb/ic-comms.png";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 
