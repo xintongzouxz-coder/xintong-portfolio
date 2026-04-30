@@ -68,13 +68,13 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 500,
   letterSpacing: "0.1em",
   textTransform: "uppercase" as const,
-  color: "#E8561A",
+  color: "#3445ff",
   marginBottom: 14,
   display: "block",
 };
 
 const blockquoteStyle: React.CSSProperties = {
-  borderLeft: "3px solid #E8561A",
+  borderLeft: "3px solid #3445ff",
   paddingLeft: 24,
   margin: "40px 0",
 };
@@ -308,7 +308,7 @@ export default function KodyPBB() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section style={{ background: "#F5F1EB", paddingTop: 120 }}>
+      <section style={{ background: "#fafafa", paddingTop: 120 }}>
         <div style={contentWidth} className="kody-content-width">
           <span style={labelStyle}>Kody · 2025 · B2B2C · Open Banking</span>
 
@@ -384,7 +384,7 @@ export default function KodyPBB() {
       </section>
 
       {/* ── A cold start with a clear target ── */}
-      <section style={{ background: "#F5F1EB", paddingBottom: sectionGap }}>
+      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth} className="kody-content-width">
           {divider}
           <h2 style={h2Style}>A cold start with a clear target</h2>
@@ -438,7 +438,7 @@ export default function KodyPBB() {
                   key={i}
                   style={{ display: "flex", gap: 14, marginBottom: i === 1 ? 0 : 14, alignItems: "flex-start" }}
                 >
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "#E8561A", minWidth: 20, lineHeight: 1.6 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "#3445ff", minWidth: 20, lineHeight: 1.6 }}>
                     {i + 1}.
                   </span>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
@@ -501,7 +501,7 @@ export default function KodyPBB() {
       </section>
 
       {/* ── Learn why adoption stalled ── */}
-      <section style={{ background: "#F5F1EB", paddingBottom: sectionGap }}>
+      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth} className="kody-content-width">
           {divider}
           <h2 style={h2Style}>Learn why adoption stalled</h2>
@@ -553,7 +553,7 @@ export default function KodyPBB() {
       </section>
 
       {/* ── Why would I ever… ── */}
-      <section style={{ background: "#F5F1EB", paddingBottom: sectionGap }}>
+      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth} className="kody-content-width">
           {divider}
 
@@ -675,8 +675,8 @@ export default function KodyPBB() {
           {/* Summary */}
           <div
             style={{
-              background: "rgba(232,86,26,0.06)",
-              border: "1px solid rgba(232,86,26,0.15)",
+              background: "rgba(52,69,255,0.06)",
+              border: "1px solid rgba(52,69,255,0.15)",
               borderRadius: 14,
               padding: "28px 36px",
               width: "100%",
@@ -693,7 +693,7 @@ export default function KodyPBB() {
       </section>
 
       {/* ── Where Pay by Bank can actually win ── */}
-      <section style={{ background: "#F5F1EB", paddingBottom: sectionGap }}>
+      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth} className="kody-content-width">
           {divider}
           <h2 style={h2Style}>Where Pay by Bank can actually win</h2>
@@ -745,7 +745,7 @@ export default function KodyPBB() {
               "Serving repeat local customers (a supporting signal)",
             ].map((item) => (
               <div key={item} style={{ display: "flex", gap: 12, marginBottom: 14, alignItems: "flex-start" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#E8561A", marginTop: 8, flexShrink: 0 }} />
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#3445ff", marginTop: 8, flexShrink: 0 }} />
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a" }}>
                   {item}
                 </span>
@@ -799,7 +799,7 @@ export default function KodyPBB() {
       </section>
 
       {/* ── Turning the pivot into a working flow ── */}
-      <section style={{ background: "#F5F1EB", paddingBottom: sectionGap }}>
+      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth} className="kody-content-width">
           {divider}
           <h2 style={h2Style}>Turning the pivot into a working flow</h2>
@@ -807,7 +807,7 @@ export default function KodyPBB() {
           {/* ── 01 ── */}
           <div style={{ marginBottom: 80 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#E8561A", background: "rgba(232,86,26,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
                 01
               </span>
               <h3 style={{ ...h3Style, margin: 0 }}>Pay by Link as the primary growth channel</h3>
@@ -837,7 +837,7 @@ export default function KodyPBB() {
                 "Clear messaging explains the benefits",
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: 14, marginBottom: i === 2 ? 0 : 14, alignItems: "flex-start" }}>
-                  <span style={{ width: 22, height: 22, borderRadius: "50%", background: "#E8561A", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 600, color: "#fff", flexShrink: 0, marginTop: 2 }}>
+                  <span style={{ width: 22, height: 22, borderRadius: "50%", background: "#3445ff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 600, color: "#fff", flexShrink: 0, marginTop: 2 }}>
                     {i + 1}
                   </span>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
@@ -893,7 +893,7 @@ export default function KodyPBB() {
           {/* ── 02 ── */}
           <div style={{ marginBottom: 80 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#E8561A", background: "rgba(232,86,26,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
                 02
               </span>
               <h3 style={{ ...h3Style, margin: 0 }}>Deprioritise PBB on terminal</h3>
@@ -907,7 +907,7 @@ export default function KodyPBB() {
           {/* ── 03 ── */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#E8561A", background: "rgba(232,86,26,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
                 03
               </span>
               <h3 style={{ ...h3Style, margin: 0 }}>Drive adoption with clear value messaging</h3>
@@ -921,7 +921,7 @@ export default function KodyPBB() {
       </section>
 
       {/* ── Results ── */}
-      <section style={{ background: "#F5F1EB", paddingBottom: sectionGap }}>
+      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth} className="kody-content-width">
           {divider}
           <span style={labelStyle}>Results</span>
@@ -929,7 +929,7 @@ export default function KodyPBB() {
 
           <div className="kody-two-col" style={{ marginBottom: 64 }}>
             <div style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px)", borderRadius: 16, border: "1px solid rgba(255,255,255,0.7)", padding: "36px 40px" }}>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 700, color: "#E8561A", margin: "0 0 8px", lineHeight: 1 }}>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 700, color: "#3445ff", margin: "0 0 8px", lineHeight: 1 }}>
                 120%
               </p>
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "rgba(26,26,26,0.65)", margin: 0, lineHeight: 1.5 }}>
@@ -954,7 +954,7 @@ export default function KodyPBB() {
       {/* ── Footer ── */}
       <footer
         style={{
-          background: "#F5F1EB",
+          background: "#fafafa",
           borderTop: "1px solid rgba(26,26,26,0.08)",
           padding: "32px 60px",
           display: "flex",
