@@ -152,17 +152,17 @@ function MetricRow({
     <div
       style={{
         background: "#fff",
-        borderRadius: 12,
-        padding: "20px 14px",
+        borderRadius: 7,
+        padding: "12px 8px",
         display: "flex",
         flexDirection: "column",
-        gap: 16,
+        gap: 10,
       }}
     >
       <p
         style={{
           fontFamily: "var(--font-dm-sans)",
-          fontSize: 18,
+          fontSize: 11,
           fontWeight: 500,
           color: "#1a1a1a",
           margin: 0,
@@ -170,13 +170,13 @@ function MetricRow({
       >
         {label}
       </p>
-      <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
         <div
           style={{
             flex: 1,
             background: "#d9d9d9",
             borderRadius: 100,
-            height: 18,
+            height: 11,
           }}
         >
           <div
@@ -188,7 +188,7 @@ function MetricRow({
             }}
           />
         </div>
-        <img src={icon} alt="" style={{ width: 24, height: 24, flexShrink: 0 }} />
+        <img src={icon} alt="" style={{ width: 14, height: 14, flexShrink: 0 }} />
       </div>
     </div>
   );
@@ -259,7 +259,7 @@ export default function KodyPBB() {
         .kody-compare-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 20px;
+          gap: 12px;
           margin-bottom: 56px;
         }
         @media (max-width: 768px) {
@@ -605,20 +605,20 @@ export default function KodyPBB() {
                 <div
                   style={{
                     background: "rgba(255,255,255,0.52)",
-                    borderRadius: 12,
-                    padding: "22px 30px",
+                    borderRadius: 7,
+                    padding: "13px 18px",
                     display: "flex",
                     flexDirection: "column",
-                    gap: 23,
+                    gap: 14,
                   }}
                 >
-                  <div style={{ display: "flex", gap: 20, alignItems: "center", padding: "0 14px" }}>
-                    <img src={icCardIcon} alt="Card" style={{ width: 44, height: 35, flexShrink: 0 }} />
+                  <div style={{ display: "flex", gap: 12, alignItems: "center", padding: "0 8px" }}>
+                    <img src={icCardIcon} alt="Card" style={{ width: 26, height: 21, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 20, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.2 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.2 }}>
                         CARD
                       </p>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
                         (Tap/Insert)
                       </p>
                     </div>
@@ -632,21 +632,21 @@ export default function KodyPBB() {
                 <div
                   style={{
                     background: "rgba(255,255,255,0.52)",
-                    borderRadius: 12,
-                    padding: "22px 30px",
+                    borderRadius: 7,
+                    padding: "13px 18px",
                     display: "flex",
                     flexDirection: "column",
-                    gap: 23,
+                    gap: 14,
                   }}
                 >
-                  <div style={{ display: "flex", gap: 20, alignItems: "center", padding: "0 14px" }}>
-                    <img src={icBankIcon} alt="Bank" style={{ width: 44, height: 35, flexShrink: 0 }} />
+                  <div style={{ display: "flex", gap: 12, alignItems: "center", padding: "0 8px" }}>
+                    <img src={icBankIcon} alt="Bank" style={{ width: 26, height: 21, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 20, fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
                         <span style={{ color: "#1a1a1a" }}>PBB </span>
                         <span style={{ color: "#ff0303" }}>TERMINAL</span>
                       </p>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
                         (Scan QR)
                       </p>
                     </div>
