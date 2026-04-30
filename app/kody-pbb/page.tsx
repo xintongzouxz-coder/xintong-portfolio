@@ -734,10 +734,6 @@ export default function KodyPBB() {
 
             <div
               style={{
-                background: "rgba(255,255,255,0.55)",
-                borderRadius: 16,
-                border: "1px solid rgba(180,180,180,0.6)",
-                boxShadow: "20px 20px 20px rgba(212,212,212,0.25)",
                 padding: "32px 36px",
                 marginBottom: 48,
                 width: "100%",
