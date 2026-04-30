@@ -275,14 +275,12 @@ export default function KodyPBB() {
         .kody-insight-icon-tile {
           flex-shrink: 0;
           width: 140px;
-          background: #ededed;
           border-radius: 12px;
           padding: 16px 12px;
           display: flex;
           flex-direction: column;
           gap: 10px;
           align-items: center;
-          box-shadow: 5px 5px 6px 0px rgba(196,196,196,0.12);
         }
 
         /* ── Sidebar + content layout ── */
