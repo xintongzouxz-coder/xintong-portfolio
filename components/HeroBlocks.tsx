@@ -121,22 +121,24 @@ export default function HeroBlocks() {
         onMouseLeave={() => setHovered(null)}
         onClick={() => scrollEaseOut("work")}
       >
-        <div style={rotStyle("left", -5)}>
+        <div style={rotStyle("left", -6.76)}>
           <div style={stackGrid}>
 
             {/* File back */}
             <div style={cell(0, 53.15)}>
               <div style={{ width: 364, height: 389, position: "relative" }}>
-                <img src={IMG.fileBack} alt="" style={{ position: "absolute", top: "-0.11%", right: 0, bottom: "-0.11%", left: "-0.12%", width: "100.12%", height: "100.22%", display: "block", maxWidth: "none" }} />
+                <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
+                  <img src={IMG.fileBack} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
+                </div>
               </div>
             </div>
 
-            {/* Design System — back z (2nd in DOM, rendered below Pay by Bank & Prorizon) */}
-            <div style={cell(1.24, 0)}>
+            {/* Prorizon — back z (2nd in DOM) */}
+            <div style={cell(40.67, 150.37)}>
               <div style={fly("left", -40)}>
-                <div style={{ transform: "rotate(-2.93deg)" }}>
-                  <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                    <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
+                <div style={{ transform: "rotate(5deg)" }}>
+                  <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                    <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
                   </div>
                 </div>
               </div>
@@ -153,12 +155,12 @@ export default function HeroBlocks() {
               </div>
             </div>
 
-            {/* Prorizon — front z (4th in DOM, rendered on top) */}
-            <div style={cell(40.67, 150.37)}>
+            {/* Design System — front z (4th in DOM, rendered on top) */}
+            <div style={cell(1.24, 0)}>
               <div style={fly("left", -120)}>
-                <div style={{ transform: "rotate(5deg)" }}>
-                  <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                    <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                <div style={{ transform: "rotate(-2.93deg)" }}>
+                  <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                    <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
                   </div>
                 </div>
               </div>
@@ -209,7 +211,9 @@ export default function HeroBlocks() {
             {/* File back */}
             <div style={cell(0.42, 53.58)}>
               <div style={{ width: 364, height: 389, position: "relative" }}>
-                <img src={IMG.fileBack2} alt="" style={{ position: "absolute", top: "-0.11%", right: 0, bottom: "-0.11%", left: "-0.12%", width: "100.12%", height: "100.22%", display: "block", maxWidth: "none" }} />
+                <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
+                  <img src={IMG.fileBack2} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
+                </div>
               </div>
             </div>
 
