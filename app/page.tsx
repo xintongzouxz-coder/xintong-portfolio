@@ -27,7 +27,7 @@ const CASES = [
       "Simplified design foundations by up to 75%, improved consistency across 4 products",
   },
   {
-    href: "#",
+    href: "/prorizon",
     image: undefined,
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
