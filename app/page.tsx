@@ -18,7 +18,7 @@ const CASES = [
       "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
   },
   {
-    href: "#",
+    href: "/design-system",
     image: undefined,
     tags: ["Design System", "AI-assisted"],
     title: "Rebuilding the Kody Design System",
