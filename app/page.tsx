@@ -36,7 +36,7 @@ const CASES = [
       "Redesigned a self-record health app for young athletes to enhance user engagement",
   },
   {
-    href: "#",
+    href: "/pitchme",
     image: undefined,
     tags: ["Workflow Optimisation", "AI-agent"],
     title: "PitchME",
