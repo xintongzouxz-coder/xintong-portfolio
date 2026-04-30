@@ -214,7 +214,7 @@ export default function KodyPBB() {
         .kody-two-col {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 20px;
+          gap: 32px;
         }
         @media (max-width: 768px) {
           .kody-two-col { grid-template-columns: 1fr; }
@@ -425,24 +425,24 @@ export default function KodyPBB() {
               above £40).
             </p>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+              I collaborated with PM to clarify the ultimate goal of this project
+              to tackle this 'cold start'.
+            </p>
+            <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
               However, after the first version launched in one and a half months,
               the numbers were flat. Adoption was low, and the data volume was too
               small to tell us why.
-            </p>
-            <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
-              I collaborated with PM to clarify the ultimate goal of this project
-              to tackle this 'cold start'.
             </p>
 
             <div className="kody-two-col" style={{ marginBottom: 64 }}>
               {/* Business requests */}
               <div
                 style={{
-                  background: "rgba(255,255,255,0.55)",
-                  backdropFilter: "blur(20px)",
+                  background: "#ffffff",
                   borderRadius: 16,
                   padding: "32px 36px",
-                  border: "1px solid rgba(255,255,255,0.7)",
+                  border: "1px solid rgba(180,180,180,0.6)",
+                  boxShadow: "20px 20px 20px rgba(212,212,212,0.25)",
                 }}
               >
                 <span
@@ -460,8 +460,8 @@ export default function KodyPBB() {
                   Business requests
                 </span>
                 {[
-                  "Add 64 more banks into this payment method.",
-                  "Achieve a 30% increase in adoption rate in this iteration.",
+                  { bold: "Add 64 more banks options", rest: " into this payment method." },
+                  { bold: "Achieve a 30% increase in adoption rate", rest: " in this iteration." },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -471,7 +471,7 @@ export default function KodyPBB() {
                       {i + 1}.
                     </span>
                     <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
-                      {item}
+                      <strong style={{ fontWeight: 700 }}>{item.bold}</strong>{item.rest}
                     </p>
                   </div>
                 ))}
@@ -480,11 +480,11 @@ export default function KodyPBB() {
               {/* Constraints */}
               <div
                 style={{
-                  background: "rgba(255,255,255,0.55)",
-                  backdropFilter: "blur(20px)",
+                  background: "#ffffff",
                   borderRadius: 16,
                   padding: "32px 36px",
-                  border: "1px solid rgba(255,255,255,0.7)",
+                  border: "1px solid rgba(180,180,180,0.6)",
+                  boxShadow: "20px 20px 20px rgba(212,212,212,0.25)",
                 }}
               >
                 <span
