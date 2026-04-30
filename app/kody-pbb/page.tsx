@@ -162,7 +162,7 @@ function MetricRow({
       <p
         style={{
           fontFamily: "var(--font-dm-sans)",
-          fontSize: 11,
+          fontSize: 16,
           fontWeight: 500,
           color: "#1a1a1a",
           margin: 0,
@@ -615,10 +615,10 @@ export default function KodyPBB() {
                   <div style={{ display: "flex", gap: 12, alignItems: "center", padding: "0 8px" }}>
                     <img src={icCardIcon} alt="Card" style={{ width: 26, height: 21, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.2 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 20, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.2 }}>
                         CARD
                       </p>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
                         (Tap/Insert)
                       </p>
                     </div>
@@ -642,11 +642,11 @@ export default function KodyPBB() {
                   <div style={{ display: "flex", gap: 12, alignItems: "center", padding: "0 8px" }}>
                     <img src={icBankIcon} alt="Bank" style={{ width: 26, height: 21, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 20, fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
                         <span style={{ color: "#1a1a1a" }}>PBB </span>
                         <span style={{ color: "#ff0303" }}>TERMINAL</span>
                       </p>
-                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 500, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
                         (Scan QR)
                       </p>
                     </div>
