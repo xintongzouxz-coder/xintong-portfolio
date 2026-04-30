@@ -2,19 +2,19 @@ import Navbar from "@/components/Navbar";
 import TableOfContents from "@/components/TableOfContents";
 
 // ── Icon assets (local, in /public/icons/kody-pbb/) ──────────────────────────
-const icCardIcon   = "/icons/kody-pbb/ic-card.png";
-const icSpeedFast  = "/icons/kody-pbb/ic-speed-fast.png";
-const icSignalGood = "/icons/kody-pbb/ic-signal-good.png";
-const icBrainLow   = "/icons/kody-pbb/ic-brain-low.png";
-const icBankIcon   = "/icons/kody-pbb/ic-bank.png";
-const icSpeedSlow  = "/icons/kody-pbb/ic-speed-slow.png";
-const icSignalBad  = "/icons/kody-pbb/ic-signal-bad.png";
-const icQuestion   = "/icons/kody-pbb/ic-question.png";
+const icCardIcon   = "/icons/kody-pbb/ic-card.svg";
+const icSpeedFast  = "/icons/kody-pbb/ic-speed-fast.svg";
+const icSignalGood = "/icons/kody-pbb/ic-signal-good.svg";
+const icBrainLow   = "/icons/kody-pbb/ic-brain-low.svg";
+const icBankIcon   = "/icons/kody-pbb/ic-bank.svg";
+const icSpeedSlow  = "/icons/kody-pbb/ic-speed-slow.svg";
+const icSignalBad  = "/icons/kody-pbb/ic-signal-bad.svg";
+const icQuestion   = "/icons/kody-pbb/ic-question.svg";
 
-const icConnectivity = "/icons/kody-pbb/ic-connectivity.png";
-const icFriction     = "/icons/kody-pbb/ic-friction.png";
-const icRefund       = "/icons/kody-pbb/ic-refund.png";
-const icComms        = "/icons/kody-pbb/ic-comms.png";
+const icConnectivity = "/icons/kody-pbb/ic-connectivity.svg";
+const icFriction     = "/icons/kody-pbb/ic-friction.svg";
+const icRefund       = "/icons/kody-pbb/ic-refund.svg";
+const icComms        = "/icons/kody-pbb/ic-comms.svg";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 
