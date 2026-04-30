@@ -32,7 +32,14 @@
       "Bash(/dev/null:*)",
       "Bash(python3:*)",
       "Bash(ls /Users/xintong/Documents/mywebsite/tailwind.config*)",
-      "Bash(kill 483)"
+      "Bash(kill 483)",
+      "mcp__plugin_figma_figma__generate_figma_design",
+      "Bash(git -C /Users/xintong/Documents/mywebsite status)",
+      "Bash(git -C /Users/xintong/Documents/mywebsite remote -v)",
+      "Bash(git -C /Users/xintong/Documents/mywebsite add app/icon.png public/favicon.png)",
+      "Bash(git -C /Users/xintong/Documents/mywebsite commit -m ' *)",
+      "Bash(git -C /Users/xintong/Documents/mywebsite push origin main)",
+      "Bash(git -C /Users/xintong/Documents/mywebsite add -A)"
     ]
   }
 }
