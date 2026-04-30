@@ -774,19 +774,19 @@ export default function KodyPBB() {
               ))}
             </div>
 
-            <div style={{ display: "flex", gap: 32, alignItems: "center", marginBottom: 40 }}>
-              <div style={{ flexShrink: 0, borderRadius: 14, overflow: "hidden" }}>
+            <div style={{ display: "flex", gap: 32, alignItems: "stretch", marginBottom: 40, height: 224 }}>
+              <div style={{ flexShrink: 0, width: 466, borderRadius: 14, overflow: "hidden" }}>
                 <img
                   src="https://framerusercontent.com/images/7gXg1nyte7NdyXrrf9aB42DADMQ.png"
                   alt="Opportunity mapping"
-                  style={{ display: "block", width: "100%" }}
+                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
               <div style={{ flex: 1, minWidth: 0, borderRadius: 14, overflow: "hidden" }}>
                 <img
                   src="https://framerusercontent.com/images/sgFcfXgW4r37771dfWaPzXca34M.png"
                   alt="Channel hypothesis"
-                  style={{ display: "block", width: "100%" }}
+                  style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
             </div>
