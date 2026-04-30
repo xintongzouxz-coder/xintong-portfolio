@@ -722,20 +722,24 @@ export default function KodyPBB() {
               Opportunity hypothesis.
             </p>
 
-            <div style={{ ...blockquoteStyle, marginBottom: 56 }}>
-              <p style={blockquoteTextStyle}>
+            <div style={{ borderLeft: "3px solid #bb3546", paddingLeft: 27, marginBottom: 40 }}>
+              <p style={{ ...blockquoteTextStyle, color: "#bb3546", fontSize: "clamp(18px, 2vw, 24px)" }}>
                 "PBB is better suited to low-urgency, off-premise payment moments
                 (e.g., prepayments, remote orders, booking deposits), where
                 transactions are more likely to meet the £40+ threshold"
               </p>
             </div>
 
+            <p style={{ ...bodyStyle, marginBottom: 28 }}>
+              Based on this hypothesis, I drafted a few criteria to define a proto-persona for Pay by Bank:
+            </p>
+
             <div
               style={{
                 background: "rgba(255,255,255,0.55)",
-                backdropFilter: "blur(20px)",
                 borderRadius: 16,
-                border: "1px solid rgba(255,255,255,0.7)",
+                border: "1px solid rgba(180,180,180,0.6)",
+                boxShadow: "20px 20px 20px rgba(212,212,212,0.25)",
                 padding: "32px 36px",
                 marginBottom: 48,
                 width: "100%",
@@ -770,39 +774,29 @@ export default function KodyPBB() {
               ))}
             </div>
 
-            <div className="kody-img-pair" style={{ marginBottom: 48 }}>
-              <div>
+            <div style={{ display: "flex", gap: 32, alignItems: "center", marginBottom: 40 }}>
+              <div style={{ flexShrink: 0, borderRadius: 14, overflow: "hidden" }}>
                 <img
                   src="https://framerusercontent.com/images/7gXg1nyte7NdyXrrf9aB42DADMQ.png"
                   alt="Opportunity mapping"
+                  style={{ display: "block", width: "100%" }}
                 />
               </div>
-              <div>
+              <div style={{ flex: 1, minWidth: 0, borderRadius: 14, overflow: "hidden" }}>
                 <img
                   src="https://framerusercontent.com/images/sgFcfXgW4r37771dfWaPzXca34M.png"
                   alt="Channel hypothesis"
+                  style={{ display: "block", width: "100%" }}
                 />
               </div>
             </div>
 
-            <div
-              style={{
-                background: "rgba(255,255,255,0.55)",
-                backdropFilter: "blur(20px)",
-                borderRadius: 14,
-                padding: "24px 32px",
-                marginBottom: 48,
-                border: "1px solid rgba(255,255,255,0.7)",
-                width: "100%",
-                boxSizing: "border-box",
-              }}
-            >
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.7, color: "#1a1a1a", margin: 0 }}>
-                We shifted the centre of gravity from 'expanding banks on terminal'
-                to 'making Pay by Bank succeed in Pay by Link'. Terminal expansion
-                was de-scoped into a secondary track.
-              </p>
-            </div>
+            <p style={{ ...bodyStyle, marginBottom: 24 }}>
+              To sanity-check the hypothesis, I partnered with our data team to run a lightweight segmentation check using "merchant category (KYC code) + typical AOV ≥ £40". From the resulting merchant list, we saw that Pay by Link appeared more frequently in higher-value, off-premise scenarios—supporting it as the primary channel to prioritise for PBB adoption.
+            </p>
+            <p style={{ ...bodyStyle, marginBottom: 48 }}>
+              We shifted the centre of gravity from 'expanding banks on terminal' to 'making Pay by Bank succeed in Pay by Link'. Terminal expansion was de-scoped into a secondary track.
+            </p>
 
             <img
               src="https://framerusercontent.com/images/rTz4f1yx1NJimy0gBMviF8JUZU.png"
