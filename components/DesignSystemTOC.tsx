@@ -25,19 +25,19 @@ const NAV_ITEMS: NavItem[] = [
   { id: "outcome", label: "OUTCOME" },
 ];
 
-// Sub-sections checked before their parent so the most specific match wins
+// IDs in DOM top-to-bottom order; scroll logic walks this in reverse
 const OBSERVE_IDS = [
   "overview",
   "multiplatform",
   "problem",
   "key-issues",
   "north-star",
+  "solutions",
   "solutions-source-of-truth",
   "solutions-token-system",
   "solutions-component-specs",
   "solutions-implementation",
   "solutions-ai",
-  "solutions",
   "outcome",
 ];
 
@@ -45,33 +45,26 @@ export default function DesignSystemTOC() {
   const [activeId, setActiveId] = useState<string>("overview");
 
   useEffect(() => {
-    const visible = new Set<string>();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            visible.add(entry.target.id);
-          } else {
-            visible.delete(entry.target.id);
-          }
-        });
-        for (const id of OBSERVE_IDS) {
-          if (visible.has(id)) {
-            setActiveId(id);
-            return;
-          }
+    const getActiveFromScroll = () => {
+      const scrollY = window.scrollY + window.innerHeight * 0.25;
+      // Walk in reverse so the last section whose top is above the trigger wins
+      for (let i = OBSERVE_IDS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(OBSERVE_IDS[i]);
+        if (el && el.getBoundingClientRect().top + window.scrollY <= scrollY) {
+          return OBSERVE_IDS[i];
         }
-      },
-      { rootMargin: "-10% 0px -60% 0px", threshold: 0 }
-    );
+      }
+      return OBSERVE_IDS[0];
+    };
 
-    OBSERVE_IDS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const onScroll = () => {
+      setActiveId(getActiveFromScroll());
+    };
 
-    return () => observer.disconnect();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Set initial active state
+    setActiveId(getActiveFromScroll());
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const activePrimary = (() => {
