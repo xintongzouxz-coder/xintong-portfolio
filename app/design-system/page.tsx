@@ -522,32 +522,32 @@ export default function DesignSystem() {
               {/* Token system image — moved above the text blocks */}
               <Image src="/images/kody-design-system/token-system.png" alt="BEFORE/NOW token comparison" width={3604} height={1872} style={{ ...imgStyle, marginBottom: 40 }} />
 
-              {/* 2-column text — no tile styling */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
+              {/* Text blocks — stacked vertically */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
 
-                {/* Colors column */}
+                {/* Colors */}
                 <div>
                   <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>Colors</span>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: "0 0 20px" }}>
                     We reduced <strong>138 inconsistent colour tokens into 35 palette tokens</strong>, then redefined the semantic structure to ensure consistent usage across different contexts. This enabled designers to apply colours based on meaning rather than manual selection.
                   </p>
-                  {/* 1 left + 2 horizontal right */}
+                  {/* 1 left + 2 stacked vertically on right */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                     <div style={{ aspectRatio: "4/3", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
                     </div>
-                    <div style={{ display: "flex", gap: 12 }}>
-                      <div style={{ flex: 1, aspectRatio: "1/1", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                      <div style={{ flex: 1, borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 80 }}>
                         <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
                       </div>
-                      <div style={{ flex: 1, aspectRatio: "1/1", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div style={{ flex: 1, borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 80 }}>
                         <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Multi-dimensional tokens column */}
+                {/* Multi-dimensional tokens */}
                 <div>
                   <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>Multi-dimensional tokens</span>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: "0 0 20px" }}>
