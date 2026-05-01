@@ -404,8 +404,8 @@ export default function DesignSystem() {
                 </span>
                 <h3 style={{ ...h3Style, marginBottom: 20 }}>Growing code debt</h3>
                 {[
-                  "Design values weren't reliably tokenised: engineers used one-off hex values or picked between same-named tokens that resolved to different actual colours across products.",
-                  "Core patterns like buttons existed as individual instances; the same components were implemented in multiple styles, especially in Terminal, with no clear standard.",
+                  <>Design values weren't reliably tokenised: engineers <strong>used one-off hex values</strong> or picked between same-named tokens that resolved to different actual colours across products.</>,
+                  <>Core patterns like buttons existed as individual instances; the <strong>same components were implemented in multiple styles</strong>, especially in Terminal, with no clear standard.</>,
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: 12, marginBottom: i === 1 ? 0 : 14, alignItems: "flex-start" }}>
                     <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#3445ff", marginTop: 10, flexShrink: 0 }} />
@@ -423,8 +423,8 @@ export default function DesignSystem() {
                 </span>
                 <h3 style={{ ...h3Style, marginBottom: 20 }}>Errors compound silently</h3>
                 {[
-                  "Without a source of truth, new joiners couldn't tell which reference was correct and which was outdated, replicating legacy errors into new work.",
-                  "Designers didn't know which design system version to follow — multiple overlapping versions existed in Figma, each partially outdated, with no clear owner or canonical source.",
+                  <>Without a source of truth, new joiners couldn't tell which reference was correct and which was outdated, <strong>replicating legacy errors into new work</strong>.</>,
+                  <><strong>Designers didn't know which design system version to follow</strong> — multiple overlapping versions existed in Figma, each partially outdated, with no clear owner or canonical source.</>,
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: 12, marginBottom: i === 1 ? 0 : 14, alignItems: "flex-start" }}>
                     <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#3445ff", marginTop: 10, flexShrink: 0 }} />
