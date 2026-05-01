@@ -1065,16 +1065,41 @@ export default function KodyPBB() {
 
             {/* 03 */}
             <div id="solutions-highlight">
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
-                  03
-                </span>
-                <h3 style={{ ...h3Style, margin: 0 }}>Drive adoption with clear value messaging</h3>
+
+              {/* ── Header + badge ── */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 700, color: "#3445ff", background: "rgba(255,255,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+                    03
+                  </span>
+                  <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Drive adoption with clear value messaging</h3>
+                </div>
+                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#d521c6", flexShrink: 0 }} />
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#d521c6", whiteSpace: "nowrap" }}>Highlight PBB&apos;s cost-saving benefits</span>
+                </div>
               </div>
-              <div className="kody-img-pair">
-                <div><img src="https://framerusercontent.com/images/G52BM5ezBDUY8owh6LRgiL2tE.png" alt="Value messaging 1" /></div>
-                <div><img src="https://framerusercontent.com/images/Hbx2hd865yYm0hksNwIDCm5HVfo.png" alt="Value messaging 2" /></div>
+
+              {/* ── Body text 1 ── */}
+              <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
+                To support merchant adoption and address low awareness of the fee-saving value proposition, I prepared launch enablement materials alongside development—creating a step-by-step guide, drafting Intercom prompts, and producing email communications that clearly explain PBB&apos;s fee-saving benefits.
+              </p>
+
+              {/* ── Image pair ── */}
+              <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 24 }}>
+                <div style={{ width: 553, height: 270, borderRadius: 14, overflow: "hidden", flexShrink: 0 }}>
+                  <img src="/images/kody-solution/value-messaging-1.png" alt="Value messaging 1" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+                <div style={{ width: 432, height: 270, borderRadius: 14, overflow: "hidden", flexShrink: 0 }}>
+                  <img src="/images/kody-solution/value-messaging-2.png" alt="Value messaging 2" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
               </div>
+
+              {/* ── Body text 2 ── */}
+              <p style={{ ...bodyStyle, maxWidth: 840 }}>
+                To speed up launch enablement, I drafted the HTML email template with AI assistance, then worked with engineering to validate and deploy it.
+              </p>
+
             </div>
           </section>
 
