@@ -872,6 +872,14 @@ export default function KodyPBB() {
                 {/* 3-column flow diagram */}
                 <div style={{ overflowX: "auto" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", minWidth: 999 }}>
+                    {/* Timeline connector: ●———●———● */}
+                    <svg width="706" height="20" viewBox="0 0 706 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                      <circle cx="10" cy="10" r="10" fill="#A2A2A2" fillOpacity="0.6" />
+                      <path d="M20 10.158L339 9.84204" stroke="#A2A2A2" strokeOpacity="0.6" strokeWidth="2" />
+                      <circle cx="349" cy="10" r="10" fill="#A2A2A2" fillOpacity="0.6" />
+                      <line x1="358.999" y1="9.158" x2="685.999" y2="8.842" stroke="#A2A2A2" strokeOpacity="0.6" strokeWidth="2" />
+                      <circle cx="696" cy="10" r="10" fill="#A2A2A2" fillOpacity="0.6" />
+                    </svg>
                     <div style={{ display: "flex", justifyContent: "space-between", width: 999 }}>
                       {/* Merchant create */}
                       <div style={{ display: "flex", flexDirection: "column", gap: 40, alignItems: "center", width: 300 }}>
