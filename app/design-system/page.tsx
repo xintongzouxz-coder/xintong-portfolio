@@ -446,7 +446,7 @@ export default function DesignSystem() {
             {divider}
             <h2 style={h2Style}>North Star design principles</h2>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               {principles.map(({ icon, title, body }) => (
                 <div key={title} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
