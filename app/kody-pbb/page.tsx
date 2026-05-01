@@ -1031,16 +1031,36 @@ export default function KodyPBB() {
 
             {/* 02 */}
             <div id="solutions-deprioritise" style={{ marginBottom: 80 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
-                  02
-                </span>
-                <h3 style={{ ...h3Style, margin: 0 }}>Deprioritise PBB on terminal</h3>
+
+              {/* ── Header + badge ── */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 700, color: "#3445ff", background: "rgba(255,255,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+                    02
+                  </span>
+                  <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Deprioritise PBB on the terminal and expand bank coverage</h3>
+                </div>
+                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Deprioritise PBB on terminal</span>
+                </div>
               </div>
-              <div className="kody-img-pair">
-                <div><img src="https://framerusercontent.com/images/AjiFjVr3HzqEmS2dldPxhLVhrKo.png" alt="Deprioritise terminal 1" /></div>
-                <div><img src="https://framerusercontent.com/images/vf9c9yJwOxpnBsVMv2U5yUjW4Q.png" alt="Deprioritise terminal 2" /></div>
+
+              {/* ── Body text ── */}
+              <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
+                To protect the core checkout flow, we kept card payment as the primary option and moved Pay by Bank (and other immediate payment methods) into a secondary menu—reducing cognitive load for staff.
+              </p>
+
+              {/* ── Image pair ── */}
+              <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+                <div style={{ width: 432, height: 270, borderRadius: 14, overflow: "hidden", flexShrink: 0 }}>
+                  <img src="/images/kody-solution/deprioritise-1.png" alt="Deprioritise terminal 1" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+                <div style={{ width: 492, height: 270, borderRadius: 14, overflow: "hidden", flexShrink: 0, position: "relative" }}>
+                  <img src="/images/kody-solution/deprioritise-2.png" alt="Deprioritise terminal 2" style={{ position: "absolute", height: "100%", left: "-5.27%", maxWidth: "none", top: "-0.07%", width: "105.26%", display: "block" }} />
+                </div>
               </div>
+
             </div>
 
             {/* 03 */}
