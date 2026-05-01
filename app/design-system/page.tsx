@@ -340,7 +340,9 @@ export default function DesignSystem() {
                   caption: "No consistent token structure across products",
                 },
                 {
-                  src: null,
+                  src: "/images/kody-design-system/reference-impl.png",
+                  width: 4954,
+                  height: 4626,
                   caption: "Inconsistent component implementation across products",
                 },
                 {
@@ -647,7 +649,9 @@ export default function DesignSystem() {
               <p style={{ ...bodyStyle, marginBottom: 32 }}>
                 Rather than attempting a full migration across all products, a progressive rollout strategy was suggested to minimise disruption and reduce implementation risk. Terminal (Android) was selected as the initial surface due to its high usage frequency and relatively controlled scope. The new token and component system was applied to key user flows (new payment), creating a working reference for how the system should be used in practice. Legacy screens were maintained temporarily, while all new designs followed the updated token and component system.
               </p>
-              <Image src="/images/kody-design-system/reference-impl.png" alt="Terminal 屏幕 + 组件标注" width={4954} height={4626} style={{ ...imgStyle }} />
+              <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
+              </div>
             </div>
 
             {/* 05 — AI */}
