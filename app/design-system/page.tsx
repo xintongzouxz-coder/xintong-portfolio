@@ -127,9 +127,6 @@ const products = [
 const findings = [
   "Hundreds of tokens were used across products, with no shared structure or naming system",
   "The same UI patterns were implemented differently across platforms, leading to duplication and inconsistency",
-  "No consistent token structure across products",
-  "Different product tokens were mixed within the same interface",
-  "Receipt templates in Figma didn't match the actual printer paper dimensions",
 ];
 
 const principles = [
@@ -297,7 +294,7 @@ export default function DesignSystem() {
             <h2 style={h2Style}>Evidence of system fragmentation</h2>
 
             <p style={{ ...bodyStyle, marginBottom: 40 }}>
-              A UI audit across products revealed significant inconsistency in both foundations and components.
+              I conducted a UI audit across products revealed significant inconsistency in both foundations and components.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 48 }}>
@@ -311,11 +308,81 @@ export default function DesignSystem() {
               ))}
             </div>
 
-            <Image src="/images/kody-design-system/ui-audit.png" alt="三个代码库的颜色审计对比" width={2118} height={1374} style={{ ...imgStyle }} />
+            {/* Full-width image placeholder */}
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "16/9",
+                borderRadius: 14,
+                background: "rgba(26,26,26,0.05)",
+                border: "1px dashed rgba(26,26,26,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: 32,
+              }}
+            >
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
+                Image placeholder
+              </span>
+            </div>
 
-            <p style={{ ...bodyStyle, marginTop: 32 }}>
-              After the audit, I led a cross-functional workshop to align these findings across design, engineering, and QA.
-            </p>
+            {/* 2×2 image grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+              {[
+                {
+                  src: "/images/kody-design-system/ui-audit.png",
+                  width: 2118,
+                  height: 1374,
+                  caption: "No consistent token structure across products",
+                },
+                {
+                  src: null,
+                  caption: "Inconsistent component implementation across products",
+                },
+                {
+                  src: null,
+                  caption: "Different product tokens were mixed within the same interface",
+                },
+                {
+                  src: null,
+                  caption: "Receipt templates in Figma didn't match the actual printer paper dimensions",
+                },
+              ].map(({ src, width, height, caption }, i) => (
+                <div key={i}>
+                  {src ? (
+                    <Image
+                      src={src}
+                      alt={caption}
+                      width={width!}
+                      height={height!}
+                      style={{ ...imgStyle, marginBottom: 10 }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: "100%",
+                        aspectRatio: "4/3",
+                        borderRadius: 14,
+                        background: "rgba(26,26,26,0.05)",
+                        border: "1px dashed rgba(26,26,26,0.15)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginBottom: 10,
+                      }}
+                    >
+                      <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
+                        Image placeholder
+                      </span>
+                    </div>
+                  )}
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, lineHeight: 1.5, color: "rgba(26,26,26,0.55)", margin: 0 }}>
+                    {caption}
+                  </p>
+                </div>
+              ))}
+            </div>
           </section>
 
           {/* ── Key Issues ── */}
