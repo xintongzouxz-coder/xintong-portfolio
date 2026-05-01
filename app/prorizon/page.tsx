@@ -201,9 +201,10 @@ export default function Prorizon() {
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Background</h2>
-          <p style={{ ...bodyStyle, maxWidth: 680 }}>
+          <p style={{ ...bodyStyle, maxWidth: 680, marginBottom: 32 }}>
             As a startup, Prorizon's mobile app collects biopsychosocial data and delivers personalised insights, recommendations and programmes based on advanced analytics. Part of the data collection requires user manual input three times on a daily basis.
           </p>
+          <ImgPlaceholder label="Background" aspect="16/9" />
         </div>
       </section>
 
@@ -212,7 +213,8 @@ export default function Prorizon() {
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Problem Space</h2>
-          <div style={{ borderLeft: "3px solid #3445ff", paddingLeft: 24 }}>
+          <ImgPlaceholder label="Problem overview" aspect="16/9" />
+          <div style={{ borderLeft: "3px solid #3445ff", paddingLeft: 24, marginTop: 40 }}>
             <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em", color: "#1a1a1a", margin: 0 }}>
               How can we optimise the data input process of the "daily log" function to enhance user engagement, increase user satisfaction, and sustain long-term usage while ensuring implementation feasibility at this stage?
             </p>
@@ -227,34 +229,64 @@ export default function Prorizon() {
           {divider}
           <h2 style={h2Style}>Research Process — Focus Group</h2>
 
-          <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
+          <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
             After reviewing the current product's user feedback, I engaged in 3 focus groups, including card sorting, interviews, and brainstorming sessions with 10 participants total to discuss:
           </p>
 
+          {/* Goal tiles */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 48 }}>
+            <div style={{ background: "rgba(26,26,26,0.04)", borderRadius: 16, padding: "24px 28px", display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#3445ff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ color: "#fff", fontSize: 18 }}>☑</span>
+              </div>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
+                Determine <span style={{ color: "#3445ff" }}>the type and order of information to be collected</span> in the mood recording section, understand How long and informative is feasible for a single log
+              </p>
+            </div>
+            <div style={{ background: "rgba(26,26,26,0.04)", borderRadius: 16, padding: "24px 28px", display: "flex", gap: 20, alignItems: "flex-start" }}>
+              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#3445ff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ color: "#fff", fontSize: 18 }}>🙂</span>
+              </div>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
+                <span style={{ color: "#3445ff" }}>Discuss and identify effective stimuli and methods</span> to improve number of times a user self-records per day and number of days to maintain streak
+              </p>
+            </div>
+          </div>
+
+          {/* Part tiles — image left, text right */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 40, marginBottom: 48 }}>
             {[
               {
-                part: "Part 1: Card Sorting",
+                label: "Part 1 — Card Sorting",
+                part: "Part 1",
+                name: "Card Sorting",
                 duration: "10 mins",
                 body: "Participants will choose and rank cards representing different \"log-in\" elements to improve the recording process and enhance performance analysis accuracy.",
               },
               {
-                part: "Part 2: Scenario Interview",
+                label: "Part 2 — Scenario Interview",
+                part: "Part 2",
+                name: "Scenario Interview",
                 duration: "10 mins",
                 body: "Participants will consider when and in what situations they would prefer receiving mood-tracking notifications throughout the day to help improve the timing and relevance of self-documentation prompts.",
               },
               {
-                part: "Part 3: Brainstorming",
+                label: "Part 3 — Brainstorming",
+                part: "Part 3",
+                name: "Brainstorming",
                 duration: "10–20 mins",
                 body: "Participants will brainstorm creative ways to motivate athletes to log their moods daily, focusing on potential app features and incentives.",
               },
-            ].map(({ part, duration, body }) => (
-              <div key={part} style={{ ...glassCard, display: "flex", gap: 24, alignItems: "flex-start" }}>
-                <div style={{ flexShrink: 0 }}>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: "0 0 4px" }}>{part}</p>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, color: "rgba(26,26,26,0.45)" }}>{duration}</span>
+            ].map(({ label, part, name, duration, body }) => (
+              <div key={part} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "flex-start" }}>
+                <ImgPlaceholder label={label} aspect="4/3" />
+                <div>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 600, color: "#1a1a1a", margin: "0 0 4px" }}>
+                    {part}: <span style={{ color: "#3445ff" }}>[{name}]</span>
+                  </p>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.45)", margin: "0 0 12px" }}>{duration}</p>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "rgba(26,26,26,0.72)", margin: 0 }}>{body}</p>
                 </div>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "rgba(26,26,26,0.72)", margin: 0 }}>{body}</p>
               </div>
             ))}
           </div>
