@@ -383,6 +383,12 @@ export default function DesignSystem() {
                 </div>
               ))}
             </div>
+
+            <p style={{ ...bodyStyle, marginTop: 32, marginBottom: 24 }}>
+              After Audit i led a cross-functional workshop to align the these findings design, engineering, and QA.
+            </p>
+
+            <Image src="/images/kody-design-system/key-issues.png" alt="Design system SWOT workshop FigJam" width={930} height={644} style={{ ...imgStyle }} />
           </section>
 
           {/* ── Key Issues ── */}
@@ -430,7 +436,6 @@ export default function DesignSystem() {
               </div>
             </div>
 
-            <Image src="/images/kody-design-system/key-issues.png" alt="设计系统 SWOT 工作坊 FigJam" width={930} height={644} style={{ ...imgStyle }} />
           </section>
 
           {/* ── North Star design principles ── */}
