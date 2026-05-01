@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import DesignSystemTOC from "@/components/DesignSystemTOC";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const contentWidth: React.CSSProperties = {
@@ -233,8 +234,10 @@ export default function DesignSystem() {
       `}</style>
 
       <div className="ds-with-sidebar">
-        {/* Sidebar — TOC placeholder */}
-        <div className="ds-sidebar-col" />
+        {/* Sidebar */}
+        <div className="ds-sidebar-col">
+          <DesignSystemTOC />
+        </div>
 
         {/* Content column */}
         <div className="ds-content-col">
