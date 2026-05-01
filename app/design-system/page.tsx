@@ -484,7 +484,24 @@ export default function DesignSystem() {
               <p style={{ ...bodyStyle, marginBottom: 32 }}>
                 A key deliverable was a clear, accessible source of truth for design, QA, and engineering. I collaborated with QA to organise 67 terminal designs and 23 receipt designs based on the payment flow — speeding up QA and designer processes.
               </p>
-              <Image src="/images/kody-design-system/source-of-truth.png" alt="按支付流程整理的 Terminal/Receipt 设计库" width={1730} height={1350} style={{ ...imgStyle }} />
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                <Image src="/images/kody-design-system/source-of-truth.png" alt="Terminal/Receipt design library organised by payment flow" width={1730} height={1350} style={{ ...imgStyle }} />
+                <div
+                  style={{
+                    width: "100%",
+                    borderRadius: 14,
+                    background: "rgba(26,26,26,0.05)",
+                    border: "1px dashed rgba(26,26,26,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
+                    Image placeholder
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* 02 — Token system */}
