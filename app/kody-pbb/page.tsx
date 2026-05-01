@@ -320,6 +320,12 @@ export default function KodyPBB() {
           .kody-insight-row { flex-direction: column; align-items: flex-start; }
           .kody-insight-icon-tile { width: 100%; }
         }
+
+        /* ── Horizontal scroll containers ── */
+        .kody-scroll-x { overflow-x: auto; }
+        .kody-scroll-x::-webkit-scrollbar { height: 4px; }
+        .kody-scroll-x::-webkit-scrollbar-track { background: transparent; }
+        .kody-scroll-x::-webkit-scrollbar-thumb { background: #A2A2A2; border-radius: 2px; }
       `}</style>
 
       <Navbar />
@@ -870,7 +876,7 @@ export default function KodyPBB() {
                 </ul>
 
                 {/* 3-column flow diagram */}
-                <div style={{ overflowX: "auto" }}>
+                <div className="kody-scroll-x">
                   <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", minWidth: 999 }}>
                     {/* Timeline connector: ●———●———● */}
                     <svg width="706" height="20" viewBox="0 0 706 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
@@ -918,7 +924,7 @@ export default function KodyPBB() {
                 <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: "0 0 24px" }}>
                   Step 1 — Merchant creates a payment link
                 </p>
-                <div style={{ overflowX: "auto" }}>
+                <div className="kody-scroll-x">
                   <div style={{ background: "#fff", height: 340, width: 780, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
                     {/* Screenshot */}
                     <div style={{ position: "absolute", left: -18, top: 0, width: 563, height: 340, borderRadius: 10, overflow: "hidden" }}>
@@ -961,7 +967,7 @@ export default function KodyPBB() {
                 <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
                   Customers open the link from SMS or email, choose Pay by Bank, and complete authorisation in their banking app.
                 </p>
-                <div style={{ overflowX: "auto" }}>
+                <div className="kody-scroll-x">
                   <div style={{ height: 496, position: "relative", width: 935, flexShrink: 0 }}>
                     {/* Main bank flow image */}
                     <div style={{ position: "absolute", height: 495, left: 286, top: 0.82, width: 649, overflow: "hidden" }}>
@@ -997,7 +1003,7 @@ export default function KodyPBB() {
                 <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
                   Refunds are not automatic for Pay by Bank. We added a clear explanation on the transaction details page so merchants understand the refund model and can guide customers through the correct next step.
                 </p>
-                <div style={{ overflowX: "auto" }}>
+                <div className="kody-scroll-x">
                   <div style={{ background: "#fff", height: 466, width: 791, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
                     <div style={{ position: "absolute", height: 367, left: 144, top: 85, width: 246 }}>
                       <img alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} src="/images/kody-solution/step3-payment.png" />
