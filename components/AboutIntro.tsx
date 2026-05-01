@@ -300,7 +300,7 @@ export default function AboutIntro() {
                         width: 330,
                         padding: 16,
                         borderRadius: 16,
-                        background: "rgba(255,255,255,0.9)",
+                        background: "rgba(255,255,255,0.95)",
                         boxShadow: "20px 20px 40px 0px rgba(212,212,212,0.25)",
                         border: "1px solid rgba(224,224,224,0.70)",
                         display: "flex",
