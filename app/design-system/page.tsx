@@ -578,21 +578,38 @@ export default function DesignSystem() {
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>03</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>Excessive component variants → Build core component specs</h3>
               </div>
-              <p style={{ ...bodyStyle, marginBottom: 16 }}>
+              <p style={{ ...bodyStyle, marginBottom: 24 }}>
                 While tokens established a consistent visual foundation, components were still fragmented across products. The team first separated components into web, Android, and iOS groups. Given resource constraints, Terminal (Android) was prioritised as the primary surface to establish component standards before scaling across platforms.
               </p>
 
-              <div style={{ ...blockquoteStyle, marginBottom: 32 }}>
+              {/* 2 stacked placeholders */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
+                <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
+                </div>
+                <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
+                </div>
+              </div>
+
+              <div style={{ ...blockquoteStyle, marginBottom: 24 }}>
                 <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 500, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
                   Action-Button
                 </p>
               </div>
 
               <p style={{ ...bodyStyle, marginBottom: 24 }}>
-                Through auditing terminal flows, buttons were designed case by case, without a shared structure. The same action (e.g. "Pay" or "Continue") appeared with different styles, sizes, and visual weights. Instead of standardising each button individually, a compositional model was defined by breaking buttons into four independent dimensions:
+                Through auditing terminal flows, I found that buttons were designed case by case, without a shared structure. The same action (e.g. "Pay" or "Continue") appeared with different styles, sizes, and visual weights, with no clear relationship between intent and appearance.
               </p>
 
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 40 }}>
+              {/* component-specs image moved here, above the dimensions text */}
+              <Image src="/images/kody-design-system/component-specs.png" alt="Button variants across terminal flows" width={2880} height={2396} style={{ ...imgStyle, marginBottom: 24 }} />
+
+              <p style={{ ...bodyStyle, marginBottom: 24 }}>
+                Instead of standardising each button individually, a compositional model was defined by breaking buttons into four independent dimensions:
+              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 32 }}>
                 {[
                   { label: "Semantic role", value: "Primary / Secondary / Tertiary" },
                   { label: "Visual variant", value: "Filled / Outline / Text" },
@@ -610,7 +627,15 @@ export default function DesignSystem() {
                 ))}
               </div>
 
-              <Image src="/images/kody-design-system/component-specs.png" alt="Primary/Secondary/Tertiary 按钮实例" width={2880} height={2396} style={{ ...imgStyle }} />
+              {/* 2 side-by-side image placeholders */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                <div style={{ aspectRatio: "4/3", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
+                </div>
+                <div style={{ aspectRatio: "4/3", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
+                </div>
+              </div>
             </div>
 
             {/* 04 — Reference implementation */}
