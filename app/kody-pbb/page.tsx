@@ -801,7 +801,7 @@ export default function KodyPBB() {
             <img
               src="https://framerusercontent.com/images/rTz4f1yx1NJimy0gBMviF8JUZU.png"
               alt="Strategic pivot diagram"
-              style={{ ...imgStyle, maxWidth: 830 }}
+              style={{ ...imgStyle, maxWidth: 800 }}
             />
           </section>
 
