@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
@@ -184,14 +185,14 @@ export default function DesignSystem() {
               </p>
             </div>
             <div>
-              <ImgPlaceholder label="Hero image" aspect="4/3" />
+              <Image src="/images/kody-design-system/hero.png" alt="旧版 Kody 设计系统全览" width={6180} height={4400} style={{ ...imgStyle }} />
             </div>
           </div>
         </div>
 
         {/* Full-width image */}
         <div style={{ background: "#f0f0f0", width: "100%" }}>
-          <ImgPlaceholder label="Full-width product overview" aspect="21/6" />
+          <Image src="/images/kody-design-system/overview.png" alt="6个 Kody 产品线全家福" width={8006} height={4042} style={{ width: "100%", height: "auto", display: "block" }} />
         </div>
 
         {/* Opening statement */}
@@ -261,7 +262,7 @@ export default function DesignSystem() {
             ))}
           </div>
 
-          <ImgPlaceholder label="UI audit — fragmentation evidence" aspect="16/7" />
+          <Image src="/images/kody-design-system/ui-audit.png" alt="三个代码库的颜色审计对比" width={2118} height={1374} style={{ ...imgStyle }} />
 
           <p style={{ ...bodyStyle, marginTop: 32, maxWidth: 680 }}>
             After the audit, I led a cross-functional workshop to align these findings across design, engineering, and QA.
@@ -315,7 +316,7 @@ export default function DesignSystem() {
             </div>
           </div>
 
-          <ImgPlaceholder label="Key issues diagram" aspect="16/7" />
+          <Image src="/images/kody-design-system/key-issues.png" alt="设计系统 SWOT 工作坊 FigJam" width={930} height={644} style={{ ...imgStyle }} />
         </div>
       </section>
 
@@ -372,7 +373,7 @@ export default function DesignSystem() {
             <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
               A key deliverable was a clear, accessible source of truth for design, QA, and engineering. I collaborated with QA to organise 67 terminal designs and 23 receipt designs based on the payment flow — speeding up QA and designer processes.
             </p>
-            <ImgPlaceholder label="Source of truth — documentation overview" aspect="16/8" />
+            <Image src="/images/kody-design-system/source-of-truth.png" alt="按支付流程整理的 Terminal/Receipt 设计库" width={1730} height={1350} style={{ ...imgStyle }} />
           </div>
 
           {/* 02 — Token system */}
@@ -400,7 +401,7 @@ export default function DesignSystem() {
               </div>
             </div>
 
-            <ImgPlaceholder label="Token system — before / after" aspect="16/7" />
+            <Image src="/images/kody-design-system/token-system.png" alt="BEFORE/NOW 数据对比图（138→35等）" width={3604} height={1872} style={{ ...imgStyle }} />
           </div>
 
           {/* 03 — Component specs */}
@@ -441,7 +442,7 @@ export default function DesignSystem() {
               ))}
             </div>
 
-            <ImgPlaceholder label="Component specs — button system" aspect="16/7" />
+            <Image src="/images/kody-design-system/component-specs.png" alt="Primary/Secondary/Tertiary 按钮实例" width={2880} height={2396} style={{ ...imgStyle }} />
           </div>
 
           {/* 04 — Reference implementation */}
@@ -453,7 +454,7 @@ export default function DesignSystem() {
             <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
               Rather than attempting a full migration across all products, a progressive rollout strategy was suggested to minimise disruption and reduce implementation risk. Terminal (Android) was selected as the initial surface due to its high usage frequency and relatively controlled scope. The new token and component system was applied to key user flows (new payment), creating a working reference for how the system should be used in practice. Legacy screens were maintained temporarily, while all new designs followed the updated token and component system.
             </p>
-            <ImgPlaceholder label="Reference implementation — terminal screens" aspect="16/7" />
+            <Image src="/images/kody-design-system/reference-impl.png" alt="Terminal 屏幕 + 组件标注" width={4954} height={4626} style={{ ...imgStyle }} />
           </div>
 
           {/* 05 — AI */}
