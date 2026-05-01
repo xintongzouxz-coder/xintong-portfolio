@@ -264,24 +264,7 @@ export default function DesignSystem() {
               ))}
             </div>
 
-            {/* Full-width image placeholder */}
-            <div
-              style={{
-                width: "100%",
-                aspectRatio: "16/9",
-                borderRadius: 14,
-                background: "rgba(26,26,26,0.05)",
-                border: "1px dashed rgba(26,26,26,0.15)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: 48,
-              }}
-            >
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
-                Image placeholder
-              </span>
-            </div>
+            <Image src="/images/kody-design-system/multiplatform.png" alt="Kody product ecosystem: Terminal APP, Receipt, Kody Universe, Kody Order, Kody APP" width={2000} height={900} style={{ ...imgStyle, marginBottom: 48 }} />
 
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               Each was built by different members at different points in time. As the suite expanded, the UI drifted apart, and the existing "design system" was no longer a system but a loose collection of overlapping patterns.
@@ -311,23 +294,8 @@ export default function DesignSystem() {
               ))}
             </div>
 
-            {/* Full-width image placeholder */}
-            <div
-              style={{
-                width: "100%",
-                aspectRatio: "16/9",
-                borderRadius: 14,
-                background: "rgba(26,26,26,0.05)",
-                border: "1px dashed rgba(26,26,26,0.15)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: 32,
-              }}
-            >
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
-                Image placeholder
-              </span>
+            <div style={{ maxWidth: "70%", margin: "0 auto 32px" }}>
+              <Image src="/images/kody-design-system/ui-audit-overview.png" alt="UI audit findings: 138 colours, 23 typography styles, 30+ spacings, 10+ border radius values" width={1400} height={350} style={{ ...imgStyle }} />
             </div>
 
             {/* 2×2 image grid */}
@@ -346,42 +314,26 @@ export default function DesignSystem() {
                   caption: "Inconsistent component implementation across products",
                 },
                 {
-                  src: null,
+                  src: "/images/kody-design-system/problem-mixed-tokens.png",
+                  width: 1456,
+                  height: 768,
                   caption: "Different product tokens were mixed within the same interface",
                 },
                 {
-                  src: null,
+                  src: "/images/kody-design-system/problem-receipt-mismatch.png",
+                  width: 700,
+                  height: 900,
                   caption: "Receipt templates in Figma didn't match the actual printer paper dimensions",
                 },
               ].map(({ src, width, height, caption }, i) => (
                 <div key={i}>
-                  {src ? (
-                    <Image
-                      src={src}
-                      alt={caption}
-                      width={width!}
-                      height={height!}
-                      style={{ ...imgStyle, marginBottom: 10 }}
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        width: "100%",
-                        aspectRatio: "4/3",
-                        borderRadius: 14,
-                        background: "rgba(26,26,26,0.05)",
-                        border: "1px dashed rgba(26,26,26,0.15)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginBottom: 10,
-                      }}
-                    >
-                      <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
-                        Image placeholder
-                      </span>
-                    </div>
-                  )}
+                  <Image
+                    src={src!}
+                    alt={caption}
+                    width={width!}
+                    height={height!}
+                    style={{ ...imgStyle, marginBottom: 10 }}
+                  />
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, lineHeight: 1.5, color: "rgba(26,26,26,0.55)", margin: 0 }}>
                     {caption}
                   </p>
@@ -393,7 +345,9 @@ export default function DesignSystem() {
               After Audit i led a cross-functional workshop to align the these findings design, engineering, and QA.
             </p>
 
-            <Image src="/images/kody-design-system/key-issues.png" alt="Design system SWOT workshop FigJam" width={930} height={644} style={{ ...imgStyle }} />
+            <div style={{ maxWidth: "70%", margin: "0 auto" }}>
+              <Image src="/images/kody-design-system/key-issues.png" alt="Design system SWOT workshop FigJam" width={930} height={644} style={{ ...imgStyle }} />
+            </div>
           </section>
 
           {/* ── Key Issues ── */}
@@ -488,21 +442,7 @@ export default function DesignSystem() {
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
                 <Image src="/images/kody-design-system/source-of-truth.png" alt="Terminal/Receipt design library organised by payment flow" width={1730} height={1350} style={{ ...imgStyle }} />
-                <div
-                  style={{
-                    width: "100%",
-                    borderRadius: 14,
-                    background: "rgba(26,26,26,0.05)",
-                    border: "1px dashed rgba(26,26,26,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
-                    Image placeholder
-                  </span>
-                </div>
+                <Image src="/images/kody-design-system/source-of-truth-2.png" alt="Figma payment flow overview organised by section" width={3348} height={496} style={{ ...imgStyle }} />
               </div>
             </div>
 
@@ -516,13 +456,14 @@ export default function DesignSystem() {
                 I collaborated with other designers to introduce a scalable token system that standardised visual decisions across platforms and aligned design with engineering implementation.
               </p>
 
-              {/* Full-width placeholder above token-system image */}
-              <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
+              <div style={{ maxWidth: "70%", margin: "0 auto 16px" }}>
+                <Image src="/images/kody-design-system/token-intro.png" alt="Token system overview" width={1600} height={900} style={{ ...imgStyle }} />
               </div>
 
               {/* Token system image — moved above the text blocks */}
-              <Image src="/images/kody-design-system/token-system.png" alt="BEFORE/NOW token comparison" width={3604} height={1872} style={{ ...imgStyle, marginBottom: 40 }} />
+              <div style={{ maxWidth: "70%", margin: "0 auto 40px" }}>
+                <Image src="/images/kody-design-system/token-system.png" alt="BEFORE/NOW token comparison" width={3604} height={1872} style={{ ...imgStyle }} />
+              </div>
 
               {/* Text blocks — stacked vertically */}
               <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
@@ -535,16 +476,10 @@ export default function DesignSystem() {
                   </p>
                   {/* 1 left + 2 stacked vertically on right */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                    <div style={{ aspectRatio: "4/3", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
-                    </div>
+                    <Image src="/images/kody-design-system/colors-palette.png" alt="35 colour palette tokens" width={800} height={600} style={{ ...imgStyle, borderRadius: 10 }} />
                     <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                      <div style={{ flex: 1, borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 80 }}>
-                        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
-                      </div>
-                      <div style={{ flex: 1, borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 80 }}>
-                        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
-                      </div>
+                      <Image src="/images/kody-design-system/colors-semantic-1.png" alt="Semantic colour usage example" width={800} height={400} style={{ ...imgStyle, borderRadius: 10 }} />
+                      <Image src="/images/kody-design-system/colors-semantic-2.png" alt="Semantic colour usage example" width={800} height={400} style={{ ...imgStyle, borderRadius: 10 }} />
                     </div>
                   </div>
                 </div>
@@ -557,16 +492,10 @@ export default function DesignSystem() {
                   </p>
                   {/* 1 full-width top + 2 side-by-side bottom */}
                   <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                    <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
-                    </div>
+                    <Image src="/images/kody-design-system/tokens-multi-overview.png" alt="Typography, spacing, and border radius token overview" width={1600} height={900} style={{ ...imgStyle, borderRadius: 10 }} />
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                      <div style={{ aspectRatio: "4/3", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
-                      </div>
-                      <div style={{ aspectRatio: "4/3", borderRadius: 10, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, color: "rgba(26,26,26,0.3)" }}>Placeholder</span>
-                      </div>
+                      <Image src="/images/kody-design-system/tokens-multi-1.png" alt="Multi-dimensional token detail" width={800} height={600} style={{ ...imgStyle, borderRadius: 10 }} />
+                      <Image src="/images/kody-design-system/tokens-multi-2.png" alt="Multi-dimensional token detail" width={800} height={600} style={{ ...imgStyle, borderRadius: 10 }} />
                     </div>
                   </div>
                 </div>
@@ -584,14 +513,10 @@ export default function DesignSystem() {
                 While tokens established a consistent visual foundation, components were still fragmented across products. The team first separated components into web, Android, and iOS groups. Given resource constraints, Terminal (Android) was prioritised as the primary surface to establish component standards before scaling across platforms.
               </p>
 
-              {/* 2 stacked placeholders */}
-              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
-                <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
-                </div>
-                <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
-                </div>
+              {/* 2 stacked images */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32, maxWidth: "70%", margin: "0 auto 32px" }}>
+                <Image src="/images/kody-design-system/component-top-1.png" alt="Component categorisation across web, Android, and iOS" width={1600} height={900} style={{ ...imgStyle }} />
+                <Image src="/images/kody-design-system/component-top-2.png" alt="Terminal component audit overview" width={1600} height={900} style={{ ...imgStyle }} />
               </div>
 
               <div style={{ ...blockquoteStyle, marginBottom: 24 }}>
@@ -605,7 +530,9 @@ export default function DesignSystem() {
               </p>
 
               {/* component-specs image moved here, above the dimensions text */}
-              <Image src="/images/kody-design-system/component-specs.png" alt="Button variants across terminal flows" width={2880} height={2396} style={{ ...imgStyle, marginBottom: 24 }} />
+              <div style={{ maxWidth: "70%", margin: "0 auto 24px" }}>
+                <Image src="/images/kody-design-system/component-specs.png" alt="Button variants across terminal flows" width={2880} height={2396} style={{ ...imgStyle }} />
+              </div>
 
               <p style={{ ...bodyStyle, marginBottom: 24 }}>
                 Instead of standardising each button individually, a compositional model was defined by breaking buttons into four independent dimensions:
@@ -629,14 +556,10 @@ export default function DesignSystem() {
                 ))}
               </div>
 
-              {/* 2 side-by-side image placeholders */}
+              {/* 2 side-by-side images */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
-                <div style={{ aspectRatio: "4/3", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
-                </div>
-                <div style={{ aspectRatio: "4/3", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
-                </div>
+                <Image src="/images/kody-design-system/component-bottom-left.png" alt="Button variant specification" width={800} height={600} style={{ ...imgStyle }} />
+                <Image src="/images/kody-design-system/component-bottom-right.png" alt="Button variant specification" width={800} height={600} style={{ ...imgStyle }} />
               </div>
             </div>
 
@@ -649,9 +572,7 @@ export default function DesignSystem() {
               <p style={{ ...bodyStyle, marginBottom: 32 }}>
                 Rather than attempting a full migration across all products, a progressive rollout strategy was suggested to minimise disruption and reduce implementation risk. Terminal (Android) was selected as the initial surface due to its high usage frequency and relatively controlled scope. The new token and component system was applied to key user flows (new payment), creating a working reference for how the system should be used in practice. Legacy screens were maintained temporarily, while all new designs followed the updated token and component system.
               </p>
-              <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
-              </div>
+              <Image src="/images/kody-design-system/implementation.png" alt="Terminal new payment flow with updated token and component system applied" width={1600} height={900} style={{ ...imgStyle }} />
             </div>
 
             {/* 05 — AI */}
@@ -665,9 +586,7 @@ export default function DesignSystem() {
                 To support ongoing consistency, the design system was translated into a set of machine-readable rules using Claude Code, enabling automated validation of design outputs. Designers could submit Figma designs for automated checks, where elements that deviated from token were identified and flagged.
               </p>
 
-              <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
-              </div>
+              <Image src="/images/kody-design-system/ai-validation.png" alt="AI-powered automated design validation flagging token deviations in Figma" width={1600} height={900} style={{ ...imgStyle }} />
             </div>
           </section>
 
