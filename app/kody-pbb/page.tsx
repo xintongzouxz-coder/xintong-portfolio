@@ -806,85 +806,244 @@ export default function KodyPBB() {
 
             {/* 01 */}
             <div id="solutions-integrate" style={{ marginBottom: 80 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
-                  01
-                </span>
-                <h3 style={{ ...h3Style, margin: 0 }}>Pay by Link as the primary growth channel</h3>
+
+              {/* ── Section header + badge ── */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+                    01
+                  </span>
+                  <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Pay by Link as the primary growth channel</h3>
+                </div>
+                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0 }}>
+                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Integrate PBB into PBL</span>
+                </div>
               </div>
 
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, fontWeight: 500, letterSpacing: "0.04em", color: "rgba(26,26,26,0.55)", margin: "0 0 12px" }}>
-                Rapid ideation with implementation realism (AI-assisted)
-              </p>
-              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
-                To stay implementation-realistic and move quickly, I started from the
-                existing Pay by Link checkout HTML and ran it locally to prototype and
-                test alternative flows before committing to a full build.
-              </p>
-
-              <div className="kody-img-pair" style={{ marginBottom: 56 }}>
-                <div><img src="https://framerusercontent.com/images/BS5EVmKQGbHsqbC5HHrzCZzxrE.png" alt="Ideation sketch 1" /></div>
-                <div><img src="https://framerusercontent.com/images/Et7DG6dmP5MoCVfCyknLxML05s.png" alt="Ideation sketch 2" /></div>
+              {/* ── Rapid ideation ── */}
+              <div style={{ marginBottom: 32 }}>
+                <ul style={{ paddingLeft: 24, margin: "0 0 24px" }}>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.035em", lineHeight: 1.3 }}>
+                    Rapid ideation with implementation realism (AI-assisted)
+                  </li>
+                </ul>
+                <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
+                  To stay implementation-realistic and move quickly, I started from the existing Pay by Link checkout HTML and ran it locally. Using Claude Code, I generated an initial Pay by Bank flow (eligibility ≥ £40, bank list, connecting state) directly on top of the current UI system.
+                </p>
+                <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
+                  I then brought the potential flow into Figma (via MCP) to iterate on hierarchy, nudges, and bank selection patterns, producing a small set of variants for review.
+                </p>
+                <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
+                  Once aligned, I mapped the final components back to the running HTML and reviewed feasibility and edge cases with PM and engineers.
+                </p>
               </div>
 
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, fontWeight: 500, letterSpacing: "0.04em", color: "rgba(26,26,26,0.55)", margin: "0 0 16px" }}>
-                The new flow we built around
-              </p>
-              <div style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px)", borderRadius: 14, border: "1px solid rgba(255,255,255,0.7)", padding: "24px 32px", marginBottom: 56, width: "100%", boxSizing: "border-box" }}>
-                {[
-                  "Merchants create and share a payment link in Kody Universe (KU)",
-                  "Customers choose their bank in a web flow",
-                  "Clear messaging explains the benefits",
-                ].map((item, i) => (
-                  <div key={i} style={{ display: "flex", gap: 14, marginBottom: i === 2 ? 0 : 14, alignItems: "flex-start" }}>
-                    <span style={{ width: 22, height: 22, borderRadius: "50%", background: "#3445ff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 600, color: "#fff", flexShrink: 0, marginTop: 2 }}>
-                      {i + 1}
-                    </span>
-                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
-                      {item}
+              {/* Ideation sketches */}
+              <div style={{ display: "flex", gap: 32, marginBottom: 56 }}>
+                <div style={{ flex: 1, height: 270, borderRadius: 14, overflow: "hidden" }}>
+                  <img src="/images/kody-solution/ideation-sketch-1.png" alt="Ideation sketch 1" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+                <div style={{ flex: 1, height: 270, borderRadius: 14, overflow: "hidden" }}>
+                  <img src="/images/kody-solution/ideation-sketch-2.png" alt="Ideation sketch 2" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+              </div>
+
+              {/* ── The new flow we built around ── */}
+              <div style={{ marginBottom: 56 }}>
+                <ul style={{ paddingLeft: 24, margin: "0 0 16px" }}>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.035em" }}>
+                    The new flow we built around
+                  </li>
+                </ul>
+                <p style={{ ...bodyStyle, marginBottom: 4 }}>
+                  We prioritised Pay by Link as the primary channel for PBB, designed for low-urgency, higher-value payments
+                </p>
+                <ul style={{ paddingLeft: 24, margin: "0 0 24px" }}>
+                  {[
+                    "Merchants create and share a payment link in Kody Universe (KU).",
+                    "Customers choose their bank in a web flow (popular banks, search, and recent banks).",
+                    "Clear messaging explains the benefits and builds confidence.",
+                  ].map((item) => (
+                    <li key={item} style={{ ...bodyStyle, marginBottom: 4 }}>{item}</li>
+                  ))}
+                </ul>
+
+                {/* 3-column flow diagram */}
+                <div style={{ overflowX: "auto" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", minWidth: 999 }}>
+                    <img src="/images/kody-solution/flow-arrows.png" alt="" style={{ width: 706, height: 20, display: "block" }} />
+                    <div style={{ display: "flex", justifyContent: "space-between", width: 999 }}>
+                      {/* Merchant create */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: 40, alignItems: "center", width: 300 }}>
+                        <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#000", lineHeight: 1.4, margin: 0, width: 298 }}>
+                          Merchant create payment link on internal SaaS Platform
+                        </p>
+                        <div style={{ height: 160, width: 298, borderRadius: 10, overflow: "hidden", position: "relative" }}>
+                          <img src="/images/kody-solution/create-link-picker.png" alt="Create payment link" style={{ position: "absolute", width: "99.95%", height: "402.36%", top: "-235.56%", left: 0, display: "block" }} />
+                        </div>
+                      </div>
+                      {/* Customer open link */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: 40, alignItems: "center", width: 285 }}>
+                        <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#000", lineHeight: 1.4, margin: 0, whiteSpace: "nowrap" }}>
+                          Customer open payment link
+                        </p>
+                        <div style={{ height: 224, width: 244, position: "relative", flexShrink: 0 }}>
+                          <img src="/images/kody-solution/customer-open-link.png" alt="Customer opens payment link" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                        </div>
+                      </div>
+                      {/* Merchant check payment details */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: 30, alignItems: "center" }}>
+                        <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#070707", lineHeight: 1.4, margin: 0, width: 280 }}>
+                          {`Merchant check payment  details on internal SaaS Platform`}
+                        </p>
+                        <div style={{ height: 224, width: 101, position: "relative", flexShrink: 0 }}>
+                          <img src="/images/kody-solution/acq-txn-details.png" alt="Transaction details" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ── Step 1 ── */}
+              <div style={{ marginBottom: 56 }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: "0 0 24px" }}>
+                  Step 1 — Merchant creates a payment link
+                </p>
+                <div style={{ overflowX: "auto" }}>
+                  <div style={{ background: "#fff", height: 340, width: 780, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
+                    {/* Screenshot with mask */}
+                    <div style={{ position: "absolute", left: -18, top: 0, width: 563, height: 340, borderRadius: 10, overflow: "hidden",
+                      maskImage: `url('/images/kody-solution/step1-mask.png')`,
+                      WebkitMaskImage: `url('/images/kody-solution/step1-mask.png')`,
+                      maskSize: "563px 340px", maskPosition: "0px 0px", maskRepeat: "no-repeat" }}>
+                      <img alt="" style={{ position: "absolute", height: "357.39%", left: 0, maxWidth: "none", top: "-208.06%", width: "99.95%", display: "block" }} src="/images/kody-solution/create-link-picker.png" />
+                    </div>
+                    {/* Annotation box — fee savings */}
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 25, left: 297, top: 186, width: 76, borderRadius: 4 }} />
+                    {/* Annotation box — £40 threshold */}
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 18, left: 108, top: 202, width: 135, borderRadius: 4 }} />
+                    {/* Connector lines */}
+                    <div style={{ position: "absolute", height: 0, left: 373, top: 199, width: 144 }}>
+                      <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
+                        <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-1.png" />
+                      </div>
+                    </div>
+                    <div style={{ position: "absolute", display: "flex", height: 115, alignItems: "center", justifyContent: "center", left: 517, top: 84, width: 0 }}>
+                      <div style={{ flexShrink: 0, transform: "rotate(90deg)" }}>
+                        <div style={{ height: 0, position: "relative", width: 115 }}>
+                          <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
+                            <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-4.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ position: "absolute", height: 0, left: 517, top: 84, width: 35 }}>
+                      <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
+                        <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-5.png" />
+                      </div>
+                    </div>
+                    <div style={{ position: "absolute", height: 0, left: 213, top: 233, width: 346 }}>
+                      <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
+                        <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-2.png" />
+                      </div>
+                    </div>
+                    <div style={{ position: "absolute", display: "flex", height: 13, alignItems: "center", justifyContent: "center", left: 213, top: 220, width: 0 }}>
+                      <div style={{ flexShrink: 0, transform: "rotate(-90deg)" }}>
+                        <div style={{ height: 0, position: "relative", width: 13 }}>
+                          <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
+                            <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-3.png" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Callout text 1 */}
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 559, color: "#595959", fontSize: 14, top: 66, width: 211, margin: 0 }}>
+                      Highlight fee savings to drive Pay by Bank adoption
+                    </p>
+                    {/* Callout text 2 */}
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 564, color: "#595959", fontSize: 14, top: 196, width: 201, margin: 0 }}>
+                      Auto-deselect Pay by Bank when eligibility requirements aren&apos;t met (e.g., payment below £40)
                     </p>
                   </div>
-                ))}
+                </div>
               </div>
 
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "rgba(26,26,26,0.45)", margin: "0 0 8px", letterSpacing: "0.04em" }}>
-                Step 1 — Merchant creates a payment link
-              </p>
-              <img src="https://framerusercontent.com/images/nYacGZfxhWTg7h6Zxn91Sa9yVs.png" alt="Step 1" style={{ ...imgStyle, marginBottom: 16 }} />
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 56 }}>
-                {["Highlight fee savings", "Auto-deselect when below £40", "Easy promotion"].map((pt) => (
-                  <span key={pt} style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "rgba(26,26,26,0.55)", background: "rgba(255,255,255,0.7)", border: "1px solid rgba(26,26,26,0.08)", padding: "5px 14px", borderRadius: 100 }}>
-                    {pt}
-                  </span>
-                ))}
+              {/* ── Step 2 ── */}
+              <div style={{ marginBottom: 56 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: 0, whiteSpace: "nowrap" }}>
+                    Step 2 — Customer selects bank in web flow
+                  </p>
+                  <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0 }}>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
+                    <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Integrate PBB into PBL</span>
+                  </div>
+                </div>
+                <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
+                  Customers open the link from SMS or email, choose Pay by Bank, and complete authorisation in their banking app.
+                </p>
+                <div style={{ overflowX: "auto" }}>
+                  <div style={{ height: 496, position: "relative", width: 935, flexShrink: 0 }}>
+                    {/* Main bank flow image */}
+                    <div style={{ position: "absolute", height: 495, left: 286, top: 0.82, width: 649, overflow: "hidden" }}>
+                      <img alt="" style={{ position: "absolute", height: "100%", left: "-16.2%", maxWidth: "none", top: 0, width: "116.22%", display: "block" }} src="/images/kody-solution/step2-bank-flow.png" />
+                    </div>
+                    {/* First customer */}
+                    <div style={{ position: "absolute", display: "flex", flexDirection: "column", gap: 8, alignItems: "center", left: 0, top: 45.82 }}>
+                      <div style={{ background: "#ededed", display: "flex", alignItems: "center", justifyContent: "center", padding: "8px 20px", borderRadius: 8, width: 242 }}>
+                        <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#595959", margin: 0, whiteSpace: "nowrap" }}>First customer</p>
+                      </div>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#1a1a1a", width: 242, margin: 0, lineHeight: "normal" }}>
+                        If the customer is new to PBB (or cookies are declined), prioritise Pay by Bank as the primary option to drive adoption.
+                      </p>
+                    </div>
+                    {/* Return customer */}
+                    <div style={{ position: "absolute", display: "flex", flexDirection: "column", gap: 8, alignItems: "center", left: 0, top: 322.82 }}>
+                      <div style={{ background: "#ededed", display: "flex", alignItems: "center", justifyContent: "center", padding: "8px 20px", borderRadius: 8, width: 242 }}>
+                        <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#595959", margin: 0, whiteSpace: "nowrap" }}>Return customer</p>
+                      </div>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#1a1a1a", width: 242, margin: 0, lineHeight: "normal" }}>
+                        Remember the previous bank selection to reduce steps for returning customers and improve adoption.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "rgba(26,26,26,0.45)", margin: "0 0 8px", letterSpacing: "0.04em" }}>
-                Step 2 — Customer selects bank in web flow
-              </p>
-              <img src="https://framerusercontent.com/images/whNYLOXC4li3FI5eJLLQyoAuWM.png" alt="Step 2" style={{ ...imgStyle, marginBottom: 16 }} />
-              <div style={{ display: "flex", gap: 10, marginBottom: 56 }}>
-                {["First-time customer", "Returning customer"].map((l) => (
-                  <span key={l} style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "rgba(26,26,26,0.55)", background: "rgba(255,255,255,0.7)", border: "1px solid rgba(26,26,26,0.08)", padding: "5px 14px", borderRadius: 100 }}>
-                    {l}
-                  </span>
-                ))}
+              {/* ── Step 3 ── */}
+              <div>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: "0 0 24px" }}>
+                  Step 3 — Confirmation, status tracking, refund
+                </p>
+                <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
+                  Refunds are not automatic for Pay by Bank. We added a clear explanation on the transaction details page so merchants understand the refund model and can guide customers through the correct next step.
+                </p>
+                <div style={{ overflowX: "auto" }}>
+                  <div style={{ background: "#fff", height: 466, width: 791, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
+                    <div style={{ position: "absolute", height: 367, left: 144, top: 85, width: 246 }}>
+                      <img alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} src="/images/kody-solution/step3-payment.png" />
+                    </div>
+                    <div style={{ position: "absolute", height: 63, left: 201, top: 63, width: 171, borderRadius: 10, overflow: "hidden" }}>
+                      <img alt="" style={{ position: "absolute", height: "109.95%", left: 0, maxWidth: "none", top: "-0.21%", width: "135.09%", display: "block" }} src="/images/kody-solution/step3-frame1.png" />
+                    </div>
+                    <div style={{ position: "absolute", height: 373, left: 443, top: 63, width: 238, overflow: "hidden" }}>
+                      <img alt="" style={{ position: "absolute", height: "100%", left: "-165.59%", maxWidth: "none", top: 0, width: "265.62%", display: "block" }} src="/images/kody-solution/step3-frame2.png" />
+                    </div>
+                    <div style={{ position: "absolute", background: "#707070", display: "flex", alignItems: "center", justifyContent: "center", left: 443, padding: "8px 20px", borderRadius: 8, top: 14, width: 242 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#fff", margin: 0, whiteSpace: "nowrap" }}>For Merchant</p>
+                    </div>
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#595959", left: 24, top: 95, width: 101, margin: 0 }}>Text message</p>
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#595959", left: 24, top: 281, width: 101, margin: 0 }}>Email notification</p>
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#1a1a1a", left: 692, top: 282, margin: 0, whiteSpace: "nowrap" }}>Email result</p>
+                    <div style={{ position: "absolute", background: "#ededed", display: "flex", alignItems: "center", justifyContent: "center", left: 144, padding: "8px 20px", borderRadius: 8, top: 14, width: 242 }}>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#595959", margin: 0, whiteSpace: "nowrap" }}>For Customer</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "rgba(26,26,26,0.45)", margin: "0 0 8px", letterSpacing: "0.04em" }}>
-                Step 3 — Confirmation, status tracking, refund
-              </p>
-              <div className="kody-img-pair" style={{ marginBottom: 16 }}>
-                <div><img src="https://framerusercontent.com/images/HaID7GQMFLULzJYz9ifNAZ4E8Q.png" alt="Step 3a" /></div>
-                <div><img src="https://framerusercontent.com/images/pGtHy5aANfKGxUofzWEAxYTxnjU.png" alt="Step 3b" /></div>
-              </div>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                {["For Customer (Text message)", "For Merchant (Email notification)", "Transaction details (KU)"].map((l) => (
-                  <span key={l} style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, fontWeight: 500, color: "rgba(26,26,26,0.55)", background: "rgba(255,255,255,0.7)", border: "1px solid rgba(26,26,26,0.08)", padding: "5px 14px", borderRadius: 100 }}>
-                    {l}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* 02 */}
