@@ -1,6 +1,12 @@
 import Navbar from "@/components/Navbar";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
+const overviewWidth: React.CSSProperties = {
+  padding: "0 124px",
+  boxSizing: "border-box",
+  width: "100%",
+};
+
 const contentWidth: React.CSSProperties = {
   maxWidth: 960,
   margin: "0 auto",
@@ -114,10 +120,10 @@ export default function Prorizon() {
 
       {/* ── HERO ── */}
       <section style={{ background: "#fafafa", paddingTop: 120 }}>
-        <div style={contentWidth}>
+        <div style={overviewWidth}>
           <span style={labelStyle}>Prorizon · 2024 · B2C · Mobile App</span>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 80 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
             <div>
               <h1
                 style={{
@@ -140,16 +146,9 @@ export default function Prorizon() {
               <ImgPlaceholder label="Hero image" aspect="4/3" />
             </div>
           </div>
-        </div>
 
-        {/* Full-width image */}
-        <div style={{ width: "100%" }}>
-          <ImgPlaceholder label="Full-width product overview" aspect="21/6" />
-        </div>
-
-        {/* Overview */}
-        <div style={contentWidth}>
-          <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
+          {/* Intro paragraphs — before full-width image */}
+          <div style={{ paddingTop: 80, paddingBottom: 64 }}>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               Prorizon is designed to provide personalised insights to enhance the performance and well-being of young athletes, based on biopsychosocial data analytics. This project focuses on improving user engagement for manual input data.
             </p>
@@ -158,40 +157,10 @@ export default function Prorizon() {
             </p>
           </div>
         </div>
-      </section>
 
-      {/* ── Meta ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
-        <div style={contentWidth}>
-          {divider}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
-            {/* Timeline */}
-            <div style={glassCard}>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>Timeline</span>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#1a1a1a", margin: 0, lineHeight: 1.5 }}>Dec 2023 – Feb 2024</p>
-            </div>
-
-            {/* Team */}
-            <div style={glassCard}>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>Team</span>
-              {["Joly Z. (Project director)", "Andrii M. (Developer)", "Claire S (Content Writer)", "Falguni U. (Coordination researcher)"].map((m) => (
-                <p key={m} style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: "0 0 4px", lineHeight: 1.5 }}>{m}</p>
-              ))}
-            </div>
-
-            {/* My Role */}
-            <div style={glassCard}>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>My Role</span>
-              {[
-                "Qualitative User Research (Focus group, Interview, A/B Test)",
-                "Information Architecture, Wireframe design, High-fidelity prototype",
-                "Design system maintenance",
-                "Research Guide Writing",
-              ].map((r) => (
-                <p key={r} style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: "0 0 4px", lineHeight: 1.5 }}>{r}</p>
-              ))}
-            </div>
-          </div>
+        {/* Full-width image — after intro text */}
+        <div style={{ width: "100%" }}>
+          <ImgPlaceholder label="Full-width product overview" aspect="21/6" />
         </div>
       </section>
 
