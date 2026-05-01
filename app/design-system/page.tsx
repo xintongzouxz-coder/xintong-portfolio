@@ -247,7 +247,11 @@ export default function DesignSystem() {
             {divider}
             <h2 style={h2Style}>Multiplatform</h2>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 48 }}>
+            <p style={{ ...bodyStyle, marginBottom: 24 }}>
+              Kody has multiple product streams:
+            </p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 32 }}>
               {products.map(({ name, desc }) => (
                 <div key={name} style={{ ...glassCard, padding: "24px 28px" }}>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: "0 0 6px" }}>
@@ -258,6 +262,25 @@ export default function DesignSystem() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* Full-width image placeholder */}
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "16/9",
+                borderRadius: 14,
+                background: "rgba(26,26,26,0.05)",
+                border: "1px dashed rgba(26,26,26,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: 48,
+              }}
+            >
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>
+                Image placeholder
+              </span>
             </div>
 
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
