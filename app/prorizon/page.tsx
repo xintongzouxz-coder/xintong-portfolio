@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import ProrizonTOC from "@/components/ProrizonTOC";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const overviewWidth: React.CSSProperties = {
@@ -8,10 +9,6 @@ const overviewWidth: React.CSSProperties = {
 };
 
 const contentWidth: React.CSSProperties = {
-  maxWidth: 960,
-  margin: "0 auto",
-  padding: "0 60px",
-  boxSizing: "border-box",
   width: "100%",
 };
 
@@ -119,7 +116,7 @@ export default function Prorizon() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section style={{ background: "#fafafa", paddingTop: 120 }}>
+      <section id="overview" style={{ background: "#fafafa", paddingTop: 120 }}>
         <div style={overviewWidth}>
           <span style={labelStyle}>Prorizon · 2024 · B2C · Mobile App</span>
 
@@ -164,8 +161,43 @@ export default function Prorizon() {
         </div>
       </section>
 
+      <style>{`
+        .prorizon-with-sidebar {
+          display: flex;
+          align-items: flex-start;
+          gap: 40px;
+          padding: 0 124px 0 100px;
+          box-sizing: border-box;
+          width: 100%;
+        }
+        .prorizon-sidebar-col {
+          width: 274px;
+          flex-shrink: 0;
+          position: sticky;
+          top: 100px;
+          padding: 32px;
+          box-sizing: border-box;
+        }
+        .prorizon-content-col {
+          flex: 1;
+          min-width: 0;
+        }
+        @media (max-width: 900px) {
+          .prorizon-with-sidebar { flex-direction: column; padding: 0 24px; }
+          .prorizon-sidebar-col { display: none; }
+          .prorizon-content-col { width: 100%; max-width: none; }
+        }
+      `}</style>
+
+      {/* ── SIDEBAR + CONTENT LAYOUT ── */}
+      <div className="prorizon-with-sidebar">
+        <div className="prorizon-sidebar-col">
+          <ProrizonTOC />
+        </div>
+        <div className="prorizon-content-col">
+
       {/* ── Background ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="background" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Background</h2>
@@ -176,7 +208,7 @@ export default function Prorizon() {
       </section>
 
       {/* ── Problem Space ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="problem" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Problem Space</h2>
@@ -189,7 +221,8 @@ export default function Prorizon() {
       </section>
 
       {/* ── Research Process ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="research" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+        <div id="research-focus-group" />
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Research Process — Focus Group</h2>
@@ -231,7 +264,7 @@ export default function Prorizon() {
       </section>
 
       {/* ── Empathy Map ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="research-empathy-map" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Empathy Map</h2>
@@ -244,7 +277,7 @@ export default function Prorizon() {
       </section>
 
       {/* ── Findings ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="research-findings" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Findings</h2>
@@ -274,7 +307,7 @@ export default function Prorizon() {
       </section>
 
       {/* ── Opportunities ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="opportunities" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Opportunities</h2>
@@ -356,7 +389,9 @@ export default function Prorizon() {
       </section>
 
       {/* ── Solution & Validation ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="ideation-validation" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+        <div id="ideation-interview" />
+        <div id="ideation-prototype" />
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Solution & Validation</h2>
@@ -381,13 +416,13 @@ export default function Prorizon() {
       </section>
 
       {/* ── Solution Details ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="solutions" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Solution Details</h2>
 
           {/* Solution 1 */}
-          <div style={{ marginBottom: 80 }}>
+          <div id="solutions-personalisation" style={{ marginBottom: 80 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
               <StepBadge n="1" />
               <h3 style={{ ...h3Style, margin: 0 }}>Data-Driven Personalisation</h3>
@@ -428,7 +463,7 @@ export default function Prorizon() {
           </div>
 
           {/* Solution 2 */}
-          <div style={{ marginBottom: 80 }}>
+          <div id="solutions-daily-login" style={{ marginBottom: 80 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
               <StepBadge n="2" />
               <h3 style={{ ...h3Style, margin: 0 }}>Integrating Log-in into Daily Life Naturally</h3>
@@ -445,7 +480,7 @@ export default function Prorizon() {
           </div>
 
           {/* Solution 3 */}
-          <div>
+          <div id="solutions-data-collection">
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
               <StepBadge n="3" />
               <h3 style={{ ...h3Style, margin: 0 }}>Smarter Data Collection</h3>
@@ -487,7 +522,7 @@ export default function Prorizon() {
               <ImgPlaceholder label="New interaction experiment" aspect="16/8" />
             </div>
 
-            <div style={{ marginTop: 48 }}>
+            <div id="final-design" style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, marginBottom: 24 }}>Final Design</h3>
               <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
                 While retaining the original design, I optimised the information layout to improve readability and user experience.
@@ -536,7 +571,7 @@ export default function Prorizon() {
       </section>
 
       {/* ── Learning ── */}
-      <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      <section id="learning" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Learning</h2>
@@ -560,6 +595,9 @@ export default function Prorizon() {
           </div>
         </div>
       </section>
+
+        </div>{/* end prorizon-content-col */}
+      </div>{/* end prorizon-with-sidebar */}
 
       {/* ── Footer ── */}
       <footer
