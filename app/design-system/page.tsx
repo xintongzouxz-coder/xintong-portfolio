@@ -131,14 +131,17 @@ const findings = [
 
 const principles = [
   {
+    icon: "https://www.figma.com/api/mcp/asset/04859415-69c7-4304-b563-f0b6b1f30e61",
     title: "Simplify, don't redesign",
     body: "The same components were implemented in multiple styles, especially in Terminal, with no clear standard.",
   },
   {
+    icon: "https://www.figma.com/api/mcp/asset/6ba172f4-7d67-46a4-b921-2b305c5d6e1b",
     title: "Foundation-first",
     body: "Tokens before components.",
   },
   {
+    icon: "https://www.figma.com/api/mcp/asset/63805b9c-af52-4e84-86d3-de44b5eeebc2",
     title: "Progressive adoption",
     body: "Start with high-impact surfaces and migrate iteratively.",
   },
@@ -443,24 +446,17 @@ export default function DesignSystem() {
             {divider}
             <h2 style={h2Style}>North Star design principles</h2>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              {principles.map(({ title, body }, i) => (
+            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+              {principles.map(({ icon, title, body }) => (
                 <div key={title} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-dm-sans)",
-                      fontSize: 13,
-                      fontWeight: 500,
-                      color: "#3445ff",
-                      background: "rgba(52,69,255,0.1)",
-                      borderRadius: 100,
-                      padding: "4px 14px",
-                      flexShrink: 0,
-                      marginTop: 2,
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={icon}
+                    alt={title}
+                    width={32}
+                    height={32}
+                    style={{ flexShrink: 0, marginTop: 2 }}
+                  />
                   <div>
                     <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 600, color: "#1a1a1a", margin: "0 0 4px" }}>
                       {title}
