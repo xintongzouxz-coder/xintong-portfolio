@@ -810,12 +810,12 @@ export default function KodyPBB() {
               {/* ── Section header + badge ── */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 700, color: "#3445ff", background: "rgba(255,255,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>
                     01
                   </span>
                   <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Pay by Link as the primary growth channel</h3>
                 </div>
-                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0 }}>
+                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
                   <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Integrate PBB into PBL</span>
                 </div>
@@ -872,7 +872,6 @@ export default function KodyPBB() {
                 {/* 3-column flow diagram */}
                 <div style={{ overflowX: "auto" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: 20, alignItems: "center", minWidth: 999 }}>
-                    <img src="/images/kody-solution/flow-arrows.png" alt="" style={{ width: 706, height: 20, display: "block" }} />
                     <div style={{ display: "flex", justifyContent: "space-between", width: 999 }}>
                       {/* Merchant create */}
                       <div style={{ display: "flex", flexDirection: "column", gap: 40, alignItems: "center", width: 300 }}>
@@ -913,51 +912,21 @@ export default function KodyPBB() {
                 </p>
                 <div style={{ overflowX: "auto" }}>
                   <div style={{ background: "#fff", height: 340, width: 780, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
-                    {/* Screenshot with mask */}
-                    <div style={{ position: "absolute", left: -18, top: 0, width: 563, height: 340, borderRadius: 10, overflow: "hidden",
-                      maskImage: `url('/images/kody-solution/step1-mask.png')`,
-                      WebkitMaskImage: `url('/images/kody-solution/step1-mask.png')`,
-                      maskSize: "563px 340px", maskPosition: "0px 0px", maskRepeat: "no-repeat" }}>
+                    {/* Screenshot */}
+                    <div style={{ position: "absolute", left: -18, top: 0, width: 563, height: 340, borderRadius: 10, overflow: "hidden" }}>
                       <img alt="" style={{ position: "absolute", height: "357.39%", left: 0, maxWidth: "none", top: "-208.06%", width: "99.95%", display: "block" }} src="/images/kody-solution/create-link-picker.png" />
                     </div>
                     {/* Annotation box — fee savings */}
                     <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 25, left: 297, top: 186, width: 76, borderRadius: 4 }} />
                     {/* Annotation box — £40 threshold */}
                     <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 18, left: 108, top: 202, width: 135, borderRadius: 4 }} />
-                    {/* Connector lines */}
-                    <div style={{ position: "absolute", height: 0, left: 373, top: 199, width: 144 }}>
-                      <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
-                        <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-1.png" />
-                      </div>
-                    </div>
-                    <div style={{ position: "absolute", display: "flex", height: 115, alignItems: "center", justifyContent: "center", left: 517, top: 84, width: 0 }}>
-                      <div style={{ flexShrink: 0, transform: "rotate(90deg)" }}>
-                        <div style={{ height: 0, position: "relative", width: 115 }}>
-                          <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
-                            <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-4.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div style={{ position: "absolute", height: 0, left: 517, top: 84, width: 35 }}>
-                      <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
-                        <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-5.png" />
-                      </div>
-                    </div>
-                    <div style={{ position: "absolute", height: 0, left: 213, top: 233, width: 346 }}>
-                      <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
-                        <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-2.png" />
-                      </div>
-                    </div>
-                    <div style={{ position: "absolute", display: "flex", height: 13, alignItems: "center", justifyContent: "center", left: 213, top: 220, width: 0 }}>
-                      <div style={{ flexShrink: 0, transform: "rotate(-90deg)" }}>
-                        <div style={{ height: 0, position: "relative", width: 13 }}>
-                          <div style={{ position: "absolute", inset: "-1.5px 0 0 0" }}>
-                            <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src="/images/kody-solution/line-3.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    {/* Connector lines — SVG dashed #FF7E7E 1.5px */}
+                    <svg style={{ position: "absolute", inset: 0, width: 780, height: 340, pointerEvents: "none", overflow: "visible" }}>
+                      {/* Callout 1: from box1 right-centre → right → up → right to callout */}
+                      <path d="M373,199 L517,199 L517,84 L552,84" stroke="#FF7E7E" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+                      {/* Callout 2: from box2 bottom-centre → down → right to callout */}
+                      <path d="M213,220 L213,233 L559,233" stroke="#FF7E7E" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+                    </svg>
                     {/* Callout text 1 */}
                     <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 559, color: "#595959", fontSize: 14, top: 66, width: 211, margin: 0 }}>
                       Highlight fee savings to drive Pay by Bank adoption
@@ -976,7 +945,7 @@ export default function KodyPBB() {
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: 0, whiteSpace: "nowrap" }}>
                     Step 2 — Customer selects bank in web flow
                   </p>
-                  <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0 }}>
+                  <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
                     <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
                     <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Integrate PBB into PBL</span>
                   </div>
