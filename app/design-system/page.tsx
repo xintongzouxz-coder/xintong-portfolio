@@ -10,6 +10,12 @@ const contentWidth: React.CSSProperties = {
   width: "100%",
 };
 
+const overviewWidth: React.CSSProperties = {
+  padding: "0 124px",
+  boxSizing: "border-box",
+  width: "100%",
+};
+
 const sectionGap = 120;
 
 const labelStyle: React.CSSProperties = {
@@ -154,7 +160,7 @@ export default function DesignSystem() {
 
       {/* ── HERO ── */}
       <section style={{ background: "#fafafa", paddingTop: 120 }}>
-        <div style={contentWidth}>
+        <div style={overviewWidth}>
           <span style={labelStyle}>Kody · 2025 · Design System · AI-assisted</span>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 80 }}>
@@ -167,22 +173,11 @@ export default function DesignSystem() {
                   lineHeight: 1.05,
                   letterSpacing: "-0.03em",
                   color: "#1a1a1a",
-                  margin: "0 0 24px",
+                  margin: 0,
                 }}
               >
                 Rebuilding the Kody Design System
               </h1>
-              <p
-                style={{
-                  fontFamily: "var(--font-dm-sans)",
-                  fontSize: "clamp(15px, 1.5vw, 18px)",
-                  lineHeight: 1.55,
-                  color: "rgba(26,26,26,0.55)",
-                  margin: 0,
-                }}
-              >
-                Simplified design foundations by up to 75%, improved consistency across 4 products
-              </p>
             </div>
             <div>
               <Image src="/images/kody-design-system/hero.png" alt="旧版 Kody 设计系统全览" width={6180} height={4400} style={{ ...imgStyle }} />
@@ -190,13 +185,8 @@ export default function DesignSystem() {
           </div>
         </div>
 
-        {/* Full-width image */}
-        <div style={{ background: "#f0f0f0", width: "100%" }}>
-          <Image src="/images/kody-design-system/overview.png" alt="6个 Kody 产品线全家福" width={8006} height={4042} style={{ width: "100%", height: "auto", display: "block" }} />
-        </div>
-
         {/* Opening statement */}
-        <div style={contentWidth}>
+        <div style={overviewWidth}>
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
             <div style={{ ...blockquoteStyle, margin: "0 0 40px" }}>
               <p style={blockquoteTextStyle}>
@@ -207,7 +197,7 @@ export default function DesignSystem() {
               Kody's product ecosystem had grown into four platforms, each evolving independently. As the system scaled, the UI became fragmented — slowing down delivery, creating inconsistencies, and making design-to-development alignment difficult.
             </p>
             <p style={bodyStyle}>
-              I led efforts to bring structure by defining a shared foundation and constrained reusable components that could scale across products.
+              I led efforts to bring structure by defining a shared foundation and constrained reusable components that could scale across 4 products.
             </p>
           </div>
         </div>
