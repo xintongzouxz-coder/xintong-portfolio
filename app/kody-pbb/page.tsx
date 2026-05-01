@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import TableOfContents from "@/components/TableOfContents";
+import StrategicPivotDiagram from "@/components/StrategicPivotDiagram";
 
 // ── Icon assets (local, in /public/icons/kody-pbb/) ──────────────────────────
 const icCardIcon   = "/icons/kody-pbb/ic-card.svg";
@@ -135,6 +136,7 @@ const insights = [
     body: "Launch emails only went to business owners. Staff operating the terminals were left in the dark about PBB's benefits.",
   },
 ];
+
 
 // ── MetricRow ─────────────────────────────────────────────────────────────────
 function MetricRow({
@@ -798,11 +800,7 @@ export default function KodyPBB() {
               We shifted the centre of gravity from 'expanding banks on terminal' to 'making Pay by Bank succeed in Pay by Link'. Terminal expansion was de-scoped into a secondary track.
             </p>
 
-            <img
-              src="https://framerusercontent.com/images/rTz4f1yx1NJimy0gBMviF8JUZU.png"
-              alt="Strategic pivot diagram"
-              style={{ ...imgStyle, maxWidth: 800 }}
-            />
+            <StrategicPivotDiagram />
           </section>
 
           {/* ── SOLUTIONS ─────────────────────────────────────────────────────── */}
@@ -954,7 +952,7 @@ export default function KodyPBB() {
               </div>
 
               {/* ── Step 2 ── */}
-              <div style={{ marginBottom: 56 }}>
+              <div id="solutions-step-2" style={{ marginBottom: 56 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: 0, whiteSpace: "nowrap" }}>
                     Step 2 — Customer selects bank in web flow
