@@ -661,20 +661,12 @@ export default function DesignSystem() {
                 <h3 style={{ ...h3Style, margin: 0 }}>Operationalising the design system with AI</h3>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                {[
-                  "To support ongoing consistency, the design system was translated into a set of machine-readable rules using Claude Code, enabling automated validation of design outputs. Designers could submit Figma designs for automated checks, where elements that deviated from token were identified and flagged.",
-                  "With structured token documentation, AI-assisted ideation was enabled by providing system-aware prompts, allowing design exploration to stay aligned with established rules.",
-                ].map((item, i) => (
-                  <div key={i} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
-                    <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px", flexShrink: 0 }}>
-                      {i + 1}
-                    </span>
-                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.7, color: "#1a1a1a", margin: 0 }}>
-                      {item}
-                    </p>
-                  </div>
-                ))}
+              <p style={{ ...bodyStyle, marginBottom: 24 }}>
+                To support ongoing consistency, the design system was translated into a set of machine-readable rules using Claude Code, enabling automated validation of design outputs. Designers could submit Figma designs for automated checks, where elements that deviated from token were identified and flagged.
+              </p>
+
+              <div style={{ width: "100%", aspectRatio: "16/9", borderRadius: 14, background: "rgba(26,26,26,0.05)", border: "1px dashed rgba(26,26,26,0.15)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.35)" }}>Image placeholder</span>
               </div>
             </div>
           </section>
