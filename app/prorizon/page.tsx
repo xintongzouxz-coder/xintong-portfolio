@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import ProrizonTOC from "@/components/ProrizonTOC";
 
@@ -291,7 +292,6 @@ export default function Prorizon() {
             ))}
           </div>
 
-          <ImgPlaceholder label="Focus group process" aspect="16/7" />
         </div>
       </section>
 
@@ -314,24 +314,46 @@ export default function Prorizon() {
           {divider}
           <h2 style={h2Style}>Findings</h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             {[
               {
-                title: "Low perceived value",
-                body: "The current insights are challenging for users to make use of, leading them to question the app's value.",
+                icon: "/images/prorizon/icon-time-consuming.svg",
+                label: "Time-consuming\nlogging process",
+                body: (
+                  <>Users feel overwhelmed by the <span style={{ color: "#3445ff" }}>long log questions</span> and 3-times completion requirements, leading to fatigue and reduced engagement.</>
+                ),
               },
               {
-                title: "Intrusive notifications",
-                body: "Frequent notifications for the three daily logs disrupted users' routines, leaving them feeling rushed and disengaged, leading to skipped or hastily completed logs and reducing the accuracy.",
+                icon: "/images/prorizon/icon-notifications.svg",
+                label: "Intrusive\nnotifications",
+                body: (
+                  <>Frequent notifications for the three daily logs <span style={{ color: "#3445ff" }}>disrupted users&apos; routines</span>, leaving them feeling rushed and disengaged, leading to skipped or hastily completed logs and reducing the accuracy.</>
+                ),
               },
               {
-                title: "Time-consuming logging process",
-                body: "Users feel overwhelmed by the long log questions and 3-times completion requirements, leading to fatigue and reduced engagement.",
+                icon: "/images/prorizon/icon-low-value.svg",
+                label: "Low perceived\nvalue",
+                body: (
+                  <>The complexity and unclear insights make it <span style={{ color: "#3445ff" }}>hard for users to understand the data</span>, leading them to question the app&apos;s value.</>
+                ),
               },
-            ].map(({ title, body }) => (
-              <div key={title} style={glassCard}>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: "0 0 10px" }}>{title}</p>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, lineHeight: 1.65, color: "rgba(26,26,26,0.72)", margin: 0 }}>{body}</p>
+            ].map(({ icon, label, body }, i, arr) => (
+              <div
+                key={label}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "160px 1fr",
+                  alignItems: "center",
+                  gap: 40,
+                  padding: "40px 0",
+                  borderBottom: i < arr.length - 1 ? "1px solid rgba(26,26,26,0.08)" : "none",
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+                  <Image src={icon} alt={label} width={40} height={40} />
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, fontWeight: 500, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.5, whiteSpace: "pre-line" }}>{label}</p>
+                </div>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.7, color: "rgba(26,26,26,0.72)", margin: 0 }}>{body}</p>
               </div>
             ))}
           </div>
