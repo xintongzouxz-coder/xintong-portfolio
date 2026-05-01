@@ -961,7 +961,7 @@ export default function KodyPBB() {
                   </p>
                   <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
                     <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
-                    <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Integrate PBB into PBL</span>
+                    <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Expand bank coverage</span>
                   </div>
                 </div>
                 <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
