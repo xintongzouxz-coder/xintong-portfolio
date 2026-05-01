@@ -160,7 +160,7 @@ export default function DesignSystem() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section style={{ background: "#fafafa", paddingTop: 120 }}>
+      <section id="overview" style={{ background: "#fafafa", paddingTop: 120 }}>
         <div style={overviewWidth}>
           <span style={labelStyle}>Kody · 2025 · Design System · AI-assisted</span>
 
@@ -243,7 +243,7 @@ export default function DesignSystem() {
         <div className="ds-content-col">
 
           {/* ── Multiplatform ── */}
-          <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="multiplatform" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <h2 style={h2Style}>Multiplatform</h2>
 
@@ -292,7 +292,7 @@ export default function DesignSystem() {
           </section>
 
           {/* ── Evidence of system fragmentation ── */}
-          <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="problem" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <h2 style={h2Style}>Evidence of system fragmentation</h2>
 
@@ -397,7 +397,7 @@ export default function DesignSystem() {
           </section>
 
           {/* ── Key Issues ── */}
-          <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="key-issues" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <h2 style={h2Style}>Key Issues</h2>
 
@@ -444,7 +444,7 @@ export default function DesignSystem() {
           </section>
 
           {/* ── North Star design principles ── */}
-          <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="north-star" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <h2 style={h2Style}>North Star design principles</h2>
 
@@ -473,12 +473,12 @@ export default function DesignSystem() {
           </section>
 
           {/* ── Solution ── */}
-          <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="solutions" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <h2 style={h2Style}>Solution</h2>
 
             {/* 01 — Source of truth */}
-            <div style={{ marginBottom: 80 }}>
+            <div id="solutions-source-of-truth" style={{ marginBottom: 80 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>01</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>No single source of truth → 1 Source of truth</h3>
@@ -507,7 +507,7 @@ export default function DesignSystem() {
             </div>
 
             {/* 02 — Token system */}
-            <div style={{ marginBottom: 80 }}>
+            <div id="solutions-token-system" style={{ marginBottom: 80 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>02</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>Inconsistent foundations → Define a token system</h3>
@@ -575,7 +575,7 @@ export default function DesignSystem() {
             </div>
 
             {/* 03 — Component specs */}
-            <div style={{ marginBottom: 80 }}>
+            <div id="solutions-component-specs" style={{ marginBottom: 80 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>03</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>Excessive component variants → Build core component specs</h3>
@@ -641,7 +641,7 @@ export default function DesignSystem() {
             </div>
 
             {/* 04 — Reference implementation */}
-            <div style={{ marginBottom: 80 }}>
+            <div id="solutions-implementation" style={{ marginBottom: 80 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>04</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>Create a reference implementation</h3>
@@ -655,7 +655,7 @@ export default function DesignSystem() {
             </div>
 
             {/* 05 — AI */}
-            <div>
+            <div id="solutions-ai">
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>05</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>Operationalising the design system with AI</h3>
@@ -672,7 +672,7 @@ export default function DesignSystem() {
           </section>
 
           {/* ── Outcome ── */}
-          <section style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="outcome" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <span style={labelStyle}>Outcome</span>
             <h2 style={h2Style}>Results</h2>
