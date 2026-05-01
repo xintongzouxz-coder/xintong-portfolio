@@ -19,7 +19,7 @@ const CASES = [
   },
   {
     href: "/design-system",
-    image: undefined,
+    image: "/images/design-system-cover.png",
     tags: ["Design System", "AI-assisted"],
     title: "Rebuilding the Kody Design System",
     year: "2025",
@@ -28,7 +28,7 @@ const CASES = [
   },
   {
     href: "/prorizon",
-    image: undefined,
+    image: "/images/prorizon-cover.png",
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
     year: "2024",
@@ -37,7 +37,7 @@ const CASES = [
   },
   {
     href: "/pitchme",
-    image: undefined,
+    image: "/images/pitchme.webp",
     tags: ["Workflow Optimisation", "AI-agent"],
     title: "PitchME",
     year: "2024",
