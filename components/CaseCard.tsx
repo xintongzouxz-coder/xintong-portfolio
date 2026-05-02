@@ -17,6 +17,7 @@ interface CaseCardProps {
 export default function CaseCard({ href, image, bg, hoverVideo, tags, title, year, description }: CaseCardProps) {
   const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
   const videoRef = useRef<HTMLVideoElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -24,6 +25,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
       videoRef.current.style.opacity = "1";
       videoRef.current.play();
     }
+    if (imageRef.current) imageRef.current.style.opacity = "0";
   };
 
   const handleMouseLeave = () => {
@@ -32,6 +34,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
+    if (imageRef.current) imageRef.current.style.opacity = "1";
   };
 
   const content = (
@@ -51,9 +54,10 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
       >
         {image && (
           <img
+            ref={hoverVideo ? imageRef : undefined}
             src={image}
             alt={title}
-            style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block", transition: "opacity 0.3s ease" }}
           />
         )}
         {hoverVideo && (
