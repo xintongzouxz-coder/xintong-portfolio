@@ -525,7 +525,7 @@ export default function Prorizon() {
               </p>
             </div>
 
-            <div style={{ marginTop: 48 }}>
+            <div style={{ marginTop: 48, paddingLeft: 32, borderLeft: "2px solid rgba(26,26,26,0.08)" }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>A Design System Enhancement for Insights Feature — Quick Insight</h3>
               <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
                 As part of the new 'Insights' feature, I extended the existing design system while maintaining consistency with the brand's original guidelines. Starting with the updated brand colours, I established a new colour foundation, using a combination of red and the brand's blue to create clear visual contrast for data comparison components. Plus, with the help of the developer, I also conduct design for edge cases such as low data, no data, and data limitations.
