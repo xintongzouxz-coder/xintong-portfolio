@@ -193,7 +193,7 @@ export default function Home() {
           {/* Brain Fog */}
           <div style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
             <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
-              <source src="/images/brainfog(1).mp4" type="video/mp4" />
+              <source src="/images/brainfog.mp4" type="video/mp4" />
             </video>
           </div>
           {/* Barbican Plants */}
