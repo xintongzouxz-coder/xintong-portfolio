@@ -572,10 +572,12 @@ export default function Prorizon() {
             <div style={{ marginTop: 16 }}>
               <CaseImg src="/images/prorizon/Daily Log — Full.webp" alt="Daily Log — Full" />
             </div>
-            <div style={{ marginTop: 16, borderRadius: 14, overflow: "hidden", background: "#0d0d1a", display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center" }}>
-              <video autoPlay loop muted playsInline style={{ width: "100%", display: "block" }}>
-                <source src="/images/prorizon/home-daily-log.mp4" type="video/mp4" />
-              </video>
+            <div style={{ marginTop: 16, borderRadius: 14, background: "#0d0d1a", display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center", overflow: "hidden" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "40px 24px" }}>
+                <video autoPlay loop muted playsInline style={{ width: "100%", maxWidth: 280, display: "block" }}>
+                  <source src="/images/prorizon/home-daily-log.mp4" type="video/mp4" />
+                </video>
+              </div>
               <div style={{ padding: "32px 40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <p style={{ ...bodyStyle, color: "#ffffff", margin: 0 }}>
                   Stacking up the history of today&apos;s log
