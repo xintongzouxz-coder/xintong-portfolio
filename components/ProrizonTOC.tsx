@@ -19,14 +19,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { id: "opportunities", label: "OPPORTUNITIES" },
-  {
-    id: "ideation-validation",
-    label: "IDEATION VALIDATION",
-    subItems: [
-      { id: "ideation-interview", label: "Interview & A/B Test" },
-      { id: "ideation-prototype", label: "Low-Fi prototype" },
-    ],
-  },
+  { id: "ideation-validation", label: "IDEATION VALIDATION" },
   {
     id: "solutions",
     label: "SOLUTIONS",
@@ -50,8 +43,6 @@ const OBSERVE_IDS = [
   "research-findings",
   "research",
   "opportunities",
-  "ideation-interview",
-  "ideation-prototype",
   "ideation-validation",
   "solutions-personalisation",
   "solutions-daily-login",

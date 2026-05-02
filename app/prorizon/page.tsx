@@ -236,18 +236,12 @@ export default function Prorizon() {
 
           {/* Goal tiles */}
           <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 48 }}>
-            <div style={{ background: "rgba(26,26,26,0.04)", borderRadius: 16, padding: "24px 28px", display: "flex", gap: 20, alignItems: "flex-start" }}>
-              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#3445ff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ color: "#fff", fontSize: 18 }}>☑</span>
-              </div>
+            <div style={{ background: "rgba(26,26,26,0.04)", borderRadius: 16, padding: "24px 28px" }}>
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
                 Determine <span style={{ color: "#3445ff" }}>the type and order of information to be collected</span> in the mood recording section, understand How long and informative is feasible for a single log
               </p>
             </div>
-            <div style={{ background: "rgba(26,26,26,0.04)", borderRadius: 16, padding: "24px 28px", display: "flex", gap: 20, alignItems: "flex-start" }}>
-              <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#3445ff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <span style={{ color: "#fff", fontSize: 18 }}>🙂</span>
-              </div>
+            <div style={{ background: "rgba(26,26,26,0.04)", borderRadius: 16, padding: "24px 28px" }}>
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
                 <span style={{ color: "#3445ff" }}>Discuss and identify effective stimuli and methods</span> to improve number of times a user self-records per day and number of days to maintain streak
               </p>
@@ -317,10 +311,10 @@ export default function Prorizon() {
           <div style={{ display: "flex", flexDirection: "column" }}>
             {[
               {
-                icon: "/images/prorizon/icon-time-consuming.svg",
-                label: "Time-consuming\nlogging process",
+                icon: "/images/prorizon/icon-low-value.svg",
+                label: "Low perceived\nvalue",
                 body: (
-                  <>Users feel overwhelmed by the <span style={{ color: "#3445ff" }}>long log questions</span> and 3-times completion requirements, leading to fatigue and reduced engagement.</>
+                  <>The complexity and unclear insights make it <span style={{ color: "#3445ff" }}>hard for users to understand the data</span>, leading them to question the app&apos;s value.</>
                 ),
               },
               {
@@ -331,10 +325,10 @@ export default function Prorizon() {
                 ),
               },
               {
-                icon: "/images/prorizon/icon-low-value.svg",
-                label: "Low perceived\nvalue",
+                icon: "/images/prorizon/icon-time-consuming.svg",
+                label: "Time-consuming\nlogging process",
                 body: (
-                  <>The complexity and unclear insights make it <span style={{ color: "#3445ff" }}>hard for users to understand the data</span>, leading them to question the app&apos;s value.</>
+                  <>Users feel overwhelmed by the <span style={{ color: "#3445ff" }}>long log questions</span> and 3-times completion requirements, leading to fatigue and reduced engagement.</>
                 ),
               },
             ].map(({ icon, label, body }, i, arr) => (
@@ -368,13 +362,21 @@ export default function Prorizon() {
 
           {/* Opportunity 1 */}
           <div style={{ marginBottom: 64 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: 40, alignItems: "flex-start" }}>
+              <div style={{ background: "rgba(26,26,26,0.03)", border: "1px solid rgba(26,26,26,0.1)", borderRadius: 16, padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, width: "100%", aspectRatio: "1" }}>
+                <Image src="/images/prorizon/icon-low-value.svg" alt="Low perceived value" width={40} height={40} />
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, fontWeight: 500, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.5 }}>Low perceived{"\n"}value</p>
+              </div>
+              <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
               <StepBadge n="01" />
               <h3 style={{ ...h3Style, margin: 0 }}>Data-driven personalisation</h3>
             </div>
             <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
-              After analysing focus group feedback, I identified three key design opportunities: physical rewards, community building, and data-driven personalisation. Following team discussions, we focused on personalisation as it provides athletes with immediate value through tailored insights and comparisons. This approach enhances user engagement and maximises effectiveness with minimal additional resources.
+              After analysing focus group feedback, I identified three key design opportunities: physical rewards, community building, and data-driven personalisation. Following team discussions, <span style={{ color: "#3445ff" }}>we focused on personalisation as it provides athletes with immediate value through tailored insights and comparisons.</span> This approach enhances user engagement and maximises effectiveness with minimal additional resources.
             </p>
+            </div>
+            </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
               {[
@@ -417,6 +419,12 @@ export default function Prorizon() {
 
           {/* Opportunity 2 */}
           <div style={{ marginBottom: 64 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: 40, alignItems: "flex-start" }}>
+              <div style={{ background: "rgba(26,26,26,0.03)", border: "1px solid rgba(26,26,26,0.1)", borderRadius: 16, padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, width: "100%", aspectRatio: "1" }}>
+                <Image src="/images/prorizon/icon-notifications.svg" alt="Intrusive notifications" width={40} height={40} />
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, fontWeight: 500, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.5 }}>Intrusive{"\n"}notifications</p>
+              </div>
+              <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
               <StepBadge n="02" />
               <h3 style={{ ...h3Style, margin: 0 }}>Integrating Log-in into Daily Life Naturally</h3>
@@ -427,10 +435,18 @@ export default function Prorizon() {
             <p style={{ ...bodyStyle, maxWidth: 680 }}>
               Research was conducted to identify the events when users are most likely to create a "log".
             </p>
+              </div>
+            </div>
           </div>
 
           {/* Opportunity 3 */}
           <div>
+            <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: 40, alignItems: "flex-start" }}>
+              <div style={{ background: "rgba(26,26,26,0.03)", border: "1px solid rgba(26,26,26,0.1)", borderRadius: 16, padding: "24px 16px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12, width: "100%", aspectRatio: "1" }}>
+                <Image src="/images/prorizon/icon-time-consuming.svg" alt="Time-consuming logging process" width={40} height={40} />
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, fontWeight: 500, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.5 }}>Time-consuming{"\n"}logging process</p>
+              </div>
+              <div>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
               <StepBadge n="03" />
               <h3 style={{ ...h3Style, margin: 0 }}>Smarter Data Collection and Sequence Tweaks</h3>
@@ -438,34 +454,38 @@ export default function Prorizon() {
             <p style={{ ...bodyStyle, maxWidth: 680 }}>
               After meeting with Data Scientist, we decided to streamline the data collection process. Some features were removed and the whole process was re-ordered based on the importance and frequency of information rated by users.
             </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Solution & Validation ── */}
+      {/* ── Ideation & Validation ── */}
       <section id="ideation-validation" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
-        <div id="ideation-interview" />
-        <div id="ideation-prototype" />
         <div style={contentWidth}>
           {divider}
-          <h2 style={h2Style}>Solution & Validation</h2>
+          <h2 style={h2Style}>Ideation & Validation</h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 48 }}>
             <div style={glassCard}>
               <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>Online 1-1 Interviews with Athletes</span>
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, color: "rgba(26,26,26,0.45)", margin: "0 0 12px" }}>30 minutes</p>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: "0 0 20px" }}>
                 Access the smoothness and engagement of the new daily log-in process based on user interaction (observation & feedback), and efficiency (success rate & time taken to complete the process).
               </p>
+              <ImgPlaceholder label="Interview" aspect="16/9" />
             </div>
             <div style={glassCard}>
               <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>A/B Testing</span>
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, color: "rgba(26,26,26,0.45)", margin: "0 0 12px" }}>Guerrilla interviews</p>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0 }}>
+              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: "0 0 20px" }}>
                 I conducted an A/B test comparing the existing design of the log-in process with a new design I created, focusing on the general questions and emotion log sections. The goal was to assess which version improves user engagement and satisfaction.
               </p>
+              <ImgPlaceholder label="A/B Testing" aspect="16/9" />
             </div>
           </div>
+
+          <ImgPlaceholder label="Low-Fi Prototype" aspect="16/7" />
         </div>
       </section>
 
@@ -486,7 +506,10 @@ export default function Prorizon() {
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
               During the manual check-in process, added a feature that compares previous data, offering references and insights that enhance user engagement.
             </p>
-            <ImgPlaceholder label="Perceptual Reference Point" aspect="16/8" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <ImgPlaceholder label="Perceptual Reference Point — A" aspect="4/3" />
+              <ImgPlaceholder label="Perceptual Reference Point — B" aspect="4/3" />
+            </div>
             <NDANote />
 
             <div style={{ marginTop: 48 }}>
@@ -497,10 +520,9 @@ export default function Prorizon() {
               <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
                 The original design, which visualises data, was found complicated and hard to interpret during user research.
               </p>
-              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 0, maxWidth: 680 }}>
                 This new feature is, therefore, designed to link associated data points and provide insights and guidance for improving health and performance based on the data.
               </p>
-              <ImgPlaceholder label="Quick Insight — before / after" aspect="16/8" />
             </div>
 
             <div style={{ marginTop: 48 }}>
@@ -524,13 +546,19 @@ export default function Prorizon() {
             </div>
 
             <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Perceptual Reference Point — Home page</h3>
-            <p style={{ ...bodyStyle, marginBottom: 8, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
               Identify different potential log times in daily routines, embedding logs into habits to clarify users' 'paths'.
             </p>
-            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
-              Stacking up the history of today's log
-            </p>
-            <ImgPlaceholder label="Home page — daily log integration" aspect="16/8" />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <ImgPlaceholder label="Daily Log — A" aspect="4/3" />
+              <ImgPlaceholder label="Daily Log — B" aspect="4/3" />
+            </div>
+            <div style={{ marginTop: 16 }}>
+              <ImgPlaceholder label="Daily Log — Full" aspect="16/6" />
+            </div>
+            <div style={{ marginTop: 16 }}>
+              <ImgPlaceholder label="Home page — daily log integration" aspect="16/8" />
+            </div>
           </div>
 
           {/* Solution 3 */}
@@ -574,13 +602,17 @@ export default function Prorizon() {
                 However, the project faced technical limitations, and only 53% of users responded positively to the new design, indicating some potential. Moreover, the new approach risked reducing the accuracy of data collection. This led me to reconsider my design, acknowledging that some complexity is unavoidable in mood data collection. Ultimately, I decided to retain the original design.
               </p>
               <ImgPlaceholder label="New interaction experiment" aspect="16/8" />
+              <p style={{ ...bodyStyle, margin: "32px 0 24px", maxWidth: 680 }}>
+                While retaining the original design, I optimised the information layout to improve readability and user experience.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                <ImgPlaceholder label="Before" aspect="9/16" />
+                <ImgPlaceholder label="After" aspect="9/16" />
+              </div>
             </div>
 
             <div id="final-design" style={{ marginTop: 48 }}>
-              <h3 style={{ ...h3Style, marginBottom: 24 }}>Final Design</h3>
-              <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
-                While retaining the original design, I optimised the information layout to improve readability and user experience.
-              </p>
+              <h3 style={{ ...h3Style, marginBottom: 24 }}>Final Direction</h3>
 
               {[
                 {
