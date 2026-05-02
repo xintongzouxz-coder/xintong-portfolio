@@ -388,18 +388,18 @@ export default function KodyPBB() {
         {/* Intro paragraphs */}
         <div style={overviewWidth} className="kody-overview-width">
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
-            <p style={{ ...bodyStyle, marginBottom: 16 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
               I led the redesign and adoption strategy for Kody's Pay by Bank
               (PBB) experience, an Open Banking payment method initially launched
               on in-person terminals.
             </p>
-            <p style={{ ...bodyStyle, marginBottom: 16 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
               I reframed the problem, defined a persona aligned to a business
               needs and prioritised a new growth channel. The result was a ~120%
               usage uplift within a month, alongside increased payment-method
               share in eligible flows.
             </p>
-            <p style={bodyStyle}>
+            <p style={{ ...bodyStyle, maxWidth: "none" }}>
               Starting from a request to add more banks to the terminal grid, I
               created lightweight prototypes to compare solution routes and
               conducted 10+ merchant and staff interviews to diagnose adoption

@@ -195,10 +195,10 @@ export default function DesignSystem() {
                 "Reduced foundation tokens by 76%, cutting design-to-code handoff ambiguity and enabling a 13% reduction in receipt paper usage across the merchant network."
               </p>
             </div>
-            <p style={{ ...bodyStyle, marginBottom: 16 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
               Kody's product ecosystem had grown into four platforms, each evolving independently. As the system scaled, the UI became fragmented — slowing down delivery, creating inconsistencies, and making design-to-development alignment difficult.
             </p>
-            <p style={bodyStyle}>
+            <p style={{ ...bodyStyle, maxWidth: "none" }}>
               I led efforts to bring structure by defining a shared foundation and constrained reusable components that could scale across 4 products.
             </p>
           </div>
