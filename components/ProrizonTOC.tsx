@@ -27,9 +27,9 @@ const NAV_ITEMS: NavItem[] = [
       { id: "solutions-personalisation", label: "Personalisation" },
       { id: "solutions-daily-login", label: "Daily Log-in" },
       { id: "solutions-data-collection", label: "Smarter data collection" },
+      { id: "final-design", label: "Final Design" },
     ],
   },
-  { id: "final-design", label: "FINAL DESIGN" },
   { id: "learning", label: "LEARNING" },
 ];
 
@@ -47,8 +47,8 @@ const OBSERVE_IDS = [
   "solutions-personalisation",
   "solutions-daily-login",
   "solutions-data-collection",
-  "solutions",
   "final-design",
+  "solutions",
   "learning",
 ];
 
