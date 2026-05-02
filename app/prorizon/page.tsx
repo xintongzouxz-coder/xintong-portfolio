@@ -678,17 +678,23 @@ export default function Prorizon() {
                   {body.split("\n\n").map((para, i) => (
                     <p key={i} style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>{para}</p>
                   ))}
-                  {video ? (
+                  {video && (
                     <div style={{ borderRadius: 14, background: "#0d0d1a", display: "flex", justifyContent: "center", alignItems: "center", padding: "40px 24px" }}>
                       <video autoPlay loop muted playsInline style={{ width: "100%", maxWidth: 280, display: "block" }}>
                         <source src={video} type="video/mp4" />
                       </video>
                     </div>
-                  ) : (
-                    <ImgPlaceholder label={`${step} — ${title}`} aspect="16/8" />
                   )}
                 </div>
               ))}
+
+              <iframe
+                style={{ border: "1px solid rgba(0,0,0,0.1)", display: "block", borderRadius: 14 }}
+                width="100%"
+                height="450"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FZ9PgviRxhx5qWFpQJmlbvQ%2FUntitled%3Fpage-id%3D56%253A1043%26node-id%3D379-2115%26node-type%3DFRAME%26viewport%3D-7191%252C-1249%252C0.21%26t%3DZjvLaGFbjE3ENXL5-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D379%253A2115"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
