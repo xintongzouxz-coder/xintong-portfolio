@@ -57,7 +57,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
             ref={hoverVideo ? imageRef : undefined}
             src={image}
             alt={title}
-            style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block", transition: "opacity 0.3s ease" }}
+            style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block", transition: "opacity 0.21s ease" }}
           />
         )}
         {hoverVideo && (
@@ -74,7 +74,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
               height: "100%",
               width: "auto",
               opacity: 0,
-              transition: "opacity 0.3s ease",
+              transition: "opacity 0.21s ease",
             }}
           >
             <source src={hoverVideo} type="video/mp4" />
