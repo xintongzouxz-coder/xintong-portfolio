@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
-import Lottie from "lottie-react";
+import { useRef } from "react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 interface CaseCardProps {
   href: string;
@@ -20,8 +20,8 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
   const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const lottieRef = useRef<HTMLDivElement>(null);
-  const [lottieHovered, setLottieHovered] = useState(false);
+  const lottieWrapRef = useRef<HTMLDivElement>(null);
+  const lottiePlayerRef = useRef<LottieRefCurrentProps>(null);
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -29,8 +29,8 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
       videoRef.current.style.opacity = "1";
       videoRef.current.play();
     }
-    if (lottieRef.current) lottieRef.current.style.opacity = "1";
-    if (hoverLottie) setLottieHovered(true);
+    if (lottieWrapRef.current) lottieWrapRef.current.style.opacity = "1";
+    if (lottiePlayerRef.current) { lottiePlayerRef.current.goToAndPlay(0, true); }
     if (imageRef.current) imageRef.current.style.opacity = "0";
   };
 
@@ -40,8 +40,8 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
-    if (lottieRef.current) lottieRef.current.style.opacity = "0";
-    if (hoverLottie) setLottieHovered(false);
+    if (lottieWrapRef.current) lottieWrapRef.current.style.opacity = "0";
+    if (lottiePlayerRef.current) lottiePlayerRef.current.stop();
     if (imageRef.current) imageRef.current.style.opacity = "1";
   };
 
@@ -92,7 +92,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
         )}
         {hoverLottie && (
           <div
-            ref={lottieRef}
+            ref={lottieWrapRef}
             style={{
               position: "absolute",
               inset: 0,
@@ -101,9 +101,10 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
             }}
           >
             <Lottie
+              lottieRef={lottiePlayerRef}
               animationData={hoverLottie}
               loop
-              autoplay={lottieHovered}
+              autoplay={false}
               style={{ width: "100%", height: "100%" }}
             />
           </div>
