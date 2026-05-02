@@ -569,8 +569,11 @@ export default function Prorizon() {
               <CaseImg src="/images/prorizon/Daily Log — A.webp" alt="Daily Log — A" aspect="4/3" />
               <CaseImg src="/images/prorizon/Daily Log — B.webp" alt="Daily Log — B" aspect="4/3" />
             </div>
-            <div style={{ marginTop: 16 }}>
-              <CaseImg src="/images/prorizon/Daily Log — Full.webp" alt="Daily Log — Full" aspect="16/6" />
+            <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
+              <CaseImg src="/images/prorizon/Daily Log — Full.webp" alt="Daily Log — Full" />
+              <p style={{ ...bodyStyle, margin: 0 }}>
+                Categorized potential log completion times throughout the day into &apos;training,&apos; &apos;recovery,&apos; &apos;food,&apos; and &apos;other activity&apos;.
+              </p>
             </div>
             <div style={{ marginTop: 16, borderRadius: 14, overflow: "hidden", background: "#0d0d1a", display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center" }}>
               <video autoPlay loop muted playsInline style={{ width: "100%", display: "block" }}>
