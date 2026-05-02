@@ -43,6 +43,7 @@ const CASES = [
   {
     href: "#",
     image: "/images/pitchme.webp",
+    bg: "var(--bg)",
     tags: ["Workflow Optimisation", "AI-agent"],
     title: "PitchME",
     year: "2024",
