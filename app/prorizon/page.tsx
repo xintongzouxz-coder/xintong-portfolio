@@ -644,28 +644,33 @@ export default function Prorizon() {
                   step: "Step 1",
                   title: "Anchoring and Categorizing the New Log",
                   body: "Four categories of the log portal—Training, Recovery, Food, and Other Activities—are designed to align with users' availability and the specific needs of data analysis.\n\nThe next step involves detailing the background of each log entry based on the selected category to ensure comprehensive and accurate data collection for mandatory analysis. This will help refine insights and improve the relevance of feedback for users, based on their activity patterns and preferences.",
+                  video: "/images/prorizon/solution-1.mp4",
                 },
                 {
                   step: "Step 2",
                   title: "Physical General Questions",
                   body: "Using today's history data allows users to position their perceptual records more quickly and accurately by providing context based on recent trends.\n\nWith this immediate feedback, users can log their moods or activities more intuitively, streamlining the overall process while boosting user engagement and data quality.",
+                  video: "/images/prorizon/solution-2.mp4",
                 },
                 {
                   step: "Step 3",
                   title: "Activities and Influencers",
                   body: "Choose the relevant activities and relevant person for this log",
+                  video: "/images/prorizon/solution-3.mp4",
                 },
                 {
                   step: "Step 4",
                   title: "Mood",
                   body: "Multiple-choice emotion descriptions can be provided to align with the specific log categories.",
+                  video: "/images/prorizon/solution-4.mp4",
                 },
                 {
                   step: "Step 5",
                   title: "Insights",
                   body: "Combining objective physical data from wearable devices with subjective physical and emotional data from daily log-ins provides users with valuable data insights.",
+                  video: null,
                 },
-              ].map(({ step, title, body }) => (
+              ].map(({ step, title, body, video }) => (
                 <div key={step} style={{ marginBottom: 48 }}>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "rgba(26,26,26,0.45)", margin: "0 0 8px", letterSpacing: "0.04em" }}>
                     {step} — {title}
@@ -673,7 +678,15 @@ export default function Prorizon() {
                   {body.split("\n\n").map((para, i) => (
                     <p key={i} style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>{para}</p>
                   ))}
-                  <ImgPlaceholder label={`${step} — ${title}`} aspect="16/8" />
+                  {video ? (
+                    <div style={{ borderRadius: 14, background: "#0d0d1a", display: "flex", justifyContent: "center", alignItems: "center", padding: "40px 24px" }}>
+                      <video autoPlay loop muted playsInline style={{ width: "100%", maxWidth: 280, display: "block" }}>
+                        <source src={video} type="video/mp4" />
+                      </video>
+                    </div>
+                  ) : (
+                    <ImgPlaceholder label={`${step} — ${title}`} aspect="16/8" />
+                  )}
                 </div>
               ))}
             </div>
