@@ -12,6 +12,7 @@ const CASES = [
   {
     href: "/kody-pbb",
     image: "https://framerusercontent.com/images/zMuPydpVzQipc4F6g78jnLwmU.png",
+    bg: "var(--bg)",
     hoverLottie: kodyAnimation,
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
     title: "Kody Pay by Bank experience",
