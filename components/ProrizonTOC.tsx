@@ -13,7 +13,7 @@ const NAV_ITEMS: NavItem[] = [
     id: "research",
     label: "RESEARCH",
     subItems: [
-      { id: "research-focus-group", label: "Focus Group" },
+      { id: "research-focus-group", label: "Research Process — Focus Group" },
       { id: "research-empathy-map", label: "Empathy Map" },
       { id: "research-findings", label: "Findings" },
     ],
@@ -24,9 +24,9 @@ const NAV_ITEMS: NavItem[] = [
     id: "solutions",
     label: "SOLUTIONS",
     subItems: [
-      { id: "solutions-personalisation", label: "Personalisation" },
-      { id: "solutions-daily-login", label: "Daily Log-in" },
-      { id: "solutions-data-collection", label: "Smarter data collection" },
+      { id: "solutions-personalisation", label: "Data-Driven Personalisation" },
+      { id: "solutions-daily-login", label: "Integrating Log-in into Daily Life Naturally" },
+      { id: "solutions-data-collection", label: "Smarter Data Collection" },
       { id: "final-design", label: "Final Design" },
     ],
   },
