@@ -102,6 +102,19 @@ function ImgPlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: st
   );
 }
 
+function CaseImg({ src, alt }: { src: string; alt: string; aspect?: string }) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={0}
+      height={0}
+      sizes="100vw"
+      style={{ width: "100%", height: "auto", borderRadius: 14, display: "block" }}
+    />
+  );
+}
+
 function StepBadge({ n }: { n: string }) {
   return (
     <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px", flexShrink: 0 }}>
@@ -141,7 +154,7 @@ export default function Prorizon() {
               </p>
             </div>
             <div>
-              <ImgPlaceholder label="Hero image" aspect="4/3" />
+              <CaseImg src="/images/prorizon/hero.png" alt="Hero image" aspect="4/3" />
             </div>
           </div>
 
@@ -158,7 +171,7 @@ export default function Prorizon() {
 
         {/* Full-width image — after intro text */}
         <div style={{ width: "100%" }}>
-          <ImgPlaceholder label="Full-width product overview" aspect="21/6" />
+          <CaseImg src="/images/prorizon/overview.png" alt="Full-width product overview" aspect="21/6" />
         </div>
       </section>
 
@@ -205,7 +218,7 @@ export default function Prorizon() {
           <p style={{ ...bodyStyle, maxWidth: 840, marginBottom: 32 }}>
             As a startup, Prorizon's mobile app collects biopsychosocial data and delivers personalised insights, recommendations and programmes based on advanced analytics. Part of the data collection requires user manual input three times on a daily basis.
           </p>
-          <ImgPlaceholder label="Background" aspect="16/9" />
+          <CaseImg src="/images/prorizon/background.png" alt="Background" aspect="16/9" />
         </div>
       </section>
 
@@ -214,7 +227,7 @@ export default function Prorizon() {
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Problem Space</h2>
-          <ImgPlaceholder label="Problem overview" aspect="16/9" />
+          <CaseImg src="/images/prorizon/problem.png" alt="Problem overview" aspect="16/9" />
           <div style={{ borderLeft: "3px solid #3445ff", paddingLeft: 24, marginTop: 40 }}>
             <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(18px, 2vw, 26px)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em", color: "#1a1a1a", margin: 0 }}>
               How can we optimise the data input process of the "daily log" function to enhance user engagement, increase user satisfaction, and sustain long-term usage while ensuring implementation feasibility at this stage?
@@ -257,6 +270,7 @@ export default function Prorizon() {
                 name: "Card Sorting",
                 duration: "10 mins",
                 body: "Participants will choose and rank cards representing different \"log-in\" elements to improve the recording process and enhance performance analysis accuracy.",
+                src: "/images/prorizon/research-card-sorting.webp",
               },
               {
                 label: "Part 2 — Scenario Interview",
@@ -264,6 +278,7 @@ export default function Prorizon() {
                 name: "Scenario Interview",
                 duration: "10 mins",
                 body: "Participants will consider when and in what situations they would prefer receiving mood-tracking notifications throughout the day to help improve the timing and relevance of self-documentation prompts.",
+                src: "/images/prorizon/research-interview.webp",
               },
               {
                 label: "Part 3 — Brainstorming",
@@ -271,10 +286,11 @@ export default function Prorizon() {
                 name: "Brainstorming",
                 duration: "10–20 mins",
                 body: "Participants will brainstorm creative ways to motivate athletes to log their moods daily, focusing on potential app features and incentives.",
+                src: "/images/prorizon/research-brainstorming.webp",
               },
-            ].map(({ label, part, name, duration, body }) => (
+            ].map(({ label, part, name, duration, body, src }) => (
               <div key={part} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "flex-start" }}>
-                <ImgPlaceholder label={label} aspect="4/3" />
+                <CaseImg src={src} alt={label} aspect="4/3" />
                 <div>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, fontWeight: 600, color: "#1a1a1a", margin: "0 0 4px" }}>
                     {part}: <span style={{ color: "#3445ff" }}>[{name}]</span>
@@ -297,7 +313,7 @@ export default function Prorizon() {
           <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
             The target users are young athletes, primarily college students, who are balancing their academic commitments with the demands of athletic performance and development. To better understand their needs and challenges, the following empathy map highlights key insights from their experiences.
           </p>
-          <ImgPlaceholder label="Empathy map" aspect="16/8" />
+          <CaseImg src="/images/prorizon/empathy-map.png" alt="Empathy map" aspect="16/8" />
           <NDANote />
         </div>
       </section>
@@ -473,7 +489,7 @@ export default function Prorizon() {
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: "0 0 20px" }}>
                 Access the smoothness and engagement of the new daily log-in process based on user interaction (observation & feedback), and efficiency (success rate & time taken to complete the process).
               </p>
-              <ImgPlaceholder label="Interview" aspect="16/9" />
+              <CaseImg src="/images/prorizon/validation-interview.webp" alt="Interview" aspect="16/9" />
             </div>
             <div style={glassCard}>
               <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 12 }}>A/B Testing</span>
@@ -481,11 +497,11 @@ export default function Prorizon() {
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: "0 0 20px" }}>
                 I conducted an A/B test comparing the existing design of the log-in process with a new design I created, focusing on the general questions and emotion log sections. The goal was to assess which version improves user engagement and satisfaction.
               </p>
-              <ImgPlaceholder label="A/B Testing" aspect="16/9" />
+              <CaseImg src="/images/prorizon/ab-testing.webp" alt="A/B Testing" aspect="16/9" />
             </div>
           </div>
 
-          <ImgPlaceholder label="Low-Fi Prototype" aspect="16/7" />
+          <CaseImg src="/images/prorizon/lowfi-prototype.png" alt="Low-Fi Prototype" aspect="16/7" />
         </div>
       </section>
 
@@ -507,8 +523,8 @@ export default function Prorizon() {
               During the manual check-in process, added a feature that compares previous data, offering references and insights that enhance user engagement.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-              <ImgPlaceholder label="Perceptual Reference Point — A" aspect="4/3" />
-              <ImgPlaceholder label="Perceptual Reference Point — B" aspect="4/3" />
+              <CaseImg src="/images/prorizon/Perceptual Reference Point — A.webp" alt="Perceptual Reference Point — A" aspect="4/3" />
+              <CaseImg src="/images/prorizon/Perceptual Reference Point — B.png" alt="Perceptual Reference Point — B" aspect="4/3" />
             </div>
             <NDANote />
 
@@ -533,7 +549,7 @@ export default function Prorizon() {
               <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 This ensured that the new design elements seamlessly integrated with the overall system, providing a cohesive user experience while allowing for more dynamic data visualisation colour.
               </p>
-              <ImgPlaceholder label="Design system enhancement" aspect="16/8" />
+              <CaseImg src="/images/prorizon/Design system enhancement.webp" alt="Design system enhancement" aspect="16/8" />
               <NDANote />
             </div>
           </div>
@@ -550,11 +566,11 @@ export default function Prorizon() {
               Identify different potential log times in daily routines, embedding logs into habits to clarify users' 'paths'.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-              <ImgPlaceholder label="Daily Log — A" aspect="4/3" />
-              <ImgPlaceholder label="Daily Log — B" aspect="4/3" />
+              <CaseImg src="/images/prorizon/Daily Log — A.webp" alt="Daily Log — A" aspect="4/3" />
+              <CaseImg src="/images/prorizon/Daily Log — B.webp" alt="Daily Log — B" aspect="4/3" />
             </div>
             <div style={{ marginTop: 16 }}>
-              <ImgPlaceholder label="Daily Log — Full" aspect="16/6" />
+              <CaseImg src="/images/prorizon/Daily Log — Full.webp" alt="Daily Log — Full" aspect="16/6" />
             </div>
             <div style={{ marginTop: 16 }}>
               <ImgPlaceholder label="Home page — daily log integration" aspect="16/8" />
@@ -583,14 +599,14 @@ export default function Prorizon() {
               I try to experiment with new interaction methods.
             </p>
 
-            <ImgPlaceholder label="Competitor analysis — emotion tracking" aspect="16/7" />
+            <CaseImg src="/images/prorizon/Competitor analysis — emotion tracking.png" alt="Competitor analysis — emotion tracking" aspect="16/7" />
 
             <div style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Original Design</h3>
               <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 The original design of Prorizon was visually similar to competing products, but based on user feedback, it also suffered from the drawback of information overload.
               </p>
-              <ImgPlaceholder label="Original design" aspect="16/8" />
+              <CaseImg src="/images/prorizon/Original design.png" alt="Original design" aspect="16/8" />
             </div>
 
             <div style={{ marginTop: 48 }}>
@@ -601,13 +617,13 @@ export default function Prorizon() {
               <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 However, the project faced technical limitations, and only 53% of users responded positively to the new design, indicating some potential. Moreover, the new approach risked reducing the accuracy of data collection. This led me to reconsider my design, acknowledging that some complexity is unavoidable in mood data collection. Ultimately, I decided to retain the original design.
               </p>
-              <ImgPlaceholder label="New interaction experiment" aspect="16/8" />
+              <CaseImg src="/images/prorizon/New interaction experiment.png" alt="New interaction experiment" aspect="16/8" />
               <p style={{ ...bodyStyle, margin: "32px 0 24px", maxWidth: 840 }}>
                 While retaining the original design, I optimised the information layout to improve readability and user experience.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-                <ImgPlaceholder label="Before" aspect="9/16" />
-                <ImgPlaceholder label="After" aspect="9/16" />
+                <CaseImg src="/images/prorizon/Before.webp" alt="Before" aspect="9/16" />
+                <CaseImg src="/images/prorizon/After.webp" alt="After" aspect="9/16" />
               </div>
             </div>
 
