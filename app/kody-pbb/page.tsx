@@ -54,6 +54,7 @@ const bodyStyle: React.CSSProperties = {
   lineHeight: 1.75,
   color: "rgba(26,26,26,0.72)",
   margin: 0,
+  maxWidth: 840,
 };
 
 const imgStyle: React.CSSProperties = {
