@@ -313,7 +313,9 @@ export default function Prorizon() {
           <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
             The target users are young athletes, primarily college students, who are balancing their academic commitments with the demands of athletic performance and development. To better understand their needs and challenges, the following empathy map highlights key insights from their experiences.
           </p>
-          <CaseImg src="/images/prorizon/empathy-map.png" alt="Empathy map" aspect="16/8" />
+          <div style={{ maxWidth: 840, margin: "0 auto" }}>
+            <CaseImg src="/images/prorizon/empathy-map.png" alt="Empathy map" />
+          </div>
           <NDANote />
         </div>
       </section>
@@ -608,7 +610,9 @@ export default function Prorizon() {
               I try to experiment with new interaction methods.
             </p>
 
-            <CaseImg src="/images/prorizon/Competitor analysis — emotion tracking.png" alt="Competitor analysis — emotion tracking" aspect="16/7" />
+            <div style={{ maxWidth: 840, margin: "0 auto" }}>
+              <CaseImg src="/images/prorizon/Competitor analysis — emotion tracking.png" alt="Competitor analysis — emotion tracking" />
+            </div>
 
             <div style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Original Design</h3>
