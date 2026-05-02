@@ -503,7 +503,9 @@ export default function Prorizon() {
             </div>
           </div>
 
-          <CaseImg src="/images/prorizon/lowfi-prototype.png" alt="Low-Fi Prototype" aspect="16/7" />
+          <div style={{ maxWidth: 840, margin: "0 auto" }}>
+            <CaseImg src="/images/prorizon/lowfi-prototype.png" alt="Low-Fi Prototype" />
+          </div>
         </div>
       </section>
 
