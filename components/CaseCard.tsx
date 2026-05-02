@@ -68,11 +68,11 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
             playsInline
             style={{
               position: "absolute",
-              top: 0,
-              left: "50%",
-              transform: "translateX(-50%)",
-              height: "100%",
-              width: "auto",
+              top: "50%",
+              left: 0,
+              transform: "translateY(-50%)",
+              width: "100%",
+              height: "auto",
               opacity: 0,
               transition: "opacity 0.21s ease",
             }}
