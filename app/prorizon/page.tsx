@@ -569,18 +569,15 @@ export default function Prorizon() {
               <CaseImg src="/images/prorizon/Daily Log — A.webp" alt="Daily Log — A" aspect="4/3" />
               <CaseImg src="/images/prorizon/Daily Log — B.webp" alt="Daily Log — B" aspect="4/3" />
             </div>
-            <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
+            <div style={{ marginTop: 16 }}>
               <CaseImg src="/images/prorizon/Daily Log — Full.webp" alt="Daily Log — Full" />
-              <p style={{ ...bodyStyle, margin: 0 }}>
-                Categorized potential log completion times throughout the day into &apos;training,&apos; &apos;recovery,&apos; &apos;food,&apos; and &apos;other activity&apos;.
-              </p>
             </div>
             <div style={{ marginTop: 16, borderRadius: 14, overflow: "hidden", background: "#0d0d1a", display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center" }}>
               <video autoPlay loop muted playsInline style={{ width: "100%", display: "block" }}>
                 <source src="/images/prorizon/home-daily-log.mp4" type="video/mp4" />
               </video>
-              <div style={{ padding: "48px 56px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(20px, 2.2vw, 30px)", fontWeight: 700, color: "#ffffff", lineHeight: 1.3, margin: 0 }}>
+              <div style={{ padding: "32px 40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ ...bodyStyle, color: "#ffffff", margin: 0 }}>
                   Stacking up the history of today&apos;s log
                 </p>
               </div>
