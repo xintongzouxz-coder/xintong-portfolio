@@ -170,8 +170,8 @@ export default function Prorizon() {
         </div>
 
         {/* Full-width image — after intro text */}
-        <div style={{ width: "100%" }}>
-          <CaseImg src="/images/prorizon/overview.png" alt="Full-width product overview" aspect="21/6" />
+        <div style={{ width: "70%", margin: "0 auto" }}>
+          <CaseImg src="/images/prorizon/overview.png" alt="Full-width product overview" />
         </div>
       </section>
 
