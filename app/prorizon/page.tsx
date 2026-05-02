@@ -572,8 +572,15 @@ export default function Prorizon() {
             <div style={{ marginTop: 16 }}>
               <CaseImg src="/images/prorizon/Daily Log — Full.webp" alt="Daily Log — Full" aspect="16/6" />
             </div>
-            <div style={{ marginTop: 16 }}>
-              <ImgPlaceholder label="Home page — daily log integration" aspect="16/8" />
+            <div style={{ marginTop: 16, borderRadius: 14, overflow: "hidden", background: "#0d0d1a", display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center" }}>
+              <video autoPlay loop muted playsInline style={{ width: "100%", display: "block" }}>
+                <source src="/images/prorizon/home-daily-log.mp4" type="video/mp4" />
+              </video>
+              <div style={{ padding: "48px 56px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(20px, 2.2vw, 30px)", fontWeight: 700, color: "#ffffff", lineHeight: 1.3, margin: 0 }}>
+                  Stacking up the history of today&apos;s log
+                </p>
+              </div>
             </div>
           </div>
 
