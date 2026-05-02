@@ -122,13 +122,9 @@ export default function StrategicPivotDiagram() {
               <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame85} />
             </div>
           </div>
-          <div style={{ position: "absolute", display: "flex", height: 2728.001, alignItems: "center", justifyContent: "center", left: 141, top: 36, width: 2977 }}>
-            <div style={{ transform: "rotate(-90deg)", flexShrink: 0 }}>
-              <div style={{ position: "relative", height: 2977, width: 2728.001 }}>
-                <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: "-0.54%" }}>
-                  <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame86} />
-                </div>
-              </div>
+          <div style={{ position: "absolute", height: 2728.001, left: 141, top: 36, width: 2977 }}>
+            <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: 0 }}>
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame86} />
             </div>
           </div>
 
@@ -165,7 +161,7 @@ export default function StrategicPivotDiagram() {
           {/* ── Integrate PBB into PBL — hover expands ── */}
           <div
             style={cardBase("integrate", {
-              left: 728,
+              left: 628,
               top: 469,
               width: 900,
               flexDirection: "column",
@@ -216,7 +212,7 @@ export default function StrategicPivotDiagram() {
 
           {/* ── Deprioritise PBB on terminal ── */}
           <div
-            style={cardBase("deprioritise", { left: 869, top: 965 })}
+            style={cardBase("deprioritise", { left: 769, top: 965 })}
             onMouseEnter={() => setHovered("deprioritise")}
             onMouseLeave={() => setHovered(null)}
             onClick={() => scrollToSection("solutions-deprioritise")}
@@ -231,7 +227,7 @@ export default function StrategicPivotDiagram() {
 
           {/* ── Expand bank coverage ── */}
           <div
-            style={cardBase("expand", { left: 365, top: 1573 })}
+            style={cardBase("expand", { left: 265, top: 1540 })}
             onMouseEnter={() => setHovered("expand")}
             onMouseLeave={() => setHovered(null)}
             onClick={() => scrollToSection("solutions-step-2")}
@@ -246,7 +242,7 @@ export default function StrategicPivotDiagram() {
 
           {/* ── Highlight PBB cost-saving benefits ── */}
           <div
-            style={cardBase("highlight", { left: 885, top: 1802 })}
+            style={cardBase("highlight", { left: 785, top: 1760 })}
             onMouseEnter={() => setHovered("highlight")}
             onMouseLeave={() => setHovered(null)}
             onClick={() => scrollToSection("solutions-highlight")}
@@ -260,7 +256,7 @@ export default function StrategicPivotDiagram() {
           </div>
 
           {/* ── Non-interactive labels ── */}
-          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", justifyContent: "center", left: 2125, padding: 40, borderRadius: 20, top: 594 }}>
+          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", justifyContent: "center", left: 1995, padding: 40, borderRadius: 20, top: 594 }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
               <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
             </div>
@@ -268,7 +264,7 @@ export default function StrategicPivotDiagram() {
               Terminal: explore new interaction methods (e.g., NFC)
             </p>
           </div>
-          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", left: 2027, padding: 40, borderRadius: 20, top: 2175 }}>
+          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", left: 1925, padding: 40, borderRadius: 20, top: 2115 }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
               <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
             </div>
