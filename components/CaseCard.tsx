@@ -3,13 +3,14 @@ import Link from "next/link";
 interface CaseCardProps {
   href: string;
   image?: string;
+  bg?: string;
   tags: string[];
   title: string;
   year: string;
   description: string;
 }
 
-export default function CaseCard({ href, image, tags, title, year, description }: CaseCardProps) {
+export default function CaseCard({ href, image, bg, tags, title, year, description }: CaseCardProps) {
   const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
 
   const content = (
@@ -20,14 +21,14 @@ export default function CaseCard({ href, image, tags, title, year, description }
           borderRadius: 20,
           overflow: "hidden",
           aspectRatio: "600 / 425",
-          background: "#D9D9D9",
+          background: bg ?? "#D9D9D9",
         }}
       >
         {image && (
           <img
             src={image}
             alt={title}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block" }}
           />
         )}
       </div>
