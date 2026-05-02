@@ -13,7 +13,7 @@ const NAV_ITEMS: NavItem[] = [
     id: "research",
     label: "RESEARCH",
     subItems: [
-      { id: "research-focus-group", label: "Research Process — Focus Group" },
+      { id: "research-focus-group", label: "Focus Group" },
       { id: "research-empathy-map", label: "Empathy Map" },
       { id: "research-findings", label: "Findings" },
     ],
@@ -24,9 +24,9 @@ const NAV_ITEMS: NavItem[] = [
     id: "solutions",
     label: "SOLUTIONS",
     subItems: [
-      { id: "solutions-personalisation", label: "Data-Driven Personalisation" },
-      { id: "solutions-daily-login", label: "Integrating Log-in into Daily Life Naturally" },
-      { id: "solutions-data-collection", label: "Smarter Data Collection" },
+      { id: "solutions-personalisation", label: "Personalisation" },
+      { id: "solutions-daily-login", label: "Daily Log-in" },
+      { id: "solutions-data-collection", label: "Smarter data collection" },
       { id: "final-design", label: "Final Design" },
     ],
   },
@@ -34,21 +34,23 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 // Sub-sections listed before parent so the most specific match wins
+// Parent listed before children — the scroll handler picks the LAST passed ID,
+// so sub-sections override the parent when they enter the viewport.
 const OBSERVE_IDS = [
   "overview",
   "background",
   "problem",
+  "research",
   "research-focus-group",
   "research-empathy-map",
   "research-findings",
-  "research",
   "opportunities",
   "ideation-validation",
+  "solutions",
   "solutions-personalisation",
   "solutions-daily-login",
   "solutions-data-collection",
   "final-design",
-  "solutions",
   "learning",
 ];
 
