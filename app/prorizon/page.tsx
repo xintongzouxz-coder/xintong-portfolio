@@ -202,7 +202,7 @@ export default function Prorizon() {
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Background</h2>
-          <p style={{ ...bodyStyle, maxWidth: 680, marginBottom: 32 }}>
+          <p style={{ ...bodyStyle, maxWidth: 840, marginBottom: 32 }}>
             As a startup, Prorizon's mobile app collects biopsychosocial data and delivers personalised insights, recommendations and programmes based on advanced analytics. Part of the data collection requires user manual input three times on a daily basis.
           </p>
           <ImgPlaceholder label="Background" aspect="16/9" />
@@ -230,7 +230,7 @@ export default function Prorizon() {
           {divider}
           <h2 style={h2Style}>Research Process — Focus Group</h2>
 
-          <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+          <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
             After reviewing the current product's user feedback, I engaged in 3 focus groups, including card sorting, interviews, and brainstorming sessions with 10 participants total to discuss:
           </p>
 
@@ -294,7 +294,7 @@ export default function Prorizon() {
         <div style={contentWidth}>
           {divider}
           <h2 style={h2Style}>Empathy Map</h2>
-          <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+          <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
             The target users are young athletes, primarily college students, who are balancing their academic commitments with the demands of athletic performance and development. To better understand their needs and challenges, the following empathy map highlights key insights from their experiences.
           </p>
           <ImgPlaceholder label="Empathy map" aspect="16/8" />
@@ -372,7 +372,7 @@ export default function Prorizon() {
               <StepBadge n="01" />
               <h3 style={{ ...h3Style, margin: 0 }}>Data-driven personalisation</h3>
             </div>
-            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
               After analysing focus group feedback, I identified three key design opportunities: physical rewards, community building, and data-driven personalisation. Following team discussions, <span style={{ color: "#3445ff" }}>we focused on personalisation as it provides athletes with immediate value through tailored insights and comparisons.</span> This approach enhances user engagement and maximises effectiveness with minimal additional resources.
             </p>
             </div>
@@ -429,10 +429,10 @@ export default function Prorizon() {
               <StepBadge n="02" />
               <h3 style={{ ...h3Style, margin: 0 }}>Integrating Log-in into Daily Life Naturally</h3>
             </div>
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
               Align check-in times with users' typical daily events. This approach avoids setting rigid reminders, making the process of logging activities feel more intuitive and less disruptive.
             </p>
-            <p style={{ ...bodyStyle, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, maxWidth: 840 }}>
               Research was conducted to identify the events when users are most likely to create a "log".
             </p>
               </div>
@@ -451,7 +451,7 @@ export default function Prorizon() {
               <StepBadge n="03" />
               <h3 style={{ ...h3Style, margin: 0 }}>Smarter Data Collection and Sequence Tweaks</h3>
             </div>
-            <p style={{ ...bodyStyle, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, maxWidth: 840 }}>
               After meeting with Data Scientist, we decided to streamline the data collection process. Some features were removed and the whole process was re-ordered based on the importance and frequency of information rated by users.
             </p>
               </div>
@@ -503,7 +503,7 @@ export default function Prorizon() {
             </div>
 
             <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Perceptual Reference Point</h3>
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
               During the manual check-in process, added a feature that compares previous data, offering references and insights that enhance user engagement.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -514,23 +514,23 @@ export default function Prorizon() {
 
             <div style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Quick Insight</h3>
-              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
                 Collaborating with the data scientist, I designed a new "Insights" feature that displays data and provides relevant insights.
               </p>
-              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
                 The original design, which visualises data, was found complicated and hard to interpret during user research.
               </p>
-              <p style={{ ...bodyStyle, marginBottom: 0, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 0, maxWidth: 840 }}>
                 This new feature is, therefore, designed to link associated data points and provide insights and guidance for improving health and performance based on the data.
               </p>
             </div>
 
             <div style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>A Design System Enhancement for Insights Feature — Quick Insight</h3>
-              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
                 As part of the new 'Insights' feature, I extended the existing design system while maintaining consistency with the brand's original guidelines. Starting with the updated brand colours, I established a new colour foundation, using a combination of red and the brand's blue to create clear visual contrast for data comparison components. Plus, with the help of the developer, I also conduct design for edge cases such as low data, no data, and data limitations.
               </p>
-              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 This ensured that the new design elements seamlessly integrated with the overall system, providing a cohesive user experience while allowing for more dynamic data visualisation colour.
               </p>
               <ImgPlaceholder label="Design system enhancement" aspect="16/8" />
@@ -546,7 +546,7 @@ export default function Prorizon() {
             </div>
 
             <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Perceptual Reference Point — Home page</h3>
-            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
               Identify different potential log times in daily routines, embedding logs into habits to clarify users' 'paths'.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
@@ -569,17 +569,17 @@ export default function Prorizon() {
             </div>
 
             <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>What is the best method for emotional data collection?</h3>
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
               To address the aforementioned issue, I began by analysing and studying five highly-rated emotional tracking products available on the market. I first discovered that the interaction methods across these competitors were similar, primarily relying on simply clicking on chips to record emotions. However, this approach presents a challenge in balancing information overload with the accuracy of emotional data recording.
             </p>
 
-            <div style={{ background: "rgba(52,69,255,0.06)", border: "1px solid rgba(52,69,255,0.15)", borderRadius: 14, padding: "20px 28px", marginBottom: 32, maxWidth: 680 }}>
+            <div style={{ background: "rgba(52,69,255,0.06)", border: "1px solid rgba(52,69,255,0.15)", borderRadius: 14, padding: "20px 28px", marginBottom: 32, maxWidth: 840 }}>
               <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.6, color: "#1a1a1a", margin: 0, fontStyle: "italic" }}>
                 Too few choices affect the accuracy of the data, and too many choices result in a cognitive load
               </p>
             </div>
 
-            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
               I try to experiment with new interaction methods.
             </p>
 
@@ -587,7 +587,7 @@ export default function Prorizon() {
 
             <div style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Original Design</h3>
-              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 The original design of Prorizon was visually similar to competing products, but based on user feedback, it also suffered from the drawback of information overload.
               </p>
               <ImgPlaceholder label="Original design" aspect="16/8" />
@@ -595,14 +595,14 @@ export default function Prorizon() {
 
             <div style={{ marginTop: 48 }}>
               <h3 style={{ ...h3Style, fontSize: 16, marginBottom: 12 }}>Experiment about New Interaction Methods</h3>
-              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
                 I applied <strong>Hick's Law</strong> by introducing <strong>progressive disclosure</strong> to present the different emotion options in phases, reducing the number of chips and complexity to alleviate cognitive load.
               </p>
-              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 However, the project faced technical limitations, and only 53% of users responded positively to the new design, indicating some potential. Moreover, the new approach risked reducing the accuracy of data collection. This led me to reconsider my design, acknowledging that some complexity is unavoidable in mood data collection. Ultimately, I decided to retain the original design.
               </p>
               <ImgPlaceholder label="New interaction experiment" aspect="16/8" />
-              <p style={{ ...bodyStyle, margin: "32px 0 24px", maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, margin: "32px 0 24px", maxWidth: 840 }}>
                 While retaining the original design, I optimised the information layout to improve readability and user experience.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -646,7 +646,7 @@ export default function Prorizon() {
                     {step} — {title}
                   </p>
                   {body.split("\n\n").map((para, i) => (
-                    <p key={i} style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>{para}</p>
+                    <p key={i} style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>{para}</p>
                   ))}
                   <ImgPlaceholder label={`${step} — ${title}`} aspect="16/8" />
                 </div>

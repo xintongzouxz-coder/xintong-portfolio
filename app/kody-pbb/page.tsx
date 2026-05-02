@@ -424,17 +424,17 @@ export default function KodyPBB() {
             {divider}
             <h2 style={h2Style}>A cold start with a clear target</h2>
 
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
               Pay by Bank (PBB) is Kody's Open Banking payment method. It launched
               on in-person terminals, prompting customers to scan a QR code and pay
               in their bank app on their mobile device (typically for transactions
               above £40).
             </p>
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
               I collaborated with PM to clarify the ultimate goal of this project
               to tackle this 'cold start'.
             </p>
-            <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 840 }}>
               However, after the first version launched in one and a half months,
               the numbers were flat. Adoption was low, and the data volume was too
               small to tell us why.
@@ -542,13 +542,13 @@ export default function KodyPBB() {
               {divider}
               <h2 style={h2Style}>Learn why adoption stalled</h2>
 
-              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: 840 }}>
                 With limited usage data and high implementation cost, shipping changes
                 would have been largely guesswork. Instead, I ran 10+ rapid
                 qualitative interviews with merchants and frontline staff to identify
                 the real adoption blockers before investing in a build.
               </p>
-              <p style={{ ...bodyStyle, marginBottom: 48, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 48, maxWidth: 840 }}>
                 To capture a broader range of perspectives, I grouped participants
                 into key cohorts before the interviews (recent users, churned users,
                 high-value cases, negative feedback, and internal account managers).
@@ -590,7 +590,7 @@ export default function KodyPBB() {
             <div id="research-insights" style={{ paddingBottom: sectionGap }}>
               {divider}
               <h2 style={h2Style}>Why would I ever…</h2>
-              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 32, maxWidth: 840 }}>
                 During the interview, there is a most frequent challenge from
                 merchants and customers, which is
               </p>
@@ -601,7 +601,7 @@ export default function KodyPBB() {
                 </p>
               </div>
 
-              <p style={{ ...bodyStyle, marginBottom: 56, maxWidth: 680 }}>
+              <p style={{ ...bodyStyle, marginBottom: 56, maxWidth: 840 }}>
                 In a high-pressure hospitality environment, speed is currency. PBB
                 added friction and was hard to explain to customers.
               </p>
@@ -722,7 +722,7 @@ export default function KodyPBB() {
             {divider}
             <h2 style={h2Style}>Where Pay by Bank can actually win</h2>
 
-            <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 680 }}>
+            <p style={{ ...bodyStyle, marginBottom: 40, maxWidth: 840 }}>
               After all the insights, I joined a deep-dive with the CTO, Head of PD
               and Tech Lead alongside the PM to align my findings and bring out my
               Opportunity hypothesis.
