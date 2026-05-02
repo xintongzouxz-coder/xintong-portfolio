@@ -30,6 +30,7 @@ const CASES = [
     href: "/prorizon",
     image: "/images/prorizon-cover.png",
     bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
+    hoverVideo: "/images/prorizon/Prorizon project cover.mp4",
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
     year: "2024",

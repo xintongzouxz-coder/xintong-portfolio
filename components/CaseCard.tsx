@@ -1,27 +1,52 @@
+"use client";
+
 import Link from "next/link";
+import { useRef } from "react";
 
 interface CaseCardProps {
   href: string;
   image?: string;
   bg?: string;
+  hoverVideo?: string;
   tags: string[];
   title: string;
   year: string;
   description: string;
 }
 
-export default function CaseCard({ href, image, bg, tags, title, year, description }: CaseCardProps) {
+export default function CaseCard({ href, image, bg, hoverVideo, tags, title, year, description }: CaseCardProps) {
   const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.style.opacity = "1";
+      videoRef.current.play();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.style.opacity = "0";
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
 
   const content = (
-    <div>
-      {/* Image — 600×425 aspect ratio, gray fill when no image */}
+    <div
+      onMouseEnter={hoverVideo ? handleMouseEnter : undefined}
+      onMouseLeave={hoverVideo ? handleMouseLeave : undefined}
+    >
+      {/* Image — 600×425 aspect ratio */}
       <div
         style={{
           borderRadius: 20,
           overflow: "hidden",
           aspectRatio: "600 / 425",
           background: bg ?? "#D9D9D9",
+          position: "relative",
         }}
       >
         {image && (
@@ -30,6 +55,26 @@ export default function CaseCard({ href, image, bg, tags, title, year, descripti
             alt={title}
             style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block" }}
           />
+        )}
+        {hoverVideo && (
+          <video
+            ref={videoRef}
+            muted
+            loop
+            playsInline
+            style={{
+              position: "absolute",
+              top: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              height: "100%",
+              width: "auto",
+              opacity: 0,
+              transition: "opacity 0.3s ease",
+            }}
+          >
+            <source src={hoverVideo} type="video/mp4" />
+          </video>
         )}
       </div>
 
