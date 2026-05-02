@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   title: "Xintong Zou — UX & Product Designer",
   description:
     "Xintong Zou is a digital product designer with experience in B2B fintech, healthcare and AI.",
+  icons: { icon: "/favicon.png" },
 };
 
 export default function RootLayout({
