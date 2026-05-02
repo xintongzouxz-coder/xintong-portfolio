@@ -1,23 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Lottie from "lottie-react";
 
 interface CaseCardProps {
   href: string;
   image?: string;
   bg?: string;
   hoverVideo?: string;
+  hoverLottie?: object;
   tags: string[];
   title: string;
   year: string;
   description: string;
 }
 
-export default function CaseCard({ href, image, bg, hoverVideo, tags, title, year, description }: CaseCardProps) {
+export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tags, title, year, description }: CaseCardProps) {
   const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const lottieRef = useRef<HTMLDivElement>(null);
+  const [lottieHovered, setLottieHovered] = useState(false);
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -25,6 +29,8 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
       videoRef.current.style.opacity = "1";
       videoRef.current.play();
     }
+    if (lottieRef.current) lottieRef.current.style.opacity = "1";
+    if (hoverLottie) setLottieHovered(true);
     if (imageRef.current) imageRef.current.style.opacity = "0";
   };
 
@@ -34,13 +40,17 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
+    if (lottieRef.current) lottieRef.current.style.opacity = "0";
+    if (hoverLottie) setLottieHovered(false);
     if (imageRef.current) imageRef.current.style.opacity = "1";
   };
 
+  const hasHover = !!(hoverVideo || hoverLottie);
+
   const content = (
     <div
-      onMouseEnter={hoverVideo ? handleMouseEnter : undefined}
-      onMouseLeave={hoverVideo ? handleMouseLeave : undefined}
+      onMouseEnter={hasHover ? handleMouseEnter : undefined}
+      onMouseLeave={hasHover ? handleMouseLeave : undefined}
     >
       {/* Image — 600×425 aspect ratio */}
       <div
@@ -54,7 +64,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
       >
         {image && (
           <img
-            ref={hoverVideo ? imageRef : undefined}
+            ref={hasHover ? imageRef : undefined}
             src={image}
             alt={title}
             style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block", transition: "opacity 0.21s ease" }}
@@ -79,6 +89,24 @@ export default function CaseCard({ href, image, bg, hoverVideo, tags, title, yea
           >
             <source src={hoverVideo} type="video/mp4" />
           </video>
+        )}
+        {hoverLottie && (
+          <div
+            ref={lottieRef}
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: 0,
+              transition: "opacity 0.21s ease",
+            }}
+          >
+            <Lottie
+              animationData={hoverLottie}
+              loop
+              autoplay={lottieHovered}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
         )}
       </div>
 

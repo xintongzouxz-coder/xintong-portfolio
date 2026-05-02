@@ -4,6 +4,7 @@ import CaseCard from "@/components/CaseCard";
 import HeroBlocks from "@/components/HeroBlocks";
 import AboutIntro from "@/components/AboutIntro";
 import Link from "next/link";
+import kodyAnimation from "@/public/images/kody-pbb-animation.json";
 
 
 // ── Case cards ────────────────────────────────────────────────────────────────
@@ -11,6 +12,8 @@ const CASES = [
   {
     href: "/kody-pbb",
     image: "https://framerusercontent.com/images/zMuPydpVzQipc4F6g78jnLwmU.png",
+    bg: `url('/images/prorizon/unsplash_62vi3TG5EDg.png') center/cover no-repeat`,
+    hoverLottie: kodyAnimation,
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
     title: "Kody Pay by Bank experience",
     year: "2025",
