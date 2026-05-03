@@ -142,3 +142,37 @@ html {
     font-size: 16px !important;
   }
 }
+
+/* Project section responsive */
+@media (max-width: 768px) {
+  :root {
+    --project-padding-x: 32px;
+  }
+  #work {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+  #work > p {
+    margin-bottom: 0 !important;
+  }
+  .case-cards-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px !important;
+  }
+  /* First card gets extra bottom margin → 32+28=60px gap to second card */
+  .case-cards-grid > .case-card:first-child {
+    margin-bottom: 28px;
+  }
+  .case-card {
+    flex: none !important;
+    width: 320px !important;
+  }
+  .case-card-title {
+    font-size: 18px !important;
+  }
+  .case-tag {
+    border-radius: 4px !important;
+    padding: 4px 8px !important;
+  }
+}

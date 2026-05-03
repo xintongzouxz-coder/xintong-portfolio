@@ -116,6 +116,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
         {/* Title + Year */}
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 16 }}>
           <span
+            className="case-card-title"
             style={{
               fontFamily: "var(--font-dm-sans)",
               fontSize: 20,
@@ -159,6 +160,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
           {tags.map((tag) => (
             <span
               key={tag}
+              className="case-tag"
               style={{
                 fontFamily: "var(--font-dm-sans)",
                 fontSize: 15,
@@ -177,10 +179,10 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
     </div>
   );
 
-  if (!href || href === "#") return <div style={fillStyle}>{content}</div>;
+  if (!href || href === "#") return <div className="case-card" style={fillStyle}>{content}</div>;
 
   return (
-    <Link href={href} style={{ textDecoration: "none", display: "block", ...fillStyle }}>
+    <Link href={href} className="case-card" style={{ textDecoration: "none", display: "block", ...fillStyle }}>
       {content}
     </Link>
   );

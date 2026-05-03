@@ -131,6 +131,7 @@ export default function Home() {
         </p>
 
         <div
+          className="case-cards-grid"
           style={{
             display: "flex",
             flexWrap: "wrap",
