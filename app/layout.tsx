@@ -22,10 +22,29 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
   title: "Xintong Zou — UX & Product Designer",
   description:
-    "Xintong Zou is a digital product designer with experience in B2B fintech, healthcare and AI.",
+    "Product designer with experience in fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
   icons: { icon: "/favicon.png" },
+  openGraph: {
+    title: "Xintong Zou — UX & Product Designer",
+    description:
+      "Product designer with experience in fintech, digital payments, healthcare and wellbeing.",
+    siteName: "Xintong Zou",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Xintong Zou — UX & Product Designer",
+    description:
+      "Product designer with experience in fintech, digital payments, healthcare and wellbeing.",
+  },
 };
 
 export default function RootLayout({
