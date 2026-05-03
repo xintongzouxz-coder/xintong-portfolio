@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 interface CaseCardProps {
@@ -22,6 +22,15 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
   const imageRef = useRef<HTMLImageElement>(null);
   const lottieWrapRef = useRef<HTMLDivElement>(null);
   const lottiePlayerRef = useRef<LottieRefCurrentProps>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const handleMouseEnter = () => {
     if (videoRef.current) {
@@ -49,8 +58,8 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
 
   const content = (
     <div
-      onMouseEnter={hasHover ? handleMouseEnter : undefined}
-      onMouseLeave={hasHover ? handleMouseLeave : undefined}
+      onMouseEnter={hasHover && !isMobile ? handleMouseEnter : undefined}
+      onMouseLeave={hasHover && !isMobile ? handleMouseLeave : undefined}
     >
       {/* Image — 600×425 aspect ratio */}
       <div
@@ -67,12 +76,17 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
             ref={hasHover ? imageRef : undefined}
             src={image}
             alt={title}
-            style={{ width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block", transition: "opacity 0.21s ease" }}
+            style={{
+              width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block",
+              transition: "opacity 0.21s ease",
+              opacity: isMobile && hoverVideo ? 0 : 1,
+            }}
           />
         )}
         {hoverVideo && (
           <video
             ref={videoRef}
+            autoPlay={isMobile}
             muted
             loop
             playsInline
@@ -83,7 +97,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
               transform: "translateY(-50%)",
               width: "100%",
               height: "auto",
-              opacity: 0,
+              opacity: isMobile ? 1 : 0,
               transition: "opacity 0.21s ease",
             }}
           >
