@@ -176,3 +176,19 @@ html {
     padding: 4px 8px !important;
   }
 }
+
+/* Other section responsive */
+@media (max-width: 768px) {
+  #other {
+    padding: 40px 32px !important;
+    gap: 32px !important;
+  }
+  .other-cards-row {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+  .other-card {
+    flex: none !important;
+    width: 100% !important;
+  }
+}

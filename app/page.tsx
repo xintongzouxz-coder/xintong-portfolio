@@ -191,15 +191,15 @@ export default function Home() {
         </div>
 
         {/* Project cards — two side by side */}
-        <div style={{ display: "flex", gap: 40, alignItems: "flex-start" }}>
+        <div className="other-cards-row" style={{ display: "flex", gap: 40, alignItems: "flex-start" }}>
           {/* Brain Fog */}
-          <div style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
+          <div className="other-card" style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
             <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
               <source src="/images/brainfog.mp4" type="video/mp4" />
             </video>
           </div>
           {/* Barbican Plants */}
-          <div style={{ flex: 1, borderRadius: 20, overflow: "hidden", aspectRatio: "1200 / 684" }}>
+          <div className="other-card" style={{ flex: 1, borderRadius: 20, overflow: "hidden", aspectRatio: "1200 / 684" }}>
             <img src="/images/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
