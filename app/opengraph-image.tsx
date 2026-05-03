@@ -30,7 +30,7 @@ export default async function Image() {
     loadFont(500),
   ]);
 
-  const fonts: ConstructorParameters<typeof ImageResponse>[1]["fonts"] = [];
+  const fonts: { name: string; data: ArrayBuffer; weight: number }[] = [];
   if (fontRegular) fonts.push({ name: "DM Sans", data: fontRegular, weight: 400 });
   if (fontMedium) fonts.push({ name: "DM Sans", data: fontMedium, weight: 500 });
 
