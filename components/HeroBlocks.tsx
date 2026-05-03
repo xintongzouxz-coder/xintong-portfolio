@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { CSSProperties } from "react";
 
 const IMG = {
@@ -34,6 +33,7 @@ const cell = (ml: number, mt: number): CSSProperties => ({
 type Block = "left" | "center" | "right";
 const EASE = "cubic-bezier(0.0, 0, 0.2, 1)";
 const T = `opacity 500ms ${EASE}, transform 500ms ${EASE}`;
+const LONG_PRESS_MS = 400;
 
 function scrollEaseOut(targetId: string) {
   const el = document.getElementById(targetId);
@@ -55,6 +55,8 @@ function scrollEaseOut(targetId: string) {
 export default function HeroBlocks() {
   const [hovered, setHovered] = useState<Block | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const touchOrigin = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -64,12 +66,34 @@ export default function HeroBlocks() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  function startLongPress(block: Block, e: React.TouchEvent) {
+    touchOrigin.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    longPressTimer.current = setTimeout(() => setHovered(block), LONG_PRESS_MS);
+  }
+
+  function cancelLongPress() {
+    if (longPressTimer.current) {
+      clearTimeout(longPressTimer.current);
+      longPressTimer.current = null;
+    }
+    touchOrigin.current = null;
+    setHovered(null);
+  }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    if (!touchOrigin.current) return;
+    const dx = Math.abs(e.touches[0].clientX - touchOrigin.current.x);
+    const dy = Math.abs(e.touches[0].clientY - touchOrigin.current.y);
+    // Cancel if the finger moves more than 10px (user is scrolling)
+    if (dx > 10 || dy > 10) cancelLongPress();
+  }
+
   function blockStyle(block: Block): CSSProperties {
     const isActive = hovered === block;
     const isDimmed = hovered !== null && !isActive;
 
     let tx = 0;
-    if (isDimmed) {
+    if (!isMobile && isDimmed) {
       if (hovered === "center") {
         tx = block === "left" ? -35 : 35;
       } else if (hovered === "left") {
@@ -84,13 +108,17 @@ export default function HeroBlocks() {
       position: "relative",
       zIndex: isActive ? 10 : defaultZ[block],
       opacity: isDimmed ? 0.5 : 1,
-      transform: isDimmed ? `translateX(${tx}px) scale(0.85)` : "none",
+      // Mobile long-press: scale down dimmed cards; desktop: translateX + scale
+      transform: isDimmed
+        ? isMobile ? "scale(0.92)" : `translateX(${tx}px) scale(0.85)`
+        : "none",
       transition: T,
     };
   }
 
   function rotStyle(block: Block, deg: number): CSSProperties {
-    if (isMobile) return { transform: `rotate(${deg}deg)` };
+    // On mobile with no long-press active: static rotation, no transition
+    if (isMobile && hovered === null) return { transform: `rotate(${deg}deg)` };
     return {
       transform: hovered === block ? "rotate(0deg)" : `rotate(${deg}deg)`,
       transition: T,
@@ -98,7 +126,8 @@ export default function HeroBlocks() {
   }
 
   function fly(block: Block, py: number): CSSProperties {
-    if (isMobile) return {};
+    // On mobile with no long-press active: no fly
+    if (isMobile && hovered === null) return {};
     return {
       transform: hovered === block ? `translateY(${py}px)` : "translateY(0px)",
       transition: T,
@@ -115,12 +144,14 @@ export default function HeroBlocks() {
       flexShrink: 0,
       cursor: "pointer",
     };
-    if (isMobile) return base;
+    // Mobile with no long-press: bare base (no hover effects, no negative margin)
+    if (isMobile && hovered === null) return base;
+    // Mobile with long-press active: add blockStyle but no negative margin
+    if (isMobile) return { ...base, ...blockStyle(block) };
+    // Desktop: full hover logic + negative overlap margin
     return { ...base, marginRight: -64, ...blockStyle(block) };
   }
 
-  // Scale(0.48) + transform-origin top center → negative mb collapses unused layout space
-  // mb = -(0.52 * layoutHeight + overlapPx)
   const mobileWrap = (mb: number): CSSProperties =>
     isMobile
       ? { transform: "scale(0.48)", transformOrigin: "top center", marginBottom: mb }
@@ -142,6 +173,10 @@ export default function HeroBlocks() {
           style={blockBase("left", 412, 474)}
           onMouseEnter={isMobile ? undefined : () => setHovered("left")}
           onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+          onTouchStart={isMobile ? (e) => startLongPress("left", e) : undefined}
+          onTouchMove={isMobile ? handleTouchMove : undefined}
+          onTouchEnd={isMobile ? cancelLongPress : undefined}
+          onTouchCancel={isMobile ? cancelLongPress : undefined}
           onClick={() => scrollEaseOut("work")}
         >
           <div style={rotStyle("left", -6.76)}>
@@ -208,6 +243,10 @@ export default function HeroBlocks() {
           style={blockBase("center", 355, 408)}
           onMouseEnter={isMobile ? undefined : () => setHovered("center")}
           onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+          onTouchStart={isMobile ? (e) => startLongPress("center", e) : undefined}
+          onTouchMove={isMobile ? handleTouchMove : undefined}
+          onTouchEnd={isMobile ? cancelLongPress : undefined}
+          onTouchCancel={isMobile ? cancelLongPress : undefined}
         >
           <div style={rotStyle("center", 5)}>
             <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative" }}>
@@ -224,6 +263,10 @@ export default function HeroBlocks() {
           style={blockBase("right", 435, 500)}
           onMouseEnter={isMobile ? undefined : () => setHovered("right")}
           onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+          onTouchStart={isMobile ? (e) => startLongPress("right", e) : undefined}
+          onTouchMove={isMobile ? handleTouchMove : undefined}
+          onTouchEnd={isMobile ? cancelLongPress : undefined}
+          onTouchCancel={isMobile ? cancelLongPress : undefined}
           onClick={() => scrollEaseOut("other")}
         >
           <div style={rotStyle("right", 10)}>
