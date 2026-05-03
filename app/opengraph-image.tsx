@@ -30,7 +30,7 @@ export default async function Image() {
     loadFont(500),
   ]);
 
-  const fonts: { name: string; data: ArrayBuffer; weight: number }[] = [];
+  const fonts: { name: string; data: ArrayBuffer; weight: 400 | 500 }[] = [];
   if (fontRegular) fonts.push({ name: "DM Sans", data: fontRegular, weight: 400 });
   if (fontMedium) fonts.push({ name: "DM Sans", data: fontMedium, weight: 500 });
 
