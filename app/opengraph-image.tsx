@@ -4,36 +4,7 @@ export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadFont(weight: number): Promise<ArrayBuffer | null> {
-  try {
-    const css = await fetch(
-      `https://fonts.googleapis.com/css2?family=DM+Sans:wght@${weight}&display=swap`,
-      {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
-        },
-      }
-    ).then((r) => r.text());
-
-    const url = css.match(/src: url\(([^)]+)\) format\('woff2'\)/)?.[1];
-    if (!url) return null;
-    return fetch(url).then((r) => r.arrayBuffer());
-  } catch {
-    return null;
-  }
-}
-
-export default async function Image() {
-  const [fontRegular, fontMedium] = await Promise.all([
-    loadFont(400),
-    loadFont(500),
-  ]);
-
-  const fonts: { name: string; data: ArrayBuffer; weight: 400 | 500 }[] = [];
-  if (fontRegular) fonts.push({ name: "DM Sans", data: fontRegular, weight: 400 });
-  if (fontMedium) fonts.push({ name: "DM Sans", data: fontMedium, weight: 500 });
-
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -45,7 +16,6 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px 100px",
-          fontFamily: "'DM Sans', sans-serif",
         }}
       >
         {/* Name + description */}
@@ -99,6 +69,6 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size, fonts }
+    size
   );
 }
