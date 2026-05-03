@@ -23,12 +23,12 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xintongzou.com"),
-  title: "Xintong Zou — UX & Product Designer, London",
+  title: "Xintong Zou — UX & Product Designer | Fintech & AI",
   description:
     "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
   icons: { icon: "/favicon.png" },
   openGraph: {
-    title: "Xintong Zou — UX & Product Designer, London",
+    title: "Xintong Zou — UX & Product Designer | Fintech & AI",
     description:
       "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
     siteName: "Xintong Zou",
