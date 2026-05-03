@@ -27,23 +27,23 @@ export const metadata: Metadata = {
       ? `https://${process.env.VERCEL_URL}`
       : "http://localhost:3000"
   ),
-  title: "Xintong Zou — UX & Product Designer",
+  title: "Xintong Zou — UX & Product Designer, London",
   description:
-    "Product designer with experience in fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
+    "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
   icons: { icon: "/favicon.png" },
   openGraph: {
-    title: "Xintong Zou — UX & Product Designer",
+    title: "Xintong Zou — UX & Product Designer, London",
     description:
-      "Product designer with experience in fintech, digital payments, healthcare and wellbeing.",
+      "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
     siteName: "Xintong Zou",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xintong Zou — UX & Product Designer",
+    title: "Xintong Zou — UX & Product Designer, London",
     description:
-      "Product designer with experience in fintech, digital payments, healthcare and wellbeing.",
+      "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
   },
 };
 
