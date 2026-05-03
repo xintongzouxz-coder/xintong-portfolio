@@ -114,11 +114,20 @@ const mono: CSSProperties = {
 
 export default function AboutIntro() {
   const [hoveredJourney, setHoveredJourney] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const dirRef = useRef(-1); // 1 = scroll right (content moves left), -1 = scroll left (content moves right)
   const lastTimeRef = useRef<number | null>(null);
   const rafRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -151,28 +160,41 @@ export default function AboutIntro() {
     return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, []);
 
+  const sidePad = isMobile ? 32 : 124;
+  const vertPad = isMobile ? 40 : 100;
+
   return (
     <section
       id="about"
       style={{
         background: "var(--bg)",
-        padding: "100px 124px",
+        padding: `${vertPad}px ${sidePad}px`,
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
       }}
     >
       {/* ── ABOUT ME title ── */}
-      <p style={{ ...mono, textAlign: "center", marginBottom: 60 }}>ABOUT ME</p>
+      <p style={{ ...mono, textAlign: "center", marginBottom: isMobile ? 40 : 60 }}>ABOUT ME</p>
 
       {/* ── Intro row: photo + bio + education ── */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 60, alignItems: "flex-end", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          flexWrap: isMobile ? undefined : "wrap",
+          gap: isMobile ? 32 : 60,
+          alignItems: isMobile ? "center" : "flex-end",
+          justifyContent: "center",
+        }}
+      >
 
-        {/* Photo — fill width, stretch to match bio text height */}
+        {/* Photo */}
         <div
           style={{
-            flex: 1,
-            alignSelf: "stretch",
+            ...(isMobile
+              ? { width: 202, height: 230, flexShrink: 0 }
+              : { flex: 1, alignSelf: "stretch" }),
             borderRadius: 20,
             overflow: "hidden",
             background: "#D9D9D9",
@@ -185,10 +207,10 @@ export default function AboutIntro() {
           />
         </div>
 
-        {/* Bio text — fixed 500px width, hug height */}
+        {/* Bio text */}
         <div
           style={{
-            width: 500,
+            width: isMobile ? "100%" : 500,
             flexShrink: 0,
             display: "flex",
             flexDirection: "column",
@@ -212,11 +234,12 @@ export default function AboutIntro() {
           ))}
         </div>
 
-        {/* Education — hug width and height */}
+        {/* Education */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
+            ...(isMobile ? { width: "100%" } : {}),
           }}
         >
           <p
@@ -263,23 +286,38 @@ export default function AboutIntro() {
       </div>
 
       {/* ── MY JOURNEY ── */}
-      <div style={{ marginTop: 80 }}>
+      <div style={{ marginTop: isMobile ? 60 : 80 }}>
 
         {/* Title — left-aligned */}
         <p style={{ ...mono, marginBottom: 32 }}>MY JOURNEY</p>
 
-        {/* Fish row */}
-        <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+        {/* Fish row / column */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+            gap: isMobile ? 32 : 8,
+            alignItems: isMobile ? "center" : "flex-start",
+          }}
+        >
           {JOURNEY.map(({ years, company, role, fish, hoverFish, paddingTop, tooltip, tooltipSide }) => {
             const isHovered = hoveredJourney === company;
             return (
-              <div key={years + company} style={{ width: 303, paddingTop, flexShrink: 0 }}>
+              <div
+                key={years + company}
+                style={{
+                  width: 303,
+                  paddingTop: isMobile ? 0 : paddingTop,
+                  flexShrink: 0,
+                }}
+              >
 
                 {/* Fish image + tooltip wrapper */}
                 <div
                   style={{ position: "relative" }}
-                  onMouseEnter={() => setHoveredJourney(company)}
-                  onMouseLeave={() => setHoveredJourney(null)}
+                  onMouseEnter={!isMobile ? () => setHoveredJourney(company) : undefined}
+                  onMouseLeave={!isMobile ? () => setHoveredJourney(null) : undefined}
+                  onClick={isMobile ? () => setHoveredJourney(prev => prev === company ? null : company) : undefined}
                 >
                   <img
                     src={isHovered ? hoverFish : fish}
@@ -292,12 +330,11 @@ export default function AboutIntro() {
                     <div
                       style={{
                         position: "absolute",
-                        ...(tooltipSide === "left"
-                          ? { right: "calc(100% + 12px)" }
-                          : { left: "calc(100% + 12px)" }),
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        width: 330,
+                        ...(isMobile
+                          ? { top: "calc(100% + 12px)", left: 0, width: "100%" }
+                          : tooltipSide === "left"
+                            ? { right: "calc(100% + 12px)", top: "50%", transform: "translateY(-50%)", width: 330 }
+                            : { left: "calc(100% + 12px)", top: "50%", transform: "translateY(-50%)", width: 330 }),
                         padding: 16,
                         borderRadius: 16,
                         background: "rgba(255,255,255,0.95)",
@@ -380,13 +417,13 @@ export default function AboutIntro() {
       </div>
 
       {/* ── WHAT I CAN HELP WITH ── */}
-      <div style={{ marginTop: 80 }}>
+      <div style={{ marginTop: isMobile ? 60 : 80 }}>
 
         {/* Title — left-aligned, same font as MY JOURNEY */}
         <p style={{ ...mono, marginBottom: 32 }}>What I Can Help With</p>
 
-        {/* Two columns */}
-        <div style={{ display: "flex", gap: 60 }}>
+        {/* Two columns / one column on mobile */}
+        <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: isMobile ? 40 : 60 }}>
 
           {/* Product Design */}
           <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
@@ -424,13 +461,13 @@ export default function AboutIntro() {
       </div>
 
       {/* ── TESTIMONIALS ── */}
-      {/* Negative margin to break out of section's 130px side padding for scroll */}
-      <div style={{ marginTop: 80, marginLeft: -124, marginRight: -124 }}>
+      {/* Negative margin to break out of section's side padding for scroll */}
+      <div style={{ marginTop: isMobile ? 60 : 80, marginLeft: -sidePad, marginRight: -sidePad }}>
         {/* paddingTop/Bottom give room for shadow (Y=20, blur=40 → needs 60px below, 20px above) */}
         <div
           ref={scrollRef}
           className="testimonials-scroll"
-          style={{ overflowX: "auto", paddingLeft: 124, paddingRight: 124, paddingTop: 20, paddingBottom: 60, scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
+          style={{ overflowX: "auto", paddingLeft: sidePad, paddingRight: sidePad, paddingTop: 20, paddingBottom: 60, scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
           onMouseEnter={() => { pausedRef.current = true; }}
           onMouseLeave={() => { pausedRef.current = false; lastTimeRef.current = null; }}
         >
@@ -439,7 +476,7 @@ export default function AboutIntro() {
               <div
                 key={name}
                 style={{
-                  width: 448,
+                  width: isMobile ? 300 : 448,
                   flexShrink: 0,
                   padding: 32,
                   borderRadius: 16,
