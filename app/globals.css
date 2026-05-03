@@ -130,3 +130,15 @@ html {
 .testimonials-scroll::-webkit-scrollbar {
   display: none;
 }
+
+/* Hero section responsive */
+@media (max-width: 768px) {
+  #hero {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    padding-top: 100px !important;
+  }
+  .hero-desc {
+    font-size: 16px !important;
+  }
+}

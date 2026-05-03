@@ -88,6 +88,7 @@ export default function Home() {
             Xintong Zou
           </p>
           <p
+            className="hero-desc"
             style={{
               fontFamily: "var(--font-dm-sans)",
               fontWeight: 400,

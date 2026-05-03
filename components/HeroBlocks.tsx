@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { CSSProperties } from "react";
 
 const IMG = {
@@ -54,21 +54,28 @@ function scrollEaseOut(targetId: string) {
 
 export default function HeroBlocks() {
   const [hovered, setHovered] = useState<Block | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   function blockStyle(block: Block): CSSProperties {
     const isActive = hovered === block;
     const isDimmed = hovered !== null && !isActive;
 
-    // Push direction: away from hovered block.
-    // Edge blocks (left/right) get a smaller push so they don't go off-screen.
     let tx = 0;
     if (isDimmed) {
       if (hovered === "center") {
         tx = block === "left" ? -35 : 35;
       } else if (hovered === "left") {
-        tx = block === "center" ? 35 : 14; // right is edge — small push
+        tx = block === "center" ? 35 : 14;
       } else {
-        tx = block === "center" ? -35 : -14; // left is edge — small push
+        tx = block === "center" ? -35 : -14;
       }
     }
 
@@ -83,14 +90,15 @@ export default function HeroBlocks() {
   }
 
   function rotStyle(block: Block, deg: number): CSSProperties {
+    if (isMobile) return { transform: `rotate(${deg}deg)` };
     return {
       transform: hovered === block ? "rotate(0deg)" : `rotate(${deg}deg)`,
       transition: T,
     };
   }
 
-  // Each photo card can fly a custom amount (py px upward in screen space)
   function fly(block: Block, py: number): CSSProperties {
+    if (isMobile) return {};
     return {
       transform: hovered === block ? `translateY(${py}px)` : "translateY(0px)",
       transition: T,
@@ -98,172 +106,180 @@ export default function HeroBlocks() {
   }
 
   function blockBase(block: Block, width: number, height: number): CSSProperties {
-    return {
+    const base: CSSProperties = {
       display: "flex",
       width,
       height,
       alignItems: "center",
       justifyContent: "center",
-      marginRight: -64,
       flexShrink: 0,
       cursor: "pointer",
-      ...blockStyle(block),
     };
+    if (isMobile) return base;
+    return { ...base, marginRight: -64, ...blockStyle(block) };
   }
 
+  // Scale(0.48) + transform-origin top center → negative mb collapses unused layout space
+  // mb = -(0.52 * layoutHeight + overlapPx)
+  const mobileWrap = (mb: number): CSSProperties =>
+    isMobile
+      ? { transform: "scale(0.48)", transformOrigin: "top center", marginBottom: mb }
+      : {};
+
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", paddingRight: 64 }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: isMobile ? "column" : "row",
+        alignItems: isMobile ? "center" : "flex-start",
+        paddingRight: isMobile ? 0 : 64,
+      }}
+    >
 
       {/* ── Left: Case study file ── */}
-      <div
-        style={blockBase("left", 412, 474)}
-        onMouseEnter={() => setHovered("left")}
-        onMouseLeave={() => setHovered(null)}
-        onClick={() => scrollEaseOut("work")}
-      >
-        <div style={rotStyle("left", -6.76)}>
-          <div style={stackGrid}>
+      <div style={mobileWrap(-292)}>
+        <div
+          style={blockBase("left", 412, 474)}
+          onMouseEnter={isMobile ? undefined : () => setHovered("left")}
+          onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+          onClick={() => scrollEaseOut("work")}
+        >
+          <div style={rotStyle("left", -6.76)}>
+            <div style={stackGrid}>
 
-            {/* File back */}
-            <div style={cell(0, 53.15)}>
-              <div style={{ width: 364, height: 389, position: "relative" }}>
-                <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
-                  <img src={IMG.fileBack} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Prorizon — back z (2nd in DOM) */}
-            <div style={cell(40.67, 150.37)}>
-              <div style={fly("left", -40)}>
-                <div style={{ transform: "rotate(5deg)" }}>
-                  <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                    <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+              <div style={cell(0, 53.15)}>
+                <div style={{ width: 364, height: 389, position: "relative" }}>
+                  <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
+                    <img src={IMG.fileBack} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Pay by Bank — middle z (3rd in DOM) */}
-            <div style={cell(161.66, 26.4)}>
-              <div style={fly("left", -65)}>
-                <div style={{ transform: "rotate(10.07deg)" }}>
-                  <div style={{ width: 183, height: 192, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                    <img src={IMG.payByBank} alt="Pay by Bank" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+              <div style={cell(40.67, 150.37)}>
+                <div style={fly("left", -40)}>
+                  <div style={{ transform: "rotate(5deg)" }}>
+                    <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                      <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Design System — front z (4th in DOM, rendered on top) */}
-            <div style={cell(1.24, 0)}>
-              <div style={fly("left", -120)}>
-                <div style={{ transform: "rotate(-2.93deg)" }}>
-                  <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                    <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
+              <div style={cell(161.66, 26.4)}>
+                <div style={fly("left", -65)}>
+                  <div style={{ transform: "rotate(10.07deg)" }}>
+                    <div style={{ width: 183, height: 192, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                      <img src={IMG.payByBank} alt="Pay by Bank" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* File front */}
-            <div style={cell(0.13, 73.0)}>
-              <div style={{ width: 352, height: 370, position: "relative" }}>
-                <img src={IMG.fileFront} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+              <div style={cell(1.24, 0)}>
+                <div style={fly("left", -120)}>
+                  <div style={{ transform: "rotate(-2.93deg)" }}>
+                    <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                      <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            {/* CTA */}
-            <div style={{ ...cell(86.18, 358.42), width: "max-content" }}>
-              <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
+              <div style={cell(0.13, 73.0)}>
+                <div style={{ width: 352, height: 370, position: "relative" }}>
+                  <img src={IMG.fileFront} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+                </div>
               </div>
-            </div>
 
+              <div style={{ ...cell(86.18, 358.42), width: "max-content" }}>
+                <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── Center: Profile photo ── */}
-      <div
-        style={blockBase("center", 355, 408)}
-        onMouseEnter={() => setHovered("center")}
-        onMouseLeave={() => setHovered(null)}
-      >
-        <div style={rotStyle("center", 5)}>
-          <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative" }}>
-            <div style={{ position: "absolute", background: "rgba(217,217,217,0.2)", inset: 0 }} />
-            <img src={IMG.profile} alt="Xintong Zou" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      <div style={mobileWrap(-257)}>
+        <div
+          style={blockBase("center", 355, 408)}
+          onMouseEnter={isMobile ? undefined : () => setHovered("center")}
+          onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+        >
+          <div style={rotStyle("center", 5)}>
+            <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative" }}>
+              <div style={{ position: "absolute", background: "rgba(217,217,217,0.2)", inset: 0 }} />
+              <img src={IMG.profile} alt="Xintong Zou" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── Right: Fun project file ── */}
-      <div
-        style={blockBase("right", 435, 500)}
-        onMouseEnter={() => setHovered("right")}
-        onMouseLeave={() => setHovered(null)}
-        onClick={() => scrollEaseOut("other")}
-      >
-        <div style={rotStyle("right", 10)}>
-          <div style={stackGrid}>
+      <div style={mobileWrap(-260)}>
+        <div
+          style={blockBase("right", 435, 500)}
+          onMouseEnter={isMobile ? undefined : () => setHovered("right")}
+          onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+          onClick={() => scrollEaseOut("other")}
+        >
+          <div style={rotStyle("right", 10)}>
+            <div style={stackGrid}>
 
-            {/* File back */}
-            <div style={cell(0.42, 53.58)}>
-              <div style={{ width: 364, height: 389, position: "relative" }}>
-                <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
-                  <img src={IMG.fileBack2} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
-                </div>
-              </div>
-            </div>
-
-            {/* Barbican — back z (2nd in DOM) */}
-            <div style={cell(154.15, 11.9)}>
-              <div style={fly("right", -50)}>
-                <div style={{ transform: "rotate(9.48deg)" }}>
-                  <div style={{ width: 162, height: 213, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <img src={IMG.barbican} alt="Barbican" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={cell(0.42, 53.58)}>
+                <div style={{ width: 364, height: 389, position: "relative" }}>
+                  <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
+                    <img src={IMG.fileBack2} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Goldfish (flipped) — middle z (3rd in DOM); outer wrapper moves in screen-space Y */}
-            <div style={cell(17, 154.39)}>
-              <div style={fly("right", -120)}>
-                <div style={{ transform: "scaleY(-1) rotate(168.8deg)" }}>
-                  <div style={{ width: 276, height: 161, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <img src={IMG.goldfish} alt="Goldfish" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={cell(154.15, 11.9)}>
+                <div style={fly("right", -50)}>
+                  <div style={{ transform: "rotate(9.48deg)" }}>
+                    <div style={{ width: 162, height: 213, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
+                      <img src={IMG.barbican} alt="Barbican" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Brain — front z (4th in DOM, rendered on top) */}
-            <div style={cell(13.99, 0)}>
-              <div style={fly("right", -60)}>
-                <div style={{ transform: "rotate(-12.23deg)" }}>
-                  <div style={{ width: 245, height: 139, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                    <img src={IMG.brain} alt="Brain" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+              <div style={cell(17, 154.39)}>
+                <div style={fly("right", -120)}>
+                  <div style={{ transform: "scaleY(-1) rotate(168.8deg)" }}>
+                    <div style={{ width: 276, height: 161, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
+                      <img src={IMG.goldfish} alt="Goldfish" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* File front */}
-            <div style={cell(0, 72.25)}>
-              <div style={{ width: 352, height: 370, position: "relative" }}>
-                <img src={IMG.fileFront2} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+              <div style={cell(13.99, 0)}>
+                <div style={fly("right", -60)}>
+                  <div style={{ transform: "rotate(-12.23deg)" }}>
+                    <div style={{ width: 245, height: 139, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
+                      <img src={IMG.brain} alt="Brain" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            {/* CTA */}
-            <div style={{ ...cell(76.91, 361.11), width: "max-content" }}>
-              <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
+              <div style={cell(0, 72.25)}>
+                <div style={{ width: 352, height: 370, position: "relative" }}>
+                  <img src={IMG.fileFront2} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+                </div>
               </div>
-            </div>
 
+              <div style={{ ...cell(76.91, 361.11), width: "max-content" }}>
+                <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
