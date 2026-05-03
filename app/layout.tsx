@@ -22,11 +22,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000"
-  ),
+  metadataBase: new URL("https://xintongzou.com"),
   title: "Xintong Zou — UX & Product Designer, London",
   description:
     "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
@@ -38,12 +34,11 @@ export const metadata: Metadata = {
     siteName: "Xintong Zou",
     locale: "en_GB",
     type: "website",
+    images: [{ url: "/opengraph.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xintong Zou — UX & Product Designer, London",
-    description:
-      "Product designer with experience in B2B fintech, digital payments, healthcare and wellbeing — translating complex systems into clear, user-centred products.",
+    images: ["/opengraph.png"],
   },
 };
 
