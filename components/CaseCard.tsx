@@ -32,6 +32,18 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  // Imperatively start playback on mobile — changing the autoPlay prop after
+  // mount doesn't make the browser actually play.
+  useEffect(() => {
+    if (!isMobile) return;
+    if (hoverVideo && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+    if (hoverLottie && lottiePlayerRef.current) {
+      lottiePlayerRef.current.play();
+    }
+  }, [isMobile, hoverVideo, hoverLottie]);
+
   const handleMouseEnter = () => {
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
@@ -79,7 +91,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
             style={{
               width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block",
               transition: "opacity 0.21s ease",
-              opacity: isMobile && hoverVideo ? 0 : 1,
+              opacity: isMobile && (hoverVideo || hoverLottie) ? 0 : 1,
             }}
           />
         )}
@@ -110,7 +122,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
             style={{
               position: "absolute",
               inset: 0,
-              opacity: 0,
+              opacity: isMobile ? 1 : 0,
               transition: "opacity 0.21s ease",
             }}
           >
@@ -118,7 +130,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
               lottieRef={lottiePlayerRef}
               animationData={hoverLottie}
               loop
-              autoplay={false}
+              autoplay={isMobile}
               style={{ width: "100%", height: "100%" }}
             />
           </div>
