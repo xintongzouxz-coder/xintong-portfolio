@@ -179,7 +179,7 @@ export default function HeroBlocks() {
           onTouchCancel={isMobile ? cancelLongPress : undefined}
           onClick={() => scrollEaseOut("work")}
         >
-          <div style={rotStyle("left", -6.76)}>
+          <div style={rotStyle("left", isMobile ? -5 : -6.76)}>
             <div style={stackGrid}>
 
               <div style={cell(0, 53.15)}>
@@ -226,9 +226,9 @@ export default function HeroBlocks() {
                 </div>
               </div>
 
-              <div style={{ ...cell(86.18, 358.42), width: "max-content" }}>
-                <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
+              <div style={{ ...cell(isMobile ? 106 : 86.18, isMobile ? 301 : 358.42), width: "max-content" }}>
+                <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
                 </div>
               </div>
 
@@ -290,7 +290,7 @@ export default function HeroBlocks() {
                 </div>
               </div>
 
-              <div style={cell(17, 154.39)}>
+              <div style={cell(isMobile ? 40 : 17, 154.39)}>
                 <div style={fly("right", -120)}>
                   <div style={{ transform: "scaleY(-1) rotate(168.8deg)" }}>
                     <div style={{ width: 276, height: 161, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
@@ -316,9 +316,9 @@ export default function HeroBlocks() {
                 </div>
               </div>
 
-              <div style={{ ...cell(76.91, 361.11), width: "max-content" }}>
-                <div style={{ background: "#292929", padding: 16, borderRadius: 8 }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
+              <div style={{ ...cell(isMobile ? 79 : 76.91, isMobile ? 372 : 361.11), width: "max-content" }}>
+                <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
                 </div>
               </div>
 
