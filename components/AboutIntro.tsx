@@ -319,10 +319,17 @@ export default function AboutIntro() {
                   onMouseLeave={!isMobile ? () => setHoveredJourney(null) : undefined}
                   onClick={isMobile ? () => setHoveredJourney(prev => prev === company ? null : company) : undefined}
                 >
+                  {/* Both images always in DOM so hoverFish is preloaded; swap via opacity */}
                   <img
-                    src={isHovered ? hoverFish : fish}
+                    src={fish}
                     alt={company}
-                    style={{ width: "100%", height: "auto", display: "block" }}
+                    style={{ width: "100%", height: "auto", display: "block", opacity: isHovered ? 0 : 1, transition: "opacity 0.1s ease" }}
+                  />
+                  <img
+                    src={hoverFish}
+                    alt=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", display: "block", opacity: isHovered ? 1 : 0, transition: "opacity 0.1s ease" }}
                   />
 
                   {/* Tooltip */}
