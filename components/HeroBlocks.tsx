@@ -226,7 +226,7 @@ export default function HeroBlocks() {
                 </div>
               </div>
 
-              <div style={{ ...cell(isMobile ? 106 : 86.18, isMobile ? 301 : 358.42), width: "max-content" }}>
+              <div style={{ ...cell(isMobile ? 106 : 86.18, isMobile ? 301 : 358.42), width: "max-content", position: "relative", zIndex: 10 }}>
                 <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
                   <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
                 </div>
@@ -316,7 +316,7 @@ export default function HeroBlocks() {
                 </div>
               </div>
 
-              <div style={{ ...cell(isMobile ? 79 : 76.91, isMobile ? 372 : 361.11), width: "max-content" }}>
+              <div style={{ ...cell(isMobile ? 79 : 76.91, isMobile ? 372 : 361.11), width: "max-content", position: "relative", zIndex: 10 }}>
                 <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
                   <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
                 </div>
