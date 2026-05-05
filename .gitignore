@@ -42,3 +42,14 @@ next-env.d.ts
 
 # claude
 .claude/
+
+# playwright mcp artifacts
+.playwright-mcp/
+
+# local screenshots / figma exports
+*.png
+*.jpg
+!public/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
+!app/**/*.png
