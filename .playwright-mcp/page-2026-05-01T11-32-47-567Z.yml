@@ -1,0 +1,184 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Xintong Zou" [ref=e3]:
+      - /url: /#hero
+    - generic [ref=e4]:
+      - link "Project" [ref=e5]:
+        - /url: /#work
+      - link "About" [ref=e6]:
+        - /url: /#about
+      - link "Resume" [ref=e7]:
+        - /url: /resume.pdf
+    - generic [ref=e8]:
+      - link "Email" [ref=e9]:
+        - /url: mailto:xintongzou.xz@gmail.com
+        - img [ref=e10]
+      - link "LinkedIn" [ref=e13]:
+        - /url: https://www.linkedin.com/in/xintongzou
+        - img [ref=e14]
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: Kody · 2025 · Design System · AI-assisted
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading "Rebuilding the Kody Design System" [level=1] [ref=e23]
+          - paragraph [ref=e24]: Simplified design foundations by up to 75%, improved consistency across 4 products
+        - img "旧版 Kody 设计系统全览" [ref=e26]
+    - img "6个 Kody 产品线全家福" [ref=e28]
+    - generic [ref=e30]:
+      - paragraph [ref=e32]: "\"Reduced foundation tokens by 76%, cutting design-to-code handoff ambiguity and enabling a 13% reduction in receipt paper usage across the merchant network.\""
+      - paragraph [ref=e33]: Kody's product ecosystem had grown into four platforms, each evolving independently. As the system scaled, the UI became fragmented — slowing down delivery, creating inconsistencies, and making design-to-development alignment difficult.
+      - paragraph [ref=e34]: I led efforts to bring structure by defining a shared foundation and constrained reusable components that could scale across products.
+  - generic [ref=e36]:
+    - heading "Multiplatform" [level=2] [ref=e38]
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - paragraph [ref=e41]: Terminal
+        - paragraph [ref=e42]: Offline payment experience
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: Terminal APP
+        - paragraph [ref=e45]: Android companion app
+      - generic [ref=e46]:
+        - paragraph [ref=e47]: Receipt
+        - paragraph [ref=e48]: Physical artefact that is printed
+      - generic [ref=e49]:
+        - paragraph [ref=e50]: Kody App
+        - paragraph [ref=e51]: Bank application
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Kody Universe
+        - paragraph [ref=e54]: Merchant web app for reconciliation
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: Kody Order
+        - paragraph [ref=e57]: QR ordering experience
+    - paragraph [ref=e58]: Each was built by different members at different points in time. As the suite expanded, the UI drifted apart, and the existing "design system" was no longer a system but a loose collection of overlapping patterns.
+    - paragraph [ref=e59]: "The cost showed up most clearly inside the team. Engineers flagged it repeatedly: new joiners kept rebuilding components that already existed, because the source of truth lived in a handful of long-tenured colleagues — creating constant back-and-forth before and after implementation just to verify correctness. At four products and a growing team, institutional memory had become the scaling bottleneck."
+  - generic [ref=e61]:
+    - heading "Evidence of system fragmentation" [level=2] [ref=e63]
+    - paragraph [ref=e64]: A UI audit across products revealed significant inconsistency in both foundations and components.
+    - generic [ref=e65]:
+      - paragraph [ref=e68]: Hundreds of tokens were used across products, with no shared structure or naming system
+      - paragraph [ref=e71]: The same UI patterns were implemented differently across platforms, leading to duplication and inconsistency
+      - paragraph [ref=e74]: No consistent token structure across products
+      - paragraph [ref=e77]: Different product tokens were mixed within the same interface
+      - paragraph [ref=e80]: Receipt templates in Figma didn't match the actual printer paper dimensions
+    - img "三个代码库的颜色审计对比" [ref=e81]
+    - paragraph [ref=e82]: After the audit, I led a cross-functional workshop to align these findings across design, engineering, and QA.
+  - generic [ref=e84]:
+    - heading "Key Issues" [level=2] [ref=e86]
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]: For Developers
+        - heading "Growing code debt" [level=3] [ref=e90]
+        - paragraph [ref=e93]: "Design values weren't reliably tokenised: engineers used one-off hex values or picked between same-named tokens that resolved to different actual colours across products."
+        - paragraph [ref=e96]: Core patterns like buttons existed as individual instances; the same components were implemented in multiple styles, especially in Terminal, with no clear standard.
+      - generic [ref=e97]:
+        - generic [ref=e98]: For Designers & QA
+        - heading "Errors compound silently" [level=3] [ref=e99]
+        - paragraph [ref=e102]: Without a source of truth, new joiners couldn't tell which reference was correct and which was outdated, replicating legacy errors into new work.
+        - paragraph [ref=e105]: Designers didn't know which design system version to follow — multiple overlapping versions existed in Figma, each partially outdated, with no clear owner or canonical source.
+    - img "设计系统 SWOT 工作坊 FigJam" [ref=e106]
+  - generic [ref=e108]:
+    - heading "North Star design principles" [level=2] [ref=e110]
+    - generic [ref=e111]:
+      - generic [ref=e112]:
+        - generic [ref=e113]: "01"
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: Simplify, don't redesign
+          - paragraph [ref=e116]: The same components were implemented in multiple styles, especially in Terminal, with no clear standard.
+      - generic [ref=e117]:
+        - generic [ref=e118]: "02"
+        - generic [ref=e119]:
+          - paragraph [ref=e120]: Foundation-first
+          - paragraph [ref=e121]: Tokens before components.
+      - generic [ref=e122]:
+        - generic [ref=e123]: "03"
+        - generic [ref=e124]:
+          - paragraph [ref=e125]: Progressive adoption
+          - paragraph [ref=e126]: Start with high-impact surfaces and migrate iteratively.
+  - generic [ref=e128]:
+    - heading "Solution" [level=2] [ref=e130]
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]: "01"
+        - heading "No single source of truth → 1 Source of truth" [level=3] [ref=e134]
+      - paragraph [ref=e135]: A key deliverable was a clear, accessible source of truth for design, QA, and engineering. I collaborated with QA to organise 67 terminal designs and 23 receipt designs based on the payment flow — speeding up QA and designer processes.
+      - img "按支付流程整理的 Terminal/Receipt 设计库" [ref=e136]
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - generic [ref=e139]: "02"
+        - heading "Inconsistent foundations → Define a token system" [level=3] [ref=e140]
+      - paragraph [ref=e141]: I collaborated with other designers to introduce a scalable token system that standardised visual decisions across platforms and aligned design with engineering implementation.
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - generic [ref=e144]: Colors
+          - paragraph [ref=e145]:
+            - text: We reduced
+            - strong [ref=e146]: 138 inconsistent colour tokens into 35 palette tokens
+            - text: ", then redefined the semantic structure to ensure consistent usage across different contexts. This enabled designers to apply colours based on meaning rather than manual selection."
+        - generic [ref=e147]:
+          - generic [ref=e148]: Multi-dimensional tokens
+          - paragraph [ref=e149]: Beyond colour, the system extended to cover typography, spacing, and border radius, ensuring consistent behaviour across components and platforms.
+      - img "BEFORE/NOW 数据对比图（138→35等）" [ref=e150]
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]: "03"
+        - heading "Excessive component variants → Build core component specs" [level=3] [ref=e154]
+      - paragraph [ref=e155]: While tokens established a consistent visual foundation, components were still fragmented across products. The team first separated components into web, Android, and iOS groups. Given resource constraints, Terminal (Android) was prioritised as the primary surface to establish component standards before scaling across platforms.
+      - paragraph [ref=e157]: Action-Button
+      - paragraph [ref=e158]: "Through auditing terminal flows, buttons were designed case by case, without a shared structure. The same action (e.g. \"Pay\" or \"Continue\") appeared with different styles, sizes, and visual weights. Instead of standardising each button individually, a compositional model was defined by breaking buttons into four independent dimensions:"
+      - generic [ref=e159]:
+        - generic [ref=e160]:
+          - generic [ref=e161]: Semantic role
+          - paragraph [ref=e162]: Primary / Secondary / Tertiary
+        - generic [ref=e163]:
+          - generic [ref=e164]: Visual variant
+          - paragraph [ref=e165]: Filled / Outline / Text
+        - generic [ref=e166]:
+          - generic [ref=e167]: Size
+          - paragraph [ref=e168]: XS / S / M / L
+        - generic [ref=e169]:
+          - generic [ref=e170]: State
+          - paragraph [ref=e171]: Default / Disabled / Loading
+      - img "Primary/Secondary/Tertiary 按钮实例" [ref=e172]
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - generic [ref=e175]: "04"
+        - heading "Create a reference implementation" [level=3] [ref=e176]
+      - paragraph [ref=e177]: Rather than attempting a full migration across all products, a progressive rollout strategy was suggested to minimise disruption and reduce implementation risk. Terminal (Android) was selected as the initial surface due to its high usage frequency and relatively controlled scope. The new token and component system was applied to key user flows (new payment), creating a working reference for how the system should be used in practice. Legacy screens were maintained temporarily, while all new designs followed the updated token and component system.
+      - img "Terminal 屏幕 + 组件标注" [ref=e178]
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - generic [ref=e181]: "05"
+        - heading "Operationalising the design system with AI" [level=3] [ref=e182]
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - generic [ref=e185]: "1"
+          - paragraph [ref=e186]: To support ongoing consistency, the design system was translated into a set of machine-readable rules using Claude Code, enabling automated validation of design outputs. Designers could submit Figma designs for automated checks, where elements that deviated from token were identified and flagged.
+        - generic [ref=e187]:
+          - generic [ref=e188]: "2"
+          - paragraph [ref=e189]: With structured token documentation, AI-assisted ideation was enabled by providing system-aware prompts, allowing design exploration to stay aligned with established rules.
+  - generic [ref=e191]:
+    - generic [ref=e193]: Outcome
+    - heading "Results" [level=2] [ref=e194]
+    - generic [ref=e195]:
+      - generic [ref=e196]:
+        - paragraph [ref=e197]: 76%
+        - paragraph [ref=e198]: reduction in foundation tokens
+      - generic [ref=e199]:
+        - paragraph [ref=e200]: 138→35
+        - paragraph [ref=e201]: colour tokens consolidated
+      - generic [ref=e202]:
+        - paragraph [ref=e203]: 13%
+        - paragraph [ref=e204]: less receipt paper used
+    - generic [ref=e205]:
+      - paragraph [ref=e208]: Reduced colour tokens from 138 to 35 (~75% reduction), improving consistency and maintainability across products
+      - paragraph [ref=e211]: Optimised receipt structure, reducing paper usage by 13% and improving operational efficiency
+      - paragraph [ref=e214]: Improved QA efficiency through a structured design reference system
+    - generic [ref=e215]:
+      - paragraph [ref=e216]: "\"Now I can directly access to the terminal design bank to validate some legacy design instead of finding clues in lots of back-and-forth conversations.\""
+      - paragraph [ref=e217]: — QA
+  - contentinfo [ref=e218]:
+    - generic [ref=e219]: © 2026 Xintong Zou
+    - generic [ref=e220]: London, UK
+  - button "Open Next.js Dev Tools" [ref=e226] [cursor=pointer]:
+    - img [ref=e227]

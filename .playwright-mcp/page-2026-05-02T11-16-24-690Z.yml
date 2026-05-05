@@ -1,0 +1,283 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Xintong Zou" [ref=e3]:
+      - /url: /#hero
+    - generic [ref=e4]:
+      - link "Project" [ref=e5]:
+        - /url: /#work
+      - link "About" [ref=e6]:
+        - /url: /#about
+      - link "Resume" [ref=e7]:
+        - /url: /resume.pdf
+    - generic [ref=e8]:
+      - link "Email" [ref=e9]:
+        - /url: mailto:xintongzou.xz@gmail.com
+        - img [ref=e10]
+      - link "LinkedIn" [ref=e13]:
+        - /url: https://www.linkedin.com/in/xintongzou
+        - img [ref=e14]
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: Prorizon · 2024 · B2C · Mobile App
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - heading "Wellness Optimisation App" [level=1] [ref=e23]
+          - paragraph [ref=e24]: An app designed to boost performance and wellness for young athletes.
+        - img "Hero image" [ref=e26]
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: Prorizon is designed to provide personalised insights to enhance the performance and well-being of young athletes, based on biopsychosocial data analytics. This project focuses on improving user engagement for manual input data.
+        - paragraph [ref=e29]: As the project's sole UX designer, I tackled the challenge of improving user stickiness and product engagement. My role involved conducting research to identify engagement pain points and prototyping the app's core functionalities while considering the budget constraint.
+    - img "Full-width product overview" [ref=e31]
+  - generic [ref=e32]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: Case Study
+        - paragraph [ref=e37]: Wellness Optimisation App
+      - generic [ref=e38]:
+        - button "OVERVIEW" [ref=e40]:
+          - generic [ref=e42]: OVERVIEW
+        - button "BACKGROUND" [ref=e44]:
+          - generic [ref=e46]: BACKGROUND
+        - button "PROBLEM" [ref=e48]:
+          - generic [ref=e50]: PROBLEM
+        - button "RESEARCH" [ref=e52]:
+          - generic [ref=e54]: RESEARCH
+        - button "OPPORTUNITIES" [ref=e56]:
+          - generic [ref=e58]: OPPORTUNITIES
+        - button "IDEATION VALIDATION" [ref=e60]:
+          - generic [ref=e62]: IDEATION VALIDATION
+        - button "SOLUTIONS" [ref=e64]:
+          - generic [ref=e66]: SOLUTIONS
+        - button "LEARNING" [ref=e68]:
+          - generic [ref=e70]: LEARNING
+    - generic [ref=e71]:
+      - generic [ref=e73]:
+        - heading "Background" [level=2] [ref=e75]
+        - paragraph [ref=e76]: As a startup, Prorizon's mobile app collects biopsychosocial data and delivers personalised insights, recommendations and programmes based on advanced analytics. Part of the data collection requires user manual input three times on a daily basis.
+        - img "Background" [ref=e77]
+      - generic [ref=e79]:
+        - heading "Problem Space" [level=2] [ref=e81]
+        - img "Problem overview" [ref=e82]
+        - paragraph [ref=e84]: How can we optimise the data input process of the "daily log" function to enhance user engagement, increase user satisfaction, and sustain long-term usage while ensuring implementation feasibility at this stage?
+      - generic [ref=e86]:
+        - heading "Research Process — Focus Group" [level=2] [ref=e88]
+        - paragraph [ref=e89]: "After reviewing the current product's user feedback, I engaged in 3 focus groups, including card sorting, interviews, and brainstorming sessions with 10 participants total to discuss:"
+        - generic [ref=e90]:
+          - paragraph [ref=e92]: Determine the type and order of information to be collected in the mood recording section, understand How long and informative is feasible for a single log
+          - paragraph [ref=e94]: Discuss and identify effective stimuli and methods to improve number of times a user self-records per day and number of days to maintain streak
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - img "Part 1 — Card Sorting" [ref=e97]
+            - generic [ref=e98]:
+              - paragraph [ref=e99]:
+                - text: "Part 1:"
+                - generic [ref=e100]: "[Card Sorting]"
+              - paragraph [ref=e101]: 10 mins
+              - paragraph [ref=e102]: Participants will choose and rank cards representing different "log-in" elements to improve the recording process and enhance performance analysis accuracy.
+          - generic [ref=e103]:
+            - img "Part 2 — Scenario Interview" [ref=e104]
+            - generic [ref=e105]:
+              - paragraph [ref=e106]:
+                - text: "Part 2:"
+                - generic [ref=e107]: "[Scenario Interview]"
+              - paragraph [ref=e108]: 10 mins
+              - paragraph [ref=e109]: Participants will consider when and in what situations they would prefer receiving mood-tracking notifications throughout the day to help improve the timing and relevance of self-documentation prompts.
+          - generic [ref=e110]:
+            - img "Part 3 — Brainstorming" [ref=e111]
+            - generic [ref=e112]:
+              - paragraph [ref=e113]:
+                - text: "Part 3:"
+                - generic [ref=e114]: "[Brainstorming]"
+              - paragraph [ref=e115]: 10–20 mins
+              - paragraph [ref=e116]: Participants will brainstorm creative ways to motivate athletes to log their moods daily, focusing on potential app features and incentives.
+      - generic [ref=e118]:
+        - heading "Empathy Map" [level=2] [ref=e120]
+        - paragraph [ref=e121]: The target users are young athletes, primarily college students, who are balancing their academic commitments with the demands of athletic performance and development. To better understand their needs and challenges, the following empathy map highlights key insights from their experiences.
+        - img "Empathy map" [ref=e123]
+        - paragraph [ref=e124]: These contents are protected by NDA. If you are interested, please contact me for more information.
+      - generic [ref=e126]:
+        - heading "Findings" [level=2] [ref=e128]
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - img "Low perceived value" [ref=e132]
+              - paragraph [ref=e133]: Low perceived value
+            - paragraph [ref=e134]: The complexity and unclear insights make it hard for users to understand the data, leading them to question the app's value.
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - img "Intrusive notifications" [ref=e137]
+              - paragraph [ref=e138]: Intrusive notifications
+            - paragraph [ref=e139]: Frequent notifications for the three daily logs disrupted users' routines, leaving them feeling rushed and disengaged, leading to skipped or hastily completed logs and reducing the accuracy.
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - img "Time-consuming logging process" [ref=e142]
+              - paragraph [ref=e143]: Time-consuming logging process
+            - paragraph [ref=e144]: Users feel overwhelmed by the long log questions and 3-times completion requirements, leading to fatigue and reduced engagement.
+      - generic [ref=e146]:
+        - heading "Opportunities" [level=2] [ref=e148]
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - img "Low perceived value" [ref=e152]
+              - paragraph [ref=e153]: Low perceived value
+            - generic [ref=e154]:
+              - generic [ref=e155]:
+                - generic [ref=e156]: "01"
+                - heading "Data-driven personalisation" [level=3] [ref=e157]
+              - paragraph [ref=e158]: "After analysing focus group feedback, I identified three key design opportunities: physical rewards, community building, and data-driven personalisation. Following team discussions, we focused on personalisation as it provides athletes with immediate value through tailored insights and comparisons. This approach enhances user engagement and maximises effectiveness with minimal additional resources."
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - paragraph [ref=e161]: Community building
+              - paragraph [ref=e162]: Encouraging engagement through stack competitions and online communities.
+              - paragraph [ref=e165]: Stack competition
+              - paragraph [ref=e168]: Online Community
+              - paragraph [ref=e171]: Cost of partner relationship building
+              - paragraph [ref=e174]: Appeals to general users
+            - generic [ref=e175]:
+              - paragraph [ref=e176]: Physical Rewards
+              - paragraph [ref=e177]: Offering tangible incentives like subscriptions, brand gifts, discounts, and family rewards.
+              - paragraph [ref=e180]: Subscription Offers
+              - paragraph [ref=e183]: Brand gift
+              - paragraph [ref=e186]: Discount
+              - paragraph [ref=e189]: Rewards for family
+              - paragraph [ref=e192]: Cost of partner relationship building
+              - paragraph [ref=e195]: Appeals to general users
+            - generic [ref=e196]:
+              - paragraph [ref=e197]: Data-driven personalisation
+              - paragraph [ref=e198]: Providing personalized, actionable feedback based on user data for immediate results.
+              - paragraph [ref=e201]: Quick and immediate feedback
+              - paragraph [ref=e204]: Interpret data
+              - paragraph [ref=e207]: Actionable suggestions
+              - paragraph [ref=e210]: Aligns with habits of comparing training results through data.
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - img "Intrusive notifications" [ref=e214]
+            - paragraph [ref=e215]: Intrusive notifications
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - generic [ref=e218]: "02"
+              - heading "Integrating Log-in into Daily Life Naturally" [level=3] [ref=e219]
+            - paragraph [ref=e220]: Align check-in times with users' typical daily events. This approach avoids setting rigid reminders, making the process of logging activities feel more intuitive and less disruptive.
+            - paragraph [ref=e221]: Research was conducted to identify the events when users are most likely to create a "log".
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - img "Time-consuming logging process" [ref=e225]
+            - paragraph [ref=e226]: Time-consuming logging process
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - generic [ref=e229]: "03"
+              - heading "Smarter Data Collection and Sequence Tweaks" [level=3] [ref=e230]
+            - paragraph [ref=e231]: After meeting with Data Scientist, we decided to streamline the data collection process. Some features were removed and the whole process was re-ordered based on the importance and frequency of information rated by users.
+      - generic [ref=e233]:
+        - heading "Ideation & Validation" [level=2] [ref=e235]
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - generic [ref=e238]: Online 1-1 Interviews with Athletes
+            - paragraph [ref=e239]: 30 minutes
+            - paragraph [ref=e240]: Access the smoothness and engagement of the new daily log-in process based on user interaction (observation & feedback), and efficiency (success rate & time taken to complete the process).
+            - img "Interview"
+          - generic [ref=e241]:
+            - generic [ref=e242]: A/B Testing
+            - paragraph [ref=e243]: Guerrilla interviews
+            - paragraph [ref=e244]: I conducted an A/B test comparing the existing design of the log-in process with a new design I created, focusing on the general questions and emotion log sections. The goal was to assess which version improves user engagement and satisfaction.
+            - img "A/B Testing"
+        - img "Low-Fi Prototype"
+      - generic [ref=e246]:
+        - heading "Solution Details" [level=2] [ref=e248]
+        - generic [ref=e249]:
+          - generic [ref=e250]:
+            - generic [ref=e251]: "1"
+            - heading "Data-Driven Personalisation" [level=3] [ref=e252]
+          - heading "Perceptual Reference Point" [level=3] [ref=e253]
+          - paragraph [ref=e254]: During the manual check-in process, added a feature that compares previous data, offering references and insights that enhance user engagement.
+          - generic:
+            - img "Perceptual Reference Point — A"
+            - img "Perceptual Reference Point — B"
+          - paragraph [ref=e255]: These contents are protected by NDA. If you are interested, please contact me for more information.
+          - generic [ref=e256]:
+            - heading "Quick Insight" [level=3] [ref=e257]
+            - paragraph [ref=e258]: Collaborating with the data scientist, I designed a new "Insights" feature that displays data and provides relevant insights.
+            - paragraph [ref=e259]: The original design, which visualises data, was found complicated and hard to interpret during user research.
+            - paragraph [ref=e260]: This new feature is, therefore, designed to link associated data points and provide insights and guidance for improving health and performance based on the data.
+          - generic [ref=e261]:
+            - heading "A Design System Enhancement for Insights Feature — Quick Insight" [level=3] [ref=e262]
+            - paragraph [ref=e263]: As part of the new 'Insights' feature, I extended the existing design system while maintaining consistency with the brand's original guidelines. Starting with the updated brand colours, I established a new colour foundation, using a combination of red and the brand's blue to create clear visual contrast for data comparison components. Plus, with the help of the developer, I also conduct design for edge cases such as low data, no data, and data limitations.
+            - paragraph [ref=e264]: This ensured that the new design elements seamlessly integrated with the overall system, providing a cohesive user experience while allowing for more dynamic data visualisation colour.
+            - img "Design system enhancement"
+            - paragraph [ref=e265]: These contents are protected by NDA. If you are interested, please contact me for more information.
+        - generic [ref=e266]:
+          - generic [ref=e267]:
+            - generic [ref=e268]: "2"
+            - heading "Integrating Log-in into Daily Life Naturally" [level=3] [ref=e269]
+          - heading "Perceptual Reference Point — Home page" [level=3] [ref=e270]
+          - paragraph [ref=e271]: Identify different potential log times in daily routines, embedding logs into habits to clarify users' 'paths'.
+          - generic:
+            - img "Daily Log — A"
+            - img "Daily Log — B"
+          - generic:
+            - img "Daily Log — Full"
+          - paragraph [ref=e276]: Stacking up the history of today's log
+        - generic [ref=e277]:
+          - generic [ref=e278]:
+            - generic [ref=e279]: "3"
+            - heading "Smarter Data Collection" [level=3] [ref=e280]
+          - heading "What is the best method for emotional data collection?" [level=3] [ref=e281]
+          - paragraph [ref=e282]: To address the aforementioned issue, I began by analysing and studying five highly-rated emotional tracking products available on the market. I first discovered that the interaction methods across these competitors were similar, primarily relying on simply clicking on chips to record emotions. However, this approach presents a challenge in balancing information overload with the accuracy of emotional data recording.
+          - paragraph [ref=e284]: Too few choices affect the accuracy of the data, and too many choices result in a cognitive load
+          - paragraph [ref=e285]: I try to experiment with new interaction methods.
+          - generic:
+            - img "Competitor analysis — emotion tracking"
+          - generic [ref=e286]:
+            - heading "Original Design" [level=3] [ref=e287]
+            - paragraph [ref=e288]: The original design of Prorizon was visually similar to competing products, but based on user feedback, it also suffered from the drawback of information overload.
+            - img "Original design"
+          - generic [ref=e289]:
+            - heading "Experiment about New Interaction Methods" [level=3] [ref=e290]
+            - paragraph [ref=e291]:
+              - text: I applied
+              - strong [ref=e292]: Hick's Law
+              - text: by introducing
+              - strong [ref=e293]: progressive disclosure
+              - text: to present the different emotion options in phases, reducing the number of chips and complexity to alleviate cognitive load.
+            - paragraph [ref=e294]: However, the project faced technical limitations, and only 53% of users responded positively to the new design, indicating some potential. Moreover, the new approach risked reducing the accuracy of data collection. This led me to reconsider my design, acknowledging that some complexity is unavoidable in mood data collection. Ultimately, I decided to retain the original design.
+            - img "New interaction experiment"
+            - paragraph [ref=e295]: While retaining the original design, I optimised the information layout to improve readability and user experience.
+            - generic:
+              - img "Before"
+              - img "After"
+          - generic [ref=e296]:
+            - heading "Final Direction" [level=3] [ref=e297]
+            - generic [ref=e298]:
+              - paragraph [ref=e299]: Step 1 — Anchoring and Categorizing the New Log
+              - paragraph [ref=e300]: Four categories of the log portal—Training, Recovery, Food, and Other Activities—are designed to align with users' availability and the specific needs of data analysis.
+              - paragraph [ref=e301]: The next step involves detailing the background of each log entry based on the selected category to ensure comprehensive and accurate data collection for mandatory analysis. This will help refine insights and improve the relevance of feedback for users, based on their activity patterns and preferences.
+            - generic [ref=e304]:
+              - paragraph [ref=e305]: Step 2 — Physical General Questions
+              - paragraph [ref=e306]: Using today's history data allows users to position their perceptual records more quickly and accurately by providing context based on recent trends.
+              - paragraph [ref=e307]: With this immediate feedback, users can log their moods or activities more intuitively, streamlining the overall process while boosting user engagement and data quality.
+            - generic [ref=e310]:
+              - paragraph [ref=e311]: Step 3 — Activities and Influencers
+              - paragraph [ref=e312]: Choose the relevant activities and relevant person for this log
+            - generic [ref=e315]:
+              - paragraph [ref=e316]: Step 4 — Mood
+              - paragraph [ref=e317]: Multiple-choice emotion descriptions can be provided to align with the specific log categories.
+            - generic [ref=e320]:
+              - paragraph [ref=e321]: Step 5 — Insights
+              - paragraph [ref=e322]: Combining objective physical data from wearable devices with subjective physical and emotional data from daily log-ins provides users with valuable data insights.
+            - iframe [ref=e323]:
+              
+      - generic [ref=e325]:
+        - heading "Learning" [level=2] [ref=e327]
+        - generic [ref=e328]:
+          - generic [ref=e329]:
+            - paragraph [ref=e330]: Exploring Multiple Research Methods
+            - paragraph [ref=e331]: In this internship project, I was able to expand my research skills by applying multiple methods during the research phase. I experimented with conducting studies in different environments and forums, something I had rarely done in previous projects. This taught me how to adapt research strategies based on the context, improving my ability to gather insights from diverse user groups and situations.
+          - generic [ref=e332]:
+            - paragraph [ref=e333]: Collaborating with a Cross-Functional Team
+            - paragraph [ref=e334]: In this project, I had the opportunity to collaborate closely with scientists, developers, and the product owner. This experience was invaluable because it allowed me to gain insights into how each role contributes to the product's success and helped me better understand the importance of cross-functional communication. It was a new and rewarding experience that broadened my perspective on how design fits into a larger team dynamic.
+  - contentinfo [ref=e335]:
+    - generic [ref=e336]: © 2026 Xintong Zou
+    - generic [ref=e337]: London, UK
+  - button "Open Next.js Dev Tools" [ref=e343] [cursor=pointer]:
+    - img [ref=e344]
+  - alert [ref=e347]

@@ -1,0 +1,124 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e10]:
+        - application [active] [ref=e138]
+        - status [ref=e18]: Screenreader support for the board is currently disabled. To enable it via Accessibility settings, press ⌘K, type Accessibility Settings, and press Enter. To see available keyboard shortcuts, enter ⌃⇧Question mark .
+        - generic:
+          - generic:
+            - generic:
+              - region "Comments on canvas":
+                - button "Create new comment"
+        - generic:
+          - region "Left sidebar":
+            - generic [ref=e139]:
+              - button "Main menu" [ref=e140]:
+                - img [ref=e141]
+              - button "Expand UI for file named Portfolio" [ref=e143]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - button "Portfolio, file name": Portfolio
+                      - generic: File name
+                - generic:
+                  - generic:
+                    - status
+                - generic:
+                  - img
+        - generic [ref=e88]:
+          - generic [ref=e204]:
+            - button "Multiplayer tools" [ref=e206]:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic:
+                        - generic:
+                          - img
+              - img [ref=e209]
+            - generic [ref=e212]:
+              - button "Follow zzzz" [ref=e213]
+              - img [ref=e216]
+          - button "15%, zoom and view options" [ref=e162]:
+            - generic [ref=e92]:
+              - generic [ref=e93]: 15%
+              - img [ref=e95]
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - button "Present" [ref=e100]:
+                - generic:
+                  - img
+              - button "Prototype view" [ref=e101]:
+                - generic:
+                  - img
+            - button "Share" [ref=e103]:
+              - generic:
+                - generic:
+                  - generic: Share
+      - generic:
+        - generic:
+          - generic:
+            - region "Application toolbar":
+              - generic [ref=e163]:
+                - toolbar "Editor" [ref=e165]:
+                  - generic [ref=e167]:
+                    - generic:
+                      - generic [ref=e170]:
+                        - generic [ref=e171]:
+                          - button "Move" [ref=e172]:
+                            - img
+                          - button "Hand tool" [pressed] [ref=e173]:
+                            - img
+                          - button "Comment" [ref=e174]:
+                            - img
+                        - group "Frame" [ref=e176]:
+                          - button "Frame" [ref=e177]:
+                            - img
+                          - button "Region tools" [ref=e178]:
+                            - generic:
+                              - img
+                        - group "Rectangle" [ref=e179]:
+                          - button "Rectangle" [ref=e180]:
+                            - img
+                          - button "Shape tools" [ref=e181]:
+                            - generic:
+                              - img
+                        - group "Pen" [ref=e182]:
+                          - button "Pen" [ref=e183]:
+                            - img
+                          - button "Creation tools" [ref=e184]:
+                            - generic:
+                              - img
+                        - button "Text" [ref=e185]:
+                          - img
+                        - button "Actions" [ref=e186]:
+                          - img
+                      - text: Request sent
+                  - generic [ref=e191]:
+                    - checkbox "Dev Mode" [ref=e193]
+                    - img [ref=e195]
+                - generic [ref=e197]:
+                  - generic [ref=e198]: Sign up to comment, edit, inspect and more.
+                  - generic [ref=e199]:
+                    - button "Sign up" [ref=e200]:
+                      - generic:
+                        - generic:
+                          - generic: Sign up
+                    - button "Continue with Google" [ref=e203]:
+                      - generic:
+                        - generic:
+                          - img
+                        - generic: Continue
+    - region "Help/zoom toolbar" [ref=e124]:
+      - toolbar "Help/zoom toolbar" [ref=e126]:
+        - button "Help" [ref=e128]:
+          - img
+  - generic:
+    - status
+    - group [ref=e130]:
+      - alert [ref=e132]
+      - alert [ref=e134]
+    - region "Do not sell or share my personal info" [ref=e136]:
+      - link "Do not sell or share my personal info" [ref=e137]:
+        - /url: /opt-out/

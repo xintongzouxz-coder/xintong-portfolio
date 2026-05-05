@@ -1,0 +1,35 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - generic [ref=e10]:
+      - status [ref=e18]: Screenreader support for the board is currently disabled. To enable it via Accessibility settings, press ⌘K, type Accessibility Settings, and press Enter. To see available keyboard shortcuts, enter ⌃⇧Question mark .
+      - region "Left sidebar" [ref=e20]:
+        - separator [ref=e24]
+      - generic [ref=e88]:
+        - button "100%, zoom and view options" [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e93]: 100%
+            - img [ref=e95]
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - button "Present" [ref=e100]:
+              - generic:
+                - img
+            - button "Prototype view" [ref=e101]:
+              - generic:
+                - img
+          - button "Share" [ref=e103]:
+            - generic:
+              - generic:
+                - generic: Share
+    - region "Help/zoom toolbar" [ref=e124]:
+      - toolbar "Help/zoom toolbar" [ref=e126]:
+        - button "Help" [ref=e128]:
+          - img
+  - generic:
+    - status
+    - group [ref=e130]:
+      - alert [ref=e132]
+      - alert [ref=e134]
+    - region "Do not sell or share my personal info" [ref=e136]:
+      - link "Do not sell or share my personal info" [ref=e137]:
+        - /url: /opt-out/

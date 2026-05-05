@@ -1,0 +1,44 @@
+[    2394ms] [LOG] Running frontend commit 8ed2a461af82a7d428aff7cf1b97e0698f448e15 @ https://www.figma.com/design/Z9PgviRxhx5qWFpQJmlbvQ/Portfolio?node-id=2308-12411:592
+[    5831ms] [WARNING] Statsig is not ready to log exposures, will retry in 1 seconds @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6289ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://static.figma.com/webfont/1/SourceCodePro-Medium.woff2 @ https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:180
+[    6352ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[    6352ms] [ERROR] Failed to fetch v1 ruleset: C: XHR for "/api/statsig/v1_ruleset" failed with status 401
+    at R (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11260)
+    at async Object.P [as get] (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11643)
+    at async https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1088:209147
+    at async g.validate (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1375:5958)
+    at async b (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:177052)
+    at async A (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:176256)
+    at async Object.write (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:175875) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6526ms] [INFO] [Fullscreen] Booting... (emscripten version 4.0.21) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6769ms] [INFO] [GPU] graphicsAPI:"WebGL 2", vendor:"Google Inc. (Apple)", renderer:"ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)" version:"OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))" @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6772ms] [LOG] [Fullscreen] Ready in 482.9ms @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6906ms] [INFO] [FullscreenApp] calling setEditorTheme and setting preference light @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6932ms] [INFO] [MultiplayerSession] connecting to wss://www.figma.com/api/multiplayer/Z9PgviRxhx5qWFpQJmlbvQ?role=editor&tracking_session_id=muZM8emduIY8CANZ&version=152&recentReload=0&file-load-streaming-compression&scenegraph-queries-initial-nodes=2308:12411&client_release=8ed2a461af82a7d428aff7cf1b97e0698f448e15 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    6942ms] [INFO] [FullscreenApp] calling setEditorTheme and setting preference light @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    7006ms] [LOG] [import] git: a15fd83e07d38552ae10e3cf5d51039b4bf97949, stamp: DA6720E5291886C2 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    9161ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/folders/20064494:0
+[    9199ms] C: XHR for "/api/folders/20064494" failed with status 401
+    at R (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11260)
+    at async Object.P [as get] (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11643)
+    at async https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1088:150040
+    at async g.validate (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1375:5958)
+    at async h.fetchObject (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:347:159236)
+    at async f (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:347:139539)
+[    9201ms] [LOG] Loaded 161 scripts (9467110b), 102 from cache (2502421b) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    9354ms] [INFO] [MultiplayerSession] Joining file version 106 (initial load) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   10335ms] [LOG] Migration succeeded: context: fullscreen_migrate_SceneGraphManager, version: 106, duration: 0ms. @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   12567ms] [WARNING] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently @ https://static.figma.com/fullscreen/8ed2a461af82a7d428aff7cf1b97e0698f448e15/fullscreen-wasm/compiled_wasm.js.br:1
+[   12627ms] [WARNING] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently @ https://static.figma.com/fullscreen/8ed2a461af82a7d428aff7cf1b97e0698f448e15/fullscreen-wasm/compiled_wasm.js.br:1
+[   12731ms] [INFO] afterJoinEnd PageSyncing: Loaded incrementally {loaded_pages: 56:1043} @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   12963ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/design_systems/libraries_by_library_keys:0
+[   13397ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/mobile_app_push/Z9PgviRxhx5qWFpQJmlbvQ:0
+[   13486ms] [LOG] [Fullscreen] loadtime=12.65s maxmem=180893080 @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   13533ms] C: XHR for "/api/mobile_app_push/Z9PgviRxhx5qWFpQJmlbvQ" failed with status 401
+    at R (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11260)
+    at async R.a [as post] (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11890)
+[   54357ms] [INFO] [Image] Generating thumbnail from image , drop 3 mips, 1673x2499 15.95 MB to 210x313 0.25 MB @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   54422ms] [WARNING] Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently @ https://www.figma.com/webpack-artifacts/assets/figma_app-9885de79e2da252b.min.js.br:45
+[   54543ms] [INFO] [Image] Generating thumbnail from image , drop 3 mips, 2499x1666 15.88 MB to 313x209 0.25 MB @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   54912ms] [INFO] [Image] Generating thumbnail from image , drop 3 mips, 1785x2499 17.02 MB to 224x313 0.27 MB @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[   55012ms] [INFO] [Image] Generating thumbnail from image , drop 3 mips, 2016x3024 23.26 MB to 252x378 0.36 MB @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53

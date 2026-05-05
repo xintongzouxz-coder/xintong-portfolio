@@ -1,0 +1,127 @@
+[     357ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     453ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     752ms] [WARNING] Image with src "/images/prorizon/hero.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ -406581ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[ -179798ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[    1382ms] [LOG] Running frontend commit 1bdddfefe08228e97206922de97aa2f90db8860c @ https://www.figma.com/embed/interstitial?embed_host=share&embed_path=%2Fproto%2FZ9PgviRxhx5qWFpQJmlbvQ%3Fcontent-scaling%3Dfixed%26embed_host%3Dshare%26kind%3Dproto%26node-id%3D379-2115%26node-type%3DFRAME%26page-id%3D56%253A1043%26scaling%3Dscale-down%26starting-point-node-id%3D379%253A2115%26t%3DZjvLaGFbjE3ENXL5-1%26viewport%3D-7191%252C-1249%252C0.21&theme=&version=1:448
+[    2007ms] [LOG] Reloading the embed... reason: refreshOnReadyForEmbed @ https://www.figma.com/webpack-artifacts/assets/embed_interstitial-d1cdb3aa2b6a8ac4.min.js.br:85
+[    3197ms] [LOG] Running frontend commit 1bdddfefe08228e97206922de97aa2f90db8860c @ https://www.figma.com/proto/Z9PgviRxhx5qWFpQJmlbvQ?content-scaling=fixed&embed_host=share&kind=proto&node-id=379-2115&node-type=FRAME&page-id=56%3A1043&scaling=scale-down&starting-point-node-id=379%3A2115&t=ZjvLaGFbjE3ENXL5-1&viewport=-7191%2C-1249%2C0.21:503
+[    3292ms] [WARNING] Datadog Browser SDK: No storage available for session. We will not send any data. @ https://www.figma.com/webpack-artifacts/assets/vendor-d8a7622aeef5d7d1.min.js.br:5
+[    3853ms] [WARNING] Statsig is not ready to log exposures, will retry in 1 seconds @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    3902ms] [LOG] [import] git: 1bdddfefe08228e97206922de97aa2f90db8860c, stamp: 06AAB0C031A1258E @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    4119ms] [INFO] [PrototypeLib] Booting... (emscripten version 4.0.21) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    4140ms] [INFO] [GPU] graphicsAPI:"WebGL 2", vendor:"Google Inc. (Apple)", renderer:"ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)" version:"OpenGL ES 2.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))" @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    4245ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[    4246ms] [ERROR] Failed to fetch v1 ruleset: C: XHR for "/api/statsig/v1_ruleset" failed with status 401
+    at R (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11260)
+    at async Object.P [as get] (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11643)
+    at async https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1088:209147
+    at async g.validate (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1375:5958)
+    at async b (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:177052)
+    at async A (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:176256)
+    at async Object.write (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:175875) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    5595ms] [WARNING] Image with src "/images/prorizon/empathy-map.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2224139ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 2224211ms] [LOG] [Fast Refresh] done in 31ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 3257414ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 3258418ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 3258441ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 4175966ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 4190001ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 5179884ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 5180878ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 5660612ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 5664824ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[ 7462314ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://www.figma.com/api/figment-proxy/monitor:0
+[ 8150607ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8150965ms] [LOG] [Fast Refresh] done in 464ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8159762ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8159778ms] [LOG] [Fast Refresh] done in 116ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8383116ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8383486ms] [LOG] [Fast Refresh] done in 386ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8385801ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8385843ms] [LOG] [Fast Refresh] done in 29ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8390478ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8390550ms] [LOG] [Fast Refresh] done in 6ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8396743ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8396745ms] [LOG] [Fast Refresh] done in 67ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8614464ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8615000ms] [LOG] [Fast Refresh] done in 636ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8615116ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8615291ms] [LOG] [Fast Refresh] done in 275ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8615612ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8615826ms] [LOG] [Fast Refresh] done in 316ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8622111ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8622131ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8705086ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8705106ms] [LOG] [Fast Refresh] done in 72ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8711041ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8711072ms] [LOG] [Fast Refresh] done in 33ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8795178ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 8795202ms] [LOG] [Fast Refresh] done in 57ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 9251327ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 9251349ms] [LOG] [Fast Refresh] done in 55ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ 9409005ms] [LOG] [Livegraph] Connection closed. Code: 4001, reason: connection_lifetime @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12361015ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12361535ms] [LOG] [Fast Refresh] done in 624ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12364081ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12364204ms] [LOG] [Fast Refresh] done in 223ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12366447ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12368036ms] [LOG] sceneWillRebuildAfterReconnecting @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12368043ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12368044ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12368045ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12368045ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12383012ms] [LOG] sceneDidRebuildAfterReconnecting @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[12730632ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12732113ms] [LOG] [Fast Refresh] done in 1563ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12732215ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12732790ms] [LOG] [Fast Refresh] done in 675ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12733047ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12733573ms] [LOG] [Fast Refresh] done in 629ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12737479ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12737555ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12746452ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12747380ms] [LOG] [Fast Refresh] done in 973ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12764383ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12764386ms] [LOG] [Fast Refresh] done in 105ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12874718ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12874734ms] [LOG] [Fast Refresh] done in 94ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12874941ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12875045ms] [LOG] [Fast Refresh] done in 206ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12880215ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[12880244ms] [LOG] [Fast Refresh] done in 42ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[13193798ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[13193997ms] [LOG] [Fast Refresh] done in 126ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[13296046ms] [LOG] [Livegraph] Connection closed. Code: 4001, reason: connection_lifetime @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[13925750ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[13925982ms] [LOG] [Fast Refresh] done in 128ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14014201ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14014351ms] [LOG] [Fast Refresh] done in 77ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14339928ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14340002ms] [LOG] [Fast Refresh] done in 137ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14395668ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14396714ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14396776ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[14399654ms] [LOG] sceneWillRebuildAfterReconnecting @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14399656ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14399657ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14399657ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14399657ms] [WARNING] getActiveCanvas called with null scene but non-null canvas @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14401649ms] [LOG] sceneDidRebuildAfterReconnecting @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14405739ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14405741ms] [ERROR] Failed to load resource: net::ERR_NETWORK_IO_SUSPENDED @ https://www.figma.com/api/figment-proxy/monitor:0
+[14406742ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[14406752ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[15497860ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[16439387ms] [LOG] [Livegraph] Connection closed. Code: 1006, reason:  @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[16448982ms] [LOG] reconnecting with reconnect key 2cc435d959a0d5dfa3eb9058e3c1b814ecfdf7bd @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[18718816ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[18719055ms] [LOG] [Fast Refresh] done in 174ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[19259232ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[19259963ms] [LOG] [Fast Refresh] done in 693ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[20092828ms] [LOG] [Livegraph] Connection closed. Code: 4001, reason: connection_lifetime @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[20103027ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[20103091ms] [LOG] [Fast Refresh] done in 91ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431

@@ -1,0 +1,26 @@
+[     228ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     375ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[     432ms] [WARNING] Image with src "/images/prorizon/hero.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[ -222474ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[    1436ms] [LOG] Running frontend commit 1bdddfefe08228e97206922de97aa2f90db8860c @ https://www.figma.com/embed/interstitial?embed_host=share&embed_path=%2Fproto%2FZ9PgviRxhx5qWFpQJmlbvQ%3Fcontent-scaling%3Dfixed%26embed_host%3Dshare%26kind%3Dproto%26node-id%3D379-2115%26node-type%3DFRAME%26page-id%3D56%253A1043%26scaling%3Dscale-down%26starting-point-node-id%3D379%253A2115%26t%3DZjvLaGFbjE3ENXL5-1%26viewport%3D-7191%252C-1249%252C0.21&theme=&version=1:448
+[    2010ms] [LOG] Reloading the embed... reason: refreshOnReadyForEmbed @ https://www.figma.com/webpack-artifacts/assets/embed_interstitial-d1cdb3aa2b6a8ac4.min.js.br:85
+[    3192ms] [LOG] Running frontend commit 1bdddfefe08228e97206922de97aa2f90db8860c @ https://www.figma.com/proto/Z9PgviRxhx5qWFpQJmlbvQ?content-scaling=fixed&embed_host=share&kind=proto&node-id=379-2115&node-type=FRAME&page-id=56%3A1043&scaling=scale-down&starting-point-node-id=379%3A2115&t=ZjvLaGFbjE3ENXL5-1&viewport=-7191%2C-1249%2C0.21:503
+[    3291ms] [WARNING] Datadog Browser SDK: No storage available for session. We will not send any data. @ https://www.figma.com/webpack-artifacts/assets/vendor-d8a7622aeef5d7d1.min.js.br:5
+[    3859ms] [WARNING] Statsig is not ready to log exposures, will retry in 1 seconds @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    3907ms] [LOG] [import] git: 1bdddfefe08228e97206922de97aa2f90db8860c, stamp: 06AAB0C031A1258E @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    4139ms] [INFO] [PrototypeLib] Booting... (emscripten version 4.0.21) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    4164ms] [INFO] [GPU] graphicsAPI:"WebGL 2", vendor:"Google Inc. (Apple)", renderer:"ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)" version:"OpenGL ES 2.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))" @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[    4309ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://www.figma.com/api/statsig/v1_ruleset:0
+[    4315ms] [ERROR] Failed to fetch v1 ruleset: C: XHR for "/api/statsig/v1_ruleset" failed with status 401
+    at R (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11260)
+    at async Object.P [as get] (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1395:11643)
+    at async https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1088:209147
+    at async g.validate (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1375:5958)
+    at async b (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:177052)
+    at async A (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:176256)
+    at async Object.write (https://www.figma.com/webpack-artifacts/assets/9969-69f8f185edb11656.min.js.br:1356:175875) @ https://www.figma.com/webpack-artifacts/assets/vendor-core-229ba1ea832d24ba.min.js.br:53
+[  174545ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  174655ms] [LOG] [Fast Refresh] done in 44ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  180517ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  180589ms] [LOG] [Fast Refresh] done in 45ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
