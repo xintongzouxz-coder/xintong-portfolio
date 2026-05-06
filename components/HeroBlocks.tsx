@@ -295,12 +295,9 @@ export default function HeroBlocks() {
               transition: T,
               pointerEvents: "none",
             }}>
-              {/* Curly hand-drawn arrow: counterclockwise loop on left, arrowhead pointing right */}
-              <svg width="62" height="56" viewBox="0 0 62 56" fill="none" style={{ flexShrink: 0 }}>
-                <path d="M16 10 C3 10 0 20 4 32 C8 44 20 50 31 46 C42 42 41 30 33 22 C29 19 36 8 54 10"
-                      stroke="#9a9a9a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                <path d="M49 5L55 10L49 15" stroke="#9a9a9a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <div style={{ transform: "rotate(22.9deg) scaleY(-1)", flexShrink: 0, width: 45, height: 67 }}>
+                <img src="/images/arrow-hint.svg" alt="" style={{ width: "100%", height: "100%", display: "block" }} />
+              </div>
               <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic", marginTop: 8 }}>
                 In case you are tired of reading
               </span>
