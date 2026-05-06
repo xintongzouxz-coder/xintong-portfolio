@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import type { CSSProperties } from "react";
 
 const IMG = {
@@ -55,8 +56,11 @@ function scrollEaseOut(targetId: string) {
 export default function HeroBlocks() {
   const [hovered, setHovered] = useState<Block | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touchOrigin = useRef<{ x: number; y: number } | null>(null);
+  const bgVideoRef = useRef<HTMLVideoElement>(null);
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -64,6 +68,38 @@ export default function HeroBlocks() {
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  // Pause bg video when center is hovered or modal is open
+  useEffect(() => {
+    if (!bgVideoRef.current) return;
+    if (hovered === "center" || videoModalOpen) {
+      bgVideoRef.current.pause();
+    } else {
+      bgVideoRef.current.play().catch(() => {});
+    }
+  }, [hovered, videoModalOpen]);
+
+  // Modal: play with sound, lock scroll
+  useEffect(() => {
+    if (videoModalOpen) {
+      document.body.style.overflow = "hidden";
+      if (modalVideoRef.current) {
+        modalVideoRef.current.currentTime = 0;
+        modalVideoRef.current.play().catch(() => {});
+      }
+    } else {
+      document.body.style.overflow = "";
+      if (modalVideoRef.current) modalVideoRef.current.pause();
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [videoModalOpen]);
+
+  // ESC to close modal
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setVideoModalOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   function startLongPress(block: Block, e: React.TouchEvent) {
@@ -84,7 +120,6 @@ export default function HeroBlocks() {
     if (!touchOrigin.current) return;
     const dx = Math.abs(e.touches[0].clientX - touchOrigin.current.x);
     const dy = Math.abs(e.touches[0].clientY - touchOrigin.current.y);
-    // Cancel if the finger moves more than 10px (user is scrolling)
     if (dx > 10 || dy > 10) cancelLongPress();
   }
 
@@ -108,7 +143,6 @@ export default function HeroBlocks() {
       position: "relative",
       zIndex: isActive ? 10 : defaultZ[block],
       opacity: isDimmed ? 0.5 : 1,
-      // Mobile long-press: scale down dimmed cards; desktop: translateX + scale
       transform: isDimmed
         ? isMobile ? "scale(0.92)" : `translateX(${tx}px) scale(0.85)`
         : "none",
@@ -117,7 +151,6 @@ export default function HeroBlocks() {
   }
 
   function rotStyle(block: Block, deg: number): CSSProperties {
-    // On mobile with no long-press active: static rotation, no transition
     if (isMobile && hovered === null) return { transform: `rotate(${deg}deg)` };
     return {
       transform: hovered === block ? "rotate(0deg)" : `rotate(${deg}deg)`,
@@ -126,7 +159,6 @@ export default function HeroBlocks() {
   }
 
   function fly(block: Block, py: number): CSSProperties {
-    // On mobile with no long-press active: no fly
     if (isMobile && hovered === null) return {};
     return {
       transform: hovered === block ? `translateY(${py}px)` : "translateY(0px)",
@@ -144,11 +176,8 @@ export default function HeroBlocks() {
       flexShrink: 0,
       cursor: "pointer",
     };
-    // Mobile with no long-press: bare base (no hover effects, no negative margin)
     if (isMobile && hovered === null) return base;
-    // Mobile with long-press active: add blockStyle but no negative margin
     if (isMobile) return { ...base, ...blockStyle(block) };
-    // Desktop: full hover logic + negative overlap margin
     return { ...base, marginRight: -64, ...blockStyle(block) };
   }
 
@@ -157,228 +186,296 @@ export default function HeroBlocks() {
       ? { transform: "scale(0.48)", transformOrigin: "top center", marginBottom: mb }
       : {};
 
+  const showCenterHover = !isMobile && hovered === "center";
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: isMobile ? "column" : "row",
-        alignItems: isMobile ? "center" : "flex-start",
-        paddingRight: isMobile ? 0 : 64,
-      }}
-    >
+    <>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: isMobile ? "center" : "flex-start",
+          paddingRight: isMobile ? 0 : 64,
+        }}
+      >
 
-      {/* ── Left: Case study file ── */}
-      <div style={mobileWrap(-292)}>
-        <div
-          style={blockBase("left", 412, 474)}
-          onMouseEnter={isMobile ? undefined : () => setHovered("left")}
-          onMouseLeave={isMobile ? undefined : () => setHovered(null)}
-          onTouchStart={isMobile ? (e) => startLongPress("left", e) : undefined}
-          onTouchMove={isMobile ? handleTouchMove : undefined}
-          onTouchEnd={isMobile ? cancelLongPress : undefined}
-          onTouchCancel={isMobile ? cancelLongPress : undefined}
-          onClick={() => scrollEaseOut("work")}
-        >
-          <div style={rotStyle("left", isMobile ? -5 : -6.76)}>
-            <div style={stackGrid}>
+        {/* ── Left: Case study file ── */}
+        <div style={mobileWrap(-292)}>
+          <div
+            style={blockBase("left", 412, 474)}
+            onMouseEnter={isMobile ? undefined : () => setHovered("left")}
+            onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+            onTouchStart={isMobile ? (e) => startLongPress("left", e) : undefined}
+            onTouchMove={isMobile ? handleTouchMove : undefined}
+            onTouchEnd={isMobile ? cancelLongPress : undefined}
+            onTouchCancel={isMobile ? cancelLongPress : undefined}
+            onClick={() => scrollEaseOut("work")}
+          >
+            <div style={rotStyle("left", isMobile ? -5 : -6.76)}>
+              <div style={stackGrid}>
 
-              <div style={cell(0, 53.15)}>
-                <div style={{ width: 364, height: 389, position: "relative" }}>
-                  <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
-                    <img src={IMG.fileBack} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
-                  </div>
-                </div>
-              </div>
-
-              <div style={cell(40.67, 150.37)}>
-                <div style={fly("left", -40)}>
-                  <div style={{ transform: "rotate(5deg)" }}>
-                    <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                      <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                <div style={cell(0, 53.15)}>
+                  <div style={{ width: 364, height: 389, position: "relative" }}>
+                    <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
+                      <img src={IMG.fileBack} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div style={cell(161.66, 26.4)}>
-                <div style={fly("left", -65)}>
-                  <div style={{ transform: "rotate(10.07deg)" }}>
-                    <div style={{ width: 183, height: 192, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                      <img src={IMG.payByBank} alt="Pay by Bank" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                <div style={cell(40.67, 150.37)}>
+                  <div style={fly("left", -40)}>
+                    <div style={{ transform: "rotate(5deg)" }}>
+                      <div style={{ width: 258, height: 172, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                        <img src={IMG.prorizon} alt="Prorizon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div style={cell(1.24, 0)}>
-                <div style={fly("left", -120)}>
-                  <div style={{ transform: "rotate(-2.93deg)" }}>
-                    <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
-                      <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
+                <div style={cell(161.66, 26.4)}>
+                  <div style={fly("left", -65)}>
+                    <div style={{ transform: "rotate(10.07deg)" }}>
+                      <div style={{ width: 183, height: 192, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                        <img src={IMG.payByBank} alt="Pay by Bank" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div style={cell(0.13, 73.0)}>
-                <div style={{ width: 352, height: 370, position: "relative" }}>
-                  <img src={IMG.fileFront} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+                <div style={cell(1.24, 0)}>
+                  <div style={fly("left", -120)}>
+                    <div style={{ transform: "rotate(-2.93deg)" }}>
+                      <div style={{ width: 203, height: 154, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+                        <img src={IMG.designSystem} alt="Design System" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top left", display: "block" }} />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div style={{ ...cell(isMobile ? 106 : 86.18, isMobile ? 301 : 358.42), width: "max-content", position: "relative", zIndex: 10 }}>
-                <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
+                <div style={cell(0.13, 73.0)}>
+                  <div style={{ width: 352, height: 370, position: "relative" }}>
+                    <img src={IMG.fileFront} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+                  </div>
                 </div>
-              </div>
 
+                <div style={{ ...cell(isMobile ? 106 : 86.18, isMobile ? 301 : 358.42), width: "max-content", position: "relative", zIndex: 10 }}>
+                  <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
+                    <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Read case studies</span>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
+
+        {/* ── Center: Profile video ── */}
+        <div style={mobileWrap(-257)}>
+          <div
+            style={{ ...blockBase("center", 355, 408), position: "relative" }}
+            onMouseEnter={isMobile ? undefined : () => setHovered("center")}
+            onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+            onTouchStart={isMobile ? (e) => startLongPress("center", e) : undefined}
+            onTouchMove={isMobile ? handleTouchMove : undefined}
+            onTouchEnd={isMobile ? cancelLongPress : undefined}
+            onTouchCancel={isMobile ? cancelLongPress : undefined}
+            onClick={() => setVideoModalOpen(true)}
+          >
+            {/* "In case you are tired of reading" + arrow — desktop hover only */}
+            <div style={{
+              position: "absolute",
+              top: -62,
+              left: 0,
+              right: 0,
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              gap: 10,
+              opacity: showCenterHover ? 1 : 0,
+              transition: T,
+              pointerEvents: "none",
+            }}>
+              {/* Straight diagonal arrow, top-right to bottom-left */}
+              <svg width="26" height="62" viewBox="0 0 26 62" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
+                <line x1="22" y1="3" x2="7" y2="52" stroke="#999" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M1 45L7 54L16 48" stroke="#999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic", paddingTop: 2 }}>
+                In case you are tired of reading
+              </span>
+            </div>
+
+            <div style={rotStyle("center", 5)}>
+              <div style={{
+                width: 323, height: 382, borderRadius: 20, overflow: "hidden",
+                position: "relative", background: "#d4cfc9",
+                filter: showCenterHover ? "blur(3px)" : "none",
+                transition: T,
+              }}>
+                <video
+                  ref={bgVideoRef}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster={IMG.profile}
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                >
+                  <source src="/images/intro.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
+            {/* Play button overlay — desktop hover only */}
+            <div style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              opacity: showCenterHover ? 1 : 0,
+              transition: T,
+              pointerEvents: "none",
+            }}>
+              <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+                <circle cx="45" cy="45" r="45" fill="white" fillOpacity="0.85"/>
+                <path d="M37 28L63 45L37 62V28Z" fill="#1a1a1a"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Right: Fun project file ── */}
+        <div style={mobileWrap(-260)}>
+          <div
+            style={blockBase("right", 435, 500)}
+            onMouseEnter={isMobile ? undefined : () => setHovered("right")}
+            onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+            onTouchStart={isMobile ? (e) => startLongPress("right", e) : undefined}
+            onTouchMove={isMobile ? handleTouchMove : undefined}
+            onTouchEnd={isMobile ? cancelLongPress : undefined}
+            onTouchCancel={isMobile ? cancelLongPress : undefined}
+            onClick={() => scrollEaseOut("other")}
+          >
+            <div style={rotStyle("right", 10)}>
+              <div style={stackGrid}>
+
+                <div style={cell(0.42, 53.58)}>
+                  <div style={{ width: 364, height: 389, position: "relative" }}>
+                    <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
+                      <img src={IMG.fileBack2} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={cell(154.15, 11.9)}>
+                  <div style={fly("right", -50)}>
+                    <div style={{ transform: "rotate(9.48deg)" }}>
+                      <div style={{ width: 162, height: 213, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
+                        <img src={IMG.barbican} alt="Barbican" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={cell(isMobile ? 40 : 17, 154.39)}>
+                  <div style={fly("right", -120)}>
+                    <div style={{ transform: "scaleY(-1) rotate(168.8deg)" }}>
+                      <div style={{ width: 276, height: 161, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
+                        <img src={IMG.goldfish} alt="Goldfish" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={cell(13.99, 0)}>
+                  <div style={fly("right", -60)}>
+                    <div style={{ transform: "rotate(-12.23deg)" }}>
+                      <div style={{ width: 245, height: 139, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
+                        <img src={IMG.brain} alt="Brain" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={cell(0, 72.25)}>
+                  <div style={{ width: 352, height: 370, position: "relative" }}>
+                    <img src={IMG.fileFront2} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
+                  </div>
+                </div>
+
+                <div style={{ ...cell(isMobile ? 79 : 76.91, isMobile ? 372 : 361.11), width: "max-content", position: "relative", zIndex: 10 }}>
+                  <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
+                    <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      {/* ── Center: Profile video ── */}
-      <div style={mobileWrap(-257)}>
+      {/* ── Video modal ── */}
+      {videoModalOpen && createPortal(
         <div
-          style={{ ...blockBase("center", 355, 408), position: "relative" }}
-          onMouseEnter={isMobile ? undefined : () => setHovered("center")}
-          onMouseLeave={isMobile ? undefined : () => setHovered(null)}
-          onTouchStart={isMobile ? (e) => startLongPress("center", e) : undefined}
-          onTouchMove={isMobile ? handleTouchMove : undefined}
-          onTouchEnd={isMobile ? cancelLongPress : undefined}
-          onTouchCancel={isMobile ? cancelLongPress : undefined}
-        >
-          {/* "In case you are tired of reading" + arrow — desktop hover only */}
-          <div style={{
-            position: "absolute",
-            top: -54,
-            left: 0,
-            right: 0,
+          onClick={() => setVideoModalOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(0,0,0,0.72)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: 8,
-            opacity: !isMobile && hovered === "center" ? 1 : 0,
-            transition: T,
-            pointerEvents: "none",
-          }}>
-            <svg width="38" height="56" viewBox="0 0 38 56" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M32 3C35 16 20 30 8 52" stroke="#9a9a9a" strokeWidth="1.5" strokeLinecap="round"/>
-              <path d="M2 45L8 54L17 47" stroke="#9a9a9a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic" }}>
-              In case you are tired of reading
-            </span>
-          </div>
-
-          <div style={rotStyle("center", 5)}>
-            <div style={{
-              width: 323, height: 382, borderRadius: 20, overflow: "hidden",
-              position: "relative", background: "#d4cfc9",
-              filter: !isMobile && hovered === "center" ? "blur(3px)" : "none",
-              transition: T,
-            }}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster={IMG.profile}
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-              >
-                <source src="/images/intro.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-
-          {/* Play button overlay — desktop hover only */}
-          <div style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            opacity: !isMobile && hovered === "center" ? 1 : 0,
-            transition: T,
-            pointerEvents: "none",
-          }}>
-            <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-              <circle cx="45" cy="45" r="45" fill="white" fillOpacity="0.85"/>
-              <path d="M37 28L63 45L37 62V28Z" fill="#1a1a1a"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Right: Fun project file ── */}
-      <div style={mobileWrap(-260)}>
-        <div
-          style={blockBase("right", 435, 500)}
-          onMouseEnter={isMobile ? undefined : () => setHovered("right")}
-          onMouseLeave={isMobile ? undefined : () => setHovered(null)}
-          onTouchStart={isMobile ? (e) => startLongPress("right", e) : undefined}
-          onTouchMove={isMobile ? handleTouchMove : undefined}
-          onTouchEnd={isMobile ? cancelLongPress : undefined}
-          onTouchCancel={isMobile ? cancelLongPress : undefined}
-          onClick={() => scrollEaseOut("other")}
+          }}
         >
-          <div style={rotStyle("right", 10)}>
-            <div style={stackGrid}>
-
-              <div style={cell(0.42, 53.58)}>
-                <div style={{ width: 364, height: 389, position: "relative" }}>
-                  <div style={{ position: "absolute", top: "-4.48%", right: "-13.95%", bottom: "-13.21%", left: "-4.79%" }}>
-                    <img src={IMG.fileBack2} alt="" style={{ display: "block", width: "100%", height: "100%", maxWidth: "none" }} />
-                  </div>
-                </div>
-              </div>
-
-              <div style={cell(154.15, 11.9)}>
-                <div style={fly("right", -50)}>
-                  <div style={{ transform: "rotate(9.48deg)" }}>
-                    <div style={{ width: 162, height: 213, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                      <img src={IMG.barbican} alt="Barbican" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div style={cell(isMobile ? 40 : 17, 154.39)}>
-                <div style={fly("right", -120)}>
-                  <div style={{ transform: "scaleY(-1) rotate(168.8deg)" }}>
-                    <div style={{ width: 276, height: 161, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                      <img src={IMG.goldfish} alt="Goldfish" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div style={cell(13.99, 0)}>
-                <div style={fly("right", -60)}>
-                  <div style={{ transform: "rotate(-12.23deg)" }}>
-                    <div style={{ width: 245, height: 139, borderRadius: 20, overflow: "hidden", boxShadow: "10px 10px 20px rgba(167,167,167,0.25)", position: "relative" }}>
-                      <img src={IMG.brain} alt="Brain" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div style={cell(0, 72.25)}>
-                <div style={{ width: 352, height: 370, position: "relative" }}>
-                  <img src={IMG.fileFront2} alt="" style={{ position: "absolute", top: "-9.31%", right: "-8.57%", bottom: "-4.71%", left: "-6.16%", width: "114.73%", height: "114.02%", display: "block", maxWidth: "none" }} />
-                </div>
-              </div>
-
-              <div style={{ ...cell(isMobile ? 79 : 76.91, isMobile ? 372 : 361.11), width: "max-content", position: "relative", zIndex: 10 }}>
-                <div style={{ background: "#292929", padding: isMobile ? 17 : 16, borderRadius: isMobile ? 17 : 8 }}>
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: isMobile ? 29 : 16, color: "white", whiteSpace: "nowrap" }}>Check my fun project</span>
-                </div>
-              </div>
-
-            </div>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ position: "relative" }}
+          >
+            <video
+              ref={modalVideoRef}
+              loop
+              playsInline
+              style={{
+                height: "min(80vh, 680px)",
+                width: "auto",
+                display: "block",
+                borderRadius: 20,
+              }}
+            >
+              <source src="/images/intro.mp4" type="video/mp4" />
+            </video>
+            <button
+              onClick={() => setVideoModalOpen(false)}
+              style={{
+                position: "absolute",
+                top: 14,
+                right: 14,
+                width: 34,
+                height: 34,
+                borderRadius: "50%",
+                background: "rgba(0,0,0,0.55)",
+                border: "none",
+                color: "white",
+                fontSize: 20,
+                lineHeight: "34px",
+                textAlign: "center",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+              }}
+            >
+              ×
+            </button>
           </div>
-        </div>
-      </div>
-
-    </div>
+        </div>,
+        document.body
+      )}
+    </>
   );
 }
