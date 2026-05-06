@@ -249,15 +249,14 @@ export default function HeroBlocks() {
           onTouchCancel={isMobile ? cancelLongPress : undefined}
         >
           <div style={rotStyle("center", 5)}>
-            <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative" }}>
-              <div style={{ position: "absolute", background: "rgba(217,217,217,0.2)", inset: 0 }} />
+            <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative", background: "#d4cfc9" }}>
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
                 poster={IMG.profile}
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center center" }}
               >
                 <source src="/images/intro.mp4" type="video/mp4" />
               </video>
