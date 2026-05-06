@@ -237,10 +237,10 @@ export default function HeroBlocks() {
         </div>
       </div>
 
-      {/* ── Center: Profile photo ── */}
+      {/* ── Center: Profile video ── */}
       <div style={mobileWrap(-257)}>
         <div
-          style={blockBase("center", 355, 408)}
+          style={{ ...blockBase("center", 355, 408), position: "relative" }}
           onMouseEnter={isMobile ? undefined : () => setHovered("center")}
           onMouseLeave={isMobile ? undefined : () => setHovered(null)}
           onTouchStart={isMobile ? (e) => startLongPress("center", e) : undefined}
@@ -248,19 +248,63 @@ export default function HeroBlocks() {
           onTouchEnd={isMobile ? cancelLongPress : undefined}
           onTouchCancel={isMobile ? cancelLongPress : undefined}
         >
+          {/* "In case you are tired of reading" + arrow — desktop hover only */}
+          <div style={{
+            position: "absolute",
+            top: -54,
+            left: 0,
+            right: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            opacity: !isMobile && hovered === "center" ? 1 : 0,
+            transition: T,
+            pointerEvents: "none",
+          }}>
+            <svg width="38" height="56" viewBox="0 0 38 56" fill="none" style={{ flexShrink: 0 }}>
+              <path d="M32 3C35 16 20 30 8 52" stroke="#9a9a9a" strokeWidth="1.5" strokeLinecap="round"/>
+              <path d="M2 45L8 54L17 47" stroke="#9a9a9a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic" }}>
+              In case you are tired of reading
+            </span>
+          </div>
+
           <div style={rotStyle("center", 5)}>
-            <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative", background: "#d4cfc9" }}>
+            <div style={{
+              width: 323, height: 382, borderRadius: 20, overflow: "hidden",
+              position: "relative", background: "#d4cfc9",
+              filter: !isMobile && hovered === "center" ? "blur(3px)" : "none",
+              transition: T,
+            }}>
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
                 poster={IMG.profile}
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "65% center" }}
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
               >
                 <source src="/images/intro.mp4" type="video/mp4" />
               </video>
             </div>
+          </div>
+
+          {/* Play button overlay — desktop hover only */}
+          <div style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            opacity: !isMobile && hovered === "center" ? 1 : 0,
+            transition: T,
+            pointerEvents: "none",
+          }}>
+            <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+              <circle cx="45" cy="45" r="45" fill="white" fillOpacity="0.85"/>
+              <path d="M37 28L63 45L37 62V28Z" fill="#1a1a1a"/>
+            </svg>
           </div>
         </div>
       </div>
