@@ -138,7 +138,7 @@ export default function HeroBlocks() {
       }
     }
 
-    const defaultZ: Record<Block, number> = { left: 1, center: 2, right: 1 };
+    const defaultZ: Record<Block, number> = { left: 3, center: 2, right: 1 };
     return {
       position: "relative",
       zIndex: isActive ? 10 : defaultZ[block],
