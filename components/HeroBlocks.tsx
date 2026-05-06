@@ -320,7 +320,7 @@ export default function HeroBlocks() {
                   muted
                   playsInline
                   poster={IMG.profile}
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "65% 50%" }}
                 >
                   <source src="/images/intro.mp4" type="video/mp4" />
                 </video>
