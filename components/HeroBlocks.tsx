@@ -303,7 +303,7 @@ export default function HeroBlocks() {
               </span>
             </div>
 
-            <div style={{ ...rotStyle("center", 5), borderRadius: 20, boxShadow: "10px 10px 10px rgba(167,167,167,0.25)" }}>
+            <div style={{ ...rotStyle("center", 5), borderRadius: 20, boxShadow: "10px 20px 60px rgba(140,140,140,0.45)" }}>
               <div style={{
                 width: 323, height: 382, borderRadius: 20, overflow: "hidden",
                 position: "relative", background: "#d4cfc9",
