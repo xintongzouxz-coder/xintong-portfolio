@@ -284,23 +284,24 @@ export default function HeroBlocks() {
             {/* "In case you are tired of reading" + arrow — desktop hover only */}
             <div style={{
               position: "absolute",
-              top: -62,
+              top: -65,
               left: 0,
               right: 0,
               display: "flex",
               alignItems: "flex-start",
               justifyContent: "center",
-              gap: 10,
+              gap: 8,
               opacity: showCenterHover ? 1 : 0,
               transition: T,
               pointerEvents: "none",
             }}>
-              {/* Straight diagonal arrow, top-right to bottom-left */}
-              <svg width="26" height="62" viewBox="0 0 26 62" fill="none" style={{ flexShrink: 0, marginTop: 2 }}>
-                <line x1="22" y1="3" x2="7" y2="52" stroke="#999" strokeWidth="1.5" strokeLinecap="round"/>
-                <path d="M1 45L7 54L16 48" stroke="#999" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* Curly hand-drawn arrow: counterclockwise loop on left, arrowhead pointing right */}
+              <svg width="62" height="56" viewBox="0 0 62 56" fill="none" style={{ flexShrink: 0 }}>
+                <path d="M16 10 C3 10 0 20 4 32 C8 44 20 50 31 46 C42 42 41 30 33 22 C29 19 36 8 54 10"
+                      stroke="#9a9a9a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                <path d="M49 5L55 10L49 15" stroke="#9a9a9a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic", paddingTop: 2 }}>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic", marginTop: 8 }}>
                 In case you are tired of reading
               </span>
             </div>
