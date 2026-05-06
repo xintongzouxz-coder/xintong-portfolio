@@ -290,7 +290,7 @@ export default function HeroBlocks() {
               display: "flex",
               alignItems: "flex-start",
               justifyContent: "center",
-              gap: 8,
+              gap: 20,
               opacity: showCenterHover ? 1 : 0,
               transition: T,
               pointerEvents: "none",
