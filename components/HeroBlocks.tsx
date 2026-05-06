@@ -251,7 +251,16 @@ export default function HeroBlocks() {
           <div style={rotStyle("center", 5)}>
             <div style={{ width: 323, height: 382, borderRadius: 20, overflow: "hidden", position: "relative" }}>
               <div style={{ position: "absolute", background: "rgba(217,217,217,0.2)", inset: 0 }} />
-              <img src={IMG.profile} alt="Xintong Zou" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={IMG.profile}
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+              >
+                <source src="/images/intro.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
