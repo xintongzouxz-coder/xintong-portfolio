@@ -219,7 +219,7 @@ export default function DesignSystem() {
           width: 274px;
           flex-shrink: 0;
           position: sticky;
-          top: 100px;
+          top: 72px;
           padding: 32px;
           box-sizing: border-box;
         }
