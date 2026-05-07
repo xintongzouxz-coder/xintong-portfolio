@@ -150,7 +150,7 @@ const principles = [
 
 const outcomes = [
   "Reduced colour tokens from 138 to 35 (~75% reduction), improving consistency and maintainability across products",
-  "Optimised receipt structure, reducing paper usage by 13% and improving operational efficiency",
+  "Optimised receipt structure, reducing paper usage by 16% and improving operational efficiency",
   "Improved QA efficiency through a structured design reference system",
 ];
 
@@ -192,7 +192,7 @@ export default function DesignSystem() {
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
             <div style={{ ...blockquoteStyle, margin: "0 0 40px" }}>
               <p style={blockquoteTextStyle}>
-                "Reduced foundation tokens by 76%, cutting design-to-code handoff ambiguity and enabling a 13% reduction in receipt paper usage across the merchant network."
+                "Reduced foundation tokens by 76%, cutting design-to-code handoff ambiguity and enabling a 16% reduction in receipt paper usage across the merchant network."
               </p>
             </div>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
@@ -630,7 +630,7 @@ export default function DesignSystem() {
               {[
                 { stat: "76%", label: "reduction in foundation tokens" },
                 { stat: "138→35", label: "colour tokens consolidated" },
-                { stat: "13%", label: "less receipt paper used" },
+                { stat: "16%", label: "less receipt paper used" },
               ].map(({ stat, label }) => (
                 <div key={stat} style={{ ...glassCard, padding: "36px 32px" }}>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(36px,4vw,56px)", fontWeight: 700, color: "#3445ff", margin: "0 0 8px", lineHeight: 1 }}>
