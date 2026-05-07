@@ -132,17 +132,17 @@ const findings = [
 
 const principles = [
   {
-    icon: "https://www.figma.com/api/mcp/asset/04859415-69c7-4304-b563-f0b6b1f30e61",
+    icon: "/images/kody-design-system/north-star-1.svg",
     title: "Simplify, don't redesign",
     body: "The same components were implemented in multiple styles, especially in Terminal, with no clear standard.",
   },
   {
-    icon: "https://www.figma.com/api/mcp/asset/6ba172f4-7d67-46a4-b921-2b305c5d6e1b",
+    icon: "/images/kody-design-system/north-star-2.svg",
     title: "Foundation-first",
     body: "Tokens before components.",
   },
   {
-    icon: "https://www.figma.com/api/mcp/asset/63805b9c-af52-4e84-86d3-de44b5eeebc2",
+    icon: "/images/kody-design-system/north-star-3.svg",
     title: "Progressive adoption",
     body: "Start with high-impact surfaces and migrate iteratively.",
   },
