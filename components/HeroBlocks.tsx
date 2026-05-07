@@ -438,6 +438,7 @@ export default function HeroBlocks() {
               ref={modalVideoRef}
               loop
               playsInline
+              controls
               style={{
                 height: "min(80vh, 680px)",
                 width: "auto",
@@ -446,6 +447,7 @@ export default function HeroBlocks() {
               }}
             >
               <source src="/images/intro.mp4" type="video/mp4" />
+              <track kind="subtitles" src="/images/intro.vtt" srcLang="en" label="English" default />
             </video>
             <button
               onClick={() => setVideoModalOpen(false)}
