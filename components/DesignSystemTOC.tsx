@@ -19,6 +19,7 @@ const NAV_ITEMS: NavItem[] = [
       { id: "solutions-token-system", label: "Define a token system" },
       { id: "solutions-component-specs", label: "Component specs" },
       { id: "solutions-implementation", label: "Implementation" },
+      { id: "solutions-receipt", label: "Receipt implementation" },
       { id: "solutions-ai", label: "AI Assisted" },
     ],
   },
@@ -37,6 +38,7 @@ const OBSERVE_IDS = [
   "solutions-token-system",
   "solutions-component-specs",
   "solutions-implementation",
+  "solutions-receipt",
   "solutions-ai",
   "outcome",
 ];

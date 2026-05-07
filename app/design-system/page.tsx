@@ -576,10 +576,38 @@ export default function DesignSystem() {
               <Image src="/images/kody-design-system/implementation.png" alt="Terminal new payment flow with updated token and component system applied" width={1600} height={900} style={{ ...imgStyle }} />
             </div>
 
-            {/* 05 — AI */}
-            <div id="solutions-ai">
+            {/* 05 — Receipt */}
+            <div id="solutions-receipt" style={{ marginBottom: 80 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>05</span>
+                <h3 style={{ ...h3Style, margin: 0 }}>From tokens to paper: a downstream win</h3>
+              </div>
+              <p style={{ ...bodyStyle, marginBottom: 32 }}>
+                Receipt was one of the most problematic surfaces flagged in the audit, the Figma template didn't match the actual paper size, and the drift kept getting worse with every iteration. Once the token system was ready, I used receipt as the first reference implementation.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 32 }}>
+                <Image src="/images/kody-design-system/receipt-comparison.png" alt="Receipt templates in Figma didn't match the actual printer paper dimensions" width={970} height={900} style={{ ...imgStyle }} />
+                <ImgPlaceholder label="receipt drift" aspect="970/900" />
+              </div>
+              <p style={{ ...bodyStyle, marginBottom: 12 }}>Detailed action :</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {[
+                  "43% less typographic variation: reduced 7 font sizes (8 / 10 / 11 / 12 / 14 / 16 / 18 pt) down to 4",
+                  "34% less spacing variation: consolidated 6 vertical spacing values into 2",
+                  "Combined effect: average receipt length dropped from 24.1 cm to 20.24 cm",
+                ].map((item, i) => (
+                  <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                    <span style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(26,26,26,0.72)", marginTop: 10, flexShrink: 0 }} />
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.75, color: "rgba(26,26,26,0.72)", margin: 0 }}>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 06 — AI */}
+            <div id="solutions-ai">
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, fontWeight: 500, color: "#3445ff", background: "rgba(52,69,255,0.1)", borderRadius: 100, padding: "4px 14px" }}>06</span>
                 <h3 style={{ ...h3Style, margin: 0 }}>Operationalising the design system with AI</h3>
               </div>
 
