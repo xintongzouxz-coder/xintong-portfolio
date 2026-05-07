@@ -86,7 +86,7 @@ export default function BirdCursor() {
           borderRadius:  "50%",
           background:    "#1a1a1a",
           pointerEvents: "none",
-          zIndex:        9999,
+          zIndex:        100000,
           willChange:    "transform, opacity",
           transition:    "opacity 0.15s",
         }}
@@ -103,7 +103,7 @@ export default function BirdCursor() {
           borderRadius:  "50%",
           border:        "1.5px solid rgba(26,26,26,0.55)",
           pointerEvents: "none",
-          zIndex:        9998,
+          zIndex:        99999,
           willChange:    "transform, width, height",
           transition:    "border-color 0.2s, background 0.2s",
         }}
