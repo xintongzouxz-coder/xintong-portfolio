@@ -680,7 +680,7 @@ export default function DesignSystem() {
                 },
                 {
                   bold: "Building an adoption dashboard.",
-                  rest: " Right now, "is the system being used" is a qualitative answer. I want to make it measurable: how many new screens use system tokens, which components get reused most, and where designers are still working around the system. This turns the design system from a deliverable into a product with its own metrics.",
+                  rest: " Right now, “is the system being used” is a qualitative answer. I want to make it measurable: how many new screens use system tokens, which components get reused most, and where designers are still working around the system. This turns the design system from a deliverable into a product with its own metrics.",
                 },
                 {
                   bold: "AI-assisted build for complex components.",
