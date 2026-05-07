@@ -24,6 +24,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { id: "outcome", label: "OUTCOME" },
+  { id: "whats-next", label: "WHAT'S NEXT" },
 ];
 
 // IDs in DOM top-to-bottom order; scroll logic walks this in reverse
@@ -41,6 +42,7 @@ const OBSERVE_IDS = [
   "solutions-receipt",
   "solutions-ai",
   "outcome",
+  "whats-next",
 ];
 
 export default function DesignSystemTOC() {

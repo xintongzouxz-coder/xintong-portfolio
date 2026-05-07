@@ -666,6 +666,39 @@ export default function DesignSystem() {
             </div>
           </section>
 
+          {/* ── What's Next ── */}
+          <section id="whats-next" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+            {divider}
+            <span style={labelStyle}>Looking ahead</span>
+            <h2 style={h2Style}>What's Next</h2>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+              {[
+                {
+                  bold: "Scaling the system to other products.",
+                  rest: " Terminal was the starting point, not the end. Next is migrating Kody App, Universe, and Order onto the same token foundation, flow by flow. By the end, no product should rely on its own one-off values.",
+                },
+                {
+                  bold: "Building an adoption dashboard.",
+                  rest: " Right now, "is the system being used" is a qualitative answer. I want to make it measurable: how many new screens use system tokens, which components get reused most, and where designers are still working around the system. This turns the design system from a deliverable into a product with its own metrics.",
+                },
+                {
+                  bold: "AI-assisted build for complex components.",
+                  rest: " As the system expands to cover forms, modals, and data tables, manually building every variant in Figma becomes a bottleneck. Using AI to generate Figma components from token specs can keep the system's growth from outpacing the team's capacity to maintain it.",
+                },
+              ].map(({ bold, rest }, i) => (
+                <div key={i} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#3445ff", minWidth: 24, marginTop: 2 }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.75, color: "rgba(26,26,26,0.72)", margin: 0 }}>
+                    <strong style={{ color: "#1a1a1a" }}>{bold}</strong>{rest}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
         </div>{/* end ds-content-col */}
       </div>{/* end ds-with-sidebar */}
 
