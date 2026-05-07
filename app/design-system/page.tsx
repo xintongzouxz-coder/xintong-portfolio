@@ -587,7 +587,7 @@ export default function DesignSystem() {
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 32 }}>
                 <Image src="/images/kody-design-system/receipt-comparison.png" alt="Receipt templates in Figma didn't match the actual printer paper dimensions" width={970} height={900} style={{ ...imgStyle }} />
-                <ImgPlaceholder label="receipt drift" aspect="970/900" />
+                <Image src="/images/kody-design-system/receipt-drift.png" alt="Original vs updated receipt design showing saved paper cost" width={970} height={900} style={{ ...imgStyle }} />
               </div>
               <p style={{ ...bodyStyle, marginBottom: 12 }}>Detailed action :</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
