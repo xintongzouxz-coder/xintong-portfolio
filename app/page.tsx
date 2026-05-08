@@ -4,14 +4,14 @@ import CaseCard from "@/components/CaseCard";
 import HeroBlocks from "@/components/HeroBlocks";
 import AboutIntro from "@/components/AboutIntro";
 import Link from "next/link";
-import kodyAnimation from "@/public/images/kody-pbb-animation.json";
+import kodyAnimation from "@/public/images/home/kody-pbb-animation.json";
 
 
 // ── Case cards ────────────────────────────────────────────────────────────────
 const CASES = [
   {
     href: "/kody-pbb",
-    image: "https://framerusercontent.com/images/zMuPydpVzQipc4F6g78jnLwmU.png",
+    image: "/images/home/kody-pbb-cover.png",
     bg: "var(--bg)",
     hoverLottie: kodyAnimation,
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
@@ -22,7 +22,7 @@ const CASES = [
   },
   {
     href: "/design-system",
-    image: "/images/design-system-cover.png",
+    image: "/images/home/design-system-cover.png",
     tags: ["Design System", "AI-assisted"],
     title: "Rebuilding the Kody Design System",
     year: "2025",
@@ -31,7 +31,7 @@ const CASES = [
   },
   {
     href: "/prorizon",
-    image: "/images/prorizon-cover.png",
+    image: "/images/home/prorizon-cover.png",
     bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
     hoverVideo: "/images/prorizon/Prorizon project cover.mp4",
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
@@ -42,7 +42,7 @@ const CASES = [
   },
   {
     href: "#",
-    image: "/images/pitchme.webp",
+    image: "/images/home/pitchme.webp",
     bg: "var(--bg)",
     tags: ["Workflow Optimisation", "AI-agent"],
     title: "PitchME",
@@ -195,12 +195,12 @@ export default function Home() {
           {/* Brain Fog */}
           <div className="other-card" style={{ flex: 1, borderRadius: 20, overflow: "hidden" }}>
             <video autoPlay loop muted playsInline style={{ width: "100%", height: "auto", display: "block" }}>
-              <source src="/images/brainfog.mp4" type="video/mp4" />
+              <source src="/images/home/brainfog.mp4" type="video/mp4" />
             </video>
           </div>
           {/* Barbican Plants */}
           <div className="other-card" style={{ flex: 1, borderRadius: 20, overflow: "hidden", aspectRatio: "1200 / 684" }}>
-            <img src="/images/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img src="/images/home/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
       </section>

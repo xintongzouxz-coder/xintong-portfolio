@@ -5,17 +5,17 @@ import { createPortal } from "react-dom";
 import type { CSSProperties } from "react";
 
 const IMG = {
-  fileBack:     "/images/file-back.png",
-  fileFront:    "/images/file-front.png",
-  fileBack2:    "/images/file-back-2.png",
-  fileFront2:   "/images/file-front-2.png",
-  prorizon:     "/images/prorizon.png",
-  payByBank:    "/images/pay-by-bank.png",
-  designSystem: "/images/design-system.png",
-  profile:      "/images/profile.jpg",
-  barbican:     "/images/barbican.png",
-  goldfish:     "/images/goldfish.png",
-  brain:        "/images/brain.png",
+  fileBack:     "/images/ui/file-back.png",
+  fileFront:    "/images/ui/file-front.png",
+  fileBack2:    "/images/ui/file-back-2.png",
+  fileFront2:   "/images/ui/file-front-2.png",
+  prorizon:     "/images/home/prorizon.png",
+  payByBank:    "/images/home/pay-by-bank.png",
+  designSystem: "/images/home/design-system.png",
+  profile:      "/images/home/profile.jpg",
+  barbican:     "/images/home/barbican.png",
+  goldfish:     "/images/home/goldfish.png",
+  brain:        "/images/home/brain.png",
 };
 
 const stackGrid: CSSProperties = {
@@ -296,7 +296,7 @@ export default function HeroBlocks() {
               pointerEvents: "none",
             }}>
               <div style={{ transform: "rotate(22.9deg) scaleY(-1)", flexShrink: 0, width: 45, height: 67 }}>
-                <img src="/images/arrow-hint.svg" alt="" style={{ width: "100%", height: "100%", display: "block" }} />
+                <img src="/images/home/arrow-hint.svg" alt="" style={{ width: "100%", height: "100%", display: "block" }} />
               </div>
               <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "#747474", whiteSpace: "nowrap", fontStyle: "italic", marginTop: 8 }}>
                 In case you are tired of reading
@@ -319,7 +319,7 @@ export default function HeroBlocks() {
                   poster={IMG.profile}
                   style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "65% 50%" }}
                 >
-                  <source src="/images/intro.mp4" type="video/mp4" />
+                  <source src="/images/home/intro.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -446,8 +446,8 @@ export default function HeroBlocks() {
                 borderRadius: 20,
               }}
             >
-              <source src="/images/intro.mp4" type="video/mp4" />
-              <track kind="subtitles" src="/images/intro.vtt" srcLang="en" label="English" default />
+              <source src="/images/home/intro.mp4" type="video/mp4" />
+              <track kind="subtitles" src="/images/home/intro.vtt" srcLang="en" label="English" default />
             </video>
             <button
               onClick={() => setVideoModalOpen(false)}

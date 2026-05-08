@@ -369,7 +369,7 @@ export default function KodyPBB() {
             </div>
             <div>
               <img
-                src="https://framerusercontent.com/images/agmFcSz8ZXRDwPq7Qj5yE69XCgY.png"
+                src="/images/kody-pbb/hero-app.png"
                 alt="Kody Pay by Bank hero"
                 style={{ width: "100%", display: "block", borderRadius: 14 }}
               />
@@ -380,7 +380,7 @@ export default function KodyPBB() {
         {/* Full-width product image */}
         <div style={{ background: "#fff", width: "100%" }}>
           <img
-            src="https://framerusercontent.com/images/714NknxAgrUaGhDpBlnLX0MXEo0.png"
+            src="/images/kody-pbb/product-overview.png"
             alt="Kody product overview"
             style={{ width: "100%", display: "block" }}
           />
@@ -530,7 +530,7 @@ export default function KodyPBB() {
             </div>
 
             <img
-              src="https://framerusercontent.com/images/5aMC2gmDgu05Wq9fPVcuyqKqI.png"
+              src="/images/kody-pbb/cold-start.png"
               alt="Cold start diagram"
               style={imgStyle}
             />
@@ -581,7 +581,7 @@ export default function KodyPBB() {
                   ))}
                 </div>
                 <img
-                  src="https://framerusercontent.com/images/JK7qVKiapNC1LUHAch8nCMaZc8.png"
+                  src="/images/kody-pbb/research-insights.png"
                   alt="Research insights"
                   style={imgStyle}
                 />
@@ -781,14 +781,14 @@ export default function KodyPBB() {
             <div style={{ display: "flex", gap: 32, alignItems: "stretch", marginBottom: 40, height: 224 }}>
               <div style={{ flexShrink: 0, width: 466, borderRadius: 14, overflow: "hidden" }}>
                 <img
-                  src="https://framerusercontent.com/images/7gXg1nyte7NdyXrrf9aB42DADMQ.png"
+                  src="/images/kody-pbb/opportunity-mapping.png"
                   alt="Opportunity mapping"
                   style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
               <div style={{ flex: 1, minWidth: 0, borderRadius: 14, overflow: "hidden" }}>
                 <img
-                  src="https://framerusercontent.com/images/sgFcfXgW4r37771dfWaPzXca34M.png"
+                  src="/images/kody-pbb/channel-hypothesis.png"
                   alt="Channel hypothesis"
                   style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
                 />
@@ -1109,7 +1109,7 @@ export default function KodyPBB() {
             </div>
 
             <img
-              src="https://framerusercontent.com/images/Tpv41Z1ZkIuNRsAcANHsoVy4Gpc.png"
+              src="/images/kody-pbb/results-chart.png"
               alt="Results chart"
               style={imgStyle}
             />

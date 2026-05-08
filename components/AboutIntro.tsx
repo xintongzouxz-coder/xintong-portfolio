@@ -20,8 +20,8 @@ const JOURNEY = [
     years: "22-23",
     company: "The Tavistock and Portman\nNHS Foundation Trust",
     role: "Informal Associate Researcher",
-    fish: "/images/fish-1.png",
-    hoverFish: "/images/fish-1-hover.png",
+    fish: "/images/ui/fish-1.png",
+    hoverFish: "/images/ui/fish-1-hover.png",
     paddingTop: 0,
     tooltip: {
       timeline: "",
@@ -36,8 +36,8 @@ const JOURNEY = [
     years: "23-24",
     company: "Prorizon",
     role: "UX Researcher / UI Designer",
-    fish: "/images/fish-2.png",
-    hoverFish: "/images/fish-2-hover.png",
+    fish: "/images/ui/fish-2.png",
+    hoverFish: "/images/ui/fish-2-hover.png",
     paddingTop: 62,
     tooltip: {
       timeline: "CONTRACT · NOV 2023 – APR 2024",
@@ -52,8 +52,8 @@ const JOURNEY = [
     years: "23-24",
     company: "Defence Community Capital",
     role: "Founding Product Designer",
-    fish: "/images/fish-3.png",
-    hoverFish: "/images/fish-3-hover.png",
+    fish: "/images/ui/fish-3.png",
+    hoverFish: "/images/ui/fish-3-hover.png",
     paddingTop: 102,
     tooltip: {
       timeline: "Full-Time · APR 2024 – DEC 2024",
@@ -68,8 +68,8 @@ const JOURNEY = [
     years: "24-25",
     company: "Kody",
     role: "Product Designer",
-    fish: "/images/fish-4.png",
-    hoverFish: "/images/fish-4-hover.png",
+    fish: "/images/ui/fish-4.png",
+    hoverFish: "/images/ui/fish-4-hover.png",
     paddingTop: 166,
     tooltipSide: "left" as const,
     tooltip: {
@@ -201,7 +201,7 @@ export default function AboutIntro() {
           }}
         >
           <img
-            src="/images/about-photo.jpg"
+            src="/images/home/about-photo.jpg"
             alt="Xintong Zou"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
