@@ -1094,11 +1094,6 @@ export default function KodyPBB() {
                 </div>
               </div>
 
-              {/* ── Body text 2 ── */}
-              <p style={{ ...bodyStyle, maxWidth: 840 }}>
-                To speed up launch enablement, I drafted the HTML email template with AI assistance, then worked with engineering to validate and deploy it.
-              </p>
-
             </div>
           </section>
 
