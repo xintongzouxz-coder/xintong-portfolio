@@ -8,24 +8,17 @@ const CANVAS_H = 3203;
 const MINI_W = 280;
 const MINI_H = Math.round(CANVAS_H * (MINI_W / CANVAS_W));
 const SCALE = MINI_W / CANVAS_W;
-const CIRCLE_SIZE = 50;
+const CIRCLE_SIZE = 80;
 const OFFSET = 16;
-
-const assets = {
-  vector242: "/images/kody-pbb/roadmap/vector242.svg",
-  vector241: "/images/kody-pbb/roadmap/vector241.svg",
-  frame85:   "/images/kody-pbb/roadmap/frame85.svg",
-  frame86:   "/images/kody-pbb/roadmap/frame86.svg",
-};
 
 export type LabelId = "integrate" | "deprioritise" | "expand" | "highlight";
 
-// Dot icon center positions in canvas coordinates (padding 40 + dot half-size 12)
+// Card center positions in canvas coordinates (derived from roadmap-mini.png)
 const DOT_CENTER: Record<LabelId, { x: number; y: number }> = {
-  integrate:    { x: 680, y: 521 },
-  deprioritise: { x: 821, y: 1017 },
-  expand:       { x: 317, y: 1592 },
-  highlight:    { x: 837, y: 1812 },
+  integrate:    { x: 1240, y: 521 },
+  deprioritise: { x: 1454, y: 1017 },
+  expand:       { x:  735, y: 1592 },
+  highlight:    { x: 1520, y: 1812 },
 };
 
 interface Props {
@@ -69,42 +62,12 @@ export default function RoadmapTooltip({ labelId, mouseX, mouseY, visible }: Pro
         transition: "opacity 0.18s ease",
       }}
     >
-      {/* Scaled-down roadmap background */}
-      <div style={{ position: "relative", width: MINI_W, height: MINI_H, background: "rgba(225,227,232,0.4)" }}>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: CANVAS_W,
-            height: CANVAS_H,
-            transformOrigin: "top left",
-            transform: `scale(${SCALE})`,
-          }}
-        >
-          <div style={{ position: "absolute", height: 2107.097, left: 913, top: 351.34, width: 2206.285 }}>
-            <div style={{ position: "absolute", top: "-9.52%", right: "-9.09%", bottom: "-9.52%", left: "-9.09%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector242} />
-            </div>
-          </div>
-          <div style={{ position: "absolute", height: 1643.292, left: 265.74, top: 200.81, width: 1763.837 }}>
-            <div style={{ position: "absolute", top: "-12.17%", right: "-11.34%", bottom: "-12.17%", left: "-11.34%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector241} />
-            </div>
-          </div>
-          <div style={{ position: "absolute", height: 2730, left: 141, top: 36, width: 2729.001 }}>
-            <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: "-0.5%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame85} />
-            </div>
-          </div>
-          <div style={{ position: "absolute", height: 2728.001, left: 141, top: 36, width: 2977 }}>
-            <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: 0 }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame86} />
-            </div>
-          </div>
-        </div>
-
-        {/* Location circle — positioned in display coordinates */}
+      <div style={{ position: "relative", width: MINI_W, height: MINI_H, background: "rgba(225,227,232,0.9)" }}>
+        <img
+          alt=""
+          src="/images/kody-pbb/roadmap-mini.png"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
         <div
           style={{
             position: "absolute",
@@ -115,7 +78,6 @@ export default function RoadmapTooltip({ labelId, mouseX, mouseY, visible }: Pro
             borderRadius: "50%",
             background: "rgba(200,200,200,0.5)",
             border: "1px solid #AFAFAF",
-            pointerEvents: "none",
           }}
         />
       </div>

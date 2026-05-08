@@ -28,7 +28,7 @@ export default function SolutionBadge({ labelId, dotColor, textColor, label }: P
           boxShadow: "8px 8px 20px rgba(197,197,197,0.25)",
           cursor: "default",
         }}
-        onMouseEnter={() => setHovered(true)}
+        onMouseEnter={(e) => { setHovered(true); setMouse({ x: e.clientX, y: e.clientY }); }}
         onMouseLeave={() => setHovered(false)}
         onMouseMove={(e) => setMouse({ x: e.clientX, y: e.clientY })}
       >
