@@ -215,7 +215,7 @@ export default function StrategicPivotDiagram() {
 
           {/* ── Deprioritise PBB on terminal ── */}
           <div
-            style={cardBase("deprioritise", { left: 769, top: 965, width: 900, flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
+            style={cardBase("deprioritise", { left: 769, top: 965, width: "max-content", flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
             onMouseEnter={() => setHovered("deprioritise")}
             onMouseLeave={() => setHovered(null)}
             onClick={() => scrollToSection("solutions-deprioritise")}
@@ -235,16 +235,21 @@ export default function StrategicPivotDiagram() {
                     <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
                   </div>
                 </div>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                  Deprioritise PBB on the terminal and expand bank coverage
-                </p>
+                <div style={{ flex: "1 0 0", minWidth: 1 }}>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
+                    Check solution
+                  </p>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
+                    Deprioritise PBB on the terminal and expand bank coverage
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* ── Expand bank coverage ── */}
           <div
-            style={cardBase("expand", { left: 265, top: 1540, width: 900, flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
+            style={cardBase("expand", { left: 265, top: 1540, width: "max-content", flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
             onMouseEnter={() => setHovered("expand")}
             onMouseLeave={() => setHovered(null)}
             onClick={() => scrollToSection("solutions-step-2")}
@@ -264,16 +269,21 @@ export default function StrategicPivotDiagram() {
                     <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
                   </div>
                 </div>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                  Customer selects bank in web flow
-                </p>
+                <div style={{ flex: "1 0 0", minWidth: 1 }}>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
+                    Check solution
+                  </p>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
+                    Customer selects bank in web flow
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* ── Highlight PBB cost-saving benefits ── */}
           <div
-            style={cardBase("highlight", { left: 785, top: 1760, width: 900, flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
+            style={cardBase("highlight", { left: 785, top: 1760, width: "max-content", flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
             onMouseEnter={() => setHovered("highlight")}
             onMouseLeave={() => setHovered(null)}
             onClick={() => scrollToSection("solutions-highlight")}
@@ -293,9 +303,14 @@ export default function StrategicPivotDiagram() {
                     <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
                   </div>
                 </div>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                  Drive adoption with clear value messaging
-                </p>
+                <div style={{ flex: "1 0 0", minWidth: 1 }}>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
+                    Check solution
+                  </p>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
+                    Drive adoption with clear value messaging
+                  </p>
+                </div>
               </div>
             </div>
           </div>
