@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import TableOfContents from "@/components/TableOfContents";
 import StrategicPivotDiagram from "@/components/StrategicPivotDiagram";
+import SolutionBadge from "@/components/SolutionBadge";
 
 // ── Icon assets (local, in /public/icons/kody-pbb/) ──────────────────────────
 const icCardIcon   = "/icons/kody-pbb/ic-card.svg";
@@ -820,10 +821,7 @@ export default function KodyPBB() {
                   </span>
                   <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Pay by Link as the primary growth channel</h3>
                 </div>
-                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
-                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Integrate PBB into PBL</span>
-                </div>
+                <SolutionBadge labelId="integrate" dotColor="#1566d1" textColor="#1566d1" label="Integrate PBB into PBL" />
               </div>
 
               {/* ── Rapid ideation ── */}
@@ -958,10 +956,7 @@ export default function KodyPBB() {
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#1a1a1a", letterSpacing: "0.0325em", lineHeight: "19.5px", margin: 0, whiteSpace: "nowrap" }}>
                     Step 2 — Customer selects bank in web flow
                   </p>
-                  <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
-                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
-                    <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Expand bank coverage</span>
-                  </div>
+                  <SolutionBadge labelId="expand" dotColor="#1566d1" textColor="#1566d1" label="Expand bank coverage" />
                 </div>
                 <p style={{ ...bodyStyle, marginBottom: 24, maxWidth: 840 }}>
                   Customers open the link from SMS or email, choose Pay by Bank, and complete authorisation in their banking app.
@@ -1039,10 +1034,7 @@ export default function KodyPBB() {
                   </span>
                   <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Deprioritise PBB on the terminal and expand bank coverage</h3>
                 </div>
-                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
-                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1566d1", flexShrink: 0 }} />
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#1566d1", whiteSpace: "nowrap" }}>Deprioritise PBB on terminal</span>
-                </div>
+                <SolutionBadge labelId="deprioritise" dotColor="#1566d1" textColor="#1566d1" label="Deprioritise PBB on terminal" />
               </div>
 
               {/* ── Body text ── */}
@@ -1073,10 +1065,7 @@ export default function KodyPBB() {
                   </span>
                   <h3 style={{ ...h3Style, margin: 0, color: "#3445ff" }}>Drive adoption with clear value messaging</h3>
                 </div>
-                <div style={{ background: "#fff", display: "flex", alignItems: "center", gap: 8, padding: 12, borderRadius: 20, flexShrink: 0, boxShadow: "8px 8px 20px rgba(197,197,197,0.25)" }}>
-                  <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#d521c6", flexShrink: 0 }} />
-                  <span style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 14, color: "#d521c6", whiteSpace: "nowrap" }}>Highlight PBB&apos;s cost-saving benefits</span>
-                </div>
+                <SolutionBadge labelId="highlight" dotColor="#d521c6" textColor="#d521c6" label="Highlight PBB's cost-saving benefits" />
               </div>
 
               {/* ── Body text 1 ── */}
