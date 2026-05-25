@@ -87,21 +87,25 @@ const tocItems = [
   { href: "#next-steps", label: "NEXT STEPS" },
 ];
 
-const bankSelectionTradeoffs = [
+const bankSelectionApproaches = [
   {
-    approach: "Bank list inside the Pay by Bank card",
-    tradeoff:
-      "Fewest steps, but it puts the choice of payment method and the search across more than 60 banks on one screen.",
+    label: "Approach 01",
+    title: "Bank list inside the Pay by Bank card",
+    body: "Fewest steps. But it flattens two decisions of very different weight, choosing a method and searching more than 60 banks on one screen, competing for attention.",
+    image: "/images/kody-solution/customer-open-link.png",
   },
   {
-    approach: "Popular banks on the first screen, rest on a second screen",
-    tradeoff:
-      "Fast for common banks, but selection is split across two places and still needs a variant step.",
+    label: "Approach 02",
+    title: "Popular banks on the first screen, rest on a second screen",
+    body: "Fast for common banks. But it splits bank selection across two screens, and the variant step still has to land somewhere.",
+    image: "/images/kody-solution/step2-bank-flow.png",
   },
   {
-    approach: "Bank selection as its own dedicated screen",
-    tradeoff:
-      "One more step, but each screen asks for one clear decision: choose a method, then choose a bank.",
+    label: "Approach 03",
+    title: "Bank selection as its own dedicated screen",
+    body: "One more step. But each screen asks for one kind of decision, pick a method, then pick a bank.",
+    image: "/images/kody-solution/step2-bank-flow.png",
+    muted: true,
   },
 ];
 
@@ -439,6 +443,90 @@ function OpportunitySpectrum() {
   );
 }
 
+function BankSelectionApproaches() {
+  return (
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 860,
+        margin: "0 auto 40px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 0,
+      }}
+    >
+      {bankSelectionApproaches.map((item) => (
+        <div
+          key={item.label}
+          className="bank-approach-row"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "220px 1fr",
+            gap: 80,
+            alignItems: "center",
+            padding: "34px 48px",
+            borderRadius: item.muted ? 16 : 0,
+            background: item.muted ? "rgba(255,255,255,0.55)" : "transparent",
+          }}
+        >
+          <div
+            style={{
+              width: 86,
+              height: item.muted ? 190 : 205,
+              justifySelf: "center",
+              borderRadius: 14,
+              overflow: "hidden",
+              background: "#ffffff",
+              boxShadow: "0 18px 32px rgba(26,26,26,0.08)",
+              border: "1px solid rgba(26,26,26,0.06)",
+              position: "relative",
+            }}
+          >
+            <img
+              src={item.image}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: item.label === "Approach 01" ? "center" : "top center",
+                display: "block",
+                transform: item.label === "Approach 02" ? "scale(1.08)" : "none",
+              }}
+            />
+          </div>
+
+          <div style={{ maxWidth: 360 }}>
+            <span style={{ ...labelStyle, marginBottom: 28 }}>
+              {item.label}
+            </span>
+            <h3
+              style={{
+                ...h3Style,
+                fontSize: 24,
+                lineHeight: 1.22,
+                marginBottom: 28,
+              }}
+            >
+              {item.title}
+            </h3>
+            <p
+              style={{
+                ...bodyStyle,
+                fontSize: 18,
+                lineHeight: 1.7,
+                color: "rgba(26,26,26,0.62)",
+              }}
+            >
+              {item.body}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function KodyPBBCaseB() {
   return (
     <>
@@ -530,6 +618,11 @@ export default function KodyPBBCaseB() {
           .kody-overview-width {
             padding-left: 24px !important;
             padding-right: 24px !important;
+          }
+          .bank-approach-row {
+            grid-template-columns: 1fr !important;
+            gap: 28px !important;
+            padding: 32px 24px !important;
           }
         }
       `}</style>
@@ -677,8 +770,16 @@ export default function KodyPBBCaseB() {
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-              <Placeholder label="Merchant user diagram" />
-              <Placeholder label="Payer user diagram" />
+              <img
+                src="/images/kody-pbb/User.png"
+                alt="Pay by Link user groups"
+                style={imgStyle}
+              />
+              <img
+                src="/images/kody-pbb/Payment%20link%20flow.png"
+                alt="Payment link flow"
+                style={imgStyle}
+              />
             </div>
           </section>
 
@@ -780,7 +881,11 @@ export default function KodyPBBCaseB() {
               act on it.
             </p>
 
-            <Placeholder label="Four candidate places to surface Pay by Bank savings" />
+            <img
+              src="/images/kody-pbb/Four%20candidate%20places%20to%20surface%20Pay%20by%20Bank%20savings.png"
+              alt="Four candidate places to surface Pay by Bank savings"
+              style={imgStyle}
+            />
 
             <div className="kody-two-col" style={{ marginTop: 48 }}>
               <SoftCard>
@@ -833,7 +938,11 @@ export default function KodyPBBCaseB() {
               how much visual weight the Pay by Bank block carried.
             </p>
 
-            <Placeholder label="Three landing screen presentation options" />
+            <img
+              src="/images/kody-pbb/Three%20landing%20screen%20presentation%20options.png?v=20260525-2018"
+              alt="Three landing screen presentation options"
+              style={imgStyle}
+            />
 
             <SoftCard style={{ marginTop: 32, marginBottom: 56 }}>
               <span style={labelStyle}>Decision</span>
@@ -853,15 +962,7 @@ export default function KodyPBBCaseB() {
               approaches to feel the difference in flow.
             </p>
 
-            <div className="kody-three-col" style={{ marginBottom: 40 }}>
-              {bankSelectionTradeoffs.map((item, index) => (
-                <SoftCard key={item.approach}>
-                  <span style={labelStyle}>Approach 0{index + 1}</span>
-                  <h3 style={h3Style}>{item.approach}</h3>
-                  <p style={{ ...bodyStyle, fontSize: 15 }}>{item.tradeoff}</p>
-                </SoftCard>
-              ))}
-            </div>
+            <BankSelectionApproaches />
 
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               I chose the dedicated screen. Choosing a method and searching across more than 60 banks
@@ -880,7 +981,11 @@ export default function KodyPBBCaseB() {
                   did not allow.
                 </p>
               </SoftCard>
-              <Placeholder label="Yapily raw bank variant list" />
+              <img
+                src="/images/kody-pbb/Yapily%20raw%20bank%20variant%20list.png"
+                alt="Yapily raw bank variant list"
+                style={imgStyle}
+              />
             </div>
 
             <h3 style={h3Style}>Designing the list</h3>
@@ -898,7 +1003,11 @@ export default function KodyPBBCaseB() {
               priority.
             </p>
 
-            <Placeholder label="Pinned popular banks and alphabetical list" />
+            <img
+              src="/images/kody-pbb/Pinned%20popular%20banks%20and%20alphabetical%20list.png"
+              alt="Pinned popular banks and alphabetical list"
+              style={imgStyle}
+            />
 
             <SoftCard style={{ marginTop: 32 }}>
               <span style={labelStyle}>Failure recovery</span>
@@ -963,7 +1072,25 @@ export default function KodyPBBCaseB() {
                   default, and the fee saving benefit is surfaced during payment
                   link creation.
                 </p>
-                <Placeholder label="Pay by Bank default selection and fee saving highlight" />
+                <div className="kody-scroll-x">
+                  <div style={{ background: "#fff", height: 340, width: 780, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
+                    <div style={{ position: "absolute", left: -18, top: 0, width: 563, height: 340, borderRadius: 10, overflow: "hidden" }}>
+                      <img alt="" style={{ position: "absolute", height: "357.39%", left: 0, maxWidth: "none", top: "-208.06%", width: "99.95%", display: "block" }} src="/images/kody-solution/create-link-picker.png" />
+                    </div>
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 25, left: 297, top: 186, width: 76, borderRadius: 4 }} />
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 18, left: 108, top: 202, width: 135, borderRadius: 4 }} />
+                    <svg style={{ position: "absolute", inset: 0, width: 780, height: 340, pointerEvents: "none", overflow: "visible" }}>
+                      <path d="M373,199 L517,199 L517,84 L552,84" stroke="#FF7E7E" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+                      <path d="M213,220 L213,233 L559,233" stroke="#FF7E7E" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
+                    </svg>
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 559, color: "#595959", fontSize: 14, top: 66, width: 211, margin: 0 }}>
+                      Highlight fee savings to drive Pay by Bank adoption
+                    </p>
+                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 564, color: "#595959", fontSize: 14, top: 196, width: 201, margin: 0 }}>
+                      Automatically deselect Pay by Bank when eligibility requirements aren&apos;t met, such as payment below £40
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div>
@@ -974,8 +1101,20 @@ export default function KodyPBBCaseB() {
                   messaging system.
                 </p>
                 <div className="kody-two-col">
-                  <Placeholder label="Intercom launch message" />
-                  <Placeholder label="Launch email template" />
+                  <div style={{ aspectRatio: "2880 / 2124", borderRadius: 14, overflow: "hidden", background: "#f5f7fb" }}>
+                    <img
+                      src="/images/kody-pbb/Intercom%20launch%20message.png"
+                      alt="Intercom launch message"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+                  <div style={{ aspectRatio: "2880 / 2124", borderRadius: 14, overflow: "hidden", background: "#f5f7fb", display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
+                    <img
+                      src="/images/kody-pbb/Launch%20email%20template.png?v=20260525-2049"
+                      alt="Launch email template"
+                      style={{ width: "auto", height: "100%", maxWidth: "100%", display: "block" }}
+                    />
+                  </div>
                 </div>
               </div>
 
