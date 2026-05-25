@@ -87,34 +87,11 @@ const tocItems = [
   { href: "#next-steps", label: "NEXT STEPS" },
 ];
 
-const opportunityCards = [
-  {
-    title: "Merchant fee awareness",
-    body: "Merchants did not know Pay by Bank could reduce transaction fees by around 60%.",
-    type: "opportunity",
-  },
-  {
-    title: "Payer default to card / Apple Pay",
-    body: "Payers were not rejecting Pay by Bank. They were defaulting past it.",
-    type: "opportunity",
-  },
-  {
-    title: "GBP40 minimum",
-    body: "A product and policy constraint that design could explain but not remove in beta.",
-    type: "constraint",
-  },
-  {
-    title: "No chargeback",
-    body: "A trust concern to design around, not a behaviour problem that UI alone could solve.",
-    type: "constraint",
-  },
-];
-
 const bankSelectionTradeoffs = [
   {
     approach: "Bank list inside the Pay by Bank card",
     tradeoff:
-      "Fewest steps, but it puts payment-method choice and a 60+ bank search on one screen.",
+      "Fewest steps, but it puts the choice of payment method and the search across more than 60 banks on one screen.",
   },
   {
     approach: "Popular banks on the first screen, rest on a second screen",
@@ -295,6 +272,173 @@ function NumberedItem({
   );
 }
 
+function OpportunitySpectrum() {
+  const itemText: React.CSSProperties = {
+    fontFamily: "var(--font-dm-sans)",
+    fontSize: 15,
+    lineHeight: 1.5,
+    color: "#1a1a1a",
+    margin: 0,
+  };
+
+  const captionText: React.CSSProperties = {
+    fontFamily: "var(--font-dm-mono)",
+    fontSize: 11,
+    lineHeight: 1.4,
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    margin: 0,
+  };
+
+  return (
+    <div
+      style={{
+        background: "rgba(255,255,255,0.58)",
+        border: "1px solid rgba(255,255,255,0.75)",
+        borderRadius: 16,
+        padding: "34px 38px",
+        marginTop: 44,
+        boxSizing: "border-box",
+        boxShadow: "20px 20px 28px rgba(212,212,212,0.18)",
+      }}
+    >
+      <div
+        style={{
+          marginBottom: 28,
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            gap: 24,
+            alignItems: "flex-end",
+            marginBottom: 18,
+          }}
+        >
+          <p style={{ ...captionText, color: "#3445ff", textAlign: "left" }}>
+            Design can solve it
+          </p>
+          <p style={{ ...captionText, color: "rgba(26,26,26,0.42)", textAlign: "right" }}>
+            Design cannot remove it
+          </p>
+        </div>
+        <div
+          style={{
+            width: "100%",
+            height: 3,
+            borderRadius: 100,
+            background:
+              "linear-gradient(90deg, rgba(52,69,255,0.72), rgba(26,26,26,0.16))",
+            position: "relative",
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              left: -1,
+              top: -5,
+              width: 12,
+              height: 12,
+              borderLeft: "2px solid rgba(52,69,255,0.72)",
+              borderBottom: "2px solid rgba(52,69,255,0.72)",
+              transform: "rotate(45deg)",
+              background: "transparent",
+            }}
+          />
+          <span
+            style={{
+              position: "absolute",
+              right: -1,
+              top: -5,
+              width: 12,
+              height: 12,
+              borderRight: "2px solid rgba(26,26,26,0.22)",
+              borderTop: "2px solid rgba(26,26,26,0.22)",
+              transform: "rotate(45deg)",
+              background: "transparent",
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="kody-spectrum-grid">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+            alignItems: "flex-start",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#3445ff", marginTop: 7, flexShrink: 0 }} />
+              <p style={itemText}>Merchant fee awareness</p>
+            </div>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#3445ff", marginTop: 7, flexShrink: 0 }} />
+              <p style={itemText}>Payer default to card or Apple Pay</p>
+            </div>
+          </div>
+          <div
+            style={{
+              border: "1px dashed rgba(52,69,255,0.45)",
+              borderRadius: 12,
+              padding: "14px 16px",
+              width: "fit-content",
+              maxWidth: "100%",
+            }}
+          >
+            <p style={{ ...captionText, color: "#3445ff", marginBottom: 4 }}>
+              Opportunities
+            </p>
+            <p style={{ ...bodyStyle, fontSize: 14, lineHeight: 1.5 }}>
+              Designed for
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+            alignItems: "flex-start",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(26,26,26,0.36)", marginTop: 7, flexShrink: 0 }} />
+              <p style={itemText}>£40 minimum</p>
+            </div>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "rgba(26,26,26,0.36)", marginTop: 7, flexShrink: 0 }} />
+              <p style={itemText}>No chargeback</p>
+            </div>
+          </div>
+          <div
+            style={{
+              border: "1px dashed rgba(26,26,26,0.24)",
+              borderRadius: 12,
+              padding: "14px 16px",
+              width: "fit-content",
+              maxWidth: "100%",
+            }}
+          >
+            <p style={{ ...captionText, color: "rgba(26,26,26,0.42)", marginBottom: 4 }}>
+              Constraints
+            </p>
+            <p style={{ ...bodyStyle, fontSize: 14, lineHeight: 1.5 }}>
+              Designed around
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function KodyPBBCaseB() {
   return (
     <>
@@ -343,6 +487,14 @@ export default function KodyPBBCaseB() {
         .kody-scroll-x {
           overflow-x: auto;
         }
+        .kody-spectrum-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          max-width: 860px;
+          margin: 0 auto;
+          justify-items: center;
+        }
         .kody-scroll-x::-webkit-scrollbar { height: 4px; }
         .kody-scroll-x::-webkit-scrollbar-track { background: transparent; }
         .kody-scroll-x::-webkit-scrollbar-thumb { background: #A2A2A2; border-radius: 2px; }
@@ -356,7 +508,8 @@ export default function KodyPBBCaseB() {
         @media (max-width: 900px) {
           .kody-hero-grid,
           .kody-two-col,
-          .kody-three-col {
+          .kody-three-col,
+          .kody-spectrum-grid {
             grid-template-columns: 1fr;
           }
           .kody-hero-grid {
@@ -412,7 +565,7 @@ export default function KodyPBBCaseB() {
                 }}
               >
                 Designing Pay by Bank&apos;s integration into Kody&apos;s Pay by Link
-                channel - for a merchant who does not know it saves money, and a
+                channel, designed for a merchant who does not know it saves money and a
                 payer who never thinks to choose it.
               </p>
               <SoftCard style={{ padding: "22px 24px" }}>
@@ -453,7 +606,7 @@ export default function KodyPBBCaseB() {
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
               This case covers the design work after Pay by Bank moved to the
-              Pay by Link channel - integrating it into checkout so merchants
+              Pay by Link channel. The work was about integrating it into checkout so merchants
               would enable it and payers would actually choose it.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
@@ -465,7 +618,7 @@ export default function KodyPBBCaseB() {
             <p style={{ ...bodyStyle, maxWidth: "none" }}>
               I designed for both: surfacing the fee saving to merchants at the
               point of link creation, and shaping how Pay by Bank is presented
-              and selected in the payer checkout, including a bank-selection
+              and selected in the payer checkout, including a flow for selecting banks
               flow built around our Open Banking provider&apos;s constraints.
             </p>
           </div>
@@ -483,19 +636,23 @@ export default function KodyPBBCaseB() {
             <h2 style={h2Style}>Background</h2>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               Pay by Bank lets customers pay directly from their bank accounts,
-              without using cards. It is a cost-effective option for both
+              without using cards. It is a cost effective option for both
               consumers and businesses. Kody first brought this technology into
-              the in-person experience through its terminal product.
+              the in person experience through its terminal product.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               The terminal launch did not get good market feedback. Two months
-              in, it was clear that Pay by Bank - a context-sensitive payment
-              method - did not fit the busy offline checkout environment. I
+              in, it was clear that Pay by Bank did not fit the busy offline
+              checkout environment because it is a context sensitive payment method. I
               analysed the problem and identified Pay by Link as a payment
               channel better matched to PBB&apos;s strengths.
             </p>
 
-            <Placeholder label="First version: Pay by Bank in-person experience" />
+            <img
+              src="/images/kody-pbb/cold-start.png"
+              alt="First version: Pay by Bank in person experience"
+              style={imgStyle}
+            />
 
             <div className="kody-two-col" style={{ marginTop: 48 }}>
               <NumberedItem
@@ -515,35 +672,13 @@ export default function KodyPBBCaseB() {
             {divider}
             <h2 style={h2Style}>Who is the user?</h2>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
-              Unlike the terminal project, the Pay by Link channel has only two
-              user groups. Frontline staff, a key user group in the terminal
-              project, are effectively absent from this flow. Link creation is
-              manager-level work, and link payment happens between the payer and
-              their bank.
+              Link creation is manager-level work, and link payment happens
+              between the payer and their bank.
             </p>
 
-            <div className="kody-two-col" style={{ marginBottom: 40 }}>
-              <SoftCard>
-                <span style={labelStyle}>Merchant-side user</span>
-                <h3 style={h3Style}>Manager or payment link operator</h3>
-                <p style={{ ...bodyStyle, fontSize: 15 }}>
-                  Creates links in Kody Universe and decides whether Pay by Bank
-                  is included in the link.
-                </p>
-              </SoftCard>
-              <SoftCard>
-                <span style={labelStyle}>Payer-side user</span>
-                <h3 style={h3Style}>Customer paying through a link</h3>
-                <p style={{ ...bodyStyle, fontSize: 15 }}>
-                  Opens the link, chooses a payment method, selects a bank, and
-                  authorises payment in their banking app.
-                </p>
-              </SoftCard>
-            </div>
-
-            <div className="kody-two-col">
-              <Placeholder label="Merchant-side user diagram" />
-              <Placeholder label="Payer-side user diagram" />
+            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+              <Placeholder label="Merchant user diagram" />
+              <Placeholder label="Payer user diagram" />
             </div>
           </section>
 
@@ -551,54 +686,64 @@ export default function KodyPBBCaseB() {
             {divider}
             <h2 style={h2Style}>Finding and defining the opportunity</h2>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
-              Re-examining the interviews for Pay by Link-specific problems
+              Looking again at the interviews through the lens of Pay by Link
               surfaced four themes. I separated them with one question: which
               can design actually move?
             </p>
 
-            <div className="kody-two-col" style={{ marginBottom: 40 }}>
-              <SoftCard style={{ borderLeft: "3px solid #3445ff" }}>
-                <span style={labelStyle}>Design can solve it</span>
-                <h3 style={h3Style}>Opportunities</h3>
-                <p style={bodyStyle}>
-                  Merchant awareness and payer default behaviour can be shifted
-                  through product presentation, timing, and communication.
-                </p>
-              </SoftCard>
-              <SoftCard style={{ borderLeft: "3px solid rgba(26,26,26,0.24)" }}>
-                <span style={{ ...labelStyle, color: "rgba(26,26,26,0.45)" }}>
-                  Design cannot remove it
-                </span>
-                <h3 style={h3Style}>Constraints</h3>
-                <p style={bodyStyle}>
-                  The GBP40 minimum and no-chargeback model had to be designed
-                  around because they were product and policy constraints.
-                </p>
-              </SoftCard>
-            </div>
+            <ul
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 18,
+                paddingLeft: 22,
+                margin: 0,
+                maxWidth: 920,
+              }}
+            >
+              <li style={{ ...bodyStyle, maxWidth: "none" }}>
+                <strong style={{ color: "#1a1a1a" }}>
+                  Merchants don&apos;t know Pay by Bank saves them money.
+                </strong>{" "}
+                The launch communication reached business owners, not the
+                operation managers who actually create links.
+              </li>
+              <li style={{ ...bodyStyle, maxWidth: "none" }}>
+                <strong style={{ color: "#1a1a1a" }}>
+                  Payers default to card or Apple Pay.
+                </strong>{" "}
+                Familiar methods win when there is no reason to consider an
+                alternative.
+              </li>
+              <li style={{ ...bodyStyle, maxWidth: "none" }}>
+                <strong style={{ color: "#1a1a1a" }}>The GBP40 minimum.</strong>{" "}
+                Merchants don&apos;t want it and don&apos;t fully understand it.
+              </li>
+              <li style={{ ...bodyStyle, maxWidth: "none" }}>
+                <strong style={{ color: "#1a1a1a" }}>No chargeback.</strong>{" "}
+                Unlike cards, Pay by Bank can&apos;t be reversed, which creates a
+                potential trust concern for payers.
+              </li>
+            </ul>
 
-            <div className="kody-two-col">
-              {opportunityCards.map((item) => (
-                <SoftCard key={item.title}>
-                  <span
-                    style={{
-                      ...labelStyle,
-                      color: item.type === "opportunity" ? "#3445ff" : "rgba(26,26,26,0.45)",
-                    }}
-                  >
-                    {item.type === "opportunity" ? "Opportunity" : "Constraint"}
-                  </span>
-                  <h3 style={h3Style}>{item.title}</h3>
-                  <p style={{ ...bodyStyle, fontSize: 15 }}>{item.body}</p>
-                </SoftCard>
-              ))}
+            <OpportunitySpectrum />
+
+            <div style={{ marginTop: 32 }}>
+              <p style={{ ...bodyStyle, marginBottom: 16 }}>
+                The first two are awareness and behaviour problems. Design can
+                shift them, so they became my two opportunities.
+              </p>
+              <p style={bodyStyle}>
+                The £40 minimum and the lack of chargeback are product and
+                policy constraints. Design can&apos;t remove them at this stage.
+              </p>
             </div>
           </section>
 
           <section id="merchant-awareness" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <span style={labelStyle}>Opportunity 1</span>
-            <h2 style={h2Style}>Merchant fee-saving awareness</h2>
+            <h2 style={h2Style}>Merchant fee saving awareness</h2>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               Pay by Bank can save merchants around 60% in transaction fees by
               removing interchange fees and card scheme fees. Most merchants did
@@ -642,10 +787,10 @@ export default function KodyPBBCaseB() {
                 <span style={labelStyle}>Beta decision</span>
                 <h3 style={h3Style}>Approximate saving at link creation</h3>
                 <p style={{ ...bodyStyle, fontSize: 15 }}>
-                  To save front-end resource and backend calculation work, I
+                  To save front end resource and backend calculation work, I
                   chose to surface an approximate saving percentage at the point
                   of link creation. It informed the merchant without requiring a
-                  full savings-calculation system.
+                  full savings calculation system.
                 </p>
               </SoftCard>
               <SoftCard>
@@ -675,36 +820,36 @@ export default function KodyPBBCaseB() {
               on the landing screen, and the moment of finding their bank.
             </p>
 
-            <h3 style={h3Style}>Moment 1 - The landing screen</h3>
+            <h3 style={h3Style}>Moment 1: The landing screen</h3>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               A Pay by Link page offers multiple payment methods. Payers follow
-              muscle memory and reach for card or e-wallet. UK consumer
+              muscle memory and reach for card or a digital wallet. UK consumer
               familiarity with the term &quot;Pay by Bank&quot; was cited as 38%, so
               unfamiliar wording pushed people back to methods they recognised.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               I could not change Apple Pay and Google Pay buttons because they
-              render as platform-defined components. What I could control was
+              render as components defined by the platform. What I could control was
               how much visual weight the Pay by Bank block carried.
             </p>
 
-            <Placeholder label="Three landing-screen presentation options" />
+            <Placeholder label="Three landing screen presentation options" />
 
             <SoftCard style={{ marginTop: 32, marginBottom: 56 }}>
               <span style={labelStyle}>Decision</span>
               <p style={{ ...bodyStyle, color: "#1a1a1a", maxWidth: "none" }}>
-                I chose the third approach: Pay by Bank pre-selected and visually
-                dominant, with card, Apple Pay, Google Pay, and e-wallet grouped
+                I chose the third approach: Pay by Bank selected by default and visually
+                dominant, with card, Apple Pay, Google Pay, and digital wallets grouped
                 into a secondary &quot;Card or QR payment&quot; block. For a beta that
-                needed to prove the channel, an equal-weight presentation would
+                needed to prove the channel, a presentation with equal visual weight would
                 likely have left Pay by Bank rarely chosen.
               </p>
             </SoftCard>
 
-            <h3 style={h3Style}>Moment 2 - Choosing a bank</h3>
+            <h3 style={h3Style}>Moment 2: Choosing a bank</h3>
             <p style={{ ...bodyStyle, marginBottom: 24 }}>
               Before designing the bank list, one decision came first: should
-              bank selection be its own screen? I prototyped three low-fidelity
+              bank selection be its own screen? I prototyped three simple
               approaches to feel the difference in flow.
             </p>
 
@@ -719,7 +864,7 @@ export default function KodyPBBCaseB() {
             </div>
 
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
-              I chose the dedicated screen. A method choice and a 60-bank search
+              I chose the dedicated screen. Choosing a method and searching across more than 60 banks
               are different kinds of task; giving each its own screen keeps one
               from crowding the other.
             </p>
@@ -741,19 +886,19 @@ export default function KodyPBBCaseB() {
             <h3 style={h3Style}>Designing the list</h3>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               I used the variant list directly: no aggregation and nothing to
-              maintain. To make it usable, the 9 most-used personal-account
-              variants were pinned to the top, with the rest in an A-Z list
+              maintain. To make it usable, the 9 most used personal account
+              variants were pinned to the top, with the rest in an alphabetical list
               below. Every row behaved the same way: tap a variant, it is
               selected.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               Kody&apos;s transaction data showed 87% of Pay by Link payments came
               from merchant categories where payers are overwhelmingly
-              individuals, so personal-account variants were the pragmatic first
+              individuals, so personal account variants were the pragmatic first
               priority.
             </p>
 
-            <Placeholder label="Pinned popular banks and A-Z list" />
+            <Placeholder label="Pinned popular banks and alphabetical list" />
 
             <SoftCard style={{ marginTop: 32 }}>
               <span style={labelStyle}>Failure recovery</span>
@@ -774,14 +919,14 @@ export default function KodyPBBCaseB() {
             </SoftCard>
 
             <div className="kody-two-col" style={{ marginTop: 32 }}>
-              <Placeholder label="Wrong-variant recovery flow" />
-              <Placeholder label="Email and SMS return-to-payment messages" />
+              <Placeholder label="Wrong variant recovery flow" />
+              <Placeholder label="Email and SMS messages for returning to payment" />
             </div>
           </section>
 
           <section id="prototype" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
-            <h2 style={h2Style}>Rapid prototype, kept implementation-realistic</h2>
+            <h2 style={h2Style}>Rapid prototype, kept realistic for implementation</h2>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               The web payment link design was missing from the design library, so
               I started from the existing Pay by Link checkout HTML to generate
@@ -806,26 +951,26 @@ export default function KodyPBBCaseB() {
 
             <div className="kody-scroll-x" style={{ marginBottom: 56 }}>
               <div style={{ minWidth: 920 }}>
-                <Placeholder label="Release design scroll - full shipped flow" aspect="18 / 8" />
+                <Placeholder label="Release design scroll for the full shipped flow" aspect="18 / 8" />
               </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 56 }}>
               <div>
-                <h3 style={h3Style}>1. Default-select Pay by Bank and highlight fee saving</h3>
+                <h3 style={h3Style}>1. Select Pay by Bank by default and highlight fee saving</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
                   Pay by Bank is selected as one of the payment methods by
-                  default, and the fee-saving benefit is surfaced during payment
+                  default, and the fee saving benefit is surfaced during payment
                   link creation.
                 </p>
-                <Placeholder label="Pay by Bank default selection and fee-saving highlight" />
+                <Placeholder label="Pay by Bank default selection and fee saving highlight" />
               </div>
 
               <div>
                 <h3 style={h3Style}>2. Launch message through Intercom and email</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
                   Intercom and email reach the managers who create payment links
-                  inside Kody Universe, without requiring another in-product
+                  inside Kody Universe, without requiring another in product
                   messaging system.
                 </p>
                 <div className="kody-two-col">
