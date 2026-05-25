@@ -92,20 +92,24 @@ const bankSelectionApproaches = [
     label: "Approach 01",
     title: "Bank list inside the Pay by Bank card",
     body: "Fewest steps. But it flattens two decisions of very different weight, choosing a method and searching more than 60 banks on one screen, competing for attention.",
-    image: "/images/kody-solution/customer-open-link.png",
+    image: "/images/kody-pbb/Bank%20list%20inside%20the%20Pay%20by%20Bank%20card.png?v=20260525-2255",
+    imageHeight: 205,
   },
   {
     label: "Approach 02",
     title: "Popular banks on the first screen, rest on a second screen",
     body: "Fast for common banks. But it splits bank selection across two screens, and the variant step still has to land somewhere.",
-    image: "/images/kody-solution/step2-bank-flow.png",
+    image: "/images/kody-pbb/Popular%20banks%20on%20the%20first%20screen%2C%20rest%20on%20a%20second%20screen.png?v=20260525-2255",
+    imageHeight: 219,
   },
   {
     label: "Approach 03",
     title: "Bank selection as its own dedicated screen",
     body: "One more step. But each screen asks for one kind of decision, pick a method, then pick a bank.",
-    image: "/images/kody-solution/step2-bank-flow.png",
+    image: "/images/kody-pbb/Bank%20selection%20as%20its%20own%20dedicated%20screen.png?v=20260525-2255",
+    imageHeight: 190,
     muted: true,
+    selected: true,
   },
 ];
 
@@ -448,11 +452,11 @@ function BankSelectionApproaches() {
     <div
       style={{
         width: "100%",
-        maxWidth: 860,
-        margin: "0 auto 40px",
+        maxWidth: 980,
+        margin: "0 auto 48px",
         display: "flex",
         flexDirection: "column",
-        gap: 0,
+        gap: 12,
       }}
     >
       {bankSelectionApproaches.map((item) => (
@@ -461,51 +465,90 @@ function BankSelectionApproaches() {
           className="bank-approach-row"
           style={{
             display: "grid",
-            gridTemplateColumns: "220px 1fr",
-            gap: 80,
+            gridTemplateColumns: "220px minmax(0, 1fr)",
+            gap: 48,
             alignItems: "center",
-            padding: "34px 48px",
-            borderRadius: item.muted ? 16 : 0,
-            background: item.muted ? "rgba(255,255,255,0.55)" : "transparent",
+            padding: "28px 36px",
+            borderRadius: 16,
+            background: item.selected
+              ? "rgba(76,175,80,0.08)"
+              : item.muted
+              ? "rgba(255,255,255,0.48)"
+              : "rgba(255,255,255,0.55)",
+            border: item.selected
+              ? "1.5px solid rgba(76,175,80,0.34)"
+              : "1px solid rgba(255,255,255,0.7)",
+            boxSizing: "border-box",
           }}
         >
           <div
             style={{
-              width: 86,
-              height: item.muted ? 190 : 205,
+              width: 124,
+              minHeight: 228,
               justifySelf: "center",
               borderRadius: 14,
               overflow: "hidden",
-              background: "#ffffff",
-              boxShadow: "0 18px 32px rgba(26,26,26,0.08)",
+              background: "rgba(255,255,255,0.9)",
+              boxShadow: "0 16px 28px rgba(26,26,26,0.07)",
               border: "1px solid rgba(26,26,26,0.06)",
               position: "relative",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             <img
               src={item.image}
               alt=""
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: item.label === "Approach 01" ? "center" : "top center",
+                width: "auto",
+                height: item.imageHeight,
+                maxWidth: "100%",
                 display: "block",
-                transform: item.label === "Approach 02" ? "scale(1.08)" : "none",
               }}
             />
           </div>
 
-          <div style={{ maxWidth: 360 }}>
-            <span style={{ ...labelStyle, marginBottom: 28 }}>
-              {item.label}
-            </span>
+          <div style={{ maxWidth: 430 }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                marginBottom: 14,
+                flexWrap: "wrap",
+              }}
+            >
+              <span style={{ ...labelStyle, marginBottom: 0 }}>
+                {item.label}
+              </span>
+              {item.selected ? (
+                <span
+                  style={{
+                    fontFamily: "var(--font-dm-sans)",
+                    fontSize: 10,
+                    fontWeight: 500,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "#2e7d32",
+                    background: "rgba(76,175,80,0.1)",
+                    border: "1px solid rgba(76,175,80,0.24)",
+                    borderRadius: 999,
+                    padding: "4px 9px",
+                    lineHeight: 1,
+                  }}
+                >
+                  Selected
+                </span>
+              ) : null}
+            </div>
             <h3
               style={{
                 ...h3Style,
-                fontSize: 24,
-                lineHeight: 1.22,
-                marginBottom: 28,
+                fontSize: 18,
+                fontWeight: 400,
+                lineHeight: 1.35,
+                marginBottom: 14,
               }}
             >
               {item.title}
@@ -513,9 +556,10 @@ function BankSelectionApproaches() {
             <p
               style={{
                 ...bodyStyle,
-                fontSize: 18,
+                fontSize: 15,
                 lineHeight: 1.7,
-                color: "rgba(26,26,26,0.62)",
+                color: "rgba(26,26,26,0.68)",
+                maxWidth: 430,
               }}
             >
               {item.body}
@@ -882,37 +926,33 @@ export default function KodyPBBCaseB() {
             </p>
 
             <img
-              src="/images/kody-pbb/Four%20candidate%20places%20to%20surface%20Pay%20by%20Bank%20savings.png"
+              src="/images/kody-pbb/Four%20candidate%20places%20to%20surface%20Pay%20by%20Bank%20savings.png?v=20260525-2245"
               alt="Four candidate places to surface Pay by Bank savings"
               style={imgStyle}
             />
 
-            <div className="kody-two-col" style={{ marginTop: 48 }}>
-              <SoftCard>
-                <span style={labelStyle}>Beta decision</span>
-                <h3 style={h3Style}>Approximate saving at link creation</h3>
-                <p style={{ ...bodyStyle, fontSize: 15 }}>
-                  To save front end resource and backend calculation work, I
-                  chose to surface an approximate saving percentage at the point
-                  of link creation. It informed the merchant without requiring a
-                  full savings calculation system.
-                </p>
-              </SoftCard>
-              <SoftCard>
-                <span style={labelStyle}>Launch communication</span>
-                <h3 style={h3Style}>Reach the actual operators</h3>
-                <p style={{ ...bodyStyle, fontSize: 15 }}>
-                  I proposed and helped build the launch email template and
-                  Intercom message so managers creating payment links in Kody
-                  Universe would receive the launch message in the right place.
-                </p>
-              </SoftCard>
-            </div>
-
-            <div className="kody-two-col" style={{ marginTop: 32 }}>
-              <Placeholder label="Percentage label in payment link creation" />
-              <Placeholder label="Launch email and Intercom message" />
-            </div>
+            <SoftCard style={{ marginTop: 48 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+                <div>
+                  <span style={labelStyle}>Beta decision</span>
+                  <h3 style={h3Style}>Approximate saving at link creation</h3>
+                  <p style={{ ...bodyStyle, fontSize: 15 }}>
+                    To save front end resource and backend calculation work, I
+                    chose to surface an approximate saving percentage at the point
+                    of link creation. It informed the merchant without requiring a
+                    full savings calculation system.
+                  </p>
+                </div>
+                <div>
+                  <h3 style={h3Style}>Reach the actual operators</h3>
+                  <p style={{ ...bodyStyle, fontSize: 15 }}>
+                    I proposed and helped build the launch email template and
+                    Intercom message so managers creating payment links in Kody
+                    Universe would receive the launch message in the right place.
+                  </p>
+                </div>
+              </div>
+            </SoftCard>
           </section>
 
           <section id="payer-choice" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
@@ -939,7 +979,7 @@ export default function KodyPBBCaseB() {
             </p>
 
             <img
-              src="/images/kody-pbb/Three%20landing%20screen%20presentation%20options.png?v=20260525-2018"
+              src="/images/kody-pbb/Three%20landing%20screen%20presentation%20options.png?v=20260525-2245"
               alt="Three landing screen presentation options"
               style={imgStyle}
             />
@@ -964,29 +1004,41 @@ export default function KodyPBBCaseB() {
 
             <BankSelectionApproaches />
 
-            <p style={{ ...bodyStyle, marginBottom: 32 }}>
-              I chose the dedicated screen. Choosing a method and searching across more than 60 banks
-              are different kinds of task; giving each its own screen keeps one
-              from crowding the other.
-            </p>
+            <SoftCard style={{ marginBottom: 56 }}>
+              <span style={labelStyle}>Decision</span>
+              <p style={{ ...bodyStyle, color: "#1a1a1a", maxWidth: "none" }}>
+                I chose the dedicated screen. Choosing a method and searching across more than 60 banks
+                are different kinds of task; giving each its own screen keeps one
+                from crowding the other.
+              </p>
+            </SoftCard>
 
-            <div className="kody-two-col" style={{ marginBottom: 56 }}>
-              <SoftCard>
-                <span style={labelStyle}>Provider constraint</span>
-                <h3 style={h3Style}>Yapily returns a flat variant list</h3>
-                <p style={{ ...bodyStyle, fontSize: 15 }}>
-                  &quot;Monzo Personal&quot; and &quot;Monzo Business&quot; are separate entries.
-                  Collapsing them into one entry per brand would need a
-                  maintained mapping and ongoing upkeep that the beta timeline
-                  did not allow.
-                </p>
-              </SoftCard>
-              <img
-                src="/images/kody-pbb/Yapily%20raw%20bank%20variant%20list.png"
-                alt="Yapily raw bank variant list"
-                style={imgStyle}
-              />
-            </div>
+            <SoftCard style={{ marginBottom: 56, overflow: "hidden" }}>
+              <div
+                className="kody-two-col"
+                style={{ alignItems: "center", gap: 40 }}
+              >
+                <div>
+                  <span style={labelStyle}>Provider constraint</span>
+                  <h3 style={h3Style}>Yapily returns a flat variant list</h3>
+                  <p style={{ ...bodyStyle, fontSize: 15 }}>
+                    &quot;Monzo Personal&quot; and &quot;Monzo Business&quot; are separate entries.
+                    Collapsing them into one entry per brand would need a
+                    maintained mapping and ongoing upkeep that the beta timeline
+                    did not allow.
+                  </p>
+                </div>
+                <img
+                  src="/images/kody-pbb/Yapily%20raw%20bank%20variant%20list.png"
+                  alt="Yapily raw bank variant list"
+                  style={{
+                    width: "100%",
+                    borderRadius: 12,
+                    display: "block",
+                  }}
+                />
+              </div>
+            </SoftCard>
 
             <h3 style={h3Style}>Designing the list</h3>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
@@ -1009,23 +1061,22 @@ export default function KodyPBBCaseB() {
               style={imgStyle}
             />
 
-            <SoftCard style={{ marginTop: 32 }}>
-              <span style={labelStyle}>Failure recovery</span>
-              <h3 style={h3Style}>Designing for the wrong choice</h3>
-              <p style={{ ...bodyStyle, fontSize: 15, marginBottom: 16 }}>
-                The flat list made one failure predictable: a payer choosing the
-                wrong variant, such as personal instead of business. The cost of
-                that is not one lost payment; it is a payer who walks away
-                believing Pay by Bank does not work.
-              </p>
-              <p style={{ ...bodyStyle, fontSize: 15 }}>
-                The error copy names a neutral mismatch and routes them straight
-                back to the bank picker with Pay by Bank still selected. For
-                payers who had already left, email and SMS bring them back to
-                the same link, framed as finishing an open payment rather than
-                retrying a failed one.
-              </p>
-            </SoftCard>
+            <h3 style={{ ...h3Style, marginTop: 40 }}>
+              Designing for the wrong choice
+            </h3>
+            <p style={{ ...bodyStyle, marginBottom: 16 }}>
+              The flat list made one failure predictable: a payer choosing the
+              wrong variant, such as personal instead of business. The cost of
+              that is not one lost payment; it is a payer who walks away
+              believing Pay by Bank does not work.
+            </p>
+            <p style={bodyStyle}>
+              The error copy names a neutral mismatch and routes them straight
+              back to the bank picker with Pay by Bank still selected. For
+              payers who had already left, email and SMS bring them back to
+              the same link, framed as finishing an open payment rather than
+              retrying a failed one.
+            </p>
 
             <div className="kody-two-col" style={{ marginTop: 32 }}>
               <Placeholder label="Wrong variant recovery flow" />
@@ -1035,7 +1086,7 @@ export default function KodyPBBCaseB() {
 
           <section id="prototype" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
-            <h2 style={h2Style}>Rapid prototype, kept realistic for implementation</h2>
+            <h2 style={h2Style}>Rapid prototype with AI help, kept realistic for implementation</h2>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               The web payment link design was missing from the design library, so
               I started from the existing Pay by Link checkout HTML to generate
@@ -1045,8 +1096,40 @@ export default function KodyPBBCaseB() {
             </p>
 
             <div className="kody-two-col">
-              <Placeholder label="Rapid ideation sketch 1" />
-              <Placeholder label="Rapid ideation sketch 2" />
+              {[
+                {
+                  src: "/images/kody-solution/ideation-sketch-1.png",
+                  alt: "Rapid ideation sketch 1",
+                },
+                {
+                  src: "/images/kody-solution/ideation-sketch-2.png",
+                  alt: "Rapid ideation sketch 2",
+                },
+              ].map((image) => (
+                <div
+                  key={image.src}
+                  style={{
+                    height: 360,
+                    borderRadius: 14,
+                    background: "#ffffff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                  }}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                </div>
+              ))}
             </div>
           </section>
 
@@ -1066,35 +1149,62 @@ export default function KodyPBBCaseB() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: 56 }}>
               <div>
-                <h3 style={h3Style}>1. Select Pay by Bank by default and highlight fee saving</h3>
+                <h3 style={h3Style}>1. Select Pay by Bank by default and highlight fee saving for merchant understanding</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
                   Pay by Bank is selected as one of the payment methods by
                   default, and the fee saving benefit is surfaced during payment
                   link creation.
                 </p>
-                <div className="kody-scroll-x">
-                  <div style={{ background: "#fff", height: 340, width: 780, borderRadius: 20, overflow: "hidden", position: "relative", flexShrink: 0 }}>
-                    <div style={{ position: "absolute", left: -18, top: 0, width: 563, height: 340, borderRadius: 10, overflow: "hidden" }}>
-                      <img alt="" style={{ position: "absolute", height: "357.39%", left: 0, maxWidth: "none", top: "-208.06%", width: "99.95%", display: "block" }} src="/images/kody-solution/create-link-picker.png" />
-                    </div>
-                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 25, left: 297, top: 186, width: 76, borderRadius: 4 }} />
-                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: 18, left: 108, top: 202, width: 135, borderRadius: 4 }} />
-                    <svg style={{ position: "absolute", inset: 0, width: 780, height: 340, pointerEvents: "none", overflow: "visible" }}>
-                      <path d="M373,199 L517,199 L517,84 L552,84" stroke="#FF7E7E" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-                      <path d="M213,220 L213,233 L559,233" stroke="#FF7E7E" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-                    </svg>
-                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 559, color: "#595959", fontSize: 14, top: 66, width: 211, margin: 0 }}>
-                      Highlight fee savings to drive Pay by Bank adoption
-                    </p>
-                    <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: 564, color: "#595959", fontSize: 14, top: 196, width: 201, margin: 0 }}>
-                      Automatically deselect Pay by Bank when eligibility requirements aren&apos;t met, such as payment below £40
-                    </p>
-                  </div>
-                </div>
+	                <div
+	                  style={{
+	                    background: "#fff",
+	                    aspectRatio: "780 / 340",
+	                    width: "100%",
+	                    borderRadius: 20,
+	                    overflow: "hidden",
+	                    position: "relative",
+	                  }}
+	                >
+	                  <div
+	                    style={{
+	                      position: "absolute",
+	                      left: "-2.3%",
+	                      top: 0,
+	                      width: "72.2%",
+	                      height: "100%",
+	                      borderRadius: 10,
+	                      overflow: "hidden",
+	                    }}
+	                  >
+	                    <img
+	                      alt=""
+	                      style={{
+	                        width: "100%",
+	                        height: "100%",
+	                        objectFit: "cover",
+	                        objectPosition: "left top",
+	                        display: "block",
+	                      }}
+	                      src="/images/kody-pbb/pay-bank-fee-saving-highlight.png?v=20260525-2356"
+	                    />
+	                  </div>
+	                  <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: "5%", left: "33.7%", top: "60.1%", width: "8%", borderRadius: 4 }} />
+	                  <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: "5.1%", left: "3.1%", top: "66.1%", width: "21.8%", borderRadius: 4 }} />
+	                  <svg viewBox="0 0 780 340" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }}>
+	                    <path d="M325,211 L517,211 L517,84 L552,84" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+	                    <path d="M194,234 L194,252 L559,252" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+	                  </svg>
+	                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: "71.7%", color: "#595959", fontSize: 14, top: "19.4%", width: "27.1%", margin: 0 }}>
+	                    Highlight fee savings to drive Pay by Bank adoption
+	                  </p>
+	                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: "72.3%", color: "#595959", fontSize: 14, top: "57.6%", width: "25.8%", margin: 0 }}>
+	                    Automatically deselect Pay by Bank when eligibility requirements aren&apos;t met, such as payment below £40
+	                  </p>
+	                </div>
               </div>
 
               <div>
-                <h3 style={h3Style}>2. Launch message through Intercom and email</h3>
+                <h3 style={h3Style}>2. Launch message through Intercom and email to reach fit merchant</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
                   Intercom and email reach the managers who create payment links
                   inside Kody Universe, without requiring another in product
@@ -1125,7 +1235,104 @@ export default function KodyPBBCaseB() {
                   reducing steps and making Pay by Bank feel faster on repeat
                   payments.
                 </p>
-                <Placeholder label="Remember previous bank option" />
+                <div
+                  style={{
+                    background: "#fff",
+                    aspectRatio: "1000 / 645",
+                    width: "100%",
+                    borderRadius: 20,
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                    <img
+                      src="/images/kody-pbb/previous-bank-first-time.png"
+                      alt="First-time payer Pay by Bank selection"
+	                      style={{
+	                        position: "absolute",
+                        left: "28.3%",
+                        top: "12.4%",
+                        width: "20.7%",
+	                        height: "auto",
+	                        display: "block",
+	                      }}
+                    />
+                    <img
+                      src="/images/kody-pbb/previous-bank-return-payer.png"
+                      alt="Return payer previous bank selection"
+	                      style={{
+	                        position: "absolute",
+                        left: "52.5%",
+                        top: "12.4%",
+                        width: "20.6%",
+	                        height: "auto",
+	                        display: "block",
+	                      }}
+                    />
+                    <svg
+                      viewBox="0 0 100 100"
+                      preserveAspectRatio="none"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        pointerEvents: "none",
+                        overflow: "visible",
+                      }}
+                    >
+                      <path
+                        d="M23.8,48.5 L31.6,48.5"
+                        stroke="#FF7E7E"
+                        strokeWidth="1.5"
+                        vectorEffect="non-scaling-stroke"
+                        strokeDasharray="4 4"
+                        fill="none"
+                      />
+                      <path
+                        d="M71.5,54.3 L79.3,54.3"
+                        stroke="#FF7E7E"
+                        strokeWidth="1.5"
+                        vectorEffect="non-scaling-stroke"
+                        strokeDasharray="4 4"
+                        fill="none"
+                      />
+                    </svg>
+                    <p
+                      style={{
+                        position: "absolute",
+                        fontFamily: "var(--font-dm-sans)",
+                        fontWeight: 400,
+                        lineHeight: "normal",
+                        left: "5%",
+	                        color: "#595959",
+	                        fontSize: 14,
+                        top: "40.8%",
+                        width: "17.8%",
+                        margin: 0,
+                      }}
+                    >
+                      First-time payer: Pay by Bank is pre-selected and visually
+                      led, with bank logos shown to build recognition
+                    </p>
+                    <p
+                      style={{
+                        position: "absolute",
+                        fontFamily: "var(--font-dm-sans)",
+                        fontWeight: 400,
+                        lineHeight: "normal",
+                        left: "80.3%",
+	                        color: "#595959",
+	                        fontSize: 14,
+                        top: "48.5%",
+                        width: "15.1%",
+                        margin: 0,
+                      }}
+                    >
+                      Return payer: their previous bank is pre-filled to speed
+                      up Pay by Bank
+                    </p>
+                </div>
               </div>
             </div>
           </section>
