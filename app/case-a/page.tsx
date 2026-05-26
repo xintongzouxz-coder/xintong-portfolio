@@ -123,6 +123,17 @@ export default function CaseA() {
   return (
     <>
       <style>{`
+        /* ── Case B link bar ── */
+        .case-b-link {
+          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+          border-color: rgba(26,26,26,0.1);
+          transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .case-b-link:hover {
+          box-shadow: 0 4px 20px rgba(52,69,255,0.12);
+          border-color: rgba(52,69,255,0.3);
+        }
+
         /* ── Generic 2-col ── */
         .kody-two-col {
           display: grid;
@@ -264,27 +275,18 @@ export default function CaseA() {
             {/* Case B link bar */}
             <a
               href="/kody-pbb"
+              className="case-b-link"
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: 20,
                 background: "#fff",
-                border: "1px solid rgba(26,26,26,0.1)",
+                border: "1px solid",
                 borderRadius: 16,
                 padding: "16px 20px",
                 textDecoration: "none",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-                transition: "box-shadow 0.2s, border-color 0.2s",
                 marginTop: 8,
                 maxWidth: 600,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(52,69,255,0.12)";
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(52,69,255,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)";
-                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(26,26,26,0.1)";
               }}
             >
               <img
