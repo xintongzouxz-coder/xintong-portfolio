@@ -98,7 +98,7 @@ const matrixRows = [
 const userSummary = [
   {
     role: "Merchant",
-    emoji: "⚠",
+    emoji: "⚠️",
     point: "Invisible transaction fee saving",
     detail: "Even Pay by Bank can help save around 60% transaction fee, few business owners are aware of this benefit",
     avatarBg: "#d8d0f5",
@@ -529,9 +529,85 @@ export default function CaseA() {
               ))}
             </div>
 
-            <p style={{ ...bodyStyle }}>
+            <p style={{ ...bodyStyle, marginBottom: 32 }}>
               With the criteria, I listed out all the payment channels that Kody is operating and pulled the AOV data of each channel with help from data analytics, evaluating each against the context requirements derived in the previous section. Pay by Link became the primary fit for Pay by Bank.
             </p>
+
+            {/* Channel comparison table */}
+            <div className="kody-scroll-x">
+              <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse", fontFamily: "var(--font-dm-sans)" }}>
+                <thead>
+                  <tr style={{ background: "#e8e8e8" }}>
+                    {["Channel", "Time pressure low?", "AOV ≥ £40 likely?", "Self-controlled environment?", "Verdict"].map((col) => (
+                      <th
+                        key={col}
+                        style={{
+                          padding: "16px 20px",
+                          fontSize: 14,
+                          fontWeight: 500,
+                          color: "#1a1a1a",
+                          textAlign: col === "Channel" ? "left" : "center",
+                          border: "1px solid #d4d4d4",
+                          lineHeight: 1.4,
+                        }}
+                      >
+                        {col}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      channel: "Terminal",
+                      timePressure: "❌",
+                      aov: "⚠️",
+                      selfControlled: "❌",
+                      verdict: "Current failure mode",
+                      highlight: false,
+                    },
+                    {
+                      channel: "Pay by Link",
+                      timePressure: "✅",
+                      aov: "✅",
+                      selfControlled: "✅",
+                      verdict: "Match, primary fit",
+                      highlight: true,
+                    },
+                    {
+                      channel: "Online checkout",
+                      timePressure: "✅",
+                      aov: "⚠️ varies",
+                      selfControlled: "✅",
+                      verdict: "Secondary fit, low Kody coverage",
+                      highlight: false,
+                    },
+                    {
+                      channel: "QR payment at table",
+                      timePressure: "❌",
+                      aov: "❌",
+                      selfControlled: "⚠️",
+                      verdict: "Time-pressure issue + low AOV",
+                      highlight: false,
+                    },
+                  ].map((row) => (
+                    <tr key={row.channel} style={{ background: row.highlight ? "#deeaf7" : "#fff" }}>
+                      <td style={{ padding: "16px 20px", fontSize: 14, color: "#1a1a1a", fontWeight: row.highlight ? 600 : 400, border: "1px solid #d4d4d4" }}>
+                        {row.channel}
+                      </td>
+                      {[row.timePressure, row.aov, row.selfControlled].map((val, i) => (
+                        <td key={i} style={{ padding: "16px 20px", fontSize: 16, textAlign: "center", border: "1px solid #d4d4d4" }}>
+                          {val}
+                        </td>
+                      ))}
+                      <td style={{ padding: "16px 20px", fontSize: 14, color: "#1a1a1a", textAlign: "center", border: "1px solid #d4d4d4", lineHeight: 1.4 }}>
+                        {row.verdict}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
 
           {/* ── PIVOT DECISION ────────────────────────────────────────────────── */}
