@@ -261,12 +261,47 @@ export default function CaseA() {
             <p style={{ ...bodyStyle, maxWidth: "none" }}>
               After pivoting, Pay by Bank transaction volume grew 120% in the first month.
             </p>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 16, lineHeight: 1.75, margin: 0, maxWidth: "none" }}>
-              <strong style={{ fontWeight: 700, color: "#1a1a1a" }}>
-                This case is about the research and the pivot decision. If you want to see the UX work that came after the pivot, that&apos;s a separate case
-              </strong>
-              <span style={{ color: "rgba(26,26,26,0.72)" }}> [→ link to Case B].</span>
-            </p>
+            {/* Case B link bar */}
+            <a
+              href="/kody-pbb"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 20,
+                background: "#fff",
+                border: "1px solid rgba(26,26,26,0.1)",
+                borderRadius: 16,
+                padding: "16px 20px",
+                textDecoration: "none",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                transition: "box-shadow 0.2s, border-color 0.2s",
+                marginTop: 8,
+                maxWidth: 600,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 20px rgba(52,69,255,0.12)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(52,69,255,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(26,26,26,0.1)";
+              }}
+            >
+              <img
+                src="/images/kody-pbb/product-overview.png"
+                alt="Case B cover"
+                style={{ width: 80, height: 56, objectFit: "cover", borderRadius: 10, flexShrink: 0, display: "block" }}
+              />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3445ff", display: "block", marginBottom: 4 }}>
+                  Case B · UX Design
+                </span>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                  Designing Pay by Bank for Pay by Link
+                </p>
+              </div>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, color: "rgba(26,26,26,0.3)", flexShrink: 0 }}>→</span>
+            </a>
           </div>
         </div>
       </section>
