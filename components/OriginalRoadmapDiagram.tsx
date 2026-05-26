@@ -1,19 +1,16 @@
 const assets = {
-  vector1:  "/images/kody-pbb/roadmap/orig-vector1.png",
-  vector2:  "/images/kody-pbb/roadmap/orig-vector2.png",
-  frame1:   "/images/kody-pbb/roadmap/orig-frame1.png",
-  frame2:   "/images/kody-pbb/roadmap/orig-frame2.png",
-  blueDot:  "/images/kody-pbb/roadmap/blue-dot.svg",
-  pinkDot:  "/images/kody-pbb/roadmap/pink-dot.svg",
+  vector242:  "/images/kody-pbb/roadmap/vector242.svg",
+  vector241:  "/images/kody-pbb/roadmap/vector241.svg",
+  frame85:    "/images/kody-pbb/roadmap/frame85.svg",
+  frame86:    "/images/kody-pbb/roadmap/frame86.svg",
+  blueDot:    "/images/kody-pbb/roadmap/blue-dot.svg",
+  pinkDot:    "/images/kody-pbb/roadmap/pink-dot.svg",
 };
 
 const CANVAS_W = 3320;
 const CANVAS_H = 3203;
 
 export default function OriginalRoadmapDiagram() {
-  const scale = 800 / CANVAS_W;
-  const displayH = Math.round(CANVAS_H * scale);
-
   const axisLabel: React.CSSProperties = {
     fontFamily: "var(--font-dm-sans)",
     fontWeight: 700,
@@ -32,6 +29,19 @@ export default function OriginalRoadmapDiagram() {
     margin: 0,
     lineHeight: "12.964px",
   };
+
+  const card: React.CSSProperties = {
+    position: "absolute",
+    background: "#fff",
+    display: "flex",
+    gap: 40,
+    alignItems: "center",
+    padding: 40,
+    borderRadius: 20,
+  };
+
+  const scale = 800 / CANVAS_W;
+  const displayH = Math.round(CANVAS_H * scale);
 
   return (
     <div style={{ width: "100%", overflowX: "auto" }} className="kody-scroll-x">
@@ -57,36 +67,31 @@ export default function OriginalRoadmapDiagram() {
             background: "rgba(225,227,232,0.4)",
           }}
         >
-          {/* ── Background blobs ── */}
-          <div style={{ position: "absolute", height: 948.324, left: 1989.15, top: 351.34, width: 1130.135 }}>
-            <div style={{ position: "absolute", top: "-21.14%", right: "-17.74%", bottom: "-21.14%", left: "-17.74%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector1} />
+          {/* ── Background vectors (same as updated roadmap) ── */}
+          <div style={{ position: "absolute", height: 2107.097, left: 913, top: 351.34, width: 2206.285 }}>
+            <div style={{ position: "absolute", top: "-9.52%", right: "-9.09%", bottom: "-9.52%", left: "-9.09%" }}>
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector242} />
             </div>
           </div>
-          <div style={{ position: "absolute", height: 1096.5, left: 564, top: 555, width: 2644.241 }}>
-            <div style={{ position: "absolute", top: "-18.24%", right: "-7.56%", bottom: "-18.24%", left: "-7.56%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector2} />
+          <div style={{ position: "absolute", height: 1643.292, left: 265.74, top: 200.81, width: 1763.837 }}>
+            <div style={{ position: "absolute", top: "-12.17%", right: "-11.34%", bottom: "-12.17%", left: "-11.34%" }}>
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector241} />
             </div>
           </div>
 
-          {/* ── Grid frames ── */}
+          {/* ── Grid frames (identical to updated roadmap) ── */}
           <div style={{ position: "absolute", height: 2730, left: 141, top: 36, width: 2729.001 }}>
             <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: "-0.5%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame1} />
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame85} />
             </div>
           </div>
-          {/* Frame 2 is rendered rotated -90deg in Figma to create horizontal grid lines */}
-          <div style={{ position: "absolute", height: 2728.001, left: 141, top: 36, width: 2977, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ transform: "rotate(-90deg)", flexShrink: 0 }}>
-              <div style={{ height: 2977, width: 2728.001, position: "relative" }}>
-                <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: "-0.54%" }}>
-                  <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame2} />
-                </div>
-              </div>
+          <div style={{ position: "absolute", height: 2728.001, left: 141, top: 36, width: 2977 }}>
+            <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, left: 0 }}>
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.frame86} />
             </div>
           </div>
 
-          {/* ── Axis labels ── */}
+          {/* ── Axis labels (identical to updated roadmap) ── */}
           <div style={{ position: "absolute", background: "#fff", border: "2px solid #1566d1", display: "flex", alignItems: "center", justifyContent: "center", left: 1449, padding: 40, borderRadius: 200, top: 2692 }}>
             <p style={axisLabel}>Effort</p>
           </div>
@@ -98,7 +103,7 @@ export default function OriginalRoadmapDiagram() {
             </div>
           </div>
 
-          {/* ── Axis sub-labels ── */}
+          {/* ── Axis sub-labels (identical to updated roadmap) ── */}
           <div style={{ position: "absolute", left: 126, top: 2776, padding: 40 }}>
             <p style={axisSubLabel}>Low effort</p>
           </div>
@@ -116,8 +121,8 @@ export default function OriginalRoadmapDiagram() {
             </div>
           </div>
 
-          {/* ── Items ── */}
-          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", left: 707, padding: 40, borderRadius: 20, top: 968 }}>
+          {/* ── Items (from Figma node 2841:7336) ── */}
+          <div style={{ ...card, left: 707, top: 968, width: "max-content" }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
               <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
             </div>
@@ -126,7 +131,7 @@ export default function OriginalRoadmapDiagram() {
             </p>
           </div>
 
-          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", justifyContent: "center", left: 2197, padding: 40, borderRadius: 20, top: 780 }}>
+          <div style={{ ...card, left: 2197, top: 780 }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
               <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
             </div>
@@ -135,7 +140,7 @@ export default function OriginalRoadmapDiagram() {
             </p>
           </div>
 
-          <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", justifyContent: "center", left: 2422, padding: 40, borderRadius: 20, top: 1300 }}>
+          <div style={{ ...card, left: 2422, top: 1300, width: "max-content" }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
               <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
             </div>
@@ -145,13 +150,13 @@ export default function OriginalRoadmapDiagram() {
           </div>
 
           {/* ── Legend ── */}
-          <div style={{ position: "absolute", display: "flex", gap: 40, alignItems: "center", left: 1345, top: 2996 }}>
+          <div style={{ position: "absolute", display: "flex", gap: 40, alignItems: "center", left: 1345, top: 3014 }}>
             <div style={{ background: "rgba(21,102,209,0.6)", borderRadius: 20, flexShrink: 0, width: 125, height: 125 }} />
             <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               P0
             </p>
           </div>
-          <div style={{ position: "absolute", display: "flex", gap: 40, alignItems: "center", left: 1748, top: 2996 }}>
+          <div style={{ position: "absolute", display: "flex", gap: 40, alignItems: "center", left: 1748, top: 3014 }}>
             <div style={{ background: "rgba(212,32,197,0.44)", borderRadius: 20, flexShrink: 0, width: 125, height: 125 }} />
             <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", whiteSpace: "nowrap", margin: 0, lineHeight: "normal" }}>
               P1
