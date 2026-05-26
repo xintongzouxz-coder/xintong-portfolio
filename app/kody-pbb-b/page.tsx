@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import LinkWithImagePreview from "@/components/LinkWithImagePreview";
 import FinalDesignFlow from "@/components/FinalDesignFlow";
+import CaseBTOC from "@/components/CaseBTOC";
 
 const overviewWidth: React.CSSProperties = {
   padding: "0 124px",
@@ -76,18 +77,6 @@ const divider = (
   <div style={{ borderTop: "1px solid rgba(26,26,26,0.1)", marginBottom: 64 }} />
 );
 
-const tocItems = [
-  { href: "#overview", label: "OVERVIEW" },
-  { href: "#background", label: "BACKGROUND" },
-  { href: "#users", label: "USERS" },
-  { href: "#opportunity", label: "OPPORTUNITY" },
-  { href: "#merchant-awareness", label: "MERCHANT AWARENESS" },
-  { href: "#payer-choice", label: "PAYER CHOICE" },
-  { href: "#prototype", label: "RAPID PROTOTYPE" },
-  { href: "#final-design", label: "FINAL DESIGN" },
-  { href: "#result", label: "RESULT" },
-  { href: "#next-steps", label: "NEXT STEPS" },
-];
 
 const bankSelectionApproaches = [
   {
@@ -115,82 +104,6 @@ const bankSelectionApproaches = [
   },
 ];
 
-function CaseBToc() {
-  return (
-    <div style={{ fontFamily: "var(--font-dm-sans)" }}>
-      <div style={{ marginBottom: 40 }}>
-        <span
-          style={{
-            fontSize: 10,
-            fontWeight: 500,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "#aaaaaa",
-            display: "block",
-            marginBottom: 10,
-          }}
-        >
-          Case Study
-        </span>
-        <p
-          style={{
-            fontSize: 15,
-            fontWeight: 500,
-            lineHeight: 1.4,
-            color: "#1a1a1a",
-            margin: 0,
-          }}
-        >
-          Pay by Bank in Pay by Link
-        </p>
-      </div>
-
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            position: "absolute",
-            left: 5,
-            top: 8,
-            bottom: 18,
-            width: 1,
-            background: "#E0E0E0",
-            pointerEvents: "none",
-          }}
-        />
-        {tocItems.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className="kody-toc-link"
-            style={{
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              padding: "0 0 24px",
-              color: "#A2A2A2",
-            }}
-          >
-            <span
-              style={{
-                width: 11,
-                height: 11,
-                borderRadius: "50%",
-                background: "#A2A2A2",
-                flexShrink: 0,
-                position: "relative",
-                zIndex: 1,
-              }}
-            />
-            <span style={{ fontSize: 14, fontWeight: 500, lineHeight: 1.2 }}>
-              {item.label}
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function Placeholder({
   label,
@@ -802,7 +715,7 @@ export default function KodyPBBCaseB() {
 
       <div className="kody-with-sidebar">
         <div className="kody-sidebar-col">
-          <CaseBToc />
+          <CaseBTOC />
         </div>
 
         <div className="kody-content-col">
@@ -1373,6 +1286,31 @@ export default function KodyPBBCaseB() {
                       Return payer: their previous bank is pre-filled to speed
                       up Pay by Bank
                     </p>
+                </div>
+              </div>
+
+              <div>
+                <h3 style={h3Style}>4. Streamline flow to select banks and complete authorization</h3>
+                <p style={{ ...bodyStyle, marginBottom: 24 }}>
+                  The bank selection and Open Banking authorization steps are
+                  consolidated into a single guided flow, reducing drop-off at
+                  the most unfamiliar part of the checkout.
+                </p>
+                <div style={{
+                  width: "100%",
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  background: "#fff",
+                }}>
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                  >
+                    <source src="/PBB%20flow.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
             </div>
