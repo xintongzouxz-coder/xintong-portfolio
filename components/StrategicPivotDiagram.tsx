@@ -1,48 +1,16 @@
-"use client";
-
-import { useState, useRef, useEffect } from "react";
-
 const assets = {
   vector242:  "/images/kody-pbb/roadmap/vector242.svg",
   vector241:  "/images/kody-pbb/roadmap/vector241.svg",
   frame85:    "/images/kody-pbb/roadmap/frame85.svg",
   frame86:    "/images/kody-pbb/roadmap/frame86.svg",
   blueDot:    "/images/kody-pbb/roadmap/blue-dot.svg",
-  arrowIcon:  "/images/kody-pbb/roadmap/arrow-icon.svg",
   pinkDot:    "/images/kody-pbb/roadmap/pink-dot.svg",
 };
 
 const CANVAS_W = 3320;
 const CANVAS_H = 3203;
-const MIN_DISPLAY_W = 320;
-
-function scrollToSection(id: string) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.scrollY - 120;
-  window.scrollTo({ top, behavior: "smooth" });
-}
 
 export default function StrategicPivotDiagram() {
-  const [hovered, setHovered] = useState<string | null>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [displayW, setDisplayW] = useState(800);
-
-  useEffect(() => {
-    const el = wrapperRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver((entries) => {
-      const w = entries[0].contentRect.width;
-      setDisplayW(Math.min(Math.max(w, MIN_DISPLAY_W), 800));
-    });
-    observer.observe(el);
-    setDisplayW(Math.min(Math.max(el.offsetWidth, MIN_DISPLAY_W), 800));
-    return () => observer.disconnect();
-  }, []);
-
-  const scale = displayW / CANVAS_W;
-  const displayH = Math.round(CANVAS_H * scale);
-
   const axisLabel: React.CSSProperties = {
     fontFamily: "var(--font-dm-sans)",
     fontWeight: 700,
@@ -62,32 +30,24 @@ export default function StrategicPivotDiagram() {
     lineHeight: "12.964px",
   };
 
-  function cardBase(id: string, extra?: React.CSSProperties): React.CSSProperties {
-    return {
-      position: "absolute",
-      background: "#fff",
-      display: "flex",
-      gap: 40,
-      alignItems: "center",
-      padding: 40,
-      borderRadius: 20,
-      cursor: "pointer",
-      filter: hovered === id ? "drop-shadow(0px 0px 30px rgba(255,255,255,0.7))" : "none",
-      transition: "filter 0.2s ease",
-      ...extra,
-    };
-  }
+  const card: React.CSSProperties = {
+    position: "absolute",
+    background: "#fff",
+    display: "flex",
+    gap: 40,
+    alignItems: "center",
+    padding: 40,
+    borderRadius: 20,
+  };
 
-  const isIntegrateHovered    = hovered === "integrate";
-  const isDeprioritiseHovered = hovered === "deprioritise";
-  const isExpandHovered       = hovered === "expand";
-  const isHighlightHovered    = hovered === "highlight";
+  const scale = 800 / CANVAS_W;
+  const displayH = Math.round(CANVAS_H * scale);
 
   return (
-    <div ref={wrapperRef} style={{ width: "100%", overflowX: displayW <= MIN_DISPLAY_W ? "auto" : "visible" }} className="kody-scroll-x">
+    <div style={{ width: "100%", overflowX: "auto" }} className="kody-scroll-x">
       <div
         style={{
-          width: displayW,
+          width: 800,
           height: displayH,
           borderRadius: 14,
           overflow: "hidden",
@@ -161,158 +121,44 @@ export default function StrategicPivotDiagram() {
             </div>
           </div>
 
-          {/* ── Integrate PBB into PBL — hover expands ── */}
-          <div
-            style={cardBase("integrate", {
-              left: 628,
-              top: 469,
-              width: 900,
-              flexDirection: "column",
-              alignItems: "stretch",
-              justifyContent: "center",
-              gap: 0,
-            })}
-            onMouseEnter={() => setHovered("integrate")}
-            onMouseLeave={() => setHovered(null)}
-            onClick={() => scrollToSection("solutions-integrate")}
-          >
-            {/* Row 1: always visible */}
-            <div style={{ display: "flex", gap: 40, alignItems: "center" }}>
-              <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-                <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
-              </div>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
-                Integrate PBB into PBL
-              </p>
+          {/* ── Integrate PBB into PBL ── */}
+          <div style={{ ...card, left: 628, top: 469, width: 900 }}>
+            <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
             </div>
-
-            {/* Row 2: slides in on hover */}
-            <div
-              style={{
-                overflow: "hidden",
-                maxHeight: isIntegrateHovered ? "400px" : "0",
-                opacity: isIntegrateHovered ? 1 : 0,
-                transition: "max-height 0.35s ease, opacity 0.25s ease",
-              }}
-            >
-              <div style={{ paddingTop: 40, display: "flex", gap: 40, alignItems: "flex-start" }}>
-                <div style={{ position: "relative", flexShrink: 0, width: 38, height: 38 }}>
-                  <div style={{ position: "absolute", top: "-8.14%", right: "-7.89%", bottom: "-8.14%", left: 0 }}>
-                    <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
-                  </div>
-                </div>
-                <div style={{ flex: "1 0 0", minWidth: 1 }}>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
-                    Check solution
-                  </p>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                    Pay by Link as the primary growth channel
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+              Integrate PBB into PBL
+            </p>
           </div>
 
           {/* ── Deprioritise PBB on terminal ── */}
-          <div
-            style={cardBase("deprioritise", { left: 769, top: 965, width: "max-content", flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
-            onMouseEnter={() => setHovered("deprioritise")}
-            onMouseLeave={() => setHovered(null)}
-            onClick={() => scrollToSection("solutions-deprioritise")}
-          >
-            <div style={{ display: "flex", gap: 40, alignItems: "center" }}>
-              <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-                <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
-              </div>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
-                Deprioritise PBB on terminal
-              </p>
+          <div style={{ ...card, left: 769, top: 965, width: "max-content" }}>
+            <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
             </div>
-            <div style={{ overflow: "hidden", maxHeight: isDeprioritiseHovered ? "400px" : "0", opacity: isDeprioritiseHovered ? 1 : 0, transition: "max-height 0.35s ease, opacity 0.25s ease" }}>
-              <div style={{ paddingTop: 40, display: "flex", gap: 40, alignItems: "flex-start" }}>
-                <div style={{ position: "relative", flexShrink: 0, width: 38, height: 38 }}>
-                  <div style={{ position: "absolute", top: "-8.14%", right: "-7.89%", bottom: "-8.14%", left: 0 }}>
-                    <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
-                  </div>
-                </div>
-                <div style={{ flex: "1 0 0", minWidth: 1 }}>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
-                    Check solution
-                  </p>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                    Deprioritise PBB on the terminal and expand bank coverage
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+              Deprioritise PBB on terminal
+            </p>
           </div>
 
           {/* ── Expand bank coverage ── */}
-          <div
-            style={cardBase("expand", { left: 265, top: 1540, width: "max-content", flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
-            onMouseEnter={() => setHovered("expand")}
-            onMouseLeave={() => setHovered(null)}
-            onClick={() => scrollToSection("solutions-step-2")}
-          >
-            <div style={{ display: "flex", gap: 40, alignItems: "center" }}>
-              <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-                <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
-              </div>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
-                Expand bank coverage
-              </p>
+          <div style={{ ...card, left: 265, top: 1540, width: "max-content" }}>
+            <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
             </div>
-            <div style={{ overflow: "hidden", maxHeight: isExpandHovered ? "400px" : "0", opacity: isExpandHovered ? 1 : 0, transition: "max-height 0.35s ease, opacity 0.25s ease" }}>
-              <div style={{ paddingTop: 40, display: "flex", gap: 40, alignItems: "flex-start" }}>
-                <div style={{ position: "relative", flexShrink: 0, width: 38, height: 38 }}>
-                  <div style={{ position: "absolute", top: "-8.14%", right: "-7.89%", bottom: "-8.14%", left: 0 }}>
-                    <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
-                  </div>
-                </div>
-                <div style={{ flex: "1 0 0", minWidth: 1 }}>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
-                    Check solution
-                  </p>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                    Customer selects bank in web flow
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+              Expand bank coverage
+            </p>
           </div>
 
           {/* ── Highlight PBB cost-saving benefits ── */}
-          <div
-            style={cardBase("highlight", { left: 785, top: 1760, width: "max-content", flexDirection: "column", alignItems: "stretch", justifyContent: "center", gap: 0 })}
-            onMouseEnter={() => setHovered("highlight")}
-            onMouseLeave={() => setHovered(null)}
-            onClick={() => scrollToSection("solutions-highlight")}
-          >
-            <div style={{ display: "flex", gap: 40, alignItems: "center" }}>
-              <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-                <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
-              </div>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
-                Highlight PBB&apos;s cost-saving benefits
-              </p>
+          <div style={{ ...card, left: 785, top: 1760, width: "max-content" }}>
+            <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
             </div>
-            <div style={{ overflow: "hidden", maxHeight: isHighlightHovered ? "400px" : "0", opacity: isHighlightHovered ? 1 : 0, transition: "max-height 0.35s ease, opacity 0.25s ease" }}>
-              <div style={{ paddingTop: 40, display: "flex", gap: 40, alignItems: "flex-start" }}>
-                <div style={{ position: "relative", flexShrink: 0, width: 38, height: 38 }}>
-                  <div style={{ position: "absolute", top: "-8.14%", right: "-7.89%", bottom: "-8.14%", left: 0 }}>
-                    <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.arrowIcon} />
-                  </div>
-                </div>
-                <div style={{ flex: "1 0 0", minWidth: 1 }}>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 48, color: "#595959", margin: "0 0 0", lineHeight: "normal" }}>
-                    Check solution
-                  </p>
-                  <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 36, color: "#595959", margin: 0, lineHeight: "normal" }}>
-                    Drive adoption with clear value messaging
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+              Highlight PBB&apos;s cost-saving benefits
+            </p>
           </div>
 
           {/* ── Non-interactive labels ── */}
