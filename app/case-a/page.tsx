@@ -713,10 +713,39 @@ export default function CaseA() {
 
             <RoadmapToggle />
 
-            <p style={{ ...bodyStyle, marginTop: 48 }}>
-              In a separate case study I cover how I designed the actual Pay by Link checkout integration — the UX work that brought this pivot to life.{" "}
-              <span style={{ color: "#3445ff", fontWeight: 500 }}>[→ link to Case B]</span>
+            <p style={{ ...bodyStyle, marginTop: 48, marginBottom: 20 }}>
+              In a separate case study I cover how I designed the actual Pay by Link checkout integration — the UX work that brought this pivot to life.
             </p>
+
+            <a
+              href="/kody-pbb"
+              className="case-b-link"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 20,
+                background: "#fff",
+                borderRadius: 16,
+                padding: "16px 20px",
+                textDecoration: "none",
+                maxWidth: 840,
+              }}
+            >
+              <img
+                src="/images/kody-pbb/product-overview.png"
+                alt="Case B cover"
+                style={{ width: 80, height: 56, objectFit: "cover", borderRadius: 10, flexShrink: 0, display: "block" }}
+              />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3445ff", display: "block", marginBottom: 4 }}>
+                  Case B
+                </span>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                  Designing Pay by Bank for Pay by Link
+                </p>
+              </div>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, color: "rgba(26,26,26,0.3)", flexShrink: 0 }}>→</span>
+            </a>
           </section>
 
         </div>{/* end .kody-content-col */}
