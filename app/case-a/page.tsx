@@ -138,7 +138,7 @@ export default function CaseA() {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 28px;
-          align-items: start;
+          align-items: center;
         }
         @media (max-width: 900px) {
           .kody-cohort-grid { grid-template-columns: 1fr; }
@@ -671,8 +671,10 @@ export default function CaseA() {
                 style={{ width: "100%", display: "block", borderRadius: 14 }}
               />
             </div>
-            <p style={{ ...bodyStyle, marginBottom: 40, fontStyle: "italic", color: "rgba(26,26,26,0.45)", fontSize: 14 }}>
-              This image is an example of the PBB flow, not the final design.
+            <p style={{ ...bodyStyle, marginBottom: 40, color: "rgba(26,26,26,0.55)", fontSize: 14 }}>
+              This image is an example of the PBB flow, not the final design. Please check{" "}
+              <span style={{ color: "#3445ff", fontWeight: 500 }}>[Link]</span>{" "}
+              for the final design.
             </p>
 
             {/* Option B */}
