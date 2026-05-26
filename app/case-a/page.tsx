@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import CaseATOC from "@/components/CaseATOC";
 import StrategicPivotDiagram from "@/components/StrategicPivotDiagram";
+import OriginalRoadmapDiagram from "@/components/OriginalRoadmapDiagram";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const overviewWidth: React.CSSProperties = {
@@ -677,6 +678,13 @@ export default function CaseA() {
             </p>
 
             <StrategicPivotDiagram />
+
+            <h2 style={{ ...h2Style, marginTop: 64 }}>Original Roadmap</h2>
+            <p style={{ ...bodyStyle, marginBottom: 48 }}>
+              Before the pivot, the original roadmap was focused on expanding bank coverage on the terminal — the initiative that research revealed as the wrong channel.
+            </p>
+
+            <OriginalRoadmapDiagram />
 
             <p style={{ ...bodyStyle, marginTop: 48 }}>
               In a separate case study I cover how I designed the actual Pay by Link checkout integration — the UX work that brought this pivot to life.{" "}
