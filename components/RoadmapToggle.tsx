@@ -9,13 +9,24 @@ export default function RoadmapToggle() {
 
   return (
     <div>
-      {/* Toggle bar */}
+      {/* Diagrams */}
+      <div>
+        <div style={{ display: showNew ? "block" : "none" }}>
+          <StrategicPivotDiagram />
+        </div>
+        <div style={{ display: showNew ? "none" : "block" }}>
+          <OriginalRoadmapDiagram />
+        </div>
+      </div>
+
+      {/* Toggle bar — below diagram, centered */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           gap: 14,
-          marginBottom: 32,
+          marginTop: 28,
         }}
       >
         <span
@@ -24,7 +35,7 @@ export default function RoadmapToggle() {
             fontSize: 14,
             fontWeight: showNew ? 400 : 600,
             color: showNew ? "rgba(26,26,26,0.4)" : "#1a1a1a",
-            transition: "color 0.2s, font-weight 0.2s",
+            transition: "color 0.2s",
             cursor: "pointer",
             userSelect: "none",
           }}
@@ -41,7 +52,7 @@ export default function RoadmapToggle() {
             width: 52,
             height: 28,
             borderRadius: 14,
-            background: showNew ? "#1a1a1a" : "rgba(26,26,26,0.2)",
+            background: showNew ? "#3445ff" : "rgba(26,26,26,0.2)",
             border: "none",
             cursor: "pointer",
             position: "relative",
@@ -71,7 +82,7 @@ export default function RoadmapToggle() {
             fontSize: 14,
             fontWeight: showNew ? 600 : 400,
             color: showNew ? "#1a1a1a" : "rgba(26,26,26,0.4)",
-            transition: "color 0.2s, font-weight 0.2s",
+            transition: "color 0.2s",
             cursor: "pointer",
             userSelect: "none",
           }}
@@ -79,16 +90,6 @@ export default function RoadmapToggle() {
         >
           New roadmap
         </span>
-      </div>
-
-      {/* Diagrams */}
-      <div style={{ position: "relative" }}>
-        <div style={{ display: showNew ? "block" : "none" }}>
-          <StrategicPivotDiagram />
-        </div>
-        <div style={{ display: showNew ? "none" : "block" }}>
-          <OriginalRoadmapDiagram />
-        </div>
       </div>
     </div>
   );
