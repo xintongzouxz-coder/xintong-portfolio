@@ -101,21 +101,21 @@ const userSummary = [
     emoji: "⚠️",
     point: "Invisible transaction fee saving",
     detail: "Even Pay by Bank can help save around 60% transaction fee, few business owners are aware of this benefit",
-    avatarBg: "#d8d0f5",
+    avatar: "/images/kody-pbb/avatar-merchant.png",
   },
   {
     role: "Front line staff",
     emoji: "❌",
     point: "Zero upside — only added work",
     detail: "",
-    avatarBg: "#d0e8f5",
+    avatar: "/images/kody-pbb/avatar-staff.png",
   },
   {
     role: "Payer",
     emoji: "❌",
     point: "Zero upside — only added steps",
     detail: "",
-    avatarBg: "#f5d0d0",
+    avatar: "/images/kody-pbb/avatar-payer.png",
   },
 ];
 
@@ -442,7 +442,7 @@ export default function CaseA() {
                   At the offline payment context, card payment is the default — fastest, most familiar, most reliable method. PBB never offers users more than card does.
                 </p>
                 <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
-                  {userSummary.map(({ role, emoji, point, detail, avatarBg }) => (
+                  {userSummary.map(({ role, emoji, point, detail, avatar }) => (
                     <div
                       key={role}
                       style={{
@@ -456,7 +456,7 @@ export default function CaseA() {
                       }}
                     >
                       <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                        <div style={{ width: 36, height: 36, borderRadius: "50%", background: avatarBg, flexShrink: 0 }} />
+                        <img src={avatar} alt={role} style={{ width: 36, height: 36, borderRadius: "50%", flexShrink: 0, objectFit: "cover", display: "block" }} />
                         <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 500, color: "#1a1a1a" }}>{role}</span>
                       </div>
                       <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
