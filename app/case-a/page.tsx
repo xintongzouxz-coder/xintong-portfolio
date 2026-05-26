@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import CaseATOC from "@/components/CaseATOC";
 import RoadmapToggle from "@/components/RoadmapToggle";
+import LinkWithImagePreview from "@/components/LinkWithImagePreview";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const overviewWidth: React.CSSProperties = {
@@ -683,7 +684,12 @@ export default function CaseA() {
             />
             <p style={{ ...bodyStyle, marginBottom: 40, color: "rgba(26,26,26,0.55)", fontSize: 14 }}>
               This image is an example of the PBB flow, not the final design. Please check{" "}
-              <span style={{ color: "#3445ff", fontWeight: 500 }}>[Link]</span>{" "}
+              <LinkWithImagePreview
+                href="/kody-pbb"
+                label="Designing Pay by Bank for Pay by Link"
+                previewSrc="/images/kody-pbb/product-overview.png"
+                previewAlt="Case B cover"
+              />{" "}
               for the final design.
             </p>
 
