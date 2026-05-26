@@ -1313,6 +1313,52 @@ export default function KodyPBBCaseB() {
                   </video>
                 </div>
               </div>
+
+              <div>
+                <h3 style={h3Style}>5. Confirmation, status tracking, and refund</h3>
+                <p style={{ ...bodyStyle, marginBottom: 24 }}>
+                  Refunds are not automatic for Pay by Bank. We added a clear
+                  explanation on the transaction details page so merchants
+                  understand the refund model and can guide customers through
+                  the correct next step.
+                </p>
+                {/* Canvas: 791×466 — all positions converted to % */}
+                <div style={{
+                  background: "#fff",
+                  aspectRatio: "791 / 466",
+                  width: "100%",
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  position: "relative",
+                }}>
+                  {/* Email document */}
+                  <div style={{ position: "absolute", left: "18.21%", top: "18.24%", width: "31.10%", height: "78.76%", overflow: "hidden" }}>
+                    <img alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} src="/images/kody-solution/step3-payment.png" />
+                  </div>
+                  {/* SMS thumbnail */}
+                  <div style={{ position: "absolute", left: "25.41%", top: "13.52%", width: "21.62%", height: "13.52%", borderRadius: 10, overflow: "hidden" }}>
+                    <img alt="" style={{ position: "absolute", height: "109.95%", left: 0, maxWidth: "none", top: "-0.21%", width: "135.09%", display: "block" }} src="/images/kody-solution/step3-frame1.png" />
+                  </div>
+                  {/* Kody Universe panel */}
+                  <div style={{ position: "absolute", left: "56.01%", top: "13.52%", width: "30.09%", height: "80.04%", overflow: "hidden" }}>
+                    <img alt="" style={{ position: "absolute", height: "100%", left: "-165.59%", maxWidth: "none", top: 0, width: "265.62%", display: "block" }} src="/images/kody-solution/step3-frame2.png" />
+                  </div>
+                  {/* For Merchant badge */}
+                  <div style={{ position: "absolute", background: "#707070", display: "flex", alignItems: "center", justifyContent: "center", left: "56.01%", padding: "8px 20px", borderRadius: 8, top: "3.00%", width: "30.59%" }}>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#fff", margin: 0, whiteSpace: "nowrap" }}>For Merchant</p>
+                  </div>
+                  {/* For Customer badge */}
+                  <div style={{ position: "absolute", background: "#ededed", display: "flex", alignItems: "center", justifyContent: "center", left: "18.21%", padding: "8px 20px", borderRadius: 8, top: "3.00%", width: "30.59%" }}>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 16, color: "#595959", margin: 0, whiteSpace: "nowrap" }}>For Customer</p>
+                  </div>
+                  {/* Text message label */}
+                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#595959", left: "3.03%", top: "20.39%", width: "12.77%", margin: 0 }}>Text message</p>
+                  {/* Email notification label */}
+                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#595959", left: "3.03%", top: "60.30%", width: "12.77%", margin: 0 }}>Email notification</p>
+                  {/* Email result label */}
+                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, fontSize: 14, color: "#1a1a1a", left: "87.49%", top: "60.52%", margin: 0 }}>Email result</p>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -1323,48 +1369,19 @@ export default function KodyPBBCaseB() {
 
             <div className="kody-two-col" style={{ marginBottom: 64 }}>
               <SoftCard style={{ padding: "36px 40px" }}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: "clamp(40px, 5vw, 64px)",
-                    fontWeight: 700,
-                    color: "#3445ff",
-                    margin: "0 0 8px",
-                    lineHeight: 1,
-                  }}
-                >
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 700, color: "#3445ff", margin: "0 0 8px", lineHeight: 1 }}>
                   120%
                 </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: 15,
-                    color: "rgba(26,26,26,0.65)",
-                    margin: 0,
-                    lineHeight: 1.5,
-                  }}
-                >
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "rgba(26,26,26,0.65)", margin: 0, lineHeight: 1.5 }}>
                   relative uplift in Pay by Bank usage volume
                 </p>
               </SoftCard>
-              <SoftCard
-                style={{
-                  padding: "36px 40px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: 17,
-                    lineHeight: 1.6,
-                    color: "#1a1a1a",
-                    margin: 0,
-                  }}
-                >
-                  Increased share of wallet for Pay by Bank in eligible
-                  transactions.
+              <SoftCard style={{ padding: "36px 40px" }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 700, color: "#3445ff", margin: "0 0 8px", lineHeight: 1 }}>
+                  69%
+                </p>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, color: "rgba(26,26,26,0.65)", margin: 0, lineHeight: 1.5 }}>
+                  of all Pay by Bank transactions across Kody now come from Pay by Link
                 </p>
               </SoftCard>
             </div>
@@ -1372,8 +1389,46 @@ export default function KodyPBBCaseB() {
             <img
               src="/images/kody-pbb/results-chart.png"
               alt="Results chart"
-              style={imgStyle}
+              style={{ ...imgStyle, marginBottom: 48 }}
             />
+
+            <div className="kody-two-col">
+              {/* What Worked */}
+              <div>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, fontWeight: 700, color: "#1a1a1a", margin: "0 0 20px", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span>✅</span> What worked
+                </p>
+                <ul style={{ margin: 0, padding: "0 0 0 20px", display: "flex", flexDirection: "column", gap: 16 }}>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.65, color: "#1a1a1a" }}>
+                    <strong>Channel fit confirmed.</strong> Pay by Link drove a 120% uplift in Pay by Bank transaction volume within the first month. Pay by Link now accounts for 69% of all Pay by Bank transactions across Kody.
+                  </li>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.65, color: "#1a1a1a" }}>
+                    <strong>Fee saving reached the right people.</strong> 87% of Kody Universe users who received the launch message opened it — confirming the Intercom notification reached operation managers, not just business owners.
+                  </li>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.65, color: "#1a1a1a" }}>
+                    <strong>Usability held up under testing.</strong> 8 internal participants rated the flow 4.7/5 across web and mobile, completing both the merchant and payer flows without guidance.
+                  </li>
+                </ul>
+              </div>
+
+              {/* What Can Be Improved */}
+              <div>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, fontWeight: 700, color: "#1a1a1a", margin: "0 0 20px", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span>💪</span> What can be improved
+                </p>
+                <ul style={{ margin: 0, padding: "0 0 0 20px", display: "flex", flexDirection: "column", gap: 16 }}>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.65, color: "#1a1a1a" }}>
+                    <strong>Desktop payer experience is incomplete.</strong> The flow was optimised for mobile — payers opening a link on desktop face an unguided mobile handoff for bank authentication.
+                  </li>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.65, color: "#1a1a1a" }}>
+                    <strong>Business account payers are under-served.</strong> Personal variants are pinned at the top, which helps most payers but increases wrong-pick risk for business account holders.
+                  </li>
+                  <li style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, lineHeight: 1.65, color: "#1a1a1a" }}>
+                    <strong>Payer-side experience data is missing.</strong> 120% uplift confirms selection — not satisfaction. Drop-off rate, repeat use, and support tickets would complete the picture.
+                  </li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           <section id="next-steps" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
