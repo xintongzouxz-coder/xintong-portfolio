@@ -622,23 +622,11 @@ export default function CaseA() {
               </strong>
             </p>
 
-            {/* Prototype comparison image — export from Figma and place at this path */}
-            <div
-              style={{
-                width: "100%",
-                borderRadius: 14,
-                overflow: "hidden",
-                marginBottom: 32,
-                background: "#f0f0f0",
-                minHeight: 200,
-              }}
-            >
-              <img
-                src="/images/kody-pbb/pivot-prototype-comparison.png"
-                alt="Prototype comparison: terminal expansion vs Pay by Link"
-                style={{ width: "100%", display: "block", borderRadius: 14 }}
-              />
-            </div>
+            <img
+              src="/images/kody-pbb/pivot-prototype-comparison.png"
+              alt="Prototype comparison: terminal expansion vs Pay by Link"
+              style={{ width: "100%", display: "block", borderRadius: 14, marginBottom: 32 }}
+            />
 
             {/* Option A */}
             <div style={{ marginBottom: 40 }}>
@@ -653,24 +641,11 @@ export default function CaseA() {
               </p>
             </div>
 
-            {/* PBB flow example image */}
-            <div
-              style={{
-                width: 619,
-                maxWidth: "100%",
-                borderRadius: 14,
-                overflow: "hidden",
-                marginBottom: 12,
-                background: "#f0f0f0",
-                minHeight: 160,
-              }}
-            >
-              <img
-                src="/images/kody-pbb/pivot-prototype-pbl.png"
-                alt="Pay by Bank in Pay by Link flow example"
-                style={{ width: "100%", display: "block", borderRadius: 14 }}
-              />
-            </div>
+            <img
+              src="/images/kody-pbb/pivot-prototype-pbl.png"
+              alt="Pay by Bank in Pay by Link flow example"
+              style={{ maxWidth: "100%", display: "block", borderRadius: 14, marginBottom: 12 }}
+            />
             <p style={{ ...bodyStyle, marginBottom: 40, color: "rgba(26,26,26,0.55)", fontSize: 14 }}>
               This image is an example of the PBB flow, not the final design. Please check{" "}
               <span style={{ color: "#3445ff", fontWeight: 500 }}>[Link]</span>{" "}
