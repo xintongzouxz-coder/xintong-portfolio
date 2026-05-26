@@ -82,7 +82,7 @@ const bankSelectionApproaches = [
   {
     label: "Approach 01",
     title: "Bank list inside the Pay by Bank card",
-    body: "Fewest steps. But it flattens two decisions of very different weight, choosing a method and searching more than 60 banks on one screen, competing for attention.",
+    body: "Fewest steps. But it flattens two decisions of very different weight — choosing a method and searching across more than 60 banks — onto one screen, competing for attention.",
     image: "/images/kody-pbb/Bank%20list%20inside%20the%20Pay%20by%20Bank%20card.png?v=20260525-2255",
     imageHeight: 205,
   },
@@ -96,7 +96,7 @@ const bankSelectionApproaches = [
   {
     label: "Approach 03",
     title: "Bank selection as its own dedicated screen",
-    body: "One more step. But each screen asks for one kind of decision, pick a method, then pick a bank.",
+    body: "One more step. But each screen asks for one kind of decision: pick a method, then pick a bank.",
     image: "/images/kody-pbb/Bank%20selection%20as%20its%20own%20dedicated%20screen.png?v=20260525-2255",
     imageHeight: 190,
     muted: true,
@@ -706,8 +706,7 @@ export default function KodyPBBCaseB() {
             <p style={{ ...bodyStyle, maxWidth: "none" }}>
               I designed for both: surfacing the fee saving to merchants at the
               point of link creation, and shaping how Pay by Bank is presented
-              and selected in the payer checkout, including a flow for selecting banks
-              flow built around our Open Banking provider&apos;s constraints.
+              and selected in the payer checkout, including a bank selection flow built around our Open Banking provider&apos;s constraints.
             </p>
           </div>
         </div>
@@ -724,14 +723,14 @@ export default function KodyPBBCaseB() {
             <h2 style={h2Style}>Background</h2>
             <p style={{ ...bodyStyle, marginBottom: 16 }}>
               Pay by Bank lets customers pay directly from their bank accounts,
-              without using cards. It is a cost effective option for both
+              without using cards. It is a cost-effective option for both
               consumers and businesses. Kody first brought this technology into
-              the in person experience through its terminal product.
+              the in-person experience through its terminal product.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               The terminal launch did not get good market feedback. Two months
               in, it was clear that Pay by Bank did not fit the busy offline
-              checkout environment because it is a context sensitive payment method. I
+              checkout environment because it is a context-sensitive payment method. I
               analysed the problem and identified Pay by Link as a payment
               channel better matched to PBB&apos;s strengths.
             </p>
@@ -812,7 +811,7 @@ export default function KodyPBBCaseB() {
                 alternative.
               </li>
               <li style={{ ...bodyStyle, maxWidth: "none" }}>
-                <strong style={{ color: "#1a1a1a" }}>The GBP40 minimum.</strong>{" "}
+                <strong style={{ color: "#1a1a1a" }}>The £40 minimum.</strong>{" "}
                 Merchants don&apos;t want it and don&apos;t fully understand it.
               </li>
               <li style={{ ...bodyStyle, maxWidth: "none" }}>
@@ -888,7 +887,7 @@ export default function KodyPBBCaseB() {
                   <span style={labelStyle}>Beta decision</span>
                   <h3 style={h3Style}>Approximate saving at link creation</h3>
                   <p style={{ ...bodyStyle, fontSize: 15 }}>
-                    To save front end resource and backend calculation work, I
+                    To save front-end resource and backend calculation work, I
                     chose to surface an approximate saving percentage at the point
                     of link creation. It informed the merchant without requiring a
                     full savings calculation system.
@@ -1173,10 +1172,10 @@ export default function KodyPBBCaseB() {
               </div>
 
               <div>
-                <h3 style={h3Style}>2. Launch message through Intercom and email to reach fit merchant</h3>
+                <h3 style={h3Style}>2. Launch message through Intercom and email to reach the right merchants</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
                   Intercom and email reach the managers who create payment links
-                  inside Kody Universe, without requiring another in product
+                  inside Kody Universe, without requiring another in-product
                   messaging system.
                 </p>
                 <div className="kody-two-col">
