@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import LinkWithImagePreview from "@/components/LinkWithImagePreview";
+import FinalDesignFlow from "@/components/FinalDesignFlow";
 
 const overviewWidth: React.CSSProperties = {
   padding: "0 124px",
@@ -645,6 +647,14 @@ export default function KodyPBBCaseB() {
         .kody-toc-link {
           transition: transform 0.18s ease, color 0.25s;
         }
+        @keyframes scroll-nudge {
+          0%, 100% { transform: translateX(0); opacity: 0.5; }
+          50% { transform: translateX(6px); opacity: 1; }
+        }
+        .scroll-hint-arrow {
+          animation: scroll-nudge 1.6s ease-in-out infinite;
+          display: inline-block;
+        }
         @media (max-width: 900px) {
           .kody-hero-grid,
           .kody-two-col,
@@ -713,6 +723,35 @@ export default function KodyPBBCaseB() {
                 channel, designed for a merchant who does not know it saves money and a
                 payer who never thinks to choose it.
               </p>
+              <a
+                href="/case-a"
+                className="case-a-link"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 20,
+                  background: "#fff",
+                  borderRadius: 16,
+                  padding: "16px 20px",
+                  textDecoration: "none",
+                  maxWidth: 600,
+                }}
+              >
+                <img
+                  src="/images/kody-pbb/roadmap-mini.png"
+                  alt="Case A cover"
+                  style={{ width: 80, height: 56, objectFit: "cover", borderRadius: 10, flexShrink: 0, display: "block" }}
+                />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3445ff", display: "block", marginBottom: 4 }}>
+                    Case A
+                  </span>
+                  <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                    Choosing the Right Channel to Grow Pay by Bank
+                  </p>
+                </div>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, color: "rgba(26,26,26,0.3)", flexShrink: 0 }}>→</span>
+              </a>
             </div>
             <div>
               <img
@@ -735,8 +774,14 @@ export default function KodyPBBCaseB() {
         <div style={overviewWidth} className="kody-overview-width">
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
-              This case covers the design work after Pay by Bank moved to the
-              Pay by Link channel. The work was about integrating it into checkout so merchants
+              This case covers the design work after{" "}
+              <LinkWithImagePreview
+                href="/case-a"
+                label="Pay by Bank moved to the Pay by Link channel"
+                previewSrc="/images/kody-pbb/roadmap-mini.png"
+                previewAlt="Case A cover"
+              />
+              . The work was about integrating it into checkout so merchants
               would enable it and payers would actually choose it.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
@@ -751,37 +796,6 @@ export default function KodyPBBCaseB() {
               and selected in the payer checkout, including a flow for selecting banks
               flow built around our Open Banking provider&apos;s constraints.
             </p>
-
-            <a
-              href="/case-a"
-              className="case-a-link"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 20,
-                background: "#fff",
-                borderRadius: 16,
-                padding: "16px 20px",
-                textDecoration: "none",
-                marginTop: 20,
-                maxWidth: 600,
-              }}
-            >
-              <img
-                src="/images/kody-pbb/roadmap-mini.png"
-                alt="Case A cover"
-                style={{ width: 80, height: 56, objectFit: "cover", borderRadius: 10, flexShrink: 0, display: "block" }}
-              />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3445ff", display: "block", marginBottom: 4 }}>
-                  Case A
-                </span>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
-                  Choosing the Right Channel to Grow Pay by Bank
-                </p>
-              </div>
-              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, color: "rgba(26,26,26,0.3)", flexShrink: 0 }}>→</span>
-            </a>
           </div>
         </div>
       </section>
@@ -1159,16 +1173,19 @@ export default function KodyPBBCaseB() {
 
           <section id="final-design" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
-            <h2 style={h2Style}>Final design</h2>
-            <p style={{ ...bodyStyle, marginBottom: 32 }}>
+            <h2 style={{ ...h2Style, textAlign: "center" }}>Final design</h2>
+            <p style={{ ...bodyStyle, marginBottom: 16, textAlign: "center" }}>
               Here is the full shipped flow, from a merchant creating a link to
               both sides seeing the payment settle.
             </p>
 
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginBottom: 32, fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(26,26,26,0.4)" }}>
+              <span>scroll to explore</span>
+              <span className="scroll-hint-arrow">→</span>
+            </div>
+
             <div className="kody-scroll-x" style={{ marginBottom: 56 }}>
-              <div style={{ minWidth: 920 }}>
-                <Placeholder label="Release design scroll for the full shipped flow" aspect="18 / 8" />
-              </div>
+              <FinalDesignFlow />
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 56 }}>
