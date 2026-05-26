@@ -644,7 +644,7 @@ export default function CaseA() {
             <img
               src="/images/kody-pbb/pivot-prototype-pbl.png"
               alt="Pay by Bank in Pay by Link flow example"
-              style={{ maxWidth: "100%", display: "block", borderRadius: 14, marginBottom: 12 }}
+              style={{ width: "100%", maxWidth: 619, display: "block", borderRadius: 14, marginBottom: 12 }}
             />
             <p style={{ ...bodyStyle, marginBottom: 40, color: "rgba(26,26,26,0.55)", fontSize: 14 }}>
               This image is an example of the PBB flow, not the final design. Please check{" "}
