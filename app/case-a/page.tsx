@@ -327,7 +327,7 @@ export default function CaseA() {
               However, after the first version launched in one and a half months, the numbers were flat. Adoption was low, and the data volume was too small to tell us why.
             </p>
             <p style={{ ...bodyStyle, marginBottom: 40 }}>
-              A brief came down from leadership for me joining: integrate 64 more banks into our in-person payment terminal, and lift Pay by Bank adoption by 30% this quarter. Five weeks of development.
+              When I joined, the brief was already in place: integrate 64 more banks into our in-person payment terminal, and lift Pay by Bank adoption by 30% this quarter. Five weeks of development.
             </p>
 
             <div className="kody-two-col" style={{ marginBottom: 64 }}>
@@ -345,7 +345,7 @@ export default function CaseA() {
                   Business requests
                 </span>
                 {[
-                  { bold: "Add 64 more banks options", rest: " into this payment method." },
+                  { bold: "Add 64 more bank options", rest: " into this payment method." },
                   { bold: "Achieve a 30% increase in adoption rate", rest: " in this iteration." },
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: 14, marginBottom: i === 1 ? 0 : 14, alignItems: "flex-start" }}>
@@ -396,7 +396,7 @@ export default function CaseA() {
               <h2 style={h2Style}>Learn why adoption stalled</h2>
 
               <p style={{ ...bodyStyle, marginBottom: 48 }}>
-                Instead of having a designer spend 4 engineer-weeks hardcoding bank options in the terminal — and countless maintenance work in the future — with limited usage data and high implementation cost, shipping changes would have been largely guesswork. Instead, I ran 10+ rapid qualitative interviews with merchants and frontline staff to identify the real adoption blockers before investing in a build.
+                With limited usage data and a high implementation cost, shipping changes without research would have been largely guesswork. Rather than having engineers spend 4 weeks hardcoding bank options — with considerable maintenance to follow — I ran 10+ rapid qualitative interviews with merchants and frontline staff to identify the real adoption blockers before investing in a build.
               </p>
 
               {/* Cohorts + image */}
@@ -531,7 +531,7 @@ export default function CaseA() {
             <h2 style={h2Style}>Channel Audit</h2>
 
             <p style={{ ...bodyStyle, marginBottom: 28 }}>
-              After all the insights, I joined a deep-dive with the CTO, Head of PD and Tech Lead alongside the PM to align my findings and bring out my hypothesis of the answer.
+              After all the insights, I held a deep-dive with the CTO, Head of PD, Tech Lead, and PM to align on my findings and present my hypothesis on the right channel.
             </p>
 
             <p style={{ ...bodyStyle, marginBottom: 28 }}>
@@ -566,7 +566,7 @@ export default function CaseA() {
             </div>
 
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
-              With the criteria, I listed out all the payment channels that Kody is operating and pulled the AOV data of each channel with help from data analytics, evaluating each against the context requirements derived in the previous section. Pay by Link became the primary fit for Pay by Bank.
+              With those criteria, I listed all the payment channels Kody was operating and pulled AOV data for each with help from data analytics, evaluating each against the context requirements from the previous section. Pay by Link emerged as the primary fit for Pay by Bank.
             </p>
 
             {/* Channel comparison table */}
@@ -652,7 +652,7 @@ export default function CaseA() {
             <h2 style={h2Style}>The Pivot Decision</h2>
 
             <p style={{ ...bodyStyle, marginBottom: 40 }}>
-              With the discussion meeting with the Tech Lead and Design Lead, besides the insights from interviews and the channel hypothesis, I also presented high-fidelity prototypes — one with extended bank options on terminal, and one with Pay by Bank in the payment link.{" "}
+              In a discussion with the Tech Lead and Design Lead, alongside the insights from interviews and the channel hypothesis, I presented high-fidelity prototypes — one with extended bank options on terminal, and one with Pay by Bank in the payment link.{" "}
               <strong style={{ fontWeight: 700, color: "#1a1a1a" }}>
                 I quickly built the prototypes with the help of AI (Figma Make) to walk everybody through the pros and cons from tech cost and experience perspectives to persuade my team.
               </strong>
@@ -714,7 +714,7 @@ export default function CaseA() {
             <h2 style={h2Style}>Roadmap updated</h2>
 
             <p style={{ ...bodyStyle, marginBottom: 48 }}>
-              The pivot was successfully reflected on the product roadmap. Instead of having &ldquo;expand bank options&rdquo; as the P0 task, the P0 task became &ldquo;explore PBB into Pay by Link and help business owners understand the benefit of PBB.&rdquo; The new P1 requirement became deprioritising PBB on terminal for target users — for a better terminal experience and brand reputation.
+              The pivot was successfully reflected on the product roadmap. Instead of having &ldquo;expand bank options&rdquo; as the P0 task, the P0 task became &ldquo;explore integrating PBB into Pay by Link and help business owners understand the benefit of PBB.&rdquo; The new P1 requirement became deprioritising PBB on terminal for target users — for a better terminal experience and brand reputation.
             </p>
 
             <RoadmapToggle />
