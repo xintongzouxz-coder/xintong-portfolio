@@ -575,6 +575,14 @@ export default function KodyPBBCaseB() {
   return (
     <>
       <style>{`
+        .case-a-link {
+          box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+          transition: background 0.2s, box-shadow 0.2s;
+        }
+        .case-a-link:hover {
+          background: rgba(52,69,255,0.06) !important;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        }
         .kody-hero-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -705,21 +713,6 @@ export default function KodyPBBCaseB() {
                 channel, designed for a merchant who does not know it saves money and a
                 payer who never thinks to choose it.
               </p>
-              <SoftCard style={{ padding: "22px 24px" }}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-dm-sans)",
-                    fontSize: 14,
-                    lineHeight: 1.6,
-                    color: "rgba(26,26,26,0.72)",
-                    margin: 0,
-                  }}
-                >
-                  <strong style={{ color: "#1a1a1a" }}>Role:</strong> Sole
-                  designer · Team of four (design lead, tech lead, engineer,
-                  me) · No PM
-                </p>
-              </SoftCard>
             </div>
             <div>
               <img
@@ -758,6 +751,37 @@ export default function KodyPBBCaseB() {
               and selected in the payer checkout, including a flow for selecting banks
               flow built around our Open Banking provider&apos;s constraints.
             </p>
+
+            <a
+              href="/case-a"
+              className="case-a-link"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 20,
+                background: "#fff",
+                borderRadius: 16,
+                padding: "16px 20px",
+                textDecoration: "none",
+                marginTop: 20,
+                maxWidth: 600,
+              }}
+            >
+              <img
+                src="/images/kody-pbb/roadmap-mini.png"
+                alt="Case A cover"
+                style={{ width: 80, height: 56, objectFit: "cover", borderRadius: 10, flexShrink: 0, display: "block" }}
+              />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3445ff", display: "block", marginBottom: 4 }}>
+                  Case A
+                </span>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                  Choosing the Right Channel to Grow Pay by Bank
+                </p>
+              </div>
+              <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 18, color: "rgba(26,26,26,0.3)", flexShrink: 0 }}>→</span>
+            </a>
           </div>
         </div>
       </section>
