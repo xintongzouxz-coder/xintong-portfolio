@@ -678,8 +678,8 @@ export default function KodyPBBCaseB() {
 
         <div style={{ background: "#fff", width: "100%" }}>
           <img
-            src="/images/kody-pbb/product-overview.png"
-            alt="Kody product overview"
+            src="/images/kody-pbb/head.png"
+            alt="Kody Pay by Bank overview"
             style={{ width: "100%", display: "block" }}
           />
         </div>
@@ -1029,9 +1029,24 @@ export default function KodyPBBCaseB() {
               retrying a failed one.
             </p>
 
-            <div className="kody-two-col" style={{ marginTop: 32 }}>
-              <Placeholder label="Wrong variant recovery flow" />
-              <Placeholder label="Email and SMS messages for returning to payment" />
+            <div className="kody-scroll-x" style={{ marginTop: 32 }}>
+              <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <img
+                  src="/images/kody-pbb/wrong-variant-error.png"
+                  alt="Wrong variant error screen"
+                  style={{ height: 420, width: "auto", borderRadius: 14, display: "block", flexShrink: 0 }}
+                />
+                <img
+                  src="/images/kody-pbb/wrong-variant-pending.png"
+                  alt="Wrong variant pending/recovery screen"
+                  style={{ height: 420, width: "auto", borderRadius: 14, display: "block", flexShrink: 0 }}
+                />
+                <img
+                  src="/images/kody-pbb/wrong-variant-email.png"
+                  alt="Email and SMS for returning payer"
+                  style={{ height: 420, width: "auto", borderRadius: 14, display: "block", flexShrink: 0 }}
+                />
+              </div>
             </div>
           </section>
 

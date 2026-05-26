@@ -8,6 +8,7 @@ interface CaseCardProps {
   href: string;
   image?: string;
   bg?: string;
+  imageScale?: number;
   hoverVideo?: string;
   hoverLottie?: object;
   tags: string[];
@@ -16,7 +17,7 @@ interface CaseCardProps {
   description: string;
 }
 
-export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tags, title, year, description }: CaseCardProps) {
+export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hoverLottie, tags, title, year, description }: CaseCardProps) {
   const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -92,6 +93,7 @@ export default function CaseCard({ href, image, bg, hoverVideo, hoverLottie, tag
               width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block",
               transition: "opacity 0.21s ease",
               opacity: isMobile && (hoverVideo || hoverLottie) ? 0 : 1,
+              ...(imageScale ? { transform: `scale(${imageScale})`, transformOrigin: "center" } : {}),
             }}
           />
         )}

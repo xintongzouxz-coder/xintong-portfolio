@@ -10,24 +10,16 @@ import kodyAnimation from "@/public/images/home/kody-pbb-animation.json";
 // ── Case cards ────────────────────────────────────────────────────────────────
 const CASES = [
   {
-    href: "/kody-pbb",
-    image: "/images/home/kody-pbb-cover.png",
+    href: "/kody-pbb-b",
+    image: "/images/kody-pbb/head.png",
     bg: "var(--bg)",
+    imageScale: 1.2,
     hoverLottie: kodyAnimation,
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
     title: "Kody Pay by Bank experience",
     year: "2025",
     description:
       "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
-  },
-  {
-    href: "/design-system",
-    image: "/images/home/design-system-cover.png",
-    tags: ["Design System", "AI-assisted"],
-    title: "Rebuilding the Kody Design System",
-    year: "2025",
-    description:
-      "Simplified design foundations by up to 75%, improved consistency across 4 products",
   },
   {
     href: "/prorizon",
@@ -41,14 +33,23 @@ const CASES = [
       "Redesigned a self-record health app for young athletes to enhance user engagement",
   },
   {
-    href: "#",
-    image: "/images/home/pitchme.webp",
-    bg: "var(--bg)",
-    tags: ["Workflow Optimisation", "AI-agent"],
-    title: "PitchME",
-    year: "2024",
+    href: "/design-system",
+    image: "/images/home/design-system-cover.png",
+    tags: ["Design System", "AI-assisted"],
+    title: "Rebuilding the Kody Design System",
+    year: "2025",
     description:
-      "An AI-assisted evaluation platform to streamline judges' workflow during live pitch sessions",
+      "Simplified design foundations by up to 75%, improved consistency across 4 products",
+  },
+  {
+    href: "/case-a",
+    image: "/images/kody-pbb/newroadmap.png",
+    bg: "var(--bg)",
+    tags: ["Research", "Strategy"],
+    title: "Choosing the Right Channel to Grow Pay by Bank",
+    year: "2025",
+    description:
+      "Research and strategic analysis that led to pivoting Pay by Bank from terminals to Pay by Link",
   },
 ];
 
