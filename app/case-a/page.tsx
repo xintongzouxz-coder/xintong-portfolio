@@ -125,13 +125,11 @@ export default function CaseA() {
       <style>{`
         /* ── Case B link bar ── */
         .case-b-link {
-          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-          border-color: rgba(26,26,26,0.1);
-          transition: box-shadow 0.2s, border-color 0.2s;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+          transition: box-shadow 0.2s;
         }
         .case-b-link:hover {
-          box-shadow: 0 4px 20px rgba(52,69,255,0.12);
-          border-color: rgba(52,69,255,0.3);
+          box-shadow: 0 6px 24px rgba(52,69,255,0.14);
         }
 
         /* ── Generic 2-col ── */
@@ -281,7 +279,6 @@ export default function CaseA() {
                 alignItems: "center",
                 gap: 20,
                 background: "#fff",
-                border: "1px solid",
                 borderRadius: 16,
                 padding: "16px 20px",
                 textDecoration: "none",
@@ -296,7 +293,7 @@ export default function CaseA() {
               />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "#3445ff", display: "block", marginBottom: 4 }}>
-                  Case B · UX Design
+                  Case B
                 </span>
                 <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
                   Designing Pay by Bank for Pay by Link
