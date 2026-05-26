@@ -126,10 +126,11 @@ export default function CaseA() {
         /* ── Case B link bar ── */
         .case-b-link {
           box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-          transition: box-shadow 0.2s;
+          transition: background 0.2s, box-shadow 0.2s;
         }
         .case-b-link:hover {
-          box-shadow: 0 6px 24px rgba(52,69,255,0.14);
+          background: rgba(52,69,255,0.06) !important;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.08);
         }
 
         /* ── Generic 2-col ── */
