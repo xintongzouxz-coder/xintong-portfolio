@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import CaseATOC from "@/components/CaseATOC";
-import StrategicPivotDiagram from "@/components/StrategicPivotDiagram";
-import OriginalRoadmapDiagram from "@/components/OriginalRoadmapDiagram";
+import RoadmapToggle from "@/components/RoadmapToggle";
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const overviewWidth: React.CSSProperties = {
@@ -677,14 +676,7 @@ export default function CaseA() {
               The pivot was successfully reflected on the product roadmap. Instead of having &ldquo;expand bank options&rdquo; as the P0 task, the P0 task became &ldquo;explore PBB into Pay by Link and help business owners understand the benefit of PBB.&rdquo; The new P1 requirement became deprioritising PBB on terminal for target users — for a better terminal experience and brand reputation.
             </p>
 
-            <StrategicPivotDiagram />
-
-            <h2 style={{ ...h2Style, marginTop: 64 }}>Original Roadmap</h2>
-            <p style={{ ...bodyStyle, marginBottom: 48 }}>
-              Before the pivot, the original roadmap was focused on expanding bank coverage on the terminal — the initiative that research revealed as the wrong channel.
-            </p>
-
-            <OriginalRoadmapDiagram />
+            <RoadmapToggle />
 
             <p style={{ ...bodyStyle, marginTop: 48 }}>
               In a separate case study I cover how I designed the actual Pay by Link checkout integration — the UX work that brought this pivot to life.{" "}
