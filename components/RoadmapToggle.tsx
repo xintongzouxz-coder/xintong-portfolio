@@ -19,9 +19,11 @@ export default function RoadmapToggle() {
         </div>
       </div>
 
-      {/* Toggle bar — below diagram, centered */}
+      {/* Toggle bar — below diagram, centered within 800px roadmap width */}
       <div
         style={{
+          width: 800,
+          maxWidth: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
