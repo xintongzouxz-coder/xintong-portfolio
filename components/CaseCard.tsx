@@ -24,6 +24,7 @@ export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hove
   const lottieWrapRef = useRef<HTMLDivElement>(null);
   const lottiePlayerRef = useRef<LottieRefCurrentProps>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -46,6 +47,7 @@ export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hove
   }, [isMobile, hoverVideo, hoverLottie]);
 
   const handleMouseEnter = () => {
+    setIsHovered(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.style.opacity = "1";
@@ -57,6 +59,7 @@ export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hove
   };
 
   const handleMouseLeave = () => {
+    setIsHovered(false);
     if (videoRef.current) {
       videoRef.current.style.opacity = "0";
       videoRef.current.pause();
@@ -71,8 +74,8 @@ export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hove
 
   const content = (
     <div
-      onMouseEnter={hasHover && !isMobile ? handleMouseEnter : undefined}
-      onMouseLeave={hasHover && !isMobile ? handleMouseLeave : undefined}
+      onMouseEnter={!isMobile ? handleMouseEnter : undefined}
+      onMouseLeave={!isMobile ? handleMouseLeave : undefined}
     >
       {/* Image — 600×425 aspect ratio */}
       <div
@@ -91,9 +94,10 @@ export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hove
             alt={title}
             style={{
               width: "100%", height: "100%", objectFit: bg ? "contain" : "cover", display: "block",
-              transition: "opacity 0.21s ease",
+              transition: "opacity 0.21s ease, transform 0.4s ease",
               opacity: isMobile && (hoverVideo || hoverLottie) ? 0 : 1,
-              ...(imageScale ? { transform: `scale(${imageScale})`, transformOrigin: "center" } : {}),
+              transform: `scale(${((imageScale ?? 1) * (isHovered ? 1.1 : 1)).toFixed(3)})`,
+              transformOrigin: "center",
             }}
           />
         )}

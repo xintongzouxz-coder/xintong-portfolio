@@ -4,8 +4,6 @@ import CaseCard from "@/components/CaseCard";
 import HeroBlocks from "@/components/HeroBlocks";
 import AboutIntro from "@/components/AboutIntro";
 import Link from "next/link";
-import kodyAnimation from "@/public/images/home/kody-pbb-animation.json";
-
 
 // ── Case cards ────────────────────────────────────────────────────────────────
 const CASES = [
@@ -14,7 +12,6 @@ const CASES = [
     image: "/images/kody-pbb/head.png",
     bg: "var(--bg)",
     imageScale: 1.2,
-    hoverLottie: kodyAnimation,
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
     title: "Kody Pay by Bank experience",
     year: "2025",
@@ -25,7 +22,6 @@ const CASES = [
     href: "/prorizon",
     image: "/images/home/prorizon-cover.png",
     bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
-    hoverVideo: "/images/prorizon/Prorizon project cover.mp4",
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
     year: "2024",
