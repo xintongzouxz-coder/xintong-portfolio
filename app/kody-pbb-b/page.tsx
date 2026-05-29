@@ -195,6 +195,72 @@ function NumberedItem({
   );
 }
 
+function ReflectionBlock({
+  index,
+  title,
+  children,
+}: {
+  index: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <SoftCard style={{ maxWidth: 900 }}>
+      <span
+        style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontSize: 13,
+          fontWeight: 700,
+          color: "#3445ff",
+          display: "block",
+          marginBottom: 18,
+        }}
+      >
+        {index}
+      </span>
+      <h3 style={{ ...h3Style, fontSize: 20, marginBottom: 22 }}>{title}</h3>
+      <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>{children}</div>
+    </SoftCard>
+  );
+}
+
+function ReflectionPhase({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div style={{ marginTop: 8 }}>
+      <p
+        style={{
+          fontFamily: "var(--font-dm-sans)",
+          fontSize: 14,
+          fontWeight: 700,
+          color: "#1a1a1a",
+          margin: "0 0 10px",
+        }}
+      >
+        {title}
+      </p>
+      {children}
+    </div>
+  );
+}
+
+function ReflectionBullets({ items }: { items: string[] }) {
+  return (
+    <ul style={{ margin: 0, padding: "0 0 0 20px", display: "flex", flexDirection: "column", gap: 8 }}>
+      {items.map((item) => (
+        <li key={item} style={{ ...bodyStyle, fontSize: 15, maxWidth: 820 }}>
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function OpportunitySpectrum() {
   const itemText: React.CSSProperties = {
     fontFamily: "var(--font-dm-sans)",
@@ -1445,25 +1511,80 @@ export default function KodyPBBCaseB() {
             </div>
           </section>
 
-          <section id="next-steps" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+          <section id="reflection" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
-            <h2 style={h2Style}>Next steps</h2>
-            <div className="kody-three-col">
-              <NumberedItem
-                index="01"
-                title="Dashboard widget and savings report"
-                body="Use reporting to repeatedly show the comparison between card and PBB transaction fees, building merchant trust over time."
-              />
-              <NumberedItem
-                index="02"
-                title="Aggregate the bank list by brand"
-                body="Collapse the raw 60+ variant list into one entry per bank, then move variant selection into the bank app."
-              />
-              <NumberedItem
-                index="03"
-                title="Let adoption compound across channels"
-                body="Merchants who learn the value of Pay by Bank through Pay by Link do not unlearn it, making later channel expansion easier."
-              />
+            <h2 style={h2Style}>Reflection</h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+              <p style={{ ...bodyStyle, maxWidth: 900 }}>
+                After completing the beta version, I looked back on the project and realised there are still several areas that need further improvement.
+              </p>
+
+              <ReflectionBlock index="01" title="Building the Trust Layer Behind Default Pre-selection">
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  The primary goal of the beta was to validate whether Pay by Bank could drive transaction volume. To achieve this, we shifted the payment journey from terminal-based payments to Pay by Link and introduced Pay by Bank as the pre-selected payment method.
+                </p>
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  While this decision successfully increased adoption, it also amplified one of the key concerns associated with Open Banking payments: the lack of chargeback protection.
+                </p>
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  Although we do not yet have sufficient data to quantify the impact of this trust gap, it remains an important risk that should be addressed in a safe and transparent way.
+                </p>
+                <ReflectionPhase title="Near-term">
+                  <ReflectionBullets
+                    items={[
+                      'Make the "no automatic refund" limitation visible at the point of payment selection, rather than burying it within terms and conditions.',
+                      "Clearly communicate refund expectations before payment is completed.",
+                    ]}
+                  />
+                </ReflectionPhase>
+                <ReflectionPhase title="Medium-term">
+                  <ReflectionBullets
+                    items={[
+                      "Allow payers who require a refund to contact the merchant directly through the payment link experience, rather than searching for contact details independently.",
+                      "Introduce merchant verification signals during checkout to reassure users that the merchant is verified by Kody.",
+                    ]}
+                  />
+                </ReflectionPhase>
+                <ReflectionPhase title="Long-term">
+                  <ReflectionBullets
+                    items={[
+                      "Integrate direct refund capabilities as Open Banking refund APIs mature and become more widely supported.",
+                      "Remove the limitation through product capability rather than relying solely on communication.",
+                    ]}
+                  />
+                </ReflectionPhase>
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  The pre-selection strategy was the right decision for a beta focused on proving adoption. Building trust is what will make the approach sustainable in the long term.
+                </p>
+              </ReflectionBlock>
+
+              <ReflectionBlock index="02" title="Strengthening the Merchant Fee-Saving Mindset">
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  Several interventions in the beta contributed to Pay by Bank adoption, including the payment-link builder indicators, Intercom messages, and merchant email campaigns.
+                </p>
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  However, there is still uncertainty around whether merchants truly understand and internalise the value proposition of Pay by Bank as a cost-saving payment method.
+                </p>
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  To validate this assumption, I would conduct qualitative research to better understand merchant perceptions and identify whether cost savings are influencing payment method adoption decisions.
+                </p>
+                <ReflectionPhase title="Near-term">
+                  <ReflectionBullets
+                    items={[
+                      "Include transaction fee comparisons between payment methods in settlement reports.",
+                      "Gradually surface cost-saving insights within the Kody Universe dashboard.",
+                    ]}
+                  />
+                </ReflectionPhase>
+                <ReflectionPhase title="Long-term">
+                  <p style={{ ...bodyStyle, fontSize: 15, maxWidth: 820 }}>
+                    The ultimate goal is not simply to communicate lower fees, but to establish a merchant mindset where Pay by Bank becomes the preferred payment method for eligible transactions.
+                  </p>
+                </ReflectionPhase>
+                <p style={{ ...bodyStyle, maxWidth: 820 }}>
+                  Beyond improving awareness, expanding Pay by Bank into additional payment channels remains an important growth opportunity once the technical limitations of terminal-based Pay by Bank experiences are resolved.
+                </p>
+              </ReflectionBlock>
             </div>
           </section>
         </div>

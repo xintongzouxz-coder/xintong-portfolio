@@ -20,7 +20,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: "prototype", label: "RAPID PROTOTYPE" },
   { id: "final-design", label: "FINAL DESIGN" },
   { id: "result", label: "RESULT" },
-  { id: "next-steps", label: "NEXT STEPS" },
+  { id: "reflection", label: "REFLECTION" },
 ];
 
 const OBSERVE_IDS = [
@@ -33,7 +33,7 @@ const OBSERVE_IDS = [
   "prototype",
   "final-design",
   "result",
-  "next-steps",
+  "reflection",
 ];
 
 export default function CaseBTOC() {
