@@ -360,7 +360,7 @@ function FailsafeEmailDesign() {
             http://erikodkkbody.com
           </a>
           <p style={{ ...smallText, fontSize: 7, lineHeight: 1.4, width: "90%", marginBottom: "5.2%" }}>
-            {"This can happen if the correct banks account didn't log in or hit the balance in the account before completing the process."}
+            {"This can happen if the selected bank account could not be verified, or if the account balance changed before the process was completed."}
           </p>
 
           <p style={{ ...smallText, fontSize: 9, fontWeight: 700, marginBottom: "2.6%" }}>What should I do?</p>
@@ -1057,8 +1057,8 @@ export default function KodyPBBCaseB() {
                 }}
               >
                 This case covers the design work after Pay by Bank moved to the
-                Pay by Link channel. Check the case A to read how i contribute to
-                the stragetic pivot
+                Pay by Link channel. Check Case A to read how I contributed to
+                the strategic pivot.
               </p>
               <a
                 href="/case-a"
@@ -1583,7 +1583,7 @@ export default function KodyPBBCaseB() {
                         Copy &amp; framing
                       </span>
                       <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#595959", margin: 0, lineHeight: 1.5 }}>
-                        &ldquo;Save 60% in fee&rdquo; — Highlight fee savings to drive Pay by Bank adoption
+                        &ldquo;Save 60% in fees&rdquo; — Highlight fee savings to drive Pay by Bank adoption
                       </p>
                     </div>
                     <div style={{ background: "#fff", borderRadius: 10, padding: "12px 14px", display: "flex", flexDirection: "column", gap: 6 }}>
@@ -1649,10 +1649,10 @@ export default function KodyPBBCaseB() {
                     alt="First-time payer Pay by Bank selection"
                     style={{ position: "absolute", left: "26.4%", top: "12.8%", width: "21.5%", height: "auto", display: "block" }}
                   />
-                  {/* Right phone — return payer */}
+                  {/* Right phone — returning payer */}
                   <img
                     src="/images/kody-pbb/pbb-return-payer.png"
-                    alt="Return payer previous bank pre-filled"
+                    alt="Returning payer previous bank pre-filled"
                     style={{ position: "absolute", left: "51.5%", top: "12.8%", width: "21.4%", height: "auto", display: "block" }}
                   />
 
@@ -1672,22 +1672,22 @@ export default function KodyPBBCaseB() {
                     </p>
                   </div>
 
-                  {/* Right annotation card — return payer */}
+                  {/* Right annotation card — returning payer */}
                   <div style={{ position: "absolute", left: "79.3%", top: "50.2%", width: "17.7%", background: "#fff", borderRadius: 10, padding: "10px", display: "flex", flexDirection: "column", gap: 4 }}>
                     <span style={{ background: "#fde4fa", borderRadius: 4, padding: "4px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: "normal", whiteSpace: "nowrap" }}>
                       Interaction model
                     </span>
                     <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
-                      <strong>Return payer</strong>: their previous bank is pre-filled to speed up Pay by Bank
+                      <strong>Returning payer</strong>: their previous bank is pre-filled to speed up Pay by Bank
                     </p>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 style={h3Style}>4. Streamline flow to select banks and complete authorization</h3>
+                <h3 style={h3Style}>4. Streamline flow to select banks and complete authorisation</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
-                  The bank selection and Open Banking authorization steps are
+                  The bank selection and Open Banking authorisation steps are
                   consolidated into a single guided flow, reducing drop-off at
                   the most unfamiliar part of the checkout.
                 </p>
@@ -1739,14 +1739,14 @@ export default function KodyPBBCaseB() {
                       Visual hierarchy
                     </span>
                     <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#595959", margin: 0, lineHeight: 1.4 }}>
-                      The rest of the bank options follow alphabetical order
+                      The rest of the bank options are listed in alphabetical order.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 style={h3Style}>5. Confirmation, status tracking, and refund</h3>
+                <h3 style={h3Style}>5. Confirmation, status tracking, and refund handling</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
                   Refunds are not automatic for Pay by Bank. We added a clear
                   explanation on the transaction details page so merchants
@@ -1867,7 +1867,7 @@ export default function KodyPBBCaseB() {
             <h2 style={h2Style}>Reflection</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
               <p style={{ ...bodyStyle, maxWidth: 900 }}>
-                After completing the beta version, I looked back on the project and realised there are still several areas that need further improvement.
+                After completing the beta version, I looked back on the project and realised there are still several areas that need improvement.
               </p>
 
               <ReflectionBlock index="01" title="Building the Trust Layer Behind Default Pre-selection">

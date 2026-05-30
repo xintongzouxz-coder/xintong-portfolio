@@ -274,7 +274,7 @@ export default function CaseA() {
             </p>
             {/* Case B link bar */}
             <a
-              href="/kody-pbb"
+              href="/kody-pbb-b"
               className="case-b-link"
               style={{
                 display: "flex",
@@ -685,7 +685,7 @@ export default function CaseA() {
             <p style={{ ...bodyStyle, marginBottom: 40, color: "rgba(26,26,26,0.55)", fontSize: 14 }}>
               This image is an example of the PBB flow, not the final design. Please check{" "}
               <LinkWithImagePreview
-                href="/kody-pbb"
+                href="/kody-pbb-b"
                 label="Designing Pay by Bank for Pay by Link"
                 previewSrc="/images/kody-pbb/product-overview.png"
                 previewAlt="Case B cover"
@@ -724,7 +724,7 @@ export default function CaseA() {
             </p>
 
             <a
-              href="/kody-pbb"
+              href="/kody-pbb-b"
               className="case-b-link"
               style={{
                 display: "flex",
