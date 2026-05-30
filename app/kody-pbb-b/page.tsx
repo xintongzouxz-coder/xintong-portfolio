@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import LinkWithImagePreview from "@/components/LinkWithImagePreview";
 import FinalDesignFlow from "@/components/FinalDesignFlow";
 import CaseBTOC from "@/components/CaseBTOC";
 
@@ -760,12 +759,12 @@ function BankSelectionApproaches() {
             padding: "28px 36px",
             borderRadius: 16,
             background: item.selected
-              ? "rgba(76,175,80,0.08)"
+              ? "rgba(99,225,158,0.22)"
               : item.muted
               ? "rgba(255,255,255,0.48)"
               : "rgba(255,255,255,0.55)",
             border: item.selected
-              ? "1.5px solid rgba(76,175,80,0.34)"
+              ? "none"
               : "1px solid rgba(255,255,255,0.7)",
             boxSizing: "border-box",
           }}
@@ -942,6 +941,29 @@ export default function KodyPBBCaseB() {
           animation: scroll-nudge 1.6s ease-in-out infinite;
           display: inline-block;
         }
+        .fee-saving-annotation {
+          display: flex;
+          border-radius: 20px;
+          overflow: hidden;
+          background: #efeef1;
+          align-items: center;
+          position: relative;
+        }
+        .fee-saving-image-panel {
+          flex: 0 0 62%;
+          position: relative;
+          aspect-ratio: 1090 / 680;
+        }
+        .fee-saving-copy {
+          flex: 1;
+          padding: 32px 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+        }
         @media (max-width: 900px) {
           .kody-hero-grid,
           .kody-two-col,
@@ -972,6 +994,21 @@ export default function KodyPBBCaseB() {
             grid-template-columns: 1fr !important;
             gap: 28px !important;
             padding: 32px 24px !important;
+          }
+          .fee-saving-annotation {
+            flex-direction: column;
+          }
+          .fee-saving-image-panel {
+            flex: none;
+            width: 100%;
+          }
+          .fee-saving-copy {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 24px !important;
+          }
+          .fee-saving-connectors {
+            display: none;
           }
         }
       `}</style>
@@ -1009,6 +1046,19 @@ export default function KodyPBBCaseB() {
                 Designing Pay by Bank&apos;s integration into Kody&apos;s Pay by Link
                 channel, designed for a merchant who does not know it saves money and a
                 payer who never thinks to choose it.
+              </p>
+              <p
+                style={{
+                  ...bodyStyle,
+                  fontSize: 15,
+                  lineHeight: 1.6,
+                  marginBottom: 16,
+                  maxWidth: 600,
+                }}
+              >
+                This case covers the design work after Pay by Bank moved to the
+                Pay by Link channel. Check the case A to read how i contribute to
+                the stragetic pivot
               </p>
               <a
                 href="/case-a"
@@ -1060,17 +1110,6 @@ export default function KodyPBBCaseB() {
 
         <div style={overviewWidth} className="kody-overview-width">
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
-              This case covers the design work after{" "}
-              <LinkWithImagePreview
-                href="/case-a"
-                label="Pay by Bank moved to the Pay by Link channel"
-                previewSrc="/images/kody-pbb/roadmap-mini.png"
-                previewAlt="Case A cover"
-              />
-              . The work was about integrating it into checkout so merchants
-              would enable it and payers would actually choose it.
-            </p>
             <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
               Two users defaulted away from Pay by Bank for different reasons.
               Merchants did not know it cut transaction fees by around 60%.
@@ -1515,30 +1554,30 @@ export default function KodyPBBCaseB() {
                   default, and the fee saving benefit is surfaced during payment
                   link creation.
                 </p>
-                <div style={{ display: "flex", borderRadius: 20, overflow: "hidden", background: "#efeef1", alignItems: "stretch", position: "relative" }}>
+                <div className="fee-saving-annotation">
                   {/* SVG connecting lines — spans full container */}
-                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1, overflow: "visible" }}>
-                    {/* Box 1 → Card 1: right → up to Card 1 Y → into card section */}
-                    <path d="M40,61 L55,61 L55,40 L68,40" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
-                    {/* Box 2 → Card 2: straight right into card section */}
-                    <path d="M26,62 L68,62" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                  <svg className="fee-saving-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1, overflow: "visible" }}>
+                    {/* Save badge → Card 1 */}
+                    <path d="M39,63.2 L56,63.2 L56,40 L68,40" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                    {/* Eligibility copy → Card 2 */}
+                    <path d="M25,66.3 L25,78 L68,78" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
                   </svg>
 
                   {/* Left: screenshot with red highlights */}
-                  <div style={{ flex: "0 0 62%", position: "relative", minHeight: 300 }}>
+                  <div className="fee-saving-image-panel">
                     <img
                       alt=""
                       src="/images/kody-pbb/pay-bank-fee-saving-highlight.png"
-                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left top", display: "block" }}
+                      style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                     />
-                    {/* Red highlight: "Save 60% in fee" badge — at ~53% left, ~57% top of image section */}
-                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", borderRadius: 4, left: "53%", top: "57%", width: "12%", height: "8%" }} />
+                    {/* Red highlight: "Save 60% in fees" badge */}
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1.5px solid #ff7e7e", borderRadius: 8, left: "50.9%", top: "58.4%", width: "11.6%", height: "6.9%" }} />
                     {/* Red highlight: "Only available for immediate payment above £40" */}
-                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", borderRadius: 4, left: "12%", top: "59%", width: "30%", height: "5%" }} />
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1.5px solid #ff7e7e", borderRadius: 8, left: "7.3%", top: "62.2%", width: "33.6%", height: "5.2%" }} />
                   </div>
 
                   {/* Right: annotation cards */}
-                  <div style={{ flex: 1, padding: "32px 24px", display: "flex", flexDirection: "column", gap: 20, justifyContent: "center", position: "relative", zIndex: 2 }}>
+                  <div className="fee-saving-copy">
                     <div style={{ background: "#fff", borderRadius: 10, padding: "12px 14px", display: "flex", flexDirection: "column", gap: 6 }}>
                       <span style={{ background: "#fde4e4", borderRadius: 4, padding: "3px 8px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: 1.6 }}>
                         Copy &amp; framing
