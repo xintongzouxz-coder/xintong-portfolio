@@ -706,28 +706,69 @@ export default function Prorizon() {
         </div>
       </section>
 
-      {/* ── Learning ── */}
-      <section id="learning" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+      {/* ── Outcome ── */}
+      <section id="outcome" style={{ background: "#fafafa", paddingBottom: 48 }}>
         <div style={contentWidth}>
           {divider}
-          <h2 style={h2Style}>Learning</h2>
+          <h2 style={h2Style}>Outcome</h2>
+          <h2
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: "clamp(24px, 3vw, 34px)",
+              fontWeight: 600,
+              lineHeight: 1.35,
+              letterSpacing: "-0.01em",
+              color: "#1a1a1a",
+              margin: "0 0 32px",
+              maxWidth: 920,
+            }}
+          >
+            The redesigned daily log flow and the new Insights feature were implemented in the following app release.
+          </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-            {[
-              {
-                title: "Exploring Multiple Research Methods",
-                body: "In this internship project, I was able to expand my research skills by applying multiple methods during the research phase. I experimented with conducting studies in different environments and forums, something I had rarely done in previous projects. This taught me how to adapt research strategies based on the context, improving my ability to gather insights from diverse user groups and situations.",
-              },
-              {
-                title: "Collaborating with a Cross-Functional Team",
-                body: "In this project, I had the opportunity to collaborate closely with scientists, developers, and the product owner. This experience was invaluable because it allowed me to gain insights into how each role contributes to the product's success and helped me better understand the importance of cross-functional communication. It was a new and rewarding experience that broadened my perspective on how design fits into a larger team dynamic.",
-              },
-            ].map(({ title, body }) => (
-              <div key={title} style={glassCard}>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600, color: "#1a1a1a", margin: "0 0 12px" }}>{title}</p>
-                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, lineHeight: 1.7, color: "rgba(26,26,26,0.72)", margin: 0 }}>{body}</p>
-              </div>
-            ))}
+          <ul
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+              paddingLeft: 24,
+              margin: 0,
+              maxWidth: 900,
+            }}
+          >
+            <li style={{ ...bodyStyle, maxWidth: "none" }}>
+              <strong style={{ color: "#1a1a1a" }}>Improved tracking efficiency.</strong>{" "}
+              Usability testing prior to release showed a 40% improvement in tracking efficiency.
+            </li>
+            <li style={{ ...bodyStyle, maxWidth: "none" }}>
+              <strong style={{ color: "#1a1a1a" }}>Reduced perceived effort.</strong>{" "}
+              Qualitative feedback indicated that the revised flow felt less effortful for users.
+            </li>
+            <li style={{ ...bodyStyle, maxWidth: "none" }}>
+              <strong style={{ color: "#1a1a1a" }}>Better fit with daily routines.</strong>{" "}
+              Users found the revised flow more contextually relevant to their daily routines.
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+      {/* ── Reflection ── */}
+      <section id="reflection" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
+        <div style={contentWidth}>
+          {divider}
+          <h2 style={h2Style}>Reflection</h2>
+
+          <div style={{ ...glassCard, maxWidth: 920 }}>
+            <p style={{ ...bodyStyle, marginBottom: 18 }}>
+              Revisiting this project two years on, I consider the work appropriate for the constraints in place at the time. The three-times-daily logging requirement was a scientific prerequisite rather than a design variable, and focusing on reducing friction within that constraint was the right scope for the role.
+            </p>
+            <p style={{ ...bodyStyle, marginBottom: 18 }}>
+              What I would articulate more clearly today is the structural tension this project surfaced. In products built on subjective data, there is an inherent trade-off between lightweight input and data accuracy: the lighter the log, the lower the friction, but also the thinner the signal. Resolving that trade-off sits above the design layer — it is a product and research strategy decision. The designer&apos;s contribution, in such cases, is to make the trade-off visible to the team and to inform it with evidence, rather than to resolve it unilaterally.
+            </p>
+            <p style={bodyStyle}>
+              Had I continued on this project, the next research question I would have prioritised is <strong style={{ color: "#1a1a1a" }}>whether the three-times-daily frequency is the right operating point at all — designing a study with the data team to map the trade-off curve between input frequency and model accuracy, and exploring alternative input modalities such as voice capture, which may shift that curve entirely.</strong>
+            </p>
           </div>
         </div>
       </section>

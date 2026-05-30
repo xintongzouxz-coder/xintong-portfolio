@@ -30,7 +30,8 @@ const NAV_ITEMS: NavItem[] = [
       { id: "final-design", label: "Final Design" },
     ],
   },
-  { id: "learning", label: "LEARNING" },
+  { id: "outcome", label: "OUTCOME" },
+  { id: "reflection", label: "REFLECTION" },
 ];
 
 // Sub-sections listed before parent so the most specific match wins
@@ -51,7 +52,8 @@ const OBSERVE_IDS = [
   "solutions-daily-login",
   "solutions-data-collection",
   "final-design",
-  "learning",
+  "outcome",
+  "reflection",
 ];
 
 export default function ProrizonTOC() {
