@@ -1094,23 +1094,39 @@ export default function KodyPBBCaseB() {
               retrying a failed one.
             </p>
 
-            <div className="kody-scroll-x" style={{ marginTop: 32 }}>
-              <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-                <img
-                  src="/images/kody-pbb/wrong-variant-error.png"
-                  alt="Wrong variant error screen"
-                  style={{ height: 420, width: "auto", borderRadius: 14, display: "block", flexShrink: 0 }}
-                />
-                <img
-                  src="/images/kody-pbb/wrong-variant-pending.png"
-                  alt="Wrong variant pending/recovery screen"
-                  style={{ height: 420, width: "auto", borderRadius: 14, display: "block", flexShrink: 0 }}
-                />
-                <img
-                  src="/images/kody-pbb/wrong-variant-email.png"
-                  alt="Email and SMS for returning payer"
-                  style={{ height: 420, width: "auto", borderRadius: 14, display: "block", flexShrink: 0 }}
-                />
+            {/* Error EOP canvas */}
+            <div style={{ background: "#efeef1", aspectRatio: "1000 / 760", width: "100%", borderRadius: 20, overflow: "hidden", position: "relative", marginTop: 32 }}>
+
+              {/* Column labels */}
+              <div style={{ position: "absolute", left: "13.4%", top: "8.6%", width: "17.3%", background: "#f9f9f9", borderRadius: 10, padding: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, textAlign: "center" }}>Original error EOP</p>
+              </div>
+              <div style={{ position: "absolute", left: "47.9%", top: "8.6%", width: "39.1%", background: "#f9f9f9", borderRadius: 10, padding: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, textAlign: "center" }}>PBB Error EOP</p>
+              </div>
+
+              {/* Description text */}
+              <p style={{ position: "absolute", left: "13.4%", top: "16.7%", width: "17.3%", fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, lineHeight: 1.5 }}>
+                All error scenarios led to this general error page
+              </p>
+              <p style={{ position: "absolute", left: "47.9%", top: "16.7%", width: "39.1%", fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, lineHeight: 1.5 }}>
+                Instead of a single generic error page that gave users no useful information, I worked with engineering to identify two scenarios that happen most often — and designed for each separately
+              </p>
+
+              {/* Phone mockups */}
+              <img src="/images/kody-pbb/error-original-eop.png" alt="Original error end-of-payment screen"
+                style={{ position: "absolute", left: "13.4%", top: "31.7%", width: "17.3%", height: "auto", display: "block" }} />
+              <img src="/images/kody-pbb/error-pbb-pending.png" alt="PBB error: time lag pending screen"
+                style={{ position: "absolute", left: "47.9%", top: "31.7%", width: "17.3%", height: "auto", display: "block" }} />
+              <img src="/images/kody-pbb/error-pbb-wrong-account.png" alt="PBB error: wrong account type screen"
+                style={{ position: "absolute", left: "68.4%", top: "31.7%", width: "17.3%", height: "auto", display: "block" }} />
+
+              {/* Captions below PBB phones */}
+              <div style={{ position: "absolute", left: "47.9%", top: "85.4%", width: "17.3%", background: "#f9f9f9", borderRadius: 10, padding: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.4 }}>Time lag between the API and the bank&apos;s response</p>
+              </div>
+              <div style={{ position: "absolute", left: "69.0%", top: "85.4%", width: "16.7%", background: "#f9f9f9", borderRadius: 10, padding: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.4 }}>Authorisation with wrong account type</p>
               </div>
             </div>
           </section>
@@ -1189,60 +1205,59 @@ export default function KodyPBBCaseB() {
                   default, and the fee saving benefit is surfaced during payment
                   link creation.
                 </p>
-	                <div
-	                  style={{
-	                    background: "#fff",
-	                    aspectRatio: "780 / 340",
-	                    width: "100%",
-	                    borderRadius: 20,
-	                    overflow: "hidden",
-	                    position: "relative",
-	                  }}
-	                >
-	                  <div
-	                    style={{
-	                      position: "absolute",
-	                      left: "-2.3%",
-	                      top: 0,
-	                      width: "72.2%",
-	                      height: "100%",
-	                      borderRadius: 10,
-	                      overflow: "hidden",
-	                    }}
-	                  >
-	                    <img
-	                      alt=""
-	                      style={{
-	                        width: "100%",
-	                        height: "100%",
-	                        objectFit: "cover",
-	                        objectPosition: "left top",
-	                        display: "block",
-	                      }}
-	                      src="/images/kody-pbb/pay-bank-fee-saving-highlight.png?v=20260525-2356"
-	                    />
-	                  </div>
-	                  <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: "5%", left: "33.7%", top: "60.1%", width: "8%", borderRadius: 4 }} />
-	                  <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", height: "5.1%", left: "3.1%", top: "66.1%", width: "21.8%", borderRadius: 4 }} />
-	                  <svg viewBox="0 0 780 340" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }}>
-	                    <path d="M325,211 L517,211 L517,84 L552,84" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
-	                    <path d="M194,234 L194,252 L559,252" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
-	                  </svg>
-	                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: "71.7%", color: "#595959", fontSize: 14, top: "19.4%", width: "27.1%", margin: 0 }}>
-	                    Highlight fee savings to drive Pay by Bank adoption
-	                  </p>
-	                  <p style={{ position: "absolute", fontFamily: "var(--font-dm-sans)", fontWeight: 400, lineHeight: "normal", left: "72.3%", color: "#595959", fontSize: 14, top: "57.6%", width: "25.8%", margin: 0 }}>
-	                    Automatically deselect Pay by Bank when eligibility requirements aren&apos;t met, such as payment below £40
-	                  </p>
-	                </div>
+                <div style={{ display: "flex", borderRadius: 20, overflow: "hidden", background: "#efeef1", alignItems: "stretch", position: "relative" }}>
+                  {/* SVG connecting lines — spans full container */}
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1, overflow: "visible" }}>
+                    {/* Box 1 → Card 1: right → up to Card 1 Y → into card section */}
+                    <path d="M40,61 L55,61 L55,40 L68,40" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                    {/* Box 2 → Card 2: straight right into card section */}
+                    <path d="M26,62 L68,62" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                  </svg>
+
+                  {/* Left: screenshot with red highlights */}
+                  <div style={{ flex: "0 0 62%", position: "relative", minHeight: 300 }}>
+                    <img
+                      alt=""
+                      src="/images/kody-pbb/pay-bank-fee-saving-highlight.png"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left top", display: "block" }}
+                    />
+                    {/* Red highlight: "Save 60% in fee" badge — at ~53% left, ~57% top of image section */}
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", borderRadius: 4, left: "53%", top: "57%", width: "12%", height: "8%" }} />
+                    {/* Red highlight: "Only available for immediate payment above £40" */}
+                    <div style={{ position: "absolute", background: "rgba(243,210,210,0.3)", border: "1px solid #ff7e7e", borderRadius: 4, left: "12%", top: "59%", width: "30%", height: "5%" }} />
+                  </div>
+
+                  {/* Right: annotation cards */}
+                  <div style={{ flex: 1, padding: "32px 24px", display: "flex", flexDirection: "column", gap: 20, justifyContent: "center", position: "relative", zIndex: 2 }}>
+                    <div style={{ background: "#fff", borderRadius: 10, padding: "12px 14px", display: "flex", flexDirection: "column", gap: 6 }}>
+                      <span style={{ background: "#fde4e4", borderRadius: 4, padding: "3px 8px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: 1.6 }}>
+                        Copy &amp; framing
+                      </span>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#595959", margin: 0, lineHeight: 1.5 }}>
+                        &ldquo;Save 60% in fee&rdquo; — Highlight fee savings to drive Pay by Bank adoption
+                      </p>
+                    </div>
+                    <div style={{ background: "#fff", borderRadius: 10, padding: "12px 14px", display: "flex", flexDirection: "column", gap: 6 }}>
+                      <span style={{ background: "#fde4fa", borderRadius: 4, padding: "3px 8px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: 1.6 }}>
+                        Interaction model
+                      </span>
+                      <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#595959", margin: 0, lineHeight: 1.5 }}>
+                        Auto-deselect Pay by Bank when eligibility requirements aren&apos;t met (e.g., payment below £40) — showing it deselected, with the reason, teaches them the rule
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div>
                 <h3 style={h3Style}>2. Launch message through Intercom and email to reach the right merchants</h3>
                 <p style={{ ...bodyStyle, marginBottom: 24 }}>
-                  Intercom and email reach the managers who create payment links
-                  inside Kody Universe, without requiring another in-product
-                  messaging system.
+                  Intercom (inside Kody Universe) and email together targeted
+                  operation managers — the people who actually create links —
+                  rather than relying on business owners to pass information
+                  down. The two channels carry the same information in different
+                  shapes: Intercom leads with a visual hero for fast scanning;
+                  the email is structured for closer reading.
                 </p>
                 <div className="kody-two-col">
                   <div style={{ aspectRatio: "2880 / 2124", borderRadius: 14, overflow: "hidden", background: "#f5f7fb" }}>
@@ -1271,7 +1286,7 @@ export default function KodyPBBCaseB() {
                 </p>
                 <div
                   style={{
-                    background: "#fff",
+                    background: "#efeef1",
                     aspectRatio: "1000 / 645",
                     width: "100%",
                     borderRadius: 20,
@@ -1279,93 +1294,44 @@ export default function KodyPBBCaseB() {
                     position: "relative",
                   }}
                 >
-                    <img
-                      src="/images/kody-pbb/previous-bank-first-time.png"
-                      alt="First-time payer Pay by Bank selection"
-	                      style={{
-	                        position: "absolute",
-                        left: "28.3%",
-                        top: "12.4%",
-                        width: "20.7%",
-	                        height: "auto",
-	                        display: "block",
-	                      }}
-                    />
-                    <img
-                      src="/images/kody-pbb/previous-bank-return-payer.png"
-                      alt="Return payer previous bank selection"
-	                      style={{
-	                        position: "absolute",
-                        left: "52.5%",
-                        top: "12.4%",
-                        width: "20.6%",
-	                        height: "auto",
-	                        display: "block",
-	                      }}
-                    />
-                    <svg
-                      viewBox="0 0 100 100"
-                      preserveAspectRatio="none"
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        width: "100%",
-                        height: "100%",
-                        pointerEvents: "none",
-                        overflow: "visible",
-                      }}
-                    >
-                      <path
-                        d="M23.8,48.5 L31.6,48.5"
-                        stroke="#FF7E7E"
-                        strokeWidth="1.5"
-                        vectorEffect="non-scaling-stroke"
-                        strokeDasharray="4 4"
-                        fill="none"
-                      />
-                      <path
-                        d="M71.5,54.3 L79.3,54.3"
-                        stroke="#FF7E7E"
-                        strokeWidth="1.5"
-                        vectorEffect="non-scaling-stroke"
-                        strokeDasharray="4 4"
-                        fill="none"
-                      />
-                    </svg>
-                    <p
-                      style={{
-                        position: "absolute",
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 400,
-                        lineHeight: "normal",
-                        left: "5%",
-	                        color: "#595959",
-	                        fontSize: 14,
-                        top: "40.8%",
-                        width: "17.8%",
-                        margin: 0,
-                      }}
-                    >
-                      First-time payer: Pay by Bank is pre-selected and visually
-                      led, with bank logos shown to build recognition
+                  {/* Left phone — first-time payer */}
+                  <img
+                    src="/images/kody-pbb/pbb-first-time-payer.png"
+                    alt="First-time payer Pay by Bank selection"
+                    style={{ position: "absolute", left: "26.4%", top: "12.8%", width: "21.5%", height: "auto", display: "block" }}
+                  />
+                  {/* Right phone — return payer */}
+                  <img
+                    src="/images/kody-pbb/pbb-return-payer.png"
+                    alt="Return payer previous bank pre-filled"
+                    style={{ position: "absolute", left: "51.5%", top: "12.8%", width: "21.4%", height: "auto", display: "block" }}
+                  />
+
+                  {/* SVG dashed lines */}
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }}>
+                    <path d="M21.6,50.2 L26.4,50.2" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                    <path d="M72.9,56.2 L79.3,56.2" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                  </svg>
+
+                  {/* Left annotation card — first-time payer */}
+                  <div style={{ position: "absolute", left: "1.1%", top: "42.2%", width: "20.5%", background: "#fff", borderRadius: 10, padding: "10px", display: "flex", flexDirection: "column", gap: 4 }}>
+                    <span style={{ background: "#fde4fa", borderRadius: 4, padding: "4px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: "normal", whiteSpace: "nowrap" }}>
+                      Interaction model
+                    </span>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                      <strong>First-time payer</strong>: Pay by Bank is pre-selected and visually led, with bank logos shown to build recognition
                     </p>
-                    <p
-                      style={{
-                        position: "absolute",
-                        fontFamily: "var(--font-dm-sans)",
-                        fontWeight: 400,
-                        lineHeight: "normal",
-                        left: "80.3%",
-	                        color: "#595959",
-	                        fontSize: 14,
-                        top: "48.5%",
-                        width: "15.1%",
-                        margin: 0,
-                      }}
-                    >
-                      Return payer: their previous bank is pre-filled to speed
-                      up Pay by Bank
+                  </div>
+
+                  {/* Right annotation card — return payer */}
+                  <div style={{ position: "absolute", left: "79.3%", top: "50.2%", width: "17.7%", background: "#fff", borderRadius: 10, padding: "10px", display: "flex", flexDirection: "column", gap: 4 }}>
+                    <span style={{ background: "#fde4fa", borderRadius: 4, padding: "4px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: "normal", whiteSpace: "nowrap" }}>
+                      Interaction model
+                    </span>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#1a1a1a", margin: 0, lineHeight: 1.4 }}>
+                      <strong>Return payer</strong>: their previous bank is pre-filled to speed up Pay by Bank
                     </p>
+                  </div>
                 </div>
               </div>
 
@@ -1391,6 +1357,42 @@ export default function KodyPBBCaseB() {
                   >
                     <source src="/PBB%20flow.mp4" type="video/mp4" />
                   </video>
+                </div>
+
+                {/* Bank selection annotation canvas */}
+                <div style={{ background: "#efeef1", aspectRatio: "1000 / 640", width: "100%", borderRadius: 20, overflow: "hidden", position: "relative", marginTop: 20 }}>
+                  {/* Phone mockup — centered horizontally */}
+                  <img
+                    src="/images/kody-pbb/bank-selection-screen.png"
+                    alt="Bank selection screen"
+                    style={{ position: "absolute", left: "22.4%", top: "14.4%", width: "20.7%", height: "auto", display: "block" }}
+                  />
+
+                  {/* SVG dashed lines */}
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "visible" }}>
+                    <path d="M40.6,47.5 L48.5,47.5" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                    <path d="M40.6,74.4 L48.5,74.4" stroke="#FF7E7E" strokeWidth="1.5" vectorEffect="non-scaling-stroke" strokeDasharray="4 4" fill="none" />
+                  </svg>
+
+                  {/* Card 1 — pinned popular banks */}
+                  <div style={{ position: "absolute", left: "48.5%", top: "37.0%", width: "29.1%", background: "#fff", borderRadius: 10, padding: "10px", display: "flex", flexDirection: "column", gap: 4 }}>
+                    <span style={{ background: "#e4f2fd", borderRadius: 4, padding: "4px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: "normal", whiteSpace: "nowrap" }}>
+                      Visual hierarchy
+                    </span>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#595959", margin: 0, lineHeight: 1.4 }}>
+                      The 9 pinned banks at the top are personal variants, covering the majority of payers without changing the interaction model.
+                    </p>
+                  </div>
+
+                  {/* Card 2 — alphabetical rest */}
+                  <div style={{ position: "absolute", left: "48.5%", top: "67.3%", width: "29.1%", background: "#fff", borderRadius: 10, padding: "10px", display: "flex", flexDirection: "column", gap: 4 }}>
+                    <span style={{ background: "#e4f2fd", borderRadius: 4, padding: "4px", fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#595959", alignSelf: "flex-start", lineHeight: "normal", whiteSpace: "nowrap" }}>
+                      Visual hierarchy
+                    </span>
+                    <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "#595959", margin: 0, lineHeight: 1.4 }}>
+                      The rest of the bank options follow alphabetical order
+                    </p>
+                  </div>
                 </div>
               </div>
 
