@@ -19,14 +19,14 @@ const CASES = [
       "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
   },
   {
-    href: "/prorizon",
-    image: "/images/home/prorizon-cover.png",
-    bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
-    tags: ["B2C", "Engagement Optimisation", "Mobile App"],
-    title: "Prorizon",
-    year: "2024",
+    href: "/case-a",
+    image: "/images/kody-pbb/newroadmap.png",
+    bg: "var(--bg)",
+    tags: ["Research", "Strategy"],
+    title: "Choosing the Right Channel to Grow Pay by Bank",
+    year: "2025",
     description:
-      "Redesigned a self-record health app for young athletes to enhance user engagement",
+      "Research and strategic analysis that led to pivoting Pay by Bank from terminals to Pay by Link",
   },
   {
     href: "/design-system",
@@ -38,14 +38,14 @@ const CASES = [
       "Simplified design foundations by up to 75%, improved consistency across 4 products",
   },
   {
-    href: "/case-a",
-    image: "/images/kody-pbb/newroadmap.png",
-    bg: "var(--bg)",
-    tags: ["Research", "Strategy"],
-    title: "Choosing the Right Channel to Grow Pay by Bank",
-    year: "2025",
+    href: "/prorizon",
+    image: "/images/home/prorizon-cover.png",
+    bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
+    tags: ["B2C", "Engagement Optimisation", "Mobile App"],
+    title: "Prorizon",
+    year: "2024",
     description:
-      "Research and strategic analysis that led to pivoting Pay by Bank from terminals to Pay by Link",
+      "Redesigned a self-record health app for young athletes to enhance user engagement",
   },
 ];
 
