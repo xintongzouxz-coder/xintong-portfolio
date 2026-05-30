@@ -195,6 +195,314 @@ function NumberedItem({
   );
 }
 
+function FailsafeEmailDesign() {
+  const smallText: React.CSSProperties = {
+    fontFamily: "var(--font-dm-sans)",
+    color: "#1a1a1a",
+    margin: 0,
+  };
+
+  const stepRow = (
+    index: string,
+    text: string,
+    icon: React.ReactNode
+  ) => (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "2.2%",
+        background: "#f3f6fb",
+        borderRadius: "2.6%",
+        padding: "2.7% 3.2%",
+      }}
+    >
+      <span
+        style={{
+          width: "6.2%",
+          aspectRatio: "1",
+          borderRadius: "50%",
+          background: "#1769d8",
+          color: "#fff",
+          fontFamily: "var(--font-dm-sans)",
+          fontSize: 7,
+          fontWeight: 700,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+      >
+        {index}
+      </span>
+      <p style={{ ...smallText, fontSize: 7, lineHeight: 1.35, color: "#0a3777", flex: 1 }}>
+        {text}
+      </p>
+      <span style={{ width: 12, color: "#1769d8", display: "flex", justifyContent: "center" }}>
+        {icon}
+      </span>
+    </div>
+  );
+
+  return (
+    <div
+      style={{
+        background: "#efedf1",
+        aspectRatio: "1000 / 754",
+        width: "100%",
+        borderRadius: 20,
+        overflow: "hidden",
+        position: "relative",
+        marginTop: 32,
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          left: "16.9%",
+          top: "7.8%",
+          width: "36.1%",
+          height: "5.0%",
+          background: "#f9f9f9",
+          borderRadius: 10,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p style={{ ...smallText, fontSize: 14, textAlign: "center" }}>Failsafe Email</p>
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          left: "16.9%",
+          top: "17.2%",
+          width: "36.1%",
+          height: "69.2%",
+          background: "#f6f8fb",
+          overflow: "hidden",
+        }}
+      >
+        <div style={{ position: "absolute", left: "6.7%", top: "5.4%", display: "flex", alignItems: "center", gap: 6 }}>
+          <span
+            style={{
+              width: 20,
+              height: 20,
+              position: "relative",
+              display: "inline-block",
+            }}
+          >
+            <span
+              style={{
+                position: "absolute",
+                left: 1,
+                top: 10,
+                width: 17,
+                height: 4,
+                borderBottom: "4px solid #1769d8",
+                borderLeft: "4px solid #1769d8",
+                transform: "skew(-24deg)",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                left: 9,
+                top: 0,
+                width: 4,
+                height: 21,
+                background: "#1769d8",
+                transform: "skew(-24deg)",
+              }}
+            />
+          </span>
+          <span style={{ ...smallText, fontSize: 20, fontWeight: 700 }}>Kody</span>
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
+            left: "6.7%",
+            top: "14.0%",
+            width: "86.3%",
+            height: "71.0%",
+            background: "#fff",
+            borderRadius: 10,
+            padding: "4.4% 3.2%",
+            boxSizing: "border-box",
+          }}
+        >
+          <p style={{ ...smallText, fontSize: 7, lineHeight: 1.4, marginBottom: "4.4%" }}>Hi James,</p>
+          <p
+            style={{
+              ...smallText,
+              fontSize: 7,
+              fontWeight: 700,
+              lineHeight: 1.4,
+              marginBottom: "0.8%",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            Your previous payment attempt was still open.
+          </p>
+          <a
+            href="#"
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: 7,
+              color: "#1769d8",
+              display: "block",
+              marginBottom: "4.0%",
+              textDecoration: "underline",
+            }}
+          >
+            http://erikodkkbody.com
+          </a>
+          <p style={{ ...smallText, fontSize: 7, lineHeight: 1.4, width: "90%", marginBottom: "5.2%" }}>
+            {"This can happen if the correct banks account didn't log in or hit the balance in the account before completing the process."}
+          </p>
+
+          <p style={{ ...smallText, fontSize: 9, fontWeight: 700, marginBottom: "2.6%" }}>What should I do?</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 7, marginBottom: "5.6%" }}>
+            {stepRow(
+              "1",
+              "Confirm your selected bank account status",
+              <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
+                <path d="M4 2.5h4.7L11 4.8v6.7H4z" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M8.5 2.5v2.6H11" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              </svg>
+            )}
+            {stepRow(
+              "2",
+              "Continue with payment using the selected bank",
+              <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
+                <rect x="2" y="4" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M4 4V2.8h6V4" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                <circle cx="7" cy="7.5" r="1.2" fill="currentColor" />
+              </svg>
+            )}
+            {stepRow(
+              "3",
+              "After payment is complete, please return to [store name] and make sure you see the payment success page.",
+              <svg viewBox="0 0 14 14" width="12" height="12" aria-hidden="true">
+                <circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M4.6 7.1 6.2 8.7 9.6 5.4" fill="none" stroke="currentColor" strokeWidth="1.4" />
+              </svg>
+            )}
+          </div>
+
+          <p style={{ ...smallText, fontSize: 9, fontWeight: 700, marginBottom: "2.0%" }}>Ready to pay?</p>
+          <button
+            style={{
+              border: "none",
+              background: "#1769d8",
+              color: "#fff",
+              borderRadius: 4,
+              padding: "3.0% 5.2%",
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: 8,
+              fontWeight: 700,
+              marginBottom: "4.8%",
+            }}
+          >
+            Pay now
+          </button>
+          <p style={{ ...smallText, fontSize: 7, lineHeight: 1.45, marginBottom: "3.0%" }}>
+            If you have any questions or need further assistance, please feel free to{" "}
+            <a href="#" style={{ color: "#1769d8" }}>contact us</a>.
+          </p>
+          <p style={{ ...smallText, fontSize: 7, lineHeight: 1.4, marginBottom: "3.0%" }}>Thank you for choosing Kody!</p>
+          <p style={{ ...smallText, fontSize: 7, lineHeight: 1.4 }}>The Kody Team</p>
+        </div>
+
+        <p
+          style={{
+            ...smallText,
+            position: "absolute",
+            left: "11.4%",
+            bottom: "7.8%",
+            fontSize: 5.5,
+            color: "#4d6c99",
+            width: "74%",
+            textAlign: "center",
+          }}
+        >
+          KodyPay Ltd - Unit 42 24-28 St Leonard Road, Windsor, Berkshire, England, SL4 3BB
+        </p>
+        <p
+          style={{
+            ...smallText,
+            position: "absolute",
+            left: "43.6%",
+            bottom: "4.9%",
+            fontSize: 5.5,
+            color: "#1769d8",
+            textDecoration: "underline",
+          }}
+        >
+          Unsubscribe
+        </p>
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          left: "19.6%",
+          top: "31.0%",
+          width: "20.9%",
+          height: "2.25%",
+          border: "1.5px solid #ff5f5f",
+          borderRadius: 4,
+          boxSizing: "border-box",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: "40.5%",
+          top: "32.2%",
+          width: "19.8%",
+          borderTop: "1.5px dashed #ff5f5f",
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          left: "60.3%",
+          top: "26.8%",
+          width: "29.1%",
+          minHeight: "13.1%",
+          background: "#fff",
+          borderRadius: 10,
+          padding: "1.0%",
+          boxSizing: "border-box",
+        }}
+      >
+        <span
+          style={{
+            display: "inline-block",
+            background: "#f8e7e7",
+            color: "#8f5d5d",
+            borderRadius: 4,
+            padding: "0.8% 2.4%",
+            fontFamily: "var(--font-dm-sans)",
+            fontSize: 10,
+            marginBottom: "3.0%",
+          }}
+        >
+          Copy & framing
+        </span>
+        <p style={{ ...smallText, fontSize: 16, lineHeight: 1.28, color: "#595959" }}>
+          Using less tense copy — &apos;your payment is still open&apos; — to make clear this is not the payer&apos;s fault or a Pay by Bank failure
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function ReflectionBlock({
   index,
   title,
@@ -1129,6 +1437,8 @@ export default function KodyPBBCaseB() {
                 <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 10, color: "#1a1a1a", margin: 0, textAlign: "center", lineHeight: 1.4 }}>Authorisation with wrong account type</p>
               </div>
             </div>
+
+            <FailsafeEmailDesign />
           </section>
 
           <section id="prototype" style={{ background: "#fafafa", paddingBottom: sectionGap }}>

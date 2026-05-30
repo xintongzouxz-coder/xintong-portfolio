@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, DM_Sans, DM_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import BirdCursor from "@/components/BirdCursor";
 
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="min-h-full">
         <BirdCursor />
         {children}
+        <Analytics />
       </body>
     </html>
   );
