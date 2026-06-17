@@ -1102,7 +1102,7 @@ export default function KodyPBBCaseB() {
 
         <div style={{ background: "#fff", width: "100%" }}>
           <img
-            src="/images/kody-pbb/head.png"
+            src="/images/kody-pbb/head.webp"
             alt="Kody Pay by Bank overview"
             style={{ width: "100%", display: "block" }}
           />

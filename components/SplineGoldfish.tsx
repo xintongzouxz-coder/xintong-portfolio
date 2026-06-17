@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 
 const SCENE_URL = "https://prod.spline.design/8nPmqtgUtNLiByGi/scene.splinecode";
 const FISH_NAME = "ryukin_goldfish";
@@ -11,9 +11,11 @@ const MID_SPEED_BOOST = 0.2;   // 20% faster in the middle
 const IDLE_DELAY = 1500;
 const WORLD_SCALE = 2;
 const FLIP_LERP_BASE = 0.02;
+const PRELOAD_DELAY_MS = 1200;
 
 export default function SplineGoldfish({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
   const stateRef = useRef<{
     app: { dispose: () => void } | null;
     fish: { position: { x: number; y: number }; rotation: { y: number } } | null;
@@ -93,6 +95,54 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
   }, []);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    let preloadTimer: number | null = null;
+    let idleCallback: number | null = null;
+
+    const loadWhenIdle = () => {
+      preloadTimer = window.setTimeout(() => {
+        if ("requestIdleCallback" in window) {
+          idleCallback = window.requestIdleCallback(() => setShouldLoad(true), { timeout: 1500 });
+        } else {
+          setShouldLoad(true);
+        }
+      }, PRELOAD_DELAY_MS);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "2200px 0px" },
+    );
+
+    observer.observe(canvas);
+    if (document.readyState === "complete") {
+      loadWhenIdle();
+    } else {
+      window.addEventListener("load", loadWhenIdle, { once: true });
+    }
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("load", loadWhenIdle);
+      if (preloadTimer) window.clearTimeout(preloadTimer);
+      if (idleCallback) window.cancelIdleCallback(idleCallback);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoad) return;
+
     let cancelled = false;
     const s = stateRef.current;
 
@@ -234,7 +284,7 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       if (s.raf) cancelAnimationFrame(s.raf);
       if (s.app) s.app.dispose();
     };
-  }, [screenToWorld, updateBounds, pickRandomY, getSpeedMultiplier]);
+  }, [shouldLoad, screenToWorld, updateBounds, pickRandomY, getSpeedMultiplier]);
 
   return <canvas ref={canvasRef} className={className} style={{ width: "100%", height: "100%", pointerEvents: "none" }} />;
 }

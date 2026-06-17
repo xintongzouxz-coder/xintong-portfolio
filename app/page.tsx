@@ -9,7 +9,7 @@ import Link from "next/link";
 const CASES = [
   {
     href: "/kody-pbb-b",
-    image: "/images/kody-pbb/head.png",
+    image: "/images/kody-pbb/head.webp",
     bg: "var(--bg)",
     imageScale: 1.2,
     tags: ["B2B2C", "Adoption & Growth", "Cross-channel", "AI-assisted"],
@@ -20,7 +20,7 @@ const CASES = [
   },
   {
     href: "/case-a",
-    image: "/images/kody-pbb/newroadmap.png",
+    image: "/images/kody-pbb/newroadmap.webp",
     bg: "var(--bg)",
     tags: ["Research", "Strategy"],
     title: "Choosing the Right Channel to Grow Pay by Bank",
@@ -30,7 +30,7 @@ const CASES = [
   },
   {
     href: "/design-system",
-    image: "/images/home/design-system-cover.png",
+    image: "/images/home/design-system-cover.webp",
     tags: ["Design System", "AI-assisted"],
     title: "Rebuilding the Kody Design System",
     year: "2025",
@@ -39,7 +39,7 @@ const CASES = [
   },
   {
     href: "/prorizon",
-    image: "/images/home/prorizon-cover.png",
+    image: "/images/home/prorizon-cover.webp",
     bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
@@ -197,7 +197,7 @@ export default function Home() {
           </div>
           {/* Barbican Plants */}
           <div className="other-card" style={{ flex: 1, borderRadius: 20, overflow: "hidden", aspectRatio: "1200 / 684" }}>
-            <img src="/images/home/barbican.png" alt="Barbican Plants" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            <img src="/images/home/barbican.webp" alt="Barbican Plants" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
         </div>
       </section>

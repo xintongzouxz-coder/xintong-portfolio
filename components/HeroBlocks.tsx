@@ -9,13 +9,13 @@ const IMG = {
   fileFront:    "/images/ui/file-front.png",
   fileBack2:    "/images/ui/file-back-2.png",
   fileFront2:   "/images/ui/file-front-2.png",
-  prorizon:     "/images/home/prorizon.png",
-  payByBank:    "/images/home/pay-by-bank.png",
-  designSystem: "/images/home/design-system.png",
+  prorizon:     "/images/home/prorizon.webp",
+  payByBank:    "/images/home/pay-by-bank.webp",
+  designSystem: "/images/home/design-system.webp",
   profile:      "/images/home/profile.jpg",
-  barbican:     "/images/home/barbican.png",
-  goldfish:     "/images/home/goldfish.png",
-  brain:        "/images/home/brain.png",
+  barbican:     "/images/home/barbican.webp",
+  goldfish:     "/images/home/goldfish.webp",
+  brain:        "/images/home/brain.webp",
 };
 
 const stackGrid: CSSProperties = {
