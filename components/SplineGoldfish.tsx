@@ -12,10 +12,13 @@ const IDLE_DELAY = 1500;
 const WORLD_SCALE = 2;
 const FLIP_LERP_BASE = 0.02;
 const PRELOAD_DELAY_MS = 1200;
+const RETRY_DELAYS_MS = [2000, 6000, 12000];
 
 export default function SplineGoldfish({ className = "" }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [retryIndex, setRetryIndex] = useState(0);
   const stateRef = useRef<{
     app: { dispose: () => void } | null;
     fish: { position: { x: number; y: number }; rotation: { y: number } } | null;
@@ -144,35 +147,48 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
     if (!shouldLoad) return;
 
     let cancelled = false;
+    let retryTimer: number | null = null;
     const s = stateRef.current;
 
     async function init() {
-      const { Application } = await import("@splinetool/runtime");
-      if (cancelled) return;
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const app = new Application(canvas);
-      await app.load(SCENE_URL);
-      if (cancelled) return;
-      const fish = app.findObjectByName(FISH_NAME);
-      if (!fish) { console.warn(`Object "${FISH_NAME}" not found`); return; }
+      try {
+        const { Application } = await import("@splinetool/runtime");
+        if (cancelled) return;
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const app = new Application(canvas);
+        await app.load(SCENE_URL);
+        if (cancelled) {
+          app.dispose();
+          return;
+        }
+        const fish = app.findObjectByName(FISH_NAME);
+        if (!fish) throw new Error(`Object "${FISH_NAME}" not found`);
 
-      s.app = app;
-      s.fish = fish;
-      s.initialFishX = fish.position.x;
-      s.initialFishY = fish.position.y;
-      s.initialRotY = fish.rotation.y;
-      s.currentRotY = fish.rotation.y;
-      s.targetRotY = fish.rotation.y;
-      s.fishX = fish.position.x;
-      s.fishY = fish.position.y;
-      s.sceneWidth = canvas.clientWidth;
-      s.sceneHeight = canvas.clientHeight;
-      s.direction = 1;
-      updateBounds();
-      s.swimTargetY = fish.position.y;
-      s.loaded = true;
-      loop();
+        s.app = app;
+        s.fish = fish;
+        s.initialFishX = fish.position.x;
+        s.initialFishY = fish.position.y;
+        s.initialRotY = fish.rotation.y;
+        s.currentRotY = fish.rotation.y;
+        s.targetRotY = fish.rotation.y;
+        s.fishX = fish.position.x;
+        s.fishY = fish.position.y;
+        s.sceneWidth = canvas.clientWidth;
+        s.sceneHeight = canvas.clientHeight;
+        s.direction = 1;
+        updateBounds();
+        s.swimTargetY = fish.position.y;
+        s.loaded = true;
+        setIsLoaded(true);
+        loop();
+      } catch (error) {
+        console.warn("Failed to load Spline goldfish scene", error);
+        if (cancelled || retryIndex >= RETRY_DELAYS_MS.length) return;
+        retryTimer = window.setTimeout(() => {
+          setRetryIndex((current) => current + 1);
+        }, RETRY_DELAYS_MS[retryIndex]);
+      }
     }
 
     function loop() {
@@ -281,10 +297,42 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
       cancelled = true;
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onResize);
+      if (retryTimer) window.clearTimeout(retryTimer);
       if (s.raf) cancelAnimationFrame(s.raf);
       if (s.app) s.app.dispose();
     };
-  }, [shouldLoad, screenToWorld, updateBounds, pickRandomY, getSpeedMultiplier]);
+  }, [shouldLoad, retryIndex, screenToWorld, updateBounds, pickRandomY, getSpeedMultiplier]);
 
-  return <canvas ref={canvasRef} className={className} style={{ width: "100%", height: "100%", pointerEvents: "none" }} />;
+  return (
+    <div className={className} style={{ position: "relative", width: "100%", height: "100%" }}>
+      {!isLoaded && (
+        <img
+          src="/images/home/goldfish.webp"
+          alt=""
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            padding: "8%",
+            opacity: 0.9,
+          }}
+        />
+      )}
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          opacity: isLoaded ? 1 : 0,
+          pointerEvents: "none",
+          transition: "opacity 240ms ease",
+        }}
+      />
+    </div>
+  );
 }
