@@ -315,9 +315,8 @@ export default function SplineGoldfish({ className = "" }: { className?: string 
             inset: 0,
             width: "100%",
             height: "100%",
-            objectFit: "contain",
-            padding: "8%",
-            opacity: 0.9,
+            objectFit: "cover",
+            opacity: 1,
           }}
         />
       )}
