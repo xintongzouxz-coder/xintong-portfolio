@@ -117,7 +117,6 @@ function ImgPlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: st
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 const products = [
-  { name: "Terminal", desc: "Offline payment experience" },
   { name: "Terminal APP", desc: "Android companion app" },
   { name: "Receipt", desc: "Physical artefact that is printed" },
   { name: "Kody App", desc: "Bank application" },
@@ -187,20 +186,44 @@ export default function DesignSystem() {
           </div>
         </div>
 
-        {/* Opening statement */}
+        {/* Overview summary */}
         <div style={overviewWidth}>
           <div style={{ paddingTop: 80, paddingBottom: sectionGap }}>
-            <div style={{ ...blockquoteStyle, margin: "0 0 40px" }}>
-              <p style={blockquoteTextStyle}>
-                "Reduced foundation tokens by 76%, cutting design-to-code handoff ambiguity and enabling a 16% reduction in receipt paper usage across the merchant network."
-              </p>
+            <div className="ds-overview-summary-grid">
+              <div>
+                <p className="ds-overview-summary-label">My role</p>
+                <p className="ds-overview-summary-text">
+                  Collaborated with three designers on the UI audit. I then
+                  proposed the core component spec structure, optimised receipt
+                  design, created Terminal's source of truth, and proposed the
+                  AI-assisted validation workflow.
+                </p>
+              </div>
+              <div>
+                <p className="ds-overview-summary-label">Goal</p>
+                <p className="ds-overview-summary-text">
+                  Turn Kody's fragmented product UI into a scalable shared
+                  system across Terminal, Receipt, Kody App, and Universe.
+                </p>
+              </div>
+              <div>
+                <p className="ds-overview-summary-label">Outcome</p>
+                <p className="ds-overview-summary-text">
+                  Defined a cleaner token foundation, rebuilt core component
+                  specs, and created a source of truth for design, engineering,
+                  and QA.
+                </p>
+              </div>
+              <div>
+                <p className="ds-overview-summary-label">Impact</p>
+                <p className="ds-overview-summary-text">
+                  Reduced foundation tokens by{" "}
+                  <strong style={{ fontWeight: 700 }}>76%</strong> and enabled a{" "}
+                  <strong style={{ fontWeight: 700 }}>16%</strong> reduction in
+                  receipt paper usage across the merchant network.
+                </p>
+              </div>
             </div>
-            <p style={{ ...bodyStyle, marginBottom: 16, maxWidth: "none" }}>
-              Kody's product ecosystem had grown into four platforms, each evolving independently. As the system scaled, the UI became fragmented — slowing down delivery, creating inconsistencies, and making design-to-development alignment difficult.
-            </p>
-            <p style={{ ...bodyStyle, maxWidth: "none" }}>
-              I led efforts to bring structure by defining a shared foundation and constrained reusable components that could scale across 4 products.
-            </p>
           </div>
         </div>
       </section>
@@ -227,10 +250,36 @@ export default function DesignSystem() {
           flex: 1;
           min-width: 0;
         }
+        .ds-overview-summary-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 40px;
+        }
+        .ds-overview-summary-label {
+          font-family: var(--font-dm-sans);
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: rgba(26,26,26,0.42);
+          margin: 0 0 18px;
+        }
+        .ds-overview-summary-text {
+          font-family: var(--font-dm-sans);
+          font-size: 16px;
+          line-height: 1.6;
+          letter-spacing: 0;
+          color: #1a1a1a;
+          margin: 0;
+        }
         @media (max-width: 900px) {
           .ds-with-sidebar { flex-direction: column; padding: 0 24px; }
           .ds-sidebar-col { display: none; }
           .ds-content-col { width: 100%; }
+          .ds-overview-summary-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
         }
       `}</style>
 
@@ -248,8 +297,11 @@ export default function DesignSystem() {
             {divider}
             <h2 style={h2Style}>Multiplatform</h2>
 
+            <p style={{ ...bodyStyle, marginBottom: 16 }}>
+              Kody's product ecosystem had grown across multiple platforms, each evolving independently. As the system scaled, the UI became fragmented, slowing delivery, creating inconsistencies, and making design-to-development alignment difficult.
+            </p>
             <p style={{ ...bodyStyle, marginBottom: 24 }}>
-              Kody has multiple product streams:
+              The ecosystem included:
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 32 }}>
