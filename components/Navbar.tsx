@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 const links = [
   { href: "/#work", label: "Project", scrollTo: "work" },
   { href: "/#about", label: "About", scrollTo: "about" },
-  { href: "https://drive.google.com/file/d/1924WuV6Dt1wOkeWYqD7g3Mbh6cJFMudu/view?usp=sharing", label: "Resume", external: true },
+  { href: "https://drive.google.com/file/d/17sD8-9p0Xe5dSLm35-op0V2FNN-Htglv/view?usp=sharing", label: "Resume", external: true },
 ];
 
 function scrollEaseOut(targetId: string) {
