@@ -19,16 +19,6 @@ const CASES = [
       "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
   },
   {
-    href: "/case-a",
-    image: "/images/kody-pbb/newroadmap.webp",
-    bg: "var(--bg)",
-    tags: ["Research", "Strategy"],
-    title: "Choosing the Right Channel to Grow Pay by Bank",
-    year: "2025",
-    description:
-      "Research and strategic analysis that led to pivoting Pay by Bank from terminals to Pay by Link",
-  },
-  {
     href: "/design-system",
     image: "/images/home/design-system-cover.webp",
     tags: ["Design System", "AI-assisted"],
@@ -131,10 +121,9 @@ export default function Home() {
           className="case-cards-grid"
           style={{
             display: "flex",
-            flexWrap: "wrap",
+            flexDirection: "column",
             gap: 60,
-            justifyContent: "center",
-            alignItems: "flex-start",
+            alignItems: "center",
           }}
         >
           {CASES.map((c) => (

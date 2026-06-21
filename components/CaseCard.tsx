@@ -18,7 +18,7 @@ interface CaseCardProps {
 }
 
 export default function CaseCard({ href, image, bg, imageScale, hoverVideo, hoverLottie, tags, title, year, description }: CaseCardProps) {
-  const fillStyle = { flex: "1 1 calc(50% - 30px)", minWidth: 0 } as const;
+  const fillStyle = { flex: "0 0 auto", width: "calc(50% - 30px)", minWidth: 0 } as const;
   const videoRef = useRef<HTMLVideoElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const lottieWrapRef = useRef<HTMLDivElement>(null);
