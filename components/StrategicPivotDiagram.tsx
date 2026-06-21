@@ -10,7 +10,18 @@ const assets = {
 const CANVAS_W = 3320;
 const CANVAS_H = 3203;
 
-export default function StrategicPivotDiagram() {
+export default function StrategicPivotDiagram({
+  swapPhaseColors = false,
+}: {
+  swapPhaseColors?: boolean;
+}) {
+  const phaseOneColor = swapPhaseColors ? "#d420c5" : "#1566d1";
+  const phaseTwoColor = swapPhaseColors ? "#1566d1" : "#d420c5";
+  const phaseOneDot = swapPhaseColors ? assets.pinkDot : assets.blueDot;
+  const phaseTwoDot = swapPhaseColors ? assets.blueDot : assets.pinkDot;
+  const phaseOneVector = swapPhaseColors ? assets.vector241 : assets.vector242;
+  const phaseTwoVector = swapPhaseColors ? assets.vector242 : assets.vector241;
+
   const axisLabel: React.CSSProperties = {
     fontFamily: "var(--font-dm-sans)",
     fontWeight: 700,
@@ -70,12 +81,12 @@ export default function StrategicPivotDiagram() {
           {/* ── Background vectors ── */}
           <div style={{ position: "absolute", height: 2107.097, left: 913, top: 351.34, width: 2206.285 }}>
             <div style={{ position: "absolute", top: "-9.52%", right: "-9.09%", bottom: "-9.52%", left: "-9.09%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector242} />
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={phaseOneVector} />
             </div>
           </div>
           <div style={{ position: "absolute", height: 1643.292, left: 265.74, top: 200.81, width: 1763.837 }}>
             <div style={{ position: "absolute", top: "-12.17%", right: "-11.34%", bottom: "-12.17%", left: "-11.34%" }}>
-              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={assets.vector241} />
+              <img alt="" style={{ display: "block", maxWidth: "none", width: "100%", height: "100%" }} src={phaseTwoVector} />
             </div>
           </div>
 
@@ -124,9 +135,9 @@ export default function StrategicPivotDiagram() {
           {/* ── Integrate PBB into PBL ── */}
           <div style={{ ...card, left: 628, top: 469, width: 900 }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={phaseOneDot} />
             </div>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseOneColor, whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               Integrate PBB into PBL
             </p>
           </div>
@@ -134,9 +145,9 @@ export default function StrategicPivotDiagram() {
           {/* ── Deprioritise PBB on terminal ── */}
           <div style={{ ...card, left: 769, top: 965, width: "max-content" }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={phaseOneDot} />
             </div>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseOneColor, whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               Deprioritise PBB on terminal
             </p>
           </div>
@@ -144,9 +155,9 @@ export default function StrategicPivotDiagram() {
           {/* ── Expand bank coverage ── */}
           <div style={{ ...card, left: 265, top: 1540, width: "max-content" }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.blueDot} />
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={phaseOneDot} />
             </div>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseOneColor, whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               Expand bank coverage
             </p>
           </div>
@@ -154,9 +165,9 @@ export default function StrategicPivotDiagram() {
           {/* ── Highlight PBB cost-saving benefits ── */}
           <div style={{ ...card, left: 785, top: 1760, width: "max-content" }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={phaseTwoDot} />
             </div>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseTwoColor, whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               Highlight PBB&apos;s cost-saving benefits
             </p>
           </div>
@@ -164,31 +175,31 @@ export default function StrategicPivotDiagram() {
           {/* ── Non-interactive labels ── */}
           <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", justifyContent: "center", left: 1995, padding: 40, borderRadius: 20, top: 594 }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={phaseTwoDot} />
             </div>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", lineHeight: "normal", width: 763, margin: 0 }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseTwoColor, lineHeight: "normal", width: 763, margin: 0 }}>
               Terminal: explore new interaction methods (e.g., NFC)
             </p>
           </div>
           <div style={{ position: "absolute", background: "#fff", display: "flex", gap: 40, alignItems: "center", left: 1925, padding: 40, borderRadius: 20, top: 2115 }}>
             <div style={{ position: "relative", flexShrink: 0, width: 24, height: 24 }}>
-              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={assets.pinkDot} />
+              <img alt="" style={{ position: "absolute", inset: 0, maxWidth: "none", width: "100%", height: "100%" }} src={phaseTwoDot} />
             </div>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseTwoColor, whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               Refund support
             </p>
           </div>
 
           {/* ── Legend ── */}
           <div style={{ position: "absolute", display: "flex", gap: 40, alignItems: "center", left: 145, top: 3014 }}>
-            <div style={{ background: "rgba(21,102,209,0.6)", borderRadius: 20, flexShrink: 0, width: 125, height: 125 }} />
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#1566d1", whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
+            <div style={{ background: swapPhaseColors ? "rgba(212,32,197,0.44)" : "rgba(21,102,209,0.6)", borderRadius: 20, flexShrink: 0, width: 125, height: 125 }} />
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseOneColor, whiteSpace: "nowrap", margin: 0, lineHeight: "12.964px" }}>
               Phase One: Focus on key users&apos; needs
             </p>
           </div>
           <div style={{ position: "absolute", display: "flex", gap: 40, alignItems: "center", left: 1660, top: 3014 }}>
-            <div style={{ background: "rgba(212,32,197,0.44)", borderRadius: 20, flexShrink: 0, width: 125, height: 125 }} />
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: "#d420c5", whiteSpace: "nowrap", margin: 0, lineHeight: "normal" }}>
+            <div style={{ background: swapPhaseColors ? "rgba(21,102,209,0.6)" : "rgba(212,32,197,0.44)", borderRadius: 20, flexShrink: 0, width: 125, height: 125 }} />
+            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 700, fontSize: 64, color: phaseTwoColor, whiteSpace: "nowrap", margin: 0, lineHeight: "normal" }}>
               Phase Two: Expand to broader merchant base
             </p>
           </div>

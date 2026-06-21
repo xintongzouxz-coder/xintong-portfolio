@@ -8,7 +8,7 @@ import Link from "next/link";
 // ── Case cards ────────────────────────────────────────────────────────────────
 const CASES = [
   {
-    href: "/kody-pbb-b",
+    href: "/pbb",
     image: "/images/kody-pbb/head.webp",
     bg: "var(--bg)",
     imageScale: 1.2,

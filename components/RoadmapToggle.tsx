@@ -4,7 +4,11 @@ import { useState } from "react";
 import StrategicPivotDiagram from "./StrategicPivotDiagram";
 import OriginalRoadmapDiagram from "./OriginalRoadmapDiagram";
 
-export default function RoadmapToggle() {
+export default function RoadmapToggle({
+  swapPhaseColors = false,
+}: {
+  swapPhaseColors?: boolean;
+}) {
   const [showNew, setShowNew] = useState(true);
 
   return (
@@ -12,7 +16,7 @@ export default function RoadmapToggle() {
       {/* Diagrams */}
       <div>
         <div style={{ display: showNew ? "block" : "none" }}>
-          <StrategicPivotDiagram />
+          <StrategicPivotDiagram swapPhaseColors={swapPhaseColors} />
         </div>
         <div style={{ display: showNew ? "none" : "block" }}>
           <OriginalRoadmapDiagram />
