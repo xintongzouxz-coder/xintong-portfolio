@@ -179,6 +179,20 @@ export default function DesignSystem() {
               >
                 Rebuilding the Kody Design System
               </h1>
+              <p
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  fontSize: "clamp(15px, 1.5vw, 18px)",
+                  lineHeight: 1.55,
+                  color: "rgba(26,26,26,0.55)",
+                  margin: "24px 0 0",
+                }}
+              >
+                How I helped turn a fragmented multi-platform product UI into a
+                shared foundation, reusable component structure, and source of
+                truth that improved handoff clarity and reduced receipt paper
+                usage.
+              </p>
             </div>
             <div>
               <Image src="/images/kody-design-system/hero.png" alt="旧版 Kody 设计系统全览" width={6180} height={4400} style={{ ...imgStyle }} />
