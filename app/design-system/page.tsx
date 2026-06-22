@@ -341,14 +341,16 @@ export default function DesignSystem() {
             </p>
           </section>
 
-          {/* ── Evidence of system fragmentation ── */}
+          {/* ── Problem framing ── */}
           <section id="problem" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
-            <h2 style={h2Style}>Evidence of system fragmentation</h2>
+            <h2 style={h2Style}>Problem Framing: From Fragmentation to Team Cost</h2>
 
             <p style={{ ...bodyStyle, marginBottom: 40 }}>
-              I conducted a UI audit across products revealed significant inconsistency in both foundations and components.
+              I collaborated with three designers to audit Kody's product UI across platforms. The goal was not just to count inconsistencies, but to understand where fragmented design decisions were slowing down delivery, QA, and engineering handoff.
             </p>
+
+            <h3 style={{ ...h3Style, marginBottom: 20 }}>Audit evidence</h3>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 48 }}>
               {findings.map((f, i) => (
@@ -409,20 +411,16 @@ export default function DesignSystem() {
             </div>
 
             <p style={{ ...bodyStyle, marginTop: 32, marginBottom: 24 }}>
-              After Audit i led a cross-functional workshop to align the these findings design, engineering, and QA.
+              After the audit, I brought the findings into a cross-functional workshop with design, engineering, and QA. The key shift was reframing visual inconsistency as a team cost: unclear implementation decisions, repeated QA checks, and duplicated component work.
             </p>
 
-            <div style={{ maxWidth: "70%", margin: "0 auto" }}>
+            <div style={{ maxWidth: "70%", margin: "0 auto 48px" }}>
               <Image src="/images/kody-design-system/key-issues.png" alt="Design system SWOT workshop FigJam" width={930} height={644} style={{ ...imgStyle }} />
             </div>
-          </section>
 
-          {/* ── Key Issues ── */}
-          <section id="key-issues" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
-            {divider}
-            <h2 style={h2Style}>Key Issues</h2>
+            <h3 style={{ ...h3Style, marginBottom: 20 }}>What it caused</h3>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 48 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
               {/* Developers */}
               <div style={glassCard}>
                 <span style={{ fontFamily: "var(--font-dm-sans)", fontSize: 11, fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase" as const, color: "rgba(26,26,26,0.4)", display: "block", marginBottom: 8 }}>
@@ -469,6 +467,10 @@ export default function DesignSystem() {
             {divider}
             <h2 style={h2Style}>North Star design principles</h2>
 
+            <p style={{ ...bodyStyle, marginBottom: 32 }}>
+              Because the problem was a scaling issue rather than a visual refresh, the design principles focused on reducing ambiguity without forcing a full product redesign.
+            </p>
+
             <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
               {principles.map(({ icon, title, body }) => (
                 <div key={title} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
@@ -493,10 +495,10 @@ export default function DesignSystem() {
             </div>
           </section>
 
-          {/* ── Solution ── */}
+          {/* ── System interventions ── */}
           <section id="solutions" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
-            <h2 style={h2Style}>Solution</h2>
+            <h2 style={h2Style}>System interventions</h2>
 
             {/* 01 — Source of truth */}
             <div id="solutions-source-of-truth" style={{ marginBottom: 80 }}>

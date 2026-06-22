@@ -8,12 +8,11 @@ type NavItem = { id: string; label: string; subItems?: SubItem[] };
 const NAV_ITEMS: NavItem[] = [
   { id: "overview", label: "OVERVIEW" },
   { id: "multiplatform", label: "MULTIPLATFORM" },
-  { id: "problem", label: "PROBLEM" },
-  { id: "key-issues", label: "KEY ISSUES" },
+  { id: "problem", label: "PROBLEM FRAMING" },
   { id: "north-star", label: "NORTH STAR" },
   {
     id: "solutions",
-    label: "SOLUTIONS",
+    label: "SYSTEM INTERVENTIONS",
     subItems: [
       { id: "solutions-source-of-truth", label: "Source of truth" },
       { id: "solutions-token-system", label: "Define a token system" },
@@ -32,7 +31,6 @@ const OBSERVE_IDS = [
   "overview",
   "multiplatform",
   "problem",
-  "key-issues",
   "north-star",
   "solutions",
   "solutions-source-of-truth",
