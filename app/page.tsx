@@ -19,6 +19,15 @@ const CASES = [
       "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
   },
   {
+    href: "#",
+    image: "/images/home/kitchen-ticketing-cover.png",
+    tags: ["B2B", "Operation", "Usability Redesign"],
+    title: "Counter-side Pickup Coordination for Food Court Vendors",
+    year: "2025",
+    description:
+      "Improving how frontline staff coordinate the handover between kitchen output, printed tickets, digital orders and customer pickup notifications.",
+  },
+  {
     href: "/design-system",
     image: "/images/home/design-system-cover.webp",
     tags: ["Design System", "AI-assisted"],
@@ -121,8 +130,9 @@ export default function Home() {
           className="case-cards-grid"
           style={{
             display: "flex",
-            flexDirection: "column",
+            flexWrap: "wrap",
             gap: 60,
+            justifyContent: "center",
             alignItems: "center",
           }}
         >
