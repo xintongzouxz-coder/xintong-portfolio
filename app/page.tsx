@@ -20,7 +20,7 @@ const CASES = [
   },
   {
     href: "#",
-    image: "/images/home/kitchen-ticketing-cover.png",
+    image: "/images/home/kitchen-ticketing-cover.webp",
     tags: ["B2B", "Operation", "Usability Redesign"],
     title: "Counter-side Pickup Coordination for Food Court Vendors",
     year: "2025",
