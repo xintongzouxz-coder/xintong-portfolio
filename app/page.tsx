@@ -19,7 +19,7 @@ const CASES = [
       "Pivoting Pay by Bank from POS terminals to payment links increased adoption by 120%",
   },
   {
-    href: "/counter-pickup",
+    href: "#",
     image: "/images/home/kitchen-ticketing-cover.webp",
     tags: ["B2B", "Operation", "Usability Redesign"],
     title: "Counter-side Pickup Coordination for Food Court Vendors",
