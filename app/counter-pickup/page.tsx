@@ -87,6 +87,64 @@ function ImgPlaceholder({ label, aspect = "16/9" }: { label: string; aspect?: st
   );
 }
 
+function BeforeAfterImages() {
+  const items = [
+    {
+      label: "Before",
+      src: "/images/counter-pickup/ticket-queue-before.png",
+      alt: "Before: Kody CRM transaction list designed around back-office order management.",
+    },
+    {
+      label: "After",
+      src: "/images/counter-pickup/ticket-queue-after.png",
+      alt: "After: counter-first ticket queue with visible actions and urgency states.",
+    },
+  ];
+
+  return (
+    <div className="pickup-two-col">
+      {items.map((item) => (
+        <figure key={item.label} style={{ margin: 0 }}>
+          <figcaption
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "rgba(26,26,26,0.52)",
+              marginBottom: 12,
+            }}
+          >
+            {item.label}
+          </figcaption>
+          <div
+            style={{
+              height: "clamp(200px, 17vw, 320px)",
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
+            }}
+          >
+            <img
+              src={item.src}
+              alt={item.alt}
+              style={{
+                height: "100%",
+                width: "auto",
+                maxWidth: "100%",
+                objectFit: "contain",
+                borderRadius: 14,
+                display: "block",
+              }}
+            />
+          </div>
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 const overviewItems = [
   {
     label: "My role",
@@ -344,9 +402,19 @@ export default function CounterPickupCase() {
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               I also introduced Due Soon and Overdue states to reduce manual timestamp checking. Instead of interpreting raw time data under pressure, staff could identify risky tickets through clear attention signals.
             </p>
-            <ImgPlaceholder label="Placeholder - first round ticket queue explorations" />
+            <BeforeAfterImages />
             <div style={{ height: 28 }} />
-            <ImgPlaceholder label="Placeholder - Due Soon and Overdue state system" />
+            <img
+              src="/images/counter-pickup/order-received-urgency-states.png"
+              alt="Received order queue showing due soon and overdue urgency states."
+              style={{ ...imgStyle, width: "70%", margin: "0 auto" }}
+            />
+            <div style={{ height: 28 }} />
+            <img
+              src="/images/counter-pickup/ticket-status-system.png"
+              alt="Ticket status system showing received, ready, completed, due soon, and overdue states."
+              style={imgStyle}
+            />
           </section>
 
           <section id="safer-actions" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
@@ -355,7 +423,14 @@ export default function CounterPickupCase() {
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               Because wrong customer notifications had immediate consequences, I designed a short undo window before the backend sent the message. This allowed staff to recover from accidental taps without adding friction to the normal workflow.
             </p>
-            <ImgPlaceholder label="Placeholder - undo interaction flow" />
+            <video
+              src="/undo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ ...imgStyle, width: "70%", margin: "0 auto" }}
+            />
           </section>
 
           <section id="availability" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
@@ -364,7 +439,14 @@ export default function CounterPickupCase() {
             <p style={{ ...bodyStyle, marginBottom: 32 }}>
               Stock changes happened constantly during service, but not every change meant an item was permanently sold out. I designed temporary availability controls so staff could pause items for short operational windows without leaving the service workflow.
             </p>
-            <ImgPlaceholder label="Placeholder - item availability controls" />
+            <video
+              src="/item%20availability.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ ...imgStyle, width: "70%", margin: "0 auto" }}
+            />
           </section>
 
           <section id="final-design" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
