@@ -37,7 +37,7 @@ const CASES = [
       "Simplified design foundations by up to 75%, improved consistency across 4 products",
   },
   {
-    href: "/prorizon",
+    href: "#",
     image: "/images/home/prorizon-cover.webp",
     bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
