@@ -21,7 +21,6 @@ const NAV_ITEMS: NavItem[] = [
   },
   { id: "final-design", label: "FINAL DESIGN" },
   { id: "result", label: "RESULT" },
-  { id: "reflection", label: "REFLECTION" },
 ];
 
 const OBSERVE_IDS = [
@@ -33,7 +32,6 @@ const OBSERVE_IDS = [
   "availability",
   "final-design",
   "result",
-  "reflection",
 ];
 
 export default function CounterPickupTOC() {

@@ -160,7 +160,7 @@ const overviewItems = [
   },
   {
     label: "Impact",
-    text: "Piloted across 8 venues, supporting 350-500 daily orders, reaching 100% counter staff adoption and a reported 30% efficiency improvement.",
+    text: "Piloted across 8 venues, supporting 350-500 daily orders, and reaching 100% counter staff adoption.",
   },
 ];
 
@@ -413,7 +413,7 @@ export default function CounterPickupCase() {
             <img
               src="/images/counter-pickup/ticket-status-system.png"
               alt="Ticket status system showing received, ready, completed, due soon, and overdue states."
-              style={imgStyle}
+              style={{ ...imgStyle, background: "#ECEFF5" }}
             />
           </section>
 
@@ -456,17 +456,22 @@ export default function CounterPickupCase() {
               The final design reframed order management around counter staff rather than managers. It prioritised fast recognition, visible action controls, proactive urgency signals, safer customer notifications, and flexible stock handling.
             </p>
 
-            <ImgPlaceholder label="Placeholder - final counter-first order management system" />
+            <div style={{ display: "grid", gap: 28 }}>
+              <img
+                src="/images/counter-pickup/ipad-pro-final-design.png"
+                alt="Final counter pickup order management interface shown on an iPad."
+                style={imgStyle}
+              />
+            </div>
           </section>
 
           <section id="result" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
             {divider}
             <h2 style={h2Style}>Result</h2>
-            <div className="pickup-three-col" style={{ marginBottom: 48 }}>
+            <div className="pickup-two-col" style={{ marginBottom: 48 }}>
               {[
                 { metric: "8", label: "venues in the pilot food court" },
                 { metric: "350-500", label: "daily orders supported through the workflow" },
-                { metric: "30%", label: "reported operational efficiency improvement" },
               ].map((item) => (
                 <div key={item.metric} style={glassCard}>
                   <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 36, fontWeight: 700, letterSpacing: "-0.03em", color: "#3445ff", margin: "0 0 12px" }}>
@@ -480,17 +485,6 @@ export default function CounterPickupCase() {
             </div>
             <p style={bodyStyle}>
               During the pilot, the product reached 100% adoption among counter staff and received positive feedback from staff and managers, especially around faster scanning, clearer urgency signals, and safer customer notifications.
-            </p>
-          </section>
-
-          <section id="reflection" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
-            {divider}
-            <h2 style={h2Style}>Reflection</h2>
-            <p style={{ ...bodyStyle, marginBottom: 16 }}>
-              This project reinforced that active listening can uncover operational needs that were not part of the original scope. Attention states, undo actions, and temporary availability controls came from observing how staff actually handled service pressure.
-            </p>
-            <p style={bodyStyle}>
-              It also showed the value of designing for where the business is today. Because the food court still relied on kitchen paper tickets, the solution did not try to replace the full operational model at once. Instead, it connected the critical handoff points around the counter staff workflow.
             </p>
           </section>
         </div>
