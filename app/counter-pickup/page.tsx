@@ -603,6 +603,19 @@ export default function CounterPickupCase() {
                 style={mediaImageStyle}
               />
             </MediaRow>
+            <div style={{ height: 28 }} />
+            <p style={{ ...bodyStyle, marginBottom: 16 }}>
+              Because urgency thresholds can vary by venue and service model, I treated these rules as a manager-level responsibility. Instead of hardcoding the logic, I designed them as configurable rules inside the manager settings. For example, managers can define when a ticket becomes “Due soon” or “Overdue” across both preparation and pickup stages.
+            </p>
+            <p style={bodyStyle}>
+              I then surfaced the manager-defined “Due soon” and “Overdue” rules as read-only information in Store Status, giving staff visibility into how orders are prioritised without adding unnecessary controls to their workflow.
+            </p>
+            <div style={{ height: 32 }} />
+            <img
+              src="/images/counter-pickup/store-status.png"
+              alt="Store Status settings showing read-only ticket display rules for due soon and overdue thresholds."
+              style={imgStyle}
+            />
           </section>
 
           <section id="safer-actions" style={{ background: "#fafafa", paddingBottom: sectionGap }}>
