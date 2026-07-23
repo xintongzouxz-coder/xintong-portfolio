@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans, DM_Mono } from "next/font/google";
+import { DM_Serif_Display, DM_Sans, DM_Mono, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import BirdCursor from "@/components/BirdCursor";
@@ -20,6 +20,12 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -51,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSerifDisplay.variable} ${dmSans.variable} ${dmMono.variable} h-full antialiased`}
+      className={`${dmSerifDisplay.variable} ${dmSans.variable} ${dmMono.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
         <BirdCursor />
