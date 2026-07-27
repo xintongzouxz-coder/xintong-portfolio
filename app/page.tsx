@@ -38,8 +38,9 @@ const CASES = [
   },
   {
     href: "#",
-    image: "/images/home/prorizon-cover.webp",
+    image: "/images/prorizon/home%20page%20card.png",
     bg: "linear-gradient(to bottom, #EDEDED, #E6EDFF)",
+    imageFit: "cover" as const,
     tags: ["B2C", "Engagement Optimisation", "Mobile App"],
     title: "Prorizon",
     year: "2024",
