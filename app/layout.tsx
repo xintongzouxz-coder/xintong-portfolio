@@ -3,6 +3,7 @@ import { DM_Serif_Display, DM_Sans, DM_Mono, Geist_Mono } from "next/font/google
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import BirdCursor from "@/components/BirdCursor";
+import { Analytics } from "@vercel/analytics/next";
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif",
